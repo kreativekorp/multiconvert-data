@@ -1,0 +1,370 @@
+{
+	"u0": {
+		"symbol": "m",
+		"name": {
+			"en": {
+				"1": "meter",
+				"*": "meters"
+			}
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u1": {
+		"symbol": "kg",
+		"name": {
+			"en": {
+				"1": "kilogram",
+				"*": "kilograms"
+			}
+		},
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u2": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second",
+				"*": "seconds"
+			}
+		},
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u3": {
+		"symbol": "A",
+		"name": {
+			"en": {
+				"1": "ampere",
+				"*": "amperes"
+			}
+		},
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u4": {
+		"symbol": "K",
+		"name": {
+			"en": {
+				"1": "kelvin",
+				"*": "kelvins"
+			}
+		},
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"u5": {
+		"symbol": "mol",
+		"name": {
+			"en": {
+				"1": "mole",
+				"*": "moles"
+			}
+		},
+		"dimension": {
+			"substance": 1
+		}
+	},
+	"u6": {
+		"symbol": "cd",
+		"name": {
+			"en": {
+				"1": "candela",
+				"*": "candelas"
+			}
+		},
+		"dimension": {
+			"intensity": 1
+		}
+	},
+	"u7": {
+		"symbol": "rad",
+		"name": {
+			"en": {
+				"1": "radian",
+				"*": "radians"
+			}
+		},
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u8": {
+		"symbol": "Hz",
+		"name": {
+			"en": {
+				"*": "hertz"
+			}
+		},
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u9": {
+		"symbol": "sr",
+		"name": {
+			"en": {
+				"1": "steradian",
+				"*": "steradians"
+			}
+		},
+		"dimension": {
+			"angle": 2
+		}
+	},
+	"u10": {
+		"symbol": "N",
+		"name": {
+			"en": {
+				"1": "newton",
+				"*": "newtons"
+			}
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u11": {
+		"symbol": "Pa",
+		"name": {
+			"en": {
+				"1": "pascal",
+				"*": "pascals"
+			}
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u12": {
+		"symbol": "J",
+		"name": {
+			"en": {
+				"1": "joule",
+				"*": "joules"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u13": {
+		"symbol": "W",
+		"name": {
+			"en": {
+				"1": "watt",
+				"*": "watts"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u14": {
+		"symbol": "C",
+		"name": {
+			"en": {
+				"1": "coulomb",
+				"*": "coulombs"
+			}
+		},
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u15": {
+		"symbol": "V",
+		"name": {
+			"en": {
+				"1": "volt",
+				"*": "volts"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u16": {
+		"symbol": "F",
+		"name": {
+			"en": {
+				"1": "farad",
+				"*": "farads"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"u17": {
+		"symbol": "\u03A9",
+		"name": {
+			"en": {
+				"1": "ohm",
+				"*": "ohms"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"u18": {
+		"symbol": "S",
+		"name": {
+			"en": {
+				"*": "siemens"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u19": {
+		"symbol": "Wb",
+		"name": {
+			"en": {
+				"1": "weber",
+				"*": "webers"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u20": {
+		"symbol": "T",
+		"name": {
+			"en": {
+				"1": "tesla",
+				"*": "teslas"
+			}
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u21": {
+		"symbol": "H",
+		"name": {
+			"en": {
+				"1": "henry",
+				"*": "henries"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"u22": {
+		"symbol": "lm",
+		"name": {
+			"en": {
+				"1": "lumen",
+				"*": "lumens"
+			}
+		},
+		"dimension": {
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u23": {
+		"symbol": "lx",
+		"name": {
+			"en": {
+				"*": "lux"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u24": {
+		"symbol": "Bq",
+		"name": {
+			"en": {
+				"1": "becquerel",
+				"*": "becquerels"
+			}
+		},
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u25": {
+		"symbol": "Gy",
+		"name": {
+			"en": {
+				"1": "gray",
+				"*": "grays"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"u26": {
+		"symbol": "Sv",
+		"name": {
+			"en": {
+				"1": "sievert",
+				"*": "sieverts"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"u27": {
+		"symbol": "kat",
+		"name": {
+			"en": {
+				"1": "katal",
+				"*": "katals"
+			}
+		},
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	}
+}

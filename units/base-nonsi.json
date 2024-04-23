@@ -1,0 +1,182 @@
+{
+	"u50": {
+		"symbol": "U",
+		"name": {
+			"en": {
+				"1": "uno",
+				"*": "unos"
+			}
+		}
+	},
+	"u51": {
+		"symbol": "b",
+		"name": {
+			"en": {
+				"1": "bit",
+				"*": "bits"
+			}
+		},
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u52": {
+		"symbol": "St",
+		"name": {
+			"en": {
+				"1": "stoke",
+				"*": "stokes"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"u53": {
+		"symbol": "nit",
+		"name": {
+			"en": {
+				"1": "nit",
+				"*": "nits"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u54": {
+		"symbol": "t",
+		"name": {
+			"en": {
+				"1": "talbot",
+				"*": "talbots"
+			}
+		},
+		"dimension": {
+			"time": 1,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u55": {
+		"symbol": "px",
+		"name": {
+			"en": {
+				"1": "pixel",
+				"*": "pixels"
+			}
+		},
+		"dimension": {
+			"pixels": 1
+		}
+	},
+	"u56": {
+		"symbol": "px",
+		"name": {
+			"en": {
+				"1": "pixel",
+				"*": "pixels"
+			}
+		},
+		"dimension": {
+			"pixels": 2
+		}
+	},
+	"u57": {
+		"symbol": "vx",
+		"name": {
+			"en": {
+				"1": "voxel",
+				"*": "voxels"
+			}
+		},
+		"dimension": {
+			"pixels": 3
+		}
+	},
+	"u58": {
+		"name": {
+			"en": {
+				"1": "beat",
+				"*": "beats"
+			}
+		},
+		"dimension": {
+			"beats": 1
+		}
+	},
+	"u59": {
+		"name": {
+			"en": {
+				"1": "page",
+				"*": "pages"
+			}
+		},
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u60": {
+		"name": {
+			"en": {
+				"1": "sheet",
+				"*": "sheets"
+			}
+		},
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u61": {
+		"symbol": "Hel",
+		"name": {
+			"en": {
+				"1": "helen",
+				"*": "helens"
+			}
+		},
+		"dimension": {
+			"beauty": 1
+		}
+	},
+	"u62": {
+		"symbol": "Fon",
+		"name": {
+			"en": {
+				"1": "fonzie",
+				"*": "fonzies"
+			}
+		},
+		"dimension": {
+			"coolness": 1
+		}
+	},
+	"u63": {
+		"symbol": "\u2127",
+		"name": {
+			"en": {
+				"1": "mho",
+				"*": "mhos"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u64": {
+		"name": {
+			"en": {
+				"*": "body mass index"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"mass": 1
+		}
+	}
+}

@@ -1,0 +1,1977 @@
+{
+	"t0": {
+		"icon": "absorbeddose.png",
+		"name": {
+			"en": "absorbed dose"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"t1": {
+		"icon": "absorbeddoserate.png",
+		"name": {
+			"en": "absorbed dose rate"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -3
+		}
+	},
+	"t2": {
+		"icon": "acceleration.png",
+		"name": {
+			"en": "acceleration"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -2
+		}
+	},
+	"t3": {
+		"icon": "amountconcentration.png",
+		"name": {
+			"en": "amount concentration"
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"t4": {
+		"icon": "amountofsubstance.png",
+		"name": {
+			"en": "amount of substance"
+		},
+		"dimension": {
+			"substance": 1
+		}
+	},
+	"t5": {
+		"icon": "amountofsubstanceconcentration.png",
+		"name": {
+			"en": "amount of substance concentration"
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"t6": {
+		"icon": "angle.png",
+		"name": {
+			"en": "angle"
+		},
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"t7": {
+		"icon": "angularacceleration.png",
+		"name": {
+			"en": "angular acceleration"
+		},
+		"dimension": {
+			"time": -2,
+			"angle": 1
+		}
+	},
+	"t8": {
+		"icon": "angularcrackle.png",
+		"name": {
+			"en": "angular crackle"
+		},
+		"dimension": {
+			"time": -5,
+			"angle": 1
+		}
+	},
+	"t9": {
+		"icon": "angulardisplacement.png",
+		"name": {
+			"en": "angular displacement"
+		},
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"t10": {
+		"icon": "angularjerk.png",
+		"name": {
+			"en": "angular jerk"
+		},
+		"dimension": {
+			"time": -3,
+			"angle": 1
+		}
+	},
+	"t11": {
+		"icon": "angularjolt.png",
+		"name": {
+			"en": "angular jolt"
+		},
+		"dimension": {
+			"time": -3,
+			"angle": 1
+		}
+	},
+	"t12": {
+		"icon": "angularjounce.png",
+		"name": {
+			"en": "angular jounce"
+		},
+		"dimension": {
+			"time": -4,
+			"angle": 1
+		}
+	},
+	"t13": {
+		"icon": "angularlurch.png",
+		"name": {
+			"en": "angular lurch"
+		},
+		"dimension": {
+			"time": -3,
+			"angle": 1
+		}
+	},
+	"t14": {
+		"icon": "angularmomentum.png",
+		"name": {
+			"en": "angular momentum"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"t15": {
+		"icon": "angularpop.png",
+		"name": {
+			"en": "angular pop"
+		},
+		"dimension": {
+			"time": -6,
+			"angle": 1
+		}
+	},
+	"t16": {
+		"icon": "angularsnap.png",
+		"name": {
+			"en": "angular snap"
+		},
+		"dimension": {
+			"time": -4,
+			"angle": 1
+		}
+	},
+	"t17": {
+		"icon": "angularsurge.png",
+		"name": {
+			"en": "angular surge"
+		},
+		"dimension": {
+			"time": -3,
+			"angle": 1
+		}
+	},
+	"t18": {
+		"icon": "angularvelocity.png",
+		"name": {
+			"en": "angular velocity"
+		},
+		"dimension": {
+			"time": -1,
+			"angle": 1
+		}
+	},
+	"t19": {
+		"icon": "area.png",
+		"name": {
+			"en": "area"
+		},
+		"dimension": {
+			"length": 2
+		}
+	},
+	"t20": {
+		"icon": "bodymassindex.png",
+		"name": {
+			"en": "body mass index"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": 1
+		}
+	},
+	"t21": {
+		"icon": "capacitance.png",
+		"name": {
+			"en": "capacitance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"t22": {
+		"icon": "catalyticactivity.png",
+		"name": {
+			"en": "catalytic activity"
+		},
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"t23": {
+		"icon": "catalyticactivityconcentration.png",
+		"name": {
+			"en": "catalytic activity concentration"
+		},
+		"dimension": {
+			"length": -3,
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"t24": {
+		"icon": "charge.png",
+		"name": {
+			"en": "charge"
+		},
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t25": {
+		"icon": "chargedensity.png",
+		"name": {
+			"en": "charge density"
+		},
+		"dimension": {
+			"length": -3,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t26": {
+		"icon": "concentration.png",
+		"name": {
+			"en": "concentration"
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"t27": {
+		"icon": "concentrationmedical.png",
+		"name": {
+			"en": "concentration (medical)"
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"t28": {
+		"icon": "conductance.png",
+		"name": {
+			"en": "conductance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t29": {
+		"icon": "conductivity.png",
+		"name": {
+			"en": "conductivity"
+		},
+		"dimension": {
+			"length": -3,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t30": {
+		"icon": "crackle.png",
+		"name": {
+			"en": "crackle"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -5
+		}
+	},
+	"t31": {
+		"icon": "current.png",
+		"name": {
+			"en": "current"
+		},
+		"dimension": {
+			"current": 1
+		}
+	},
+	"t32": {
+		"icon": "currentdensity.png",
+		"name": {
+			"en": "current density"
+		},
+		"dimension": {
+			"length": -2,
+			"current": 1
+		}
+	},
+	"t33": {
+		"icon": "density.png",
+		"name": {
+			"en": "density"
+		},
+		"dimension": {
+			"length": -3,
+			"mass": 1
+		}
+	},
+	"t34": {
+		"icon": "diffusioncoefficient.png",
+		"name": {
+			"en": "diffusion coefficient"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"t35": {
+		"icon": "displacement.png",
+		"name": {
+			"en": "displacement"
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"t36": {
+		"icon": "distance.png",
+		"name": {
+			"en": "distance"
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"t37": {
+		"icon": "dryvolume.png",
+		"name": {
+			"en": "dry volume"
+		},
+		"dimension": {
+			"length": 3
+		}
+	},
+	"t38": {
+		"icon": "dynamicviscosity.png",
+		"name": {
+			"en": "dynamic viscosity"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"t39": {
+		"icon": "electriccapacitance.png",
+		"name": {
+			"en": "electric capacitance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"t40": {
+		"icon": "electriccharge.png",
+		"name": {
+			"en": "electric charge"
+		},
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t41": {
+		"icon": "electricchargedensity.png",
+		"name": {
+			"en": "electric charge density"
+		},
+		"dimension": {
+			"length": -3,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t42": {
+		"icon": "electricconductance.png",
+		"name": {
+			"en": "electric conductance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t43": {
+		"icon": "electricconductivity.png",
+		"name": {
+			"en": "electric conductivity"
+		},
+		"dimension": {
+			"length": -3,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t44": {
+		"icon": "electriccurrent.png",
+		"name": {
+			"en": "electric current"
+		},
+		"dimension": {
+			"current": 1
+		}
+	},
+	"t45": {
+		"icon": "electriccurrentdensity.png",
+		"name": {
+			"en": "electric current density"
+		},
+		"dimension": {
+			"length": -2,
+			"current": 1
+		}
+	},
+	"t46": {
+		"icon": "electricfieldstrength.png",
+		"name": {
+			"en": "electric field strength"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"t47": {
+		"icon": "electricflux.png",
+		"name": {
+			"en": "electric flux"
+		},
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t48": {
+		"icon": "electricfluxdensity.png",
+		"name": {
+			"en": "electric flux density"
+		},
+		"dimension": {
+			"length": -2,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t49": {
+		"icon": "electricimpedance.png",
+		"name": {
+			"en": "electric impedance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t50": {
+		"icon": "electricinductance.png",
+		"name": {
+			"en": "electric inductance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"t51": {
+		"icon": "electricresistance.png",
+		"name": {
+			"en": "electric resistance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t52": {
+		"icon": "electricresistivity.png",
+		"name": {
+			"en": "electric resistivity"
+		},
+		"dimension": {
+			"length": 3,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t53": {
+		"icon": "electricpotentialdifference.png",
+		"name": {
+			"en": "electric potential difference"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"t54": {
+		"icon": "electromotiveforce.png",
+		"name": {
+			"en": "electromotive force"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"t55": {
+		"icon": "energy.png",
+		"name": {
+			"en": "energy"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t56": {
+		"icon": "energydensity.png",
+		"name": {
+			"en": "energy density"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t57": {
+		"icon": "entropy.png",
+		"name": {
+			"en": "entropy"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"temperature": -1
+		}
+	},
+	"t58": {
+		"icon": "equivalentdose.png",
+		"name": {
+			"en": "equivalent dose"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"t59": {
+		"icon": "exposure.png",
+		"name": {
+			"en": "exposure"
+		},
+		"dimension": {
+			"mass": -1,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t60": {
+		"icon": "flowrate.png",
+		"name": {
+			"en": "flow rate"
+		},
+		"dimension": {
+			"length": 3,
+			"time": -1
+		}
+	},
+	"t61": {
+		"icon": "fluidvolume.png",
+		"name": {
+			"en": "fluid volume"
+		},
+		"dimension": {
+			"length": 3
+		}
+	},
+	"t62": {
+		"icon": "force.png",
+		"name": {
+			"en": "force"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t63": {
+		"icon": "frequency.png",
+		"name": {
+			"en": "frequency"
+		},
+		"dimension": {
+			"time": -1
+		}
+	},
+	"t64": {
+		"icon": "fuelconsumption.png",
+		"name": {
+			"en": "fuel consumption"
+		},
+		"dimension": {
+			"length": -2
+		}
+	},
+	"t65": {
+		"icon": "heat.png",
+		"name": {
+			"en": "heat"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t66": {
+		"icon": "heatcapacity.png",
+		"name": {
+			"en": "heat capacity"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"temperature": -1
+		}
+	},
+	"t67": {
+		"icon": "heatflux.png",
+		"name": {
+			"en": "heat flux"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t68": {
+		"icon": "heatfluxdensity.png",
+		"name": {
+			"en": "heat flux density"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t69": {
+		"icon": "heatgenerationrate.png",
+		"name": {
+			"en": "heat generation rate"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t70": {
+		"icon": "heattransfercoefficient.png",
+		"name": {
+			"en": "heat transfer coefficient"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3,
+			"temperature": -1
+		}
+	},
+	"t71": {
+		"icon": "illuminance.png",
+		"name": {
+			"en": "illuminance"
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"t72": {
+		"icon": "impedance.png",
+		"name": {
+			"en": "impedance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t73": {
+		"icon": "impulse.png",
+		"name": {
+			"en": "impulse"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"t74": {
+		"icon": "inductance.png",
+		"name": {
+			"en": "inductance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"t75": {
+		"icon": "inertia.png",
+		"name": {
+			"en": "inertia"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1
+		}
+	},
+	"t76": {
+		"icon": "intensity.png",
+		"name": {
+			"en": "intensity"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t77": {
+		"icon": "irradiance.png",
+		"name": {
+			"en": "irradiance"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t78": {
+		"icon": "jerk.png",
+		"name": {
+			"en": "jerk"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -3
+		}
+	},
+	"t79": {
+		"icon": "jolt.png",
+		"name": {
+			"en": "jolt"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -3
+		}
+	},
+	"t80": {
+		"icon": "jounce.png",
+		"name": {
+			"en": "jounce"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -4
+		}
+	},
+	"t81": {
+		"icon": "kinematicviscosity.png",
+		"name": {
+			"en": "kinematic viscosity"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"t82": {
+		"icon": "latentheat.png",
+		"name": {
+			"en": "latent heat"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"t83": {
+		"icon": "length.png",
+		"name": {
+			"en": "length"
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"t84": {
+		"icon": "linearchargedensity.png",
+		"name": {
+			"en": "linear charge density"
+		},
+		"dimension": {
+			"length": -1,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t85": {
+		"icon": "luminance.png",
+		"name": {
+			"en": "luminance"
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"t86": {
+		"icon": "luminousemittance.png",
+		"name": {
+			"en": "luminous emittance"
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"t87": {
+		"icon": "luminousenergy.png",
+		"name": {
+			"en": "luminous energy"
+		},
+		"dimension": {
+			"time": 1,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"t88": {
+		"icon": "luminousflux.png",
+		"name": {
+			"en": "luminous flux"
+		},
+		"dimension": {
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"t89": {
+		"icon": "luminousintensity.png",
+		"name": {
+			"en": "luminous intensity"
+		},
+		"dimension": {
+			"intensity": 1
+		}
+	},
+	"t90": {
+		"icon": "lurch.png",
+		"name": {
+			"en": "lurch"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -3
+		}
+	},
+	"t91": {
+		"icon": "magneticfieldstrength.png",
+		"name": {
+			"en": "magnetic field strength"
+		},
+		"dimension": {
+			"length": -1,
+			"current": 1
+		}
+	},
+	"t92": {
+		"icon": "magneticflux.png",
+		"name": {
+			"en": "magnetic flux"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"t93": {
+		"icon": "magneticfluxdensity.png",
+		"name": {
+			"en": "magnetic flux density"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"t94": {
+		"icon": "mass.png",
+		"name": {
+			"en": "mass"
+		},
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"t95": {
+		"icon": "massdensity.png",
+		"name": {
+			"en": "mass density"
+		},
+		"dimension": {
+			"length": -3,
+			"mass": 1
+		}
+	},
+	"t96": {
+		"icon": "molarconductivity.png",
+		"name": {
+			"en": "molar conductivity"
+		},
+		"dimension": {
+			"mass": -1,
+			"time": 3,
+			"current": 2,
+			"substance": -1
+		}
+	},
+	"t97": {
+		"icon": "molarenergy.png",
+		"name": {
+			"en": "molar energy"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"substance": -1
+		}
+	},
+	"t98": {
+		"icon": "molarentropy.png",
+		"name": {
+			"en": "molar entropy"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"temperature": -1,
+			"substance": -1
+		}
+	},
+	"t99": {
+		"icon": "molarheatcapacity.png",
+		"name": {
+			"en": "molar heat capacity"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"temperature": -1,
+			"substance": -1
+		}
+	},
+	"t100": {
+		"icon": "molarmass.png",
+		"name": {
+			"en": "molar mass"
+		},
+		"dimension": {
+			"mass": 1,
+			"substance": -1
+		}
+	},
+	"t101": {
+		"icon": "molarvolume.png",
+		"name": {
+			"en": "molar volume"
+		},
+		"dimension": {
+			"length": 3,
+			"substance": -1
+		}
+	},
+	"t102": {
+		"icon": "momentofforce.png",
+		"name": {
+			"en": "moment of force"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t103": {
+		"icon": "momentofinertia.png",
+		"name": {
+			"en": "moment of inertia"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1
+		}
+	},
+	"t104": {
+		"icon": "momentum.png",
+		"name": {
+			"en": "momentum"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"t105": {
+		"icon": "numberdensity.png",
+		"name": {
+			"en": "number density"
+		},
+		"dimension": {
+			"length": -3
+		}
+	},
+	"t106": {
+		"icon": "period.png",
+		"name": {
+			"en": "period"
+		},
+		"dimension": {
+			"time": 1
+		}
+	},
+	"t107": {
+		"icon": "permeability.png",
+		"name": {
+			"en": "permeability"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"t108": {
+		"icon": "permittivity.png",
+		"name": {
+			"en": "permittivity"
+		},
+		"dimension": {
+			"length": -3,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"t109": {
+		"icon": "pop.png",
+		"name": {
+			"en": "pop"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -6
+		}
+	},
+	"t110": {
+		"icon": "power.png",
+		"name": {
+			"en": "power"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t111": {
+		"icon": "pressure.png",
+		"name": {
+			"en": "pressure"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t112": {
+		"icon": "radiance.png",
+		"name": {
+			"en": "radiance"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -3,
+			"angle": -2
+		}
+	},
+	"t113": {
+		"icon": "radiantflux.png",
+		"name": {
+			"en": "radiant flux"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"t114": {
+		"icon": "radiantintensity.png",
+		"name": {
+			"en": "radiant intensity"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"angle": -2
+		}
+	},
+	"t115": {
+		"icon": "radioactivity.png",
+		"name": {
+			"en": "radioactivity"
+		},
+		"dimension": {
+			"time": -1
+		}
+	},
+	"t116": {
+		"icon": "reactance.png",
+		"name": {
+			"en": "reactance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t117": {
+		"icon": "resistance.png",
+		"name": {
+			"en": "resistance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t118": {
+		"icon": "resistivity.png",
+		"name": {
+			"en": "resistivity"
+		},
+		"dimension": {
+			"length": 3,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"t119": {
+		"icon": "snap.png",
+		"name": {
+			"en": "snap"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -4
+		}
+	},
+	"t120": {
+		"icon": "solidangle.png",
+		"name": {
+			"en": "solid angle"
+		},
+		"dimension": {
+			"angle": 2
+		}
+	},
+	"t121": {
+		"icon": "specificenergy.png",
+		"name": {
+			"en": "specific energy"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"t122": {
+		"icon": "specificentropy.png",
+		"name": {
+			"en": "specific entropy"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2,
+			"temperature": -1
+		}
+	},
+	"t123": {
+		"icon": "specificheat.png",
+		"name": {
+			"en": "specific heat"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2,
+			"temperature": -1
+		}
+	},
+	"t124": {
+		"icon": "specificheatcapacity.png",
+		"name": {
+			"en": "specific heat capacity"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -2,
+			"temperature": -1
+		}
+	},
+	"t125": {
+		"icon": "specificvolume.png",
+		"name": {
+			"en": "specific volume"
+		},
+		"dimension": {
+			"length": 3,
+			"mass": -1
+		}
+	},
+	"t126": {
+		"icon": "speed.png",
+		"name": {
+			"en": "speed"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"t127": {
+		"icon": "springconstant.png",
+		"name": {
+			"en": "spring constant"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t128": {
+		"icon": "stress.png",
+		"name": {
+			"en": "stress"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t129": {
+		"icon": "substance.png",
+		"name": {
+			"en": "substance"
+		},
+		"dimension": {
+			"substance": 1
+		}
+	},
+	"t130": {
+		"icon": "surfacechargedensity.png",
+		"name": {
+			"en": "surface charge density"
+		},
+		"dimension": {
+			"length": -2,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"t131": {
+		"icon": "surfacetension.png",
+		"name": {
+			"en": "surface tension"
+		},
+		"dimension": {
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t132": {
+		"icon": "surge.png",
+		"name": {
+			"en": "surge"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -3
+		}
+	},
+	"t133": {
+		"icon": "temperature.png",
+		"name": {
+			"en": "temperature"
+		},
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"t134": {
+		"icon": "thermalconductivity.png",
+		"name": {
+			"en": "thermal conductivity"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -3,
+			"temperature": -1
+		}
+	},
+	"t135": {
+		"icon": "thermaldiffusivity.png",
+		"name": {
+			"en": "thermal diffusivity"
+		},
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"t136": {
+		"icon": "thermalresistance.png",
+		"name": {
+			"en": "thermal resistance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"temperature": 1
+		}
+	},
+	"t137": {
+		"icon": "thermodynamictemperature.png",
+		"name": {
+			"en": "thermodynamic temperature"
+		},
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"t138": {
+		"icon": "time.png",
+		"name": {
+			"en": "time"
+		},
+		"dimension": {
+			"time": 1
+		}
+	},
+	"t139": {
+		"icon": "torque.png",
+		"name": {
+			"en": "torque"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t140": {
+		"icon": "velocity.png",
+		"name": {
+			"en": "velocity"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"t141": {
+		"icon": "voltage.png",
+		"name": {
+			"en": "voltage"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"t142": {
+		"icon": "volume.png",
+		"name": {
+			"en": "volume"
+		},
+		"dimension": {
+			"length": 3
+		}
+	},
+	"t143": {
+		"icon": "volumetricflow.png",
+		"name": {
+			"en": "volumetric flow"
+		},
+		"dimension": {
+			"length": 3,
+			"time": -1
+		}
+	},
+	"t144": {
+		"icon": "wavelength.png",
+		"name": {
+			"en": "wavelength"
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"t145": {
+		"icon": "wavenumber.png",
+		"name": {
+			"en": "wavenumber"
+		},
+		"dimension": {
+			"length": -1
+		}
+	},
+	"t146": {
+		"icon": "weight.png",
+		"name": {
+			"en": "weight"
+		},
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t147": {
+		"icon": "work.png",
+		"name": {
+			"en": "work"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t148": {
+		"icon": "calendartime.png",
+		"name": {
+			"en": "calendar time"
+		},
+		"dimension": {
+			"time": 1
+		}
+	},
+	"t149": {
+		"icon": "clocktime.png",
+		"name": {
+			"en": "clock time"
+		},
+		"dimension": {
+			"time": 1
+		}
+	},
+	"t150": {
+		"icon": "shoesize.png",
+		"name": {
+			"en": "shoe size"
+		},
+		"dimension": {
+			"length": 1
+		}
+	},
+	"t151": {
+		"icon": "electricadmittance.png",
+		"name": {
+			"en": "electric admittance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t152": {
+		"icon": "admittance.png",
+		"name": {
+			"en": "admittance"
+		},
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"t153": {
+		"icon": "meltingpoint.png",
+		"name": {
+			"en": "melting point"
+		},
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"t154": {
+		"icon": "boilingpoint.png",
+		"name": {
+			"en": "boiling point"
+		},
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"t155": {
+		"icon": "electronaffinity.png",
+		"name": {
+			"en": "electron affinity"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"substance": -1
+		}
+	},
+	"t500": {
+		"icon": "fracturetoughness.png",
+		"name": {
+			"en": "fracture toughness"
+		},
+		"dimension": {
+			"length": -0.5,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"t1000": {
+		"icon": "bitrate.png",
+		"name": {
+			"en": "bit rate"
+		},
+		"dimension": {
+			"time": -1,
+			"data": 1
+		}
+	},
+	"t1001": {
+		"icon": "beauty.png",
+		"name": {
+			"en": "beauty"
+		},
+		"dimension": {
+			"beauty": 1
+		}
+	},
+	"t1002": {
+		"icon": "cashflow.png",
+		"name": {
+			"en": "cash flow"
+		},
+		"dimension": {
+			"time": -1,
+			"currency": 1
+		}
+	},
+	"t1003": {
+		"icon": "colorspace.png",
+		"name": {
+			"en": "color space"
+		},
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"t1004": {
+		"icon": "coolness.png",
+		"name": {
+			"en": "coolness"
+		},
+		"dimension": {
+			"coolness": 1
+		}
+	},
+	"t1005": {
+		"icon": "coordinatesystem.png",
+		"name": {
+			"en": "coordinate system"
+		},
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"t1006": {
+		"icon": "cost.png",
+		"name": {
+			"en": "cost"
+		},
+		"dimension": {
+			"currency": 1
+		}
+	},
+	"t1007": {
+		"icon": "costperarea.png",
+		"name": {
+			"en": "cost per area"
+		},
+		"dimension": {
+			"length": -2,
+			"currency": 1
+		}
+	},
+	"t1008": {
+		"icon": "costperlength.png",
+		"name": {
+			"en": "cost per length"
+		},
+		"dimension": {
+			"length": -1,
+			"currency": 1
+		}
+	},
+	"t1009": {
+		"icon": "costpermass.png",
+		"name": {
+			"en": "cost per mass"
+		},
+		"dimension": {
+			"mass": -1,
+			"currency": 1
+		}
+	},
+	"t1010": {
+		"icon": "costperunit.png",
+		"name": {
+			"en": "cost per unit"
+		},
+		"dimension": {
+			"currency": 1
+		}
+	},
+	"t1011": {
+		"icon": "costpervolume.png",
+		"name": {
+			"en": "cost per volume"
+		},
+		"dimension": {
+			"length": -3,
+			"currency": 1
+		}
+	},
+	"t1012": {
+		"icon": "costperweight.png",
+		"name": {
+			"en": "cost per weight"
+		},
+		"dimension": {
+			"length": -1,
+			"mass": -1,
+			"time": 2,
+			"currency": 1
+		}
+	},
+	"t1013": {
+		"icon": "currency.png",
+		"name": {
+			"en": "currency"
+		},
+		"dimension": {
+			"currency": 1
+		}
+	},
+	"t1014": {
+		"icon": "data.png",
+		"name": {
+			"en": "data"
+		},
+		"dimension": {
+			"data": 1
+		}
+	},
+	"t1015": {
+		"icon": "datarate.png",
+		"name": {
+			"en": "data rate"
+		},
+		"dimension": {
+			"time": -1,
+			"data": 1
+		}
+	},
+	"t1016": {
+		"icon": "datastorage.png",
+		"name": {
+			"en": "data storage"
+		},
+		"dimension": {
+			"data": 1
+		}
+	},
+	"t1017": {
+		"icon": "guaca.png",
+		"name": {
+			"en": "guaca"
+		},
+		"dimension": {
+			"guaca": 1
+		}
+	},
+	"t1018": {
+		"icon": "hardness.png",
+		"name": {
+			"en": "hardness"
+		},
+		"dimension": {
+			"hardness": 1
+		}
+	},
+	"t1019": {
+		"icon": "imagearea.png",
+		"name": {
+			"en": "image area"
+		},
+		"dimension": {
+			"pixels": 2
+		}
+	},
+	"t1020": {
+		"icon": "imagebitdepth.png",
+		"name": {
+			"en": "image bit depth"
+		},
+		"dimension": {
+			"data": 1,
+			"pixels": -1
+		}
+	},
+	"t1021": {
+		"icon": "imagelength.png",
+		"name": {
+			"en": "image length"
+		},
+		"dimension": {
+			"pixels": 1
+		}
+	},
+	"t1022": {
+		"icon": "imageresolution.png",
+		"name": {
+			"en": "image resolution"
+		},
+		"dimension": {
+			"length": -1,
+			"pixels": 1
+		}
+	},
+	"t1023": {
+		"icon": "imagevolume.png",
+		"name": {
+			"en": "image volume"
+		},
+		"dimension": {
+			"pixels": 3
+		}
+	},
+	"t1024": {
+		"icon": "information.png",
+		"name": {
+			"en": "information"
+		},
+		"dimension": {
+			"data": 1
+		}
+	},
+	"t1025": {
+		"icon": "informationrate.png",
+		"name": {
+			"en": "information rate"
+		},
+		"dimension": {
+			"time": -1,
+			"data": 1
+		}
+	},
+	"t1026": {
+		"icon": "informationstorage.png",
+		"name": {
+			"en": "information storage"
+		},
+		"dimension": {
+			"data": 1
+		}
+	},
+	"t1027": {
+		"icon": "musicduration.png",
+		"name": {
+			"en": "music duration"
+		},
+		"dimension": {
+			"beats": 1
+		}
+	},
+	"t1028": {
+		"name": {
+			"en": "number"
+		}
+	},
+	"t1029": {
+		"icon": "numeralsystem.png",
+		"name": {
+			"en": "numeral system"
+		},
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"t1030": {
+		"icon": "pagecount.png",
+		"name": {
+			"en": "page count"
+		},
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"t1031": {
+		"icon": "printerspeed.png",
+		"name": {
+			"en": "printer speed"
+		},
+		"dimension": {
+			"time": -1,
+			"sheets": 1
+		}
+	},
+	"t1032": {
+		"name": {
+			"en": "quantity"
+		}
+	},
+	"t1033": {
+		"name": {
+			"en": "ratio"
+		}
+	},
+	"t1034": {
+		"icon": "sheetcount.png",
+		"name": {
+			"en": "sheet count"
+		},
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"t1035": {
+		"icon": "tempo.png",
+		"name": {
+			"en": "tempo"
+		},
+		"dimension": {
+			"time": -1,
+			"beats": 1
+		}
+	},
+	"t1036": {
+		"name": {
+			"en": "electronegativity"
+		}
+	}
+}

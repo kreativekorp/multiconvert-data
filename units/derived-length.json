@@ -1,0 +1,774 @@
+{
+	"u200": {
+		"symbol": "100 km",
+		"name": {
+			"en": {
+				"*": "hundred kilometers"
+			}
+		},
+		"multiplier": 100000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u201": {
+		"symbol": "mil",
+		"name": {
+			"en": {
+				"1": "mil",
+				"*": "mils"
+			}
+		},
+		"multiplier": "2.54E-5",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u202": {
+		"symbol": "pt",
+		"name": {
+			"en": {
+				"1": "point",
+				"*": "points"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 72,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u203": {
+		"symbol": "li",
+		"name": {
+			"en": {
+				"1": "line",
+				"*": "lines"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 12,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u204": {
+		"symbol": "/10 in",
+		"name": {
+			"en": {
+				"1": "tenth of an inch",
+				"*": "tenths of an inch"
+			}
+		},
+		"multiplier": "0.00254",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u205": {
+		"symbol": "pc",
+		"name": {
+			"en": {
+				"1": "pica",
+				"*": "picas"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 6,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u206": {
+		"name": {
+			"en": {
+				"1": "barleycorn",
+				"*": "barleycorns"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 3,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u207": {
+		"symbol": "in",
+		"name": {
+			"en": {
+				"1": "inch",
+				"*": "inches"
+			}
+		},
+		"multiplier": "0.0254",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u208": {
+		"symbol": "U",
+		"name": {
+			"en": {
+				"1": "rack unit",
+				"*": "rack units"
+			}
+		},
+		"multiplier": "0.04445",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u209": {
+		"name": {
+			"en": {
+				"1": "hand",
+				"*": "hands"
+			}
+		},
+		"multiplier": "0.1016",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u210": {
+		"symbol": "ft",
+		"name": {
+			"en": {
+				"1": "foot",
+				"*": "feet"
+			}
+		},
+		"multiplier": "0.3048",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u211": {
+		"symbol": "yd",
+		"name": {
+			"en": {
+				"1": "yard",
+				"*": "yards"
+			}
+		},
+		"multiplier": "0.9144",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u212": {
+		"name": {
+			"en": {
+				"1": "smoot",
+				"*": "smoots"
+			}
+		},
+		"multiplier": "1.7018",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u213": {
+		"name": {
+			"en": {
+				"1": "fathom",
+				"*": "fathoms"
+			}
+		},
+		"multiplier": "1.8288",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u214": {
+		"symbol": "rd",
+		"name": {
+			"en": {
+				"1": "rod",
+				"*": "rods"
+			}
+		},
+		"multiplier": "5.0292",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u215": {
+		"name": {
+			"en": {
+				"1": "pole",
+				"*": "poles"
+			}
+		},
+		"multiplier": "5.0292",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u216": {
+		"name": {
+			"en": {
+				"1": "perch",
+				"*": "perches"
+			}
+		},
+		"multiplier": "5.0292",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u217": {
+		"symbol": "mi",
+		"name": {
+			"en": {
+				"1": "mile",
+				"*": "miles"
+			}
+		},
+		"multiplier": "1609.344",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u218": {
+		"name": {
+			"en": {
+				"1": "link",
+				"*": "links"
+			}
+		},
+		"multiplier": "0.201168",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u219": {
+		"name": {
+			"en": {
+				"1": "chain",
+				"*": "chains"
+			}
+		},
+		"multiplier": "20.1168",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u220": {
+		"name": {
+			"en": {
+				"1": "furlong",
+				"*": "furlongs"
+			}
+		},
+		"multiplier": "201.168",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u221": {
+		"name": {
+			"en": {
+				"1": "U.S. survey foot",
+				"*": "U.S. survey feet"
+			}
+		},
+		"multiplier": "0.30480061",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u222": {
+		"name": {
+			"en": {
+				"1": "U.S. survey mile",
+				"*": "U.S. survey miles"
+			}
+		},
+		"multiplier": "1609.347",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u223": {
+		"name": {
+			"en": {
+				"1": "short cable",
+				"*": "short cables"
+			}
+		},
+		"multiplier": "185.2",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u224": {
+		"name": {
+			"en": {
+				"1": "cable",
+				"*": "cables"
+			}
+		},
+		"multiplier": "219.456",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u225": {
+		"name": {
+			"en": {
+				"1": "league",
+				"*": "leagues"
+			}
+		},
+		"multiplier": 5556,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u226": {
+		"name": {
+			"en": {
+				"1": "beard second",
+				"*": "beard seconds"
+			}
+		},
+		"divisor": 200000000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u227": {
+		"name": {
+			"en": {
+				"1": "beard minute",
+				"*": "beard minutes"
+			}
+		},
+		"multiplier": "3E-7",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u228": {
+		"name": {
+			"en": {
+				"1": "beard hour",
+				"*": "beard hours"
+			}
+		},
+		"multiplier": "1.8E-5",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u229": {
+		"name": {
+			"en": {
+				"1": "beard day",
+				"*": "beard days"
+			}
+		},
+		"multiplier": "4.32E-4",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u230": {
+		"name": {
+			"en": {
+				"1": "light picosecond",
+				"*": "light picoseconds"
+			}
+		},
+		"multiplier": "2.99792458E-4",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u231": {
+		"name": {
+			"en": {
+				"1": "light nanosecond",
+				"*": "light nanoseconds"
+			}
+		},
+		"multiplier": "0.299792458",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u232": {
+		"name": {
+			"en": {
+				"1": "light microsecond",
+				"*": "light microseconds"
+			}
+		},
+		"multiplier": "299.792458",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u233": {
+		"name": {
+			"en": {
+				"1": "light millisecond",
+				"*": "light milliseconds"
+			}
+		},
+		"multiplier": "299792.458",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u234": {
+		"name": {
+			"en": {
+				"1": "light second",
+				"*": "light seconds"
+			}
+		},
+		"multiplier": 299792458,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u235": {
+		"name": {
+			"en": {
+				"1": "light minute",
+				"*": "light minutes"
+			}
+		},
+		"multiplier": 17987547480,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u236": {
+		"name": {
+			"en": {
+				"1": "light hour",
+				"*": "light hours"
+			}
+		},
+		"multiplier": 1079252848800,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u237": {
+		"name": {
+			"en": {
+				"1": "light day",
+				"*": "light days"
+			}
+		},
+		"multiplier": 25902068371200,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u238": {
+		"name": {
+			"en": {
+				"1": "light year",
+				"*": "light years"
+			}
+		},
+		"multiplier": "9.4605284E15",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u239": {
+		"symbol": "pc",
+		"name": {
+			"en": {
+				"1": "parsec",
+				"*": "parsecs"
+			}
+		},
+		"multiplier": "3.08568025E16",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u240": {
+		"symbol": "z",
+		"name": {
+			"en": {
+				"*": "red shift"
+			}
+		},
+		"multiplier": "1.302774096E26",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u241": {
+		"symbol": "\u6BDB, \u6BEB",
+		"name": {
+			"en": {
+				"*": "m\u014D"
+			}
+		},
+		"divisor": 33000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u242": {
+		"symbol": "\u5398",
+		"name": {
+			"en": {
+				"*": "rin"
+			}
+		},
+		"divisor": 3300,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u243": {
+		"symbol": "\u5206",
+		"name": {
+			"en": {
+				"*": "bu"
+			}
+		},
+		"divisor": 330,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u244": {
+		"symbol": "\u5BF8",
+		"name": {
+			"en": {
+				"*": "sun"
+			}
+		},
+		"divisor": 33,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u245": {
+		"symbol": "\u5C3A",
+		"name": {
+			"en": {
+				"*": "shaku"
+			}
+		},
+		"divisor": "3.3",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u246": {
+		"symbol": "\u9593",
+		"name": {
+			"en": {
+				"*": "ken"
+			}
+		},
+		"divisor": "0.55",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u247": {
+		"symbol": "\u5C0B",
+		"name": {
+			"en": {
+				"*": "hiro"
+			}
+		},
+		"divisor": "0.55",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u248": {
+		"symbol": "\u4E08",
+		"name": {
+			"en": {
+				"*": "j\u014D"
+			}
+		},
+		"divisor": "0.33",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u249": {
+		"symbol": "\u753A",
+		"name": {
+			"en": {
+				"*": "ch\u014D"
+			}
+		},
+		"multiplier": 360,
+		"divisor": "3.3",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u250": {
+		"symbol": "\u91CC",
+		"name": {
+			"en": {
+				"*": "ri"
+			}
+		},
+		"multiplier": 12960,
+		"divisor": "3.3",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u251": {
+		"symbol": "\u0E27\u0E32",
+		"name": {
+			"en": {
+				"*": "waa"
+			}
+		},
+		"multiplier": 2,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u252": {
+		"symbol": "/2 in",
+		"name": {
+			"en": {
+				"1": "half of an inch",
+				"*": "halves of an inch"
+			}
+		},
+		"multiplier": "0.0127",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u253": {
+		"symbol": "/4 in",
+		"name": {
+			"en": {
+				"1": "quarter of an inch",
+				"*": "quarters of an inch"
+			}
+		},
+		"multiplier": "0.00635",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u254": {
+		"symbol": "/8 in",
+		"name": {
+			"en": {
+				"1": "eighth of an inch",
+				"*": "eighths of an inch"
+			}
+		},
+		"multiplier": "0.003175",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u255": {
+		"symbol": "/16 in",
+		"name": {
+			"en": {
+				"1": "sixteenth of an inch",
+				"*": "sixteenths of an inch"
+			}
+		},
+		"multiplier": "0.0015875",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u256": {
+		"symbol": "/32 in",
+		"name": {
+			"en": {
+				"1": "thirty-secondth of an inch",
+				"*": "thirty-secondths of an inch"
+			}
+		},
+		"multiplier": "7.9375E-4",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u257": {
+		"symbol": "/64 in",
+		"name": {
+			"en": {
+				"1": "sixty-fourth of an inch",
+				"*": "sixty-fourths of an inch"
+			}
+		},
+		"multiplier": "3.96875E-4",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u258": {
+		"symbol": "/128 in",
+		"name": {
+			"en": {
+				"1": "128th of an inch",
+				"*": "128ths of an inch"
+			}
+		},
+		"multiplier": "1.984375E-4",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u259": {
+		"symbol": "/256 in",
+		"name": {
+			"en": {
+				"1": "256th of an inch",
+				"*": "256ths of an inch"
+			}
+		},
+		"multiplier": "9.921875E-5",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u260": {
+		"symbol": "/512 in",
+		"name": {
+			"en": {
+				"1": "512th of an inch",
+				"*": "512ths of an inch"
+			}
+		},
+		"multiplier": "4.9609375E-5",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u261": {
+		"symbol": "/1024 in",
+		"name": {
+			"en": {
+				"1": "1024th of an inch",
+				"*": "1024ths of an inch"
+			}
+		},
+		"multiplier": "2.48046875E-5",
+		"dimension": {
+			"length": 1
+		}
+	}
+}

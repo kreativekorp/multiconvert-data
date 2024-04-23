@@ -1,0 +1,132 @@
+{
+	"length": {
+		"legacy-id": "L",
+		"symbol": "L",
+		"name": {
+			"en": "length"
+		}
+	},
+	"mass": {
+		"legacy-id": "M",
+		"symbol": "M",
+		"name": {
+			"en": "mass"
+		}
+	},
+	"time": {
+		"legacy-id": "T",
+		"symbol": "T",
+		"name": {
+			"en": "time"
+		}
+	},
+	"current": {
+		"legacy-id": "I",
+		"symbol": "I",
+		"name": {
+			"en": "electric current"
+		}
+	},
+	"temperature": {
+		"legacy-id": "Q",
+		"symbol": "Q",
+		"name": {
+			"en": "temperature"
+		}
+	},
+	"substance": {
+		"legacy-id": "N",
+		"symbol": "N",
+		"name": {
+			"en": "amount of substance"
+		}
+	},
+	"intensity": {
+		"legacy-id": "J",
+		"symbol": "J",
+		"name": {
+			"en": "luminous intensity"
+		}
+	},
+	"angle": {
+		"legacy-id": "A",
+		"name": {
+			"en": "angular displacement"
+		}
+	},
+	"currency": {
+		"legacy-id": "C",
+		"name": {
+			"en": "currency"
+		}
+	},
+	"data": {
+		"legacy-id": "D",
+		"name": {
+			"en": "data"
+		}
+	},
+	"pixels": {
+		"legacy-id": "px",
+		"name": {
+			"en": "image length"
+		}
+	},
+	"beats": {
+		"legacy-id": "beat",
+		"name": {
+			"en": "music duration"
+		}
+	},
+	"sheets": {
+		"legacy-id": "sheet",
+		"name": {
+			"en": "sheet count"
+		}
+	},
+	"guaca": {
+		"legacy-id": "guaca",
+		"name": {
+			"en": "guaca"
+		}
+	},
+	"beauty": {
+		"legacy-id": "helen",
+		"name": {
+			"en": "beauty"
+		}
+	},
+	"coolness": {
+		"legacy-id": "fonzie",
+		"name": {
+			"en": "coolness"
+		}
+	},
+	"hardness": {
+		"legacy-id": "hardness",
+		"name": {
+			"en": "hardness"
+		}
+	},
+	"color-space": {
+		"legacy-id": "color-space",
+		"composable": false,
+		"name": {
+			"en": "color space"
+		}
+	},
+	"coordinate-system": {
+		"legacy-id": "coord-system",
+		"composable": false,
+		"name": {
+			"en": "coordinate system"
+		}
+	},
+	"numeral-system": {
+		"legacy-id": "numeral-system",
+		"composable": false,
+		"name": {
+			"en": "numeral system"
+		}
+	}
+}

@@ -1,2 +1,2 @@
-# multiconvert-data
-Source data for the MultiConvert app
+# MultiConvert Data
+This repository contains source data for the MultiConvert app.

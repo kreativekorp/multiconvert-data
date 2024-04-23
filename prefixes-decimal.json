@@ -1,0 +1,226 @@
+[
+	{
+		"base": 10,
+		"exponent": 1,
+		"symbol": "da",
+		"format": {
+			"en": "deca@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 2,
+		"symbol": "h",
+		"format": {
+			"en": "hecto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 3,
+		"symbol": "k",
+		"format": {
+			"en": "kilo@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 4,
+		"symbol": "ma",
+		"format": {
+			"en": "myria@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 5,
+		"symbol": "hk",
+		"format": {
+			"en": "hectokilo@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 6,
+		"symbol": "M",
+		"format": {
+			"en": "mega@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 9,
+		"symbol": "G",
+		"format": {
+			"en": "giga@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 12,
+		"symbol": "T",
+		"format": {
+			"en": "tera@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 15,
+		"symbol": "P",
+		"format": {
+			"en": "peta@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 18,
+		"symbol": "E",
+		"format": {
+			"en": "exa@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 21,
+		"symbol": "Z",
+		"format": {
+			"en": "zetta@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 24,
+		"symbol": "Y",
+		"format": {
+			"en": "yotta@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 27,
+		"symbol": "R",
+		"format": {
+			"en": "ronna@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": 30,
+		"symbol": "Q",
+		"format": {
+			"en": "quetta@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -1,
+		"symbol": "d",
+		"format": {
+			"en": "deci@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -2,
+		"symbol": "c",
+		"format": {
+			"en": "centi@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -3,
+		"symbol": "m",
+		"format": {
+			"en": "milli@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -4,
+		"symbol": "mo",
+		"format": {
+			"en": "myrio@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -5,
+		"symbol": "cm",
+		"format": {
+			"en": "centimilli@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -6,
+		"symbol": "\u00B5",
+		"format": {
+			"en": "micro@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -9,
+		"symbol": "n",
+		"format": {
+			"en": "nano@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -12,
+		"symbol": "p",
+		"format": {
+			"en": "pico@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -15,
+		"symbol": "f",
+		"format": {
+			"en": "femto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -18,
+		"symbol": "a",
+		"format": {
+			"en": "atto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -21,
+		"symbol": "z",
+		"format": {
+			"en": "zepto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -24,
+		"symbol": "y",
+		"format": {
+			"en": "yocto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -27,
+		"symbol": "r",
+		"format": {
+			"en": "ronto@"
+		}
+	},
+	{
+		"base": 10,
+		"exponent": -30,
+		"symbol": "q",
+		"format": {
+			"en": "quecto@"
+		}
+	}
+]

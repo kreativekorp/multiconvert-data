@@ -1,0 +1,162 @@
+[
+	{
+		"base": 2,
+		"exponent": 10,
+		"symbol": "Ki",
+		"format": {
+			"en": "kibi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 20,
+		"symbol": "Mi",
+		"format": {
+			"en": "mebi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 30,
+		"symbol": "Gi",
+		"format": {
+			"en": "gibi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 40,
+		"symbol": "Ti",
+		"format": {
+			"en": "tebi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 50,
+		"symbol": "Pi",
+		"format": {
+			"en": "pebi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 60,
+		"symbol": "Ei",
+		"format": {
+			"en": "exbi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 70,
+		"symbol": "Zi",
+		"format": {
+			"en": "zebi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 80,
+		"symbol": "Yi",
+		"format": {
+			"en": "yobi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 90,
+		"symbol": "Ri",
+		"format": {
+			"en": "robi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": 100,
+		"symbol": "Qi",
+		"format": {
+			"en": "quebi@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -10,
+		"symbol": "Ko",
+		"format": {
+			"en": "kibo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -20,
+		"symbol": "Mo",
+		"format": {
+			"en": "mebo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -30,
+		"symbol": "Go",
+		"format": {
+			"en": "gibo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -40,
+		"symbol": "To",
+		"format": {
+			"en": "tebo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -50,
+		"symbol": "Po",
+		"format": {
+			"en": "pebo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -60,
+		"symbol": "Eo",
+		"format": {
+			"en": "exbo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -70,
+		"symbol": "Zo",
+		"format": {
+			"en": "zebo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -80,
+		"symbol": "Yo",
+		"format": {
+			"en": "yobo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -90,
+		"symbol": "Ro",
+		"format": {
+			"en": "robo@"
+		}
+	},
+	{
+		"base": 2,
+		"exponent": -100,
+		"symbol": "Qo",
+		"format": {
+			"en": "quebo@"
+		}
+	}
+]

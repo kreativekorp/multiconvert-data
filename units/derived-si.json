@@ -1,0 +1,371 @@
+{
+	"u100": {
+		"symbol": "min",
+		"name": {
+			"en": {
+				"1": "minute",
+				"*": "minutes"
+			}
+		},
+		"multiplier": 60,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u101": {
+		"symbol": "h",
+		"name": {
+			"en": {
+				"1": "hour",
+				"*": "hours"
+			}
+		},
+		"multiplier": 3600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u102": {
+		"symbol": "d",
+		"name": {
+			"en": {
+				"1": "day",
+				"*": "days"
+			}
+		},
+		"multiplier": 86400,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u103": {
+		"symbol": "\u00B0",
+		"name": {
+			"en": {
+				"1": "degree",
+				"*": "degrees"
+			}
+		},
+		"instructions": "C180",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u104": {
+		"symbol": "\u2032",
+		"name": {
+			"en": {
+				"1": "minute",
+				"*": "minutes"
+			}
+		},
+		"instructions": "C10800",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u105": {
+		"symbol": "\u2033",
+		"name": {
+			"en": {
+				"1": "second",
+				"*": "seconds"
+			}
+		},
+		"instructions": "C648000",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u106": {
+		"symbol": "ha",
+		"name": {
+			"en": {
+				"1": "hectare",
+				"*": "hectares"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u107": {
+		"symbol": "L",
+		"name": {
+			"en": {
+				"1": "liter",
+				"*": "liters"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u108": {
+		"symbol": "g",
+		"name": {
+			"en": {
+				"1": "gram",
+				"*": "grams"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u109": {
+		"symbol": "t",
+		"name": {
+			"en": {
+				"1": "tonne",
+				"*": "tonnes"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u110": {
+		"symbol": "\u00B0C",
+		"name": {
+			"en": {
+				"1": "degree Celsius",
+				"*": "degrees Celsius"
+			}
+		},
+		"instructions": "A273.15",
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"u120": {
+		"symbol": "Np",
+		"name": {
+			"en": {
+				"1": "neper (field ratio)",
+				"*": "nepers (field ratio)"
+			}
+		},
+		"instructions": "E0"
+	},
+	"u121": {
+		"symbol": "Np",
+		"name": {
+			"en": {
+				"1": "neper (power ratio)",
+				"*": "nepers (power ratio)"
+			}
+		},
+		"instructions": "M2E0"
+	},
+	"u122": {
+		"symbol": "B",
+		"name": {
+			"en": {
+				"1": "bel (field ratio)",
+				"*": "bels (field ratio)"
+			}
+		},
+		"instructions": "D2X10"
+	},
+	"u123": {
+		"symbol": "dB",
+		"name": {
+			"en": {
+				"1": "decibel (field ratio)",
+				"*": "decibels (field ratio)"
+			}
+		},
+		"instructions": "D20X10"
+	},
+	"u124": {
+		"symbol": "B",
+		"name": {
+			"en": {
+				"1": "bel (power ratio)",
+				"*": "bels (power ratio)"
+			}
+		},
+		"instructions": "X10"
+	},
+	"u125": {
+		"symbol": "dB",
+		"name": {
+			"en": {
+				"1": "decibel (power ratio)",
+				"*": "decibels (power ratio)"
+			}
+		},
+		"instructions": "D10X10"
+	},
+	"u140": {
+		"symbol": "eV",
+		"name": {
+			"en": {
+				"1": "electronvolt",
+				"*": "electronvolts"
+			}
+		},
+		"multiplier": "1.60217653E-19",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u141": {
+		"symbol": "u",
+		"name": {
+			"en": {
+				"1": "atomic mass unit",
+				"*": "atomic mass units"
+			}
+		},
+		"multiplier": "1.66053886E-27",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u142": {
+		"symbol": "AU",
+		"name": {
+			"en": {
+				"1": "astronomical unit",
+				"*": "astronomical units"
+			}
+		},
+		"multiplier": 149597870691,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u160": {
+		"symbol": "\u00C5",
+		"name": {
+			"en": {
+				"1": "angstrom",
+				"*": "angstroms"
+			}
+		},
+		"divisor": 10000000000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u161": {
+		"symbol": "\u00B5m",
+		"name": {
+			"en": {
+				"1": "micron",
+				"*": "microns"
+			}
+		},
+		"divisor": 1000000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u162": {
+		"symbol": "NM",
+		"name": {
+			"en": {
+				"1": "nautical mile",
+				"*": "nautical miles"
+			}
+		},
+		"multiplier": 1852,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u163": {
+		"symbol": "kn",
+		"name": {
+			"en": {
+				"1": "knot",
+				"*": "knots"
+			}
+		},
+		"multiplier": 1852,
+		"divisor": 3600,
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"u164": {
+		"symbol": "a",
+		"name": {
+			"en": {
+				"1": "are",
+				"*": "ares"
+			}
+		},
+		"multiplier": 100,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u165": {
+		"symbol": "b",
+		"name": {
+			"en": {
+				"1": "barn",
+				"*": "barns"
+			}
+		},
+		"divisor": "1E28",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u166": {
+		"symbol": "bar",
+		"name": {
+			"en": {
+				"1": "bar",
+				"*": "bars"
+			}
+		},
+		"multiplier": 100000,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u167": {
+		"symbol": "mbar",
+		"name": {
+			"en": {
+				"1": "millibar",
+				"*": "millibars"
+			}
+		},
+		"multiplier": 100,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u168": {
+		"symbol": "atm",
+		"name": {
+			"en": {
+				"1": "atmosphere",
+				"*": "atmospheres"
+			}
+		},
+		"multiplier": 101325,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	}
+}
