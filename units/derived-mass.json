@@ -1,0 +1,433 @@
+{
+	"u600": {
+		"symbol": "mug",
+		"name": {
+			"en": {
+				"1": "metric slug",
+				"*": "metric slugs"
+			}
+		},
+		"multiplier": "9.80665",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u601": {
+		"symbol": "ct",
+		"name": {
+			"en": {
+				"1": "carat",
+				"*": "carats"
+			}
+		},
+		"divisor": 5000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u602": {
+		"name": {
+			"en": {
+				"1": "mite",
+				"*": "mites"
+			}
+		},
+		"multiplier": "3.2399455E-6",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u603": {
+		"symbol": "gr",
+		"name": {
+			"en": {
+				"1": "grain",
+				"*": "grains"
+			}
+		},
+		"multiplier": "6.479891E-5",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u604": {
+		"name": {
+			"en": {
+				"1": "scruple",
+				"*": "scruples"
+			}
+		},
+		"multiplier": "0.0012959782",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u605": {
+		"name": {
+			"en": {
+				"1": "dram",
+				"*": "drams"
+			}
+		},
+		"multiplier": "0.45359237",
+		"divisor": 256,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u606": {
+		"symbol": "oz",
+		"name": {
+			"en": {
+				"1": "ounce",
+				"*": "ounces"
+			}
+		},
+		"multiplier": "0.028349523125",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u607": {
+		"symbol": "lb",
+		"name": {
+			"en": {
+				"1": "pound",
+				"*": "pounds"
+			}
+		},
+		"multiplier": "0.45359237",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u608": {
+		"symbol": "st",
+		"name": {
+			"en": {
+				"1": "stone",
+				"*": "stones"
+			}
+		},
+		"multiplier": "6.35029318",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u609": {
+		"name": {
+			"en": {
+				"1": "quarter",
+				"*": "quarters"
+			}
+		},
+		"multiplier": "12.70058636",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u610": {
+		"symbol": "hw",
+		"name": {
+			"en": {
+				"1": "short hundredweight",
+				"*": "short hundredweights"
+			}
+		},
+		"multiplier": "45.359237",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u611": {
+		"name": {
+			"en": {
+				"1": "long hundredweight",
+				"*": "long hundredweights"
+			}
+		},
+		"multiplier": "50.80234544",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u612": {
+		"symbol": "ton",
+		"name": {
+			"en": {
+				"1": "short ton",
+				"*": "short tons"
+			}
+		},
+		"multiplier": "907.18474",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u613": {
+		"symbol": "ton",
+		"name": {
+			"en": {
+				"1": "long ton",
+				"*": "long tons"
+			}
+		},
+		"multiplier": "1016.0469088",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u614": {
+		"symbol": "ton",
+		"name": {
+			"en": {
+				"1": "net ton",
+				"*": "net tons"
+			}
+		},
+		"multiplier": "907.18474",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u615": {
+		"symbol": "ton",
+		"name": {
+			"en": {
+				"1": "gross ton",
+				"*": "gross tons"
+			}
+		},
+		"multiplier": "1016.0469088",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u616": {
+		"symbol": "slug",
+		"name": {
+			"en": {
+				"1": "slug",
+				"*": "slugs"
+			}
+		},
+		"multiplier": "0.0044482216152605",
+		"divisor": "3.048E-4",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u617": {
+		"symbol": "ctt",
+		"name": {
+			"en": {
+				"1": "carat troy",
+				"*": "carats troy"
+			}
+		},
+		"multiplier": "2.05E-4",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u618": {
+		"name": {
+			"en": {
+				"1": "doite troy",
+				"*": "doites troy"
+			}
+		},
+		"multiplier": "0.3732417216",
+		"divisor": 2764800,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u619": {
+		"name": {
+			"en": {
+				"1": "mite troy",
+				"*": "mites troy"
+			}
+		},
+		"multiplier": "3.2399455E-6",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u620": {
+		"symbol": "grt",
+		"name": {
+			"en": {
+				"1": "grain troy",
+				"*": "grains troy"
+			}
+		},
+		"multiplier": "6.479891E-5",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u621": {
+		"name": {
+			"en": {
+				"1": "scruple troy",
+				"*": "scruples troy"
+			}
+		},
+		"multiplier": "0.0012959782",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u622": {
+		"name": {
+			"en": {
+				"1": "pennyweight troy",
+				"*": "pennyweights troy"
+			}
+		},
+		"multiplier": "0.00155517384",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u623": {
+		"name": {
+			"en": {
+				"1": "dram troy",
+				"*": "drams troy"
+			}
+		},
+		"multiplier": "0.0038879346",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u624": {
+		"symbol": "ozt",
+		"name": {
+			"en": {
+				"1": "ounce troy",
+				"*": "ounces troy"
+			}
+		},
+		"multiplier": "0.0311034768",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u625": {
+		"symbol": "lbt",
+		"name": {
+			"en": {
+				"1": "pound troy",
+				"*": "pounds troy"
+			}
+		},
+		"multiplier": "0.3732417216",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u626": {
+		"symbol": "AT",
+		"name": {
+			"en": {
+				"1": "assay ton",
+				"*": "assay tons"
+			}
+		},
+		"multiplier": 350,
+		"divisor": 12000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u627": {
+		"symbol": "AT",
+		"name": {
+			"en": {
+				"1": "long assay ton",
+				"*": "long assay tons"
+			}
+		},
+		"multiplier": 39200,
+		"divisor": 1200000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u628": {
+		"name": {
+			"en": {
+				"1": "metric assay ton",
+				"*": "metric assay tons"
+			}
+		},
+		"divisor": "31.1034768",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u629": {
+		"symbol": "\u5206",
+		"name": {
+			"en": {
+				"*": "fun"
+			}
+		},
+		"multiplier": "3.75E-4",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u630": {
+		"symbol": "\u5301",
+		"name": {
+			"en": {
+				"*": "momme"
+			}
+		},
+		"multiplier": "0.00375",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u631": {
+		"symbol": "\u767E\u76EE",
+		"name": {
+			"en": {
+				"*": "hyakume"
+			}
+		},
+		"multiplier": "0.375",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u632": {
+		"symbol": "\u65A4",
+		"name": {
+			"en": {
+				"*": "kin"
+			}
+		},
+		"multiplier": "0.6",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u633": {
+		"symbol": "\u8CAB, \u8CAB\u76EE",
+		"name": {
+			"en": {
+				"*": "kan/kanme"
+			}
+		},
+		"multiplier": "3.75",
+		"dimension": {
+			"mass": 1
+		}
+	}
+}

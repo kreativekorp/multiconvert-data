@@ -1,0 +1,56 @@
+{
+	"u500": {
+		"symbol": "c",
+		"name": {
+			"en": {
+				"*": "speed of light"
+			}
+		},
+		"multiplier": 299792458,
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"u501": {
+		"symbol": "wf",
+		"name": {
+			"en": {
+				"*": "warp factor (\u22649)"
+			}
+		},
+		"instructions": "R0.3M299792458",
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"u502": {
+		"symbol": "Gal",
+		"name": {
+			"en": {
+				"1": "gal",
+				"*": "gals"
+			}
+		},
+		"divisor": 100,
+		"dimension": {
+			"length": 1,
+			"time": -2
+		}
+	},
+	"u503": {
+		"symbol": "g",
+		"name": {
+			"en": {
+				"1": "gee",
+				"*": "gees"
+			}
+		},
+		"multiplier": "9.80665",
+		"dimension": {
+			"length": 1,
+			"time": -2
+		}
+	}
+}

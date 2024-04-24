@@ -1,0 +1,326 @@
+{
+	"u1000": {
+		"symbol": "r",
+		"name": {
+			"en": {
+				"1": "revolution",
+				"*": "revolutions"
+			}
+		},
+		"instructions": "C0.5",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1001": {
+		"symbol": "\u2034",
+		"name": {
+			"en": {
+				"1": "tick",
+				"*": "ticks"
+			}
+		},
+		"instructions": "C38880000",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1002": {
+		"symbol": "\u03C0 rad",
+		"name": {
+			"en": {
+				"*": "pi radians"
+			}
+		},
+		"instructions": "C1",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1003": {
+		"name": {
+			"en": {
+				"1": "right angle",
+				"*": "right angles"
+			}
+		},
+		"instructions": "C2",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1004": {
+		"symbol": "grad",
+		"name": {
+			"en": {
+				"1": "gradian",
+				"*": "gradians"
+			}
+		},
+		"instructions": "C200",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1005": {
+		"symbol": "rh",
+		"name": {
+			"en": {
+				"1": "nautical rhumb",
+				"*": "nautical rhumbs"
+			}
+		},
+		"instructions": "C16",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1006": {
+		"symbol": "ROT=",
+		"name": {
+			"en": {
+				"*": "Applesoft BASIC ROT="
+			}
+		},
+		"instructions": "C32",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1007": {
+		"symbol": "brad",
+		"name": {
+			"en": {
+				"1": "binary radian",
+				"*": "binary radians"
+			}
+		},
+		"instructions": "C128",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1008": {
+		"name": {
+			"en": {
+				"1": "furman",
+				"*": "furmans"
+			}
+		},
+		"instructions": "C32768",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1009": {
+		"name": {
+			"en": {
+				"*": "sine"
+			}
+		},
+		"instructions": "V1",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1010": {
+		"name": {
+			"en": {
+				"*": "cosine"
+			}
+		},
+		"instructions": "V2",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1011": {
+		"name": {
+			"en": {
+				"*": "tangent"
+			}
+		},
+		"instructions": "V3",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1012": {
+		"name": {
+			"en": {
+				"*": "cotangent"
+			}
+		},
+		"instructions": "V4",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1013": {
+		"name": {
+			"en": {
+				"*": "secant"
+			}
+		},
+		"instructions": "V5",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1014": {
+		"name": {
+			"en": {
+				"*": "cosecant"
+			}
+		},
+		"instructions": "V6",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1015": {
+		"name": {
+			"en": {
+				"*": "streck"
+			}
+		},
+		"instructions": "C3150",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1016": {
+		"symbol": "mil",
+		"name": {
+			"en": {
+				"1": "mil",
+				"*": "mils"
+			}
+		},
+		"instructions": "C3200",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1017": {
+		"symbol": "\u03C4",
+		"name": {
+			"en": {
+				"1": "turn",
+				"*": "turns"
+			}
+		},
+		"instructions": "C0.5",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1018": {
+		"symbol": "quad",
+		"name": {
+			"en": {
+				"1": "quadrant",
+				"*": "quadrants"
+			}
+		},
+		"instructions": "C2",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1019": {
+		"name": {
+			"en": {
+				"1": "sextant",
+				"*": "sextants"
+			}
+		},
+		"instructions": "C3",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1020": {
+		"name": {
+			"en": {
+				"1": "hour angle",
+				"*": "hour angles"
+			}
+		},
+		"instructions": "C12",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1021": {
+		"name": {
+			"en": {
+				"1": "minute of time",
+				"*": "minutes of time"
+			}
+		},
+		"instructions": "C720",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1022": {
+		"name": {
+			"en": {
+				"1": "second of time",
+				"*": "seconds of time"
+			}
+		},
+		"instructions": "C43200",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1023": {
+		"name": {
+			"en": {
+				"1": "point",
+				"*": "points"
+			}
+		},
+		"instructions": "C16",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1024": {
+		"name": {
+			"en": {
+				"1": "quarter-point",
+				"*": "quarter-points"
+			}
+		},
+		"instructions": "C64",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1025": {
+		"name": {
+			"en": {
+				"*": "hexacontade"
+			}
+		},
+		"instructions": "C30",
+		"dimension": {
+			"angle": 1
+		}
+	},
+	"u1026": {
+		"name": {
+			"en": {
+				"1": "diameter part",
+				"*": "diameter parts"
+			}
+		},
+		"divisor": 60,
+		"dimension": {
+			"angle": 1
+		}
+	}
+}

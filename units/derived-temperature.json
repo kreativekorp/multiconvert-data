@@ -1,0 +1,93 @@
+{
+    "u900": {
+        "symbol": "\u00B0F",
+        "name": {
+            "en": {
+                "1": "degree Fahrenheit",
+                "*": "degrees Fahrenheit"
+            }
+        },
+        "instructions": "S32M5D9A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u901": {
+        "symbol": "\u00B0R\u00E9",
+        "name": {
+            "en": {
+                "1": "degree R\u00E9aumur",
+                "*": "degrees R\u00E9aumur"
+            }
+        },
+        "instructions": "M1.25A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u902": {
+        "symbol": "\u00B0Ra",
+        "name": {
+            "en": {
+                "1": "degree Rankine",
+                "*": "degrees Rankine"
+            }
+        },
+        "divisor": "1.8",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u903": {
+        "symbol": "\u00B0R\u00F8",
+        "name": {
+            "en": {
+                "1": "degree R\u00F8mer",
+                "*": "degrees R\u00F8mer"
+            }
+        },
+        "instructions": "S7.5M40D21A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u904": {
+        "symbol": "\u00B0N",
+        "name": {
+            "en": {
+                "1": "degree Newton",
+                "*": "degrees Newton"
+            }
+        },
+        "instructions": "M100D33A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u905": {
+        "symbol": "\u00B0dL",
+        "name": {
+            "en": {
+                "1": "degree Delisle",
+                "*": "degrees Delisle"
+            }
+        },
+        "instructions": "Z0M2D3A100A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    },
+    "u906": {
+        "symbol": "\u00B0L",
+        "name": {
+            "en": {
+                "1": "degree Leiden",
+                "*": "degrees Leiden"
+            }
+        },
+        "instructions": "S253A273.15",
+        "dimension": {
+            "temperature": 1
+        }
+    }
+}

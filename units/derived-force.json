@@ -1,0 +1,343 @@
+{
+    "u700": {
+        "symbol": "dyn",
+        "name": {
+            "en": {
+                "1": "dyne",
+                "*": "dynes"
+            }
+        },
+        "divisor": 100000,
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u701": {
+        "symbol": "sth\u00E8ne",
+        "name": {
+            "en": {
+                "1": "sth\u00E8ne",
+                "*": "sth\u00E8nes"
+            }
+        },
+        "multiplier": 1000,
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u702": {
+        "symbol": "p",
+        "name": {
+            "en": {
+                "1": "pond",
+                "*": "ponds"
+            }
+        },
+        "multiplier": "0.00980665",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u703": {
+        "symbol": "kp",
+        "name": {
+            "en": {
+                "1": "kilopond",
+                "*": "kiloponds"
+            }
+        },
+        "multiplier": "9.80665",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u704": {
+        "symbol": "gf",
+        "name": {
+            "en": {
+                "1": "gram",
+                "*": "grams"
+            }
+        },
+        "multiplier": "0.00980665",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u705": {
+        "symbol": "kgf",
+        "name": {
+            "en": {
+                "1": "kilogram",
+                "*": "kilograms"
+            }
+        },
+        "multiplier": "9.80665",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u706": {
+        "symbol": "tf",
+        "name": {
+            "en": {
+                "1": "tonne",
+                "*": "tonnes"
+            }
+        },
+        "multiplier": "9806.65",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u707": {
+        "symbol": "pdl",
+        "name": {
+            "en": {
+                "1": "poundal",
+                "*": "poundals"
+            }
+        },
+        "multiplier": "0.138254954376",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u708": {
+        "name": {
+            "en": {
+                "1": "mite",
+                "*": "mites"
+            }
+        },
+        "multiplier": "3.1773011537575E-5",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u709": {
+        "symbol": "grf",
+        "name": {
+            "en": {
+                "1": "grain",
+                "*": "grains"
+            }
+        },
+        "multiplier": "6.354602307515E-4",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u710": {
+        "name": {
+            "en": {
+                "1": "scruple",
+                "*": "scruples"
+            }
+        },
+        "multiplier": "0.01270920461503",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u711": {
+        "name": {
+            "en": {
+                "1": "dram",
+                "*": "drams"
+            }
+        },
+        "multiplier": "4.4482216152605",
+        "divisor": 256,
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u712": {
+        "symbol": "ozf",
+        "name": {
+            "en": {
+                "1": "ounce",
+                "*": "ounces"
+            }
+        },
+        "multiplier": "0.27801385095378125",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u713": {
+        "symbol": "lbf",
+        "name": {
+            "en": {
+                "1": "pound",
+                "*": "pounds"
+            }
+        },
+        "multiplier": "4.4482216152605",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u714": {
+        "symbol": "stf",
+        "name": {
+            "en": {
+                "1": "stone",
+                "*": "stones"
+            }
+        },
+        "multiplier": "62.275102613647",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u715": {
+        "name": {
+            "en": {
+                "1": "quarter",
+                "*": "quarters"
+            }
+        },
+        "multiplier": "124.550205227294",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u716": {
+        "symbol": "hwf",
+        "name": {
+            "en": {
+                "1": "short hundredweight",
+                "*": "short hundredweights"
+            }
+        },
+        "multiplier": "444.82216152605",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u717": {
+        "name": {
+            "en": {
+                "1": "long hundredweight",
+                "*": "long hundredweights"
+            }
+        },
+        "multiplier": "498.200820909176",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u718": {
+        "symbol": "kip",
+        "name": {
+            "en": {
+                "1": "kip",
+                "*": "kips"
+            }
+        },
+        "multiplier": "4448.2216152605",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u719": {
+        "symbol": "tonf",
+        "name": {
+            "en": {
+                "1": "short ton",
+                "*": "short tons"
+            }
+        },
+        "multiplier": "8896.443230521",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u720": {
+        "symbol": "tonf",
+        "name": {
+            "en": {
+                "1": "long ton",
+                "*": "long tons"
+            }
+        },
+        "multiplier": "9964.01641818352",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u721": {
+        "symbol": "tonf",
+        "name": {
+            "en": {
+                "1": "net ton",
+                "*": "net tons"
+            }
+        },
+        "multiplier": "8896.443230521",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    },
+    "u722": {
+        "symbol": "tonf",
+        "name": {
+            "en": {
+                "1": "gross ton",
+                "*": "gross tons"
+            }
+        },
+        "multiplier": "9964.01641818352",
+        "dimension": {
+            "length": 1,
+            "mass": 1,
+            "time": -2
+        }
+    }
+}

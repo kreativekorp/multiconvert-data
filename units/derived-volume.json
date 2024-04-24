@@ -1,0 +1,1120 @@
+{
+	"u400": {
+		"symbol": "cd",
+		"name": {
+			"en": {
+				"1": "cord",
+				"*": "cords"
+			}
+		},
+		"multiplier": "3.624556363776",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u401": {
+		"name": {
+			"en": {
+				"1": "U.S. fluid hogshead",
+				"*": "U.S. fluid hogsheads"
+			}
+		},
+		"multiplier": "0.238480942392",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u402": {
+		"name": {
+			"en": {
+				"1": "U.S. drum (oil)",
+				"*": "U.S. drums (oil)"
+			}
+		},
+		"multiplier": "0.20819764812",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u403": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "U.S. barrel (oil)",
+				"*": "U.S. barrels (oil)"
+			}
+		},
+		"multiplier": "0.158987294928",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u485": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "U.S. fluid barrel",
+				"*": "U.S. fluid barrels"
+			}
+		},
+		"multiplier": "0.119240471196",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u404": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "U.S. barrel (beer)",
+				"*": "U.S. barrels (beer)"
+			}
+		},
+		"multiplier": "0.117347765304",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u405": {
+		"symbol": "gal",
+		"name": {
+			"en": {
+				"1": "U.S. gallon",
+				"*": "U.S. gallons"
+			}
+		},
+		"multiplier": "0.003785411784",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u406": {
+		"name": {
+			"en": {
+				"1": "U.S. pottle",
+				"*": "U.S. pottles"
+			}
+		},
+		"multiplier": "0.001892705892",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u407": {
+		"symbol": "qt",
+		"name": {
+			"en": {
+				"1": "U.S. quart",
+				"*": "U.S. quarts"
+			}
+		},
+		"multiplier": "9.46352946E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u408": {
+		"symbol": "fth",
+		"name": {
+			"en": {
+				"1": "U.S. fifth",
+				"*": "U.S. fifths"
+			}
+		},
+		"multiplier": "7.570823568E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u409": {
+		"symbol": "pt",
+		"name": {
+			"en": {
+				"1": "U.S. pint",
+				"*": "U.S. pints"
+			}
+		},
+		"multiplier": "4.73176473E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u410": {
+		"symbol": "cu",
+		"name": {
+			"en": {
+				"1": "U.S. cup",
+				"*": "U.S. cups"
+			}
+		},
+		"multiplier": "2.365882365E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u411": {
+		"symbol": "gi",
+		"name": {
+			"en": {
+				"1": "U.S. gill",
+				"*": "U.S. gills"
+			}
+		},
+		"multiplier": "1.1829411825E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u412": {
+		"symbol": "jig",
+		"name": {
+			"en": {
+				"1": "U.S. jigger",
+				"*": "U.S. jiggers"
+			}
+		},
+		"multiplier": "4.436029434375E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u413": {
+		"symbol": "oz",
+		"name": {
+			"en": {
+				"1": "U.S. fluid ounce",
+				"*": "U.S. fluid ounces"
+			}
+		},
+		"multiplier": "2.95735295625E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u414": {
+		"symbol": "tbsp",
+		"name": {
+			"en": {
+				"1": "U.S. tablespoon",
+				"*": "U.S. tablespoons"
+			}
+		},
+		"multiplier": "1.478676478125E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u415": {
+		"symbol": "dsp",
+		"name": {
+			"en": {
+				"1": "U.S. dessert spoon",
+				"*": "U.S. dessert spoons"
+			}
+		},
+		"multiplier": "7.393382390625E-6",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u416": {
+		"symbol": "tsp",
+		"name": {
+			"en": {
+				"1": "U.S. teaspoon",
+				"*": "U.S. teaspoons"
+			}
+		},
+		"multiplier": "4.92892159375E-6",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u417": {
+		"symbol": "dr",
+		"name": {
+			"en": {
+				"1": "U.S. fluid dram",
+				"*": "U.S. fluid drams"
+			}
+		},
+		"multiplier": "3.6966911953125E-6",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u418": {
+		"name": {
+			"en": {
+				"1": "U.S. dash",
+				"*": "U.S. dashes"
+			}
+		},
+		"multiplier": "6.1611519921875E-7",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u419": {
+		"name": {
+			"en": {
+				"1": "U.S. pinch",
+				"*": "U.S. pinches"
+			}
+		},
+		"multiplier": "3.08057599609375E-7",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u420": {
+		"symbol": "min",
+		"name": {
+			"en": {
+				"1": "U.S. minim",
+				"*": "U.S. minims"
+			}
+		},
+		"multiplier": "6.1611519921875E-8",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u421": {
+		"name": {
+			"en": {
+				"1": "U.S. drop",
+				"*": "U.S. drops"
+			}
+		},
+		"multiplier": "0.003785411784",
+		"divisor": 73728,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u476": {
+		"name": {
+			"en": {
+				"1": "U.S. dry mouthful",
+				"*": "U.S. dry mouthfuls"
+			}
+		},
+		"multiplier": "1.7206577229921875E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u477": {
+		"name": {
+			"en": {
+				"1": "U.S. dry pony",
+				"*": "U.S. dry ponies"
+			}
+		},
+		"multiplier": "3.441315445984375E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u478": {
+		"name": {
+			"en": {
+				"1": "U.S. dry jack",
+				"*": "U.S. dry jacks"
+			}
+		},
+		"multiplier": "6.88263089196875E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u479": {
+		"symbol": "gi",
+		"name": {
+			"en": {
+				"1": "U.S. dry gill",
+				"*": "U.S. dry gills"
+			}
+		},
+		"multiplier": "1.37652617839375E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u480": {
+		"symbol": "cu",
+		"name": {
+			"en": {
+				"1": "U.S. dry cup",
+				"*": "U.S. dry cups"
+			}
+		},
+		"multiplier": "2.7530523567875E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u481": {
+		"name": {
+			"en": {
+				"1": "U.S. dry chopin",
+				"*": "U.S. dry chopins"
+			}
+		},
+		"multiplier": "2.7530523567875E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u422": {
+		"symbol": "pt",
+		"name": {
+			"en": {
+				"1": "U.S. dry pint",
+				"*": "U.S. dry pints"
+			}
+		},
+		"multiplier": "5.506104713575E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u423": {
+		"symbol": "qt",
+		"name": {
+			"en": {
+				"1": "U.S. dry quart",
+				"*": "U.S. dry quarts"
+			}
+		},
+		"multiplier": "0.001101220942715",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u424": {
+		"name": {
+			"en": {
+				"1": "U.S. dry pottle",
+				"*": "U.S. dry pottles"
+			}
+		},
+		"multiplier": "0.00220244188543",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u425": {
+		"symbol": "gal",
+		"name": {
+			"en": {
+				"1": "U.S. dry gallon",
+				"*": "U.S. dry gallons"
+			}
+		},
+		"multiplier": "0.00440488377086",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u426": {
+		"symbol": "pk",
+		"name": {
+			"en": {
+				"1": "U.S. peck",
+				"*": "U.S. pecks"
+			}
+		},
+		"multiplier": "0.00880976754172",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u427": {
+		"name": {
+			"en": {
+				"1": "U.S. demibushel",
+				"*": "U.S. demibushels"
+			}
+		},
+		"multiplier": "0.01761953508344",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u428": {
+		"name": {
+			"en": {
+				"1": "U.S. bucket",
+				"*": "U.S. buckets"
+			}
+		},
+		"multiplier": "0.01761953508344",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u429": {
+		"name": {
+			"en": {
+				"1": "U.S. kenning",
+				"*": "U.S. kennings"
+			}
+		},
+		"multiplier": "0.01761953508344",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u430": {
+		"symbol": "bu",
+		"name": {
+			"en": {
+				"1": "U.S. bushel",
+				"*": "U.S. bushels"
+			}
+		},
+		"multiplier": "0.03523907016688",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u431": {
+		"name": {
+			"en": {
+				"1": "U.S. firkin",
+				"*": "U.S. firkins"
+			}
+		},
+		"multiplier": "0.03523907016688",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u432": {
+		"name": {
+			"en": {
+				"1": "U.S. kilderkin",
+				"*": "U.S. kilderkins"
+			}
+		},
+		"multiplier": "0.07047814033376",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u433": {
+		"name": {
+			"en": {
+				"1": "U.S. strike",
+				"*": "U.S. strikes"
+			}
+		},
+		"multiplier": "0.07047814033376",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u487": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "U.S. barrel (cranberries)",
+				"*": "U.S. barrels (cranberries)"
+			}
+		},
+		"multiplier": "0.095471034864",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u486": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "U.S. dry barrel",
+				"*": "U.S. dry barrels"
+			}
+		},
+		"multiplier": "0.115627123584",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u434": {
+		"name": {
+			"en": {
+				"1": "U.S. coomb",
+				"*": "U.S. coombs"
+			}
+		},
+		"multiplier": "0.14095628066752",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u435": {
+		"name": {
+			"en": {
+				"1": "U.S. dry hogshead",
+				"*": "U.S. dry hogsheads"
+			}
+		},
+		"multiplier": "0.28191256133504",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u436": {
+		"name": {
+			"en": {
+				"1": "U.S. pail",
+				"*": "U.S. pails"
+			}
+		},
+		"multiplier": "0.28191256133504",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u437": {
+		"name": {
+			"en": {
+				"1": "U.S. quarter",
+				"*": "U.S. quarters"
+			}
+		},
+		"multiplier": "0.28191256133504",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u438": {
+		"name": {
+			"en": {
+				"1": "U.S. pipe",
+				"*": "U.S. pipes"
+			}
+		},
+		"multiplier": "0.56382512267008",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u439": {
+		"name": {
+			"en": {
+				"1": "U.S. tun",
+				"*": "U.S. tuns"
+			}
+		},
+		"multiplier": "1.12765024534016",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u440": {
+		"name": {
+			"en": {
+				"1": "U.S. chaldron",
+				"*": "U.S. chaldrons"
+			}
+		},
+		"multiplier": "1.12765024534016",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u441": {
+		"symbol": "min",
+		"name": {
+			"en": {
+				"1": "Imperial minim",
+				"*": "Imperial minims"
+			}
+		},
+		"multiplier": "1.16379904",
+		"divisor": 19660800,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u442": {
+		"name": {
+			"en": {
+				"1": "Imperial fluid scruple",
+				"*": "Imperial fluid scruples"
+			}
+		},
+		"multiplier": "1.16379904",
+		"divisor": 983040,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u443": {
+		"symbol": "dr",
+		"name": {
+			"en": {
+				"1": "Imperial fluid dram",
+				"*": "Imperial fluid drams"
+			}
+		},
+		"multiplier": "3.5516328125E-6",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u444": {
+		"symbol": "tsp",
+		"name": {
+			"en": {
+				"1": "Imperial teaspoon",
+				"*": "Imperial teaspoons"
+			}
+		},
+		"multiplier": "1.16379904",
+		"divisor": 196608,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u445": {
+		"symbol": "dsp",
+		"name": {
+			"en": {
+				"1": "Imperial dessert spoon",
+				"*": "Imperial dessert spoons"
+			}
+		},
+		"multiplier": "8.87908203125E-6",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u446": {
+		"symbol": "tbsp",
+		"name": {
+			"en": {
+				"1": "Imperial tablespoon",
+				"*": "Imperial tablespoons"
+			}
+		},
+		"multiplier": "1.77581640625E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u482": {
+		"name": {
+			"en": {
+				"1": "Imperial mouthful",
+				"*": "Imperial mouthfuls"
+			}
+		},
+		"multiplier": "1.77581640625E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u447": {
+		"symbol": "oz",
+		"name": {
+			"en": {
+				"1": "Imperial fluid ounce",
+				"*": "Imperial fluid ounces"
+			}
+		},
+		"multiplier": "2.84130625E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u483": {
+		"name": {
+			"en": {
+				"1": "Imperial pony",
+				"*": "Imperial ponies"
+			}
+		},
+		"multiplier": "3.5516328125E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u484": {
+		"name": {
+			"en": {
+				"1": "Imperial jack",
+				"*": "Imperial jacks"
+			}
+		},
+		"multiplier": "7.103265625E-5",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u448": {
+		"symbol": "gi",
+		"name": {
+			"en": {
+				"1": "Imperial gill",
+				"*": "Imperial gills"
+			}
+		},
+		"multiplier": "1.420653125E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u449": {
+		"symbol": "cu",
+		"name": {
+			"en": {
+				"1": "Imperial cup",
+				"*": "Imperial cups"
+			}
+		},
+		"multiplier": "2.84130625E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u450": {
+		"name": {
+			"en": {
+				"1": "Imperial chopin",
+				"*": "Imperial chopins"
+			}
+		},
+		"multiplier": "2.84130625E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u451": {
+		"symbol": "pt",
+		"name": {
+			"en": {
+				"1": "Imperial pint",
+				"*": "Imperial pints"
+			}
+		},
+		"multiplier": "5.6826125E-4",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u452": {
+		"symbol": "qt",
+		"name": {
+			"en": {
+				"1": "Imperial quart",
+				"*": "Imperial quarts"
+			}
+		},
+		"multiplier": "0.0011365225",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u453": {
+		"name": {
+			"en": {
+				"1": "Imperial pottle",
+				"*": "Imperial pottles"
+			}
+		},
+		"multiplier": "0.002273045",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u454": {
+		"symbol": "gal",
+		"name": {
+			"en": {
+				"1": "Imperial gallon",
+				"*": "Imperial gallons"
+			}
+		},
+		"multiplier": "0.00454609",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u455": {
+		"symbol": "pk",
+		"name": {
+			"en": {
+				"1": "Imperial peck",
+				"*": "Imperial pecks"
+			}
+		},
+		"multiplier": "0.00909218",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u456": {
+		"name": {
+			"en": {
+				"1": "Imperial demibushel",
+				"*": "Imperial demibushels"
+			}
+		},
+		"multiplier": "0.01818436",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u457": {
+		"name": {
+			"en": {
+				"1": "Imperial bucket",
+				"*": "Imperial buckets"
+			}
+		},
+		"multiplier": "0.01818436",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u458": {
+		"name": {
+			"en": {
+				"1": "Imperial kenning",
+				"*": "Imperial kennings"
+			}
+		},
+		"multiplier": "0.01818436",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u459": {
+		"symbol": "bu",
+		"name": {
+			"en": {
+				"1": "Imperial bushel",
+				"*": "Imperial bushels"
+			}
+		},
+		"multiplier": "0.03636872",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u460": {
+		"name": {
+			"en": {
+				"1": "Imperial firkin",
+				"*": "Imperial firkins"
+			}
+		},
+		"multiplier": "0.03636872",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u461": {
+		"name": {
+			"en": {
+				"1": "Imperial kilderkin",
+				"*": "Imperial kilderkins"
+			}
+		},
+		"multiplier": "0.07273744",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u462": {
+		"name": {
+			"en": {
+				"1": "Imperial strike",
+				"*": "Imperial strikes"
+			}
+		},
+		"multiplier": "0.07273744",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u463": {
+		"name": {
+			"en": {
+				"1": "Imperial coomb",
+				"*": "Imperial coombs"
+			}
+		},
+		"multiplier": "0.14547488",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u488": {
+		"symbol": "bbl",
+		"name": {
+			"en": {
+				"1": "Imperial barrel",
+				"*": "Imperial barrels"
+			}
+		},
+		"multiplier": "0.16365924",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u464": {
+		"name": {
+			"en": {
+				"1": "Imperial hogshead",
+				"*": "Imperial hogsheads"
+			}
+		},
+		"multiplier": "0.29094976",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u465": {
+		"name": {
+			"en": {
+				"1": "Imperial pail",
+				"*": "Imperial pails"
+			}
+		},
+		"multiplier": "0.29094976",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u466": {
+		"name": {
+			"en": {
+				"1": "Imperial quarter",
+				"*": "Imperial quarters"
+			}
+		},
+		"multiplier": "0.29094976",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u467": {
+		"name": {
+			"en": {
+				"1": "Imperial pipe",
+				"*": "Imperial pipes"
+			}
+		},
+		"multiplier": "0.58189952",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u468": {
+		"name": {
+			"en": {
+				"1": "Imperial tun",
+				"*": "Imperial tuns"
+			}
+		},
+		"multiplier": "1.16379904",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u469": {
+		"name": {
+			"en": {
+				"1": "Imperial chaldron",
+				"*": "Imperial chaldrons"
+			}
+		},
+		"multiplier": "1.16379904",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u470": {
+		"symbol": "\u624D",
+		"name": {
+			"en": {
+				"*": "sai"
+			}
+		},
+		"multiplier": "2.401",
+		"divisor": 1331000,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u471": {
+		"symbol": "\u52FA",
+		"name": {
+			"en": {
+				"*": "shaku"
+			}
+		},
+		"multiplier": "2.401",
+		"divisor": 133100,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u472": {
+		"symbol": "\u5408",
+		"name": {
+			"en": {
+				"*": "g\u014D"
+			}
+		},
+		"multiplier": "2.401",
+		"divisor": 13310,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u473": {
+		"symbol": "\u5347",
+		"name": {
+			"en": {
+				"*": "sh\u014D"
+			}
+		},
+		"multiplier": "2.401",
+		"divisor": 1331,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u474": {
+		"symbol": "\u6597",
+		"name": {
+			"en": {
+				"*": "to"
+			}
+		},
+		"multiplier": "24.01",
+		"divisor": 1331,
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u475": {
+		"symbol": "\u77F3",
+		"name": {
+			"en": {
+				"*": "koku"
+			}
+		},
+		"multiplier": "240.1",
+		"divisor": 1331,
+		"dimension": {
+			"length": 3
+		}
+	}
+}

@@ -1,0 +1,212 @@
+{
+	"u300": {
+		"symbol": "acre",
+		"name": {
+			"en": {
+				"1": "acre",
+				"*": "acres"
+			}
+		},
+		"multiplier": "4046.8564224",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u301": {
+		"symbol": "mil\u00B0",
+		"name": {
+			"en": {
+				"1": "circular mil",
+				"*": "circular mils"
+			}
+		},
+		"multiplier": "5.06707479E-10",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u302": {
+		"symbol": "in\u00B0",
+		"name": {
+			"en": {
+				"1": "circular inch",
+				"*": "circular inches"
+			}
+		},
+		"multiplier": "5.06707479E-4",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u303": {
+		"name": {
+			"en": {
+				"1": "square of timber",
+				"*": "squares of timber"
+			}
+		},
+		"multiplier": "9.29034118563721",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u304": {
+		"name": {
+			"en": {
+				"1": "homestead",
+				"*": "homesteads"
+			}
+		},
+		"multiplier": 647497,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u305": {
+		"name": {
+			"en": {
+				"1": "township",
+				"*": "townships"
+			}
+		},
+		"multiplier": 93239572,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u306": {
+		"symbol": "\u52FA",
+		"name": {
+			"en": {
+				"*": "shaku"
+			}
+		},
+		"divisor": "30.25",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u307": {
+		"symbol": "\u5408",
+		"name": {
+			"en": {
+				"*": "g\u014D"
+			}
+		},
+		"divisor": "3.025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u308": {
+		"symbol": "\u7573",
+		"name": {
+			"en": {
+				"*": "j\u014D"
+			}
+		},
+		"divisor": "0.605",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u309": {
+		"symbol": "\u576A",
+		"name": {
+			"en": {
+				"*": "tsubo"
+			}
+		},
+		"divisor": "0.3025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u310": {
+		"symbol": "\u6B69",
+		"name": {
+			"en": {
+				"*": "bu"
+			}
+		},
+		"divisor": "0.3025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u311": {
+		"symbol": "\u755D",
+		"name": {
+			"en": {
+				"*": "se"
+			}
+		},
+		"multiplier": 30,
+		"divisor": "0.3025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u312": {
+		"symbol": "\u6BB5, \u53CD",
+		"name": {
+			"en": {
+				"*": "tan"
+			}
+		},
+		"multiplier": 300,
+		"divisor": "0.3025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u313": {
+		"symbol": "\u753A \u753A\u6B69",
+		"name": {
+			"en": {
+				"*": "ch\u014D"
+			}
+		},
+		"multiplier": 3000,
+		"divisor": "0.3025",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u314": {
+		"symbol": "\u0E15\u0E32\u0E23\u0E32\u0E07\u0E27\u0E32",
+		"name": {
+			"en": {
+				"*": "tarangwa"
+			}
+		},
+		"multiplier": 4,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u315": {
+		"symbol": "\u0E07\u0E32\u0E19",
+		"name": {
+			"en": {
+				"*": "ngaan"
+			}
+		},
+		"multiplier": 400,
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u316": {
+		"symbol": "\u0E44\u0E23\u0E48",
+		"name": {
+			"en": {
+				"*": "rai"
+			}
+		},
+		"multiplier": 1600,
+		"dimension": {
+			"length": 2
+		}
+	}
+}

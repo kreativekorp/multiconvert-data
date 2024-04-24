@@ -304,6 +304,9 @@ for (const file of findFiles('unit-types')) {
 		const context = file + ': unit type "' + id + '"';
 		const item = unitTypes[id];
 		validateStart();
+		if (!id.match(/^t[0-9]+$/)) {
+			warning(context, 'identifier does not follow recommended pattern of t[0-9]+');
+		}
 		validateKeys(context, item, ['name'], ['icon', 'dimension']);
 		if (item['icon'] !== undefined) {
 			validateString(context, 'icon', item['icon']);
@@ -326,6 +329,15 @@ for (const file of findFiles('units')) {
 		const context = file + ': unit "' + id + '"';
 		const item = units[id];
 		validateStart();
+		if (!id.match(/^[a-z][0-9]+$/)) {
+			warning(context, 'identifier does not follow recommended pattern of [a-z][0-9]+');
+		} else if (id.startsWith('c')) {
+			warning(context, 'identifiers starting with "c" are reserved for units of currency');
+		} else if (id.startsWith('i')) {
+			warning(context, 'identifiers starting with "i" are reserved for includes');
+		} else if (id.startsWith('t')) {
+			warning(context, 'identifiers starting with "t" are reserved for unit types');
+		}
 		validateKeys(context, item, ['name'], ['symbol', 'datatype', 'multiplier', 'divisor', 'instructions', 'parser', 'formatter', 'dimension']);
 		if (item['symbol'] !== undefined) {
 			validateString(context, 'symbol', item['symbol']);
@@ -416,7 +428,7 @@ for (const file of findFiles('units')) {
 	}
 }
 
-// DIMENSIONAL ANALYSIS AND UNIT COMPOSITION UTILITIES
+// DIMENSIONAL ANALYSIS UTILITIES
 
 function dempty() {
 	for (let i = 0; i < arguments.length; i++) {
@@ -501,6 +513,8 @@ function dcomp(d1, d2) {
 	return dempty(dmul(d1, d2));
 }
 
+// UNIT COMPOSITION UTILITIES
+
 function uexp(u, b, e) {
 	if (e.eq ? e.eq(0) : e == 0) return u;
 	if (b.eq ? b.eq(1) : b == 1) return u;
@@ -522,6 +536,16 @@ function udiv() {
 function upow(u, e) {
 	if (e.eq ? e.eq(0) : e == 0) return null;
 	if (e.eq ? e.eq(1) : e == 1) return u;
+	// stub
+}
+
+function ufrac(u, mo, me, mp) {
+	// stub
+}
+
+function uhier() {
+	if (arguments.length === 0) return null;
+	if (arguments.length === 1) return arguments[0];
 	// stub
 }
 
@@ -613,11 +637,47 @@ function uparse_div(s) {
 	throw new Error('Cannot divide the units: ' + pp.map(u => u.name.en['*']).join(', '));
 }
 
-function uparse(s) {
+function uparse_frac(s) {
 	const p = uparse_div(s);
+	const ch = (s = uparse_ws(p.s)).substring(0,1);
+	if (ch === '%') {
+		s = uparse_ws(s.substring(1));
+		const m = s.match(/^([0-9]+)(\s*,\s*([0-9]+))?(\s*,\s*([0-9]+))?/);
+		if (!m) throw new Error('Expected integer but found "' + s + '"');
+		const mo = +m[1] || 1;
+		const me = +m[3] || mo;
+		const mp = +m[5] || me;
+		const u = ufrac(p.u, mo, me, mp);
+		if (!u) throw new Error('Cannot fractionalize the unit "' + p.u.name.en['*'] + '"');
+		s = uparse_ws(s.substring(m[0].length));
+		return {'u': u, 's': s};
+	} else {
+		return p;
+	}
+}
+
+function uparse_hier(s) {
+	let p = uparse_frac(s);
+	const pp = [p.u];
+	let ch = (s = uparse_ws(p.s)).substring(0,1);
+	while (ch === ',') {
+		s = uparse_ws(s.substring(1));
+		p = uparse_frac(s);
+		pp.push(p.u);
+		ch = (s = uparse_ws(p.s)).substring(0,1);
+	}
+	const u = uhier.apply(null, pp);
+	if (u) return {'u': u, 's': s};
+	throw new Error('Cannot compose the units: ' + pp.map(u => u.name.en['*']).join(', '));
+}
+
+function uparse(s) {
+	const p = uparse_hier(s);
 	if (!(s = uparse_ws(p.s))) return p.u;
 	throw new Error('Expected end of string but found "' + s + '"');
 }
+
+// UNIT CONVERSION UTILITIES
 
 function mcparse(u, a) {
 	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
@@ -672,7 +732,7 @@ for (const file of findFiles('tests')) {
 					for (const k of Object.keys(value)) {
 						try {
 							const u = uparse(k);
-							inputs.push([u, value[u]]);
+							inputs.push([u, value[k]]);
 						} catch (e) {
 							error(context, 'unit "' + k + '" could not be compiled: ' + e);
 						}
@@ -685,7 +745,7 @@ for (const file of findFiles('tests')) {
 					for (const k of Object.keys(value)) {
 						try {
 							const u = uparse(k);
-							outputs.push([u, value[u]]);
+							outputs.push([u, value[k]]);
 						} catch (e) {
 							error(context, 'unit "' + k + '" could not be compiled: ' + e);
 						}
