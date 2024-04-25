@@ -1,0 +1,510 @@
+{
+    "u2000": {
+        "name": {
+            "en": {
+                "1": "unit",
+                "*": "units"
+            }
+        }
+    },
+    "u2001": {
+        "symbol": "dz",
+        "name": {
+            "en": {
+                "*": "dozen"
+            }
+        },
+        "multiplier": 12
+    },
+    "u2002": {
+        "symbol": "bdz",
+        "name": {
+            "en": {
+                "*": "baker\u2019s dozen"
+            }
+        },
+        "multiplier": 13
+    },
+    "u2003": {
+        "symbol": "sc",
+        "name": {
+            "en": {
+                "*": "score"
+            }
+        },
+        "multiplier": 20
+    },
+    "u2004": {
+        "symbol": "sg",
+        "name": {
+            "en": {
+                "*": "short gross"
+            }
+        },
+        "multiplier": 120
+    },
+    "u2005": {
+        "symbol": "g",
+        "name": {
+            "en": {
+                "*": "gross"
+            }
+        },
+        "multiplier": 144
+    },
+    "u2006": {
+        "symbol": "gg",
+        "name": {
+            "en": {
+                "*": "great gross"
+            }
+        },
+        "multiplier": 1728
+    },
+    "u2007": {
+        "name": {
+            "en": {
+                "*": "lakh"
+            }
+        },
+        "multiplier": "1E5"
+    },
+    "u2008": {
+        "name": {
+            "en": {
+                "*": "crore"
+            }
+        },
+        "multiplier": "1E7"
+    },
+    "u2009": {
+        "name": {
+            "en": {
+                "1": "thousand",
+                "*": "thousands"
+            }
+        },
+        "multiplier": "1E3"
+    },
+    "u2010": {
+        "name": {
+            "en": {
+                "1": "million",
+                "*": "millions"
+            }
+        },
+        "multiplier": "1E6"
+    },
+    "u2011": {
+        "name": {
+            "en": {
+                "1": "billion",
+                "*": "billions"
+            }
+        },
+        "multiplier": "1E9"
+    },
+    "u2012": {
+        "name": {
+            "en": {
+                "1": "trillion",
+                "*": "trillions"
+            }
+        },
+        "multiplier": "1E12"
+    },
+    "u2013": {
+        "name": {
+            "en": {
+                "1": "quadrillion",
+                "*": "quadrillions"
+            }
+        },
+        "multiplier": "1E15"
+    },
+    "u2014": {
+        "name": {
+            "en": {
+                "1": "quintillion",
+                "*": "quintillions"
+            }
+        },
+        "multiplier": "1E18"
+    },
+    "u2015": {
+        "name": {
+            "en": {
+                "1": "sextillion",
+                "*": "sextillions"
+            }
+        },
+        "multiplier": "1E21"
+    },
+    "u2016": {
+        "name": {
+            "en": {
+                "1": "septillion",
+                "*": "septillions"
+            }
+        },
+        "multiplier": "1E24"
+    },
+    "u2017": {
+        "name": {
+            "en": {
+                "1": "octillion",
+                "*": "octillions"
+            }
+        },
+        "multiplier": "1E27"
+    },
+    "u2018": {
+        "name": {
+            "en": {
+                "1": "nonillion",
+                "*": "nonillions"
+            }
+        },
+        "multiplier": "1E30"
+    },
+    "u2019": {
+        "name": {
+            "en": {
+                "1": "decillion",
+                "*": "decillions"
+            }
+        },
+        "multiplier": "1E33"
+    },
+    "u2020": {
+        "name": {
+            "en": {
+                "1": "undecillion",
+                "*": "undecillions"
+            }
+        },
+        "multiplier": "1E36"
+    },
+    "u2021": {
+        "name": {
+            "en": {
+                "1": "dodecillion",
+                "*": "dodecillions"
+            }
+        },
+        "multiplier": "1E39"
+    },
+    "u2022": {
+        "name": {
+            "en": {
+                "1": "long million",
+                "*": "long millions"
+            }
+        },
+        "multiplier": "1E6"
+    },
+    "u2023": {
+        "name": {
+            "en": {
+                "1": "milliard",
+                "*": "milliards"
+            }
+        },
+        "multiplier": "1E9"
+    },
+    "u2024": {
+        "name": {
+            "en": {
+                "1": "long billion",
+                "*": "long billions"
+            }
+        },
+        "multiplier": "1E12"
+    },
+    "u2025": {
+        "name": {
+            "en": {
+                "1": "billiard",
+                "*": "billiards"
+            }
+        },
+        "multiplier": "1E15"
+    },
+    "u2026": {
+        "name": {
+            "en": {
+                "1": "long trillion",
+                "*": "long trillions"
+            }
+        },
+        "multiplier": "1E18"
+    },
+    "u2027": {
+        "name": {
+            "en": {
+                "1": "trilliard",
+                "*": "trilliards"
+            }
+        },
+        "multiplier": "1E21"
+    },
+    "u2028": {
+        "name": {
+            "en": {
+                "1": "long quadrillion",
+                "*": "long quadrillions"
+            }
+        },
+        "multiplier": "1E24"
+    },
+    "u2029": {
+        "name": {
+            "en": {
+                "1": "quadrilliard",
+                "*": "quadrilliards"
+            }
+        },
+        "multiplier": "1E27"
+    },
+    "u2030": {
+        "name": {
+            "en": {
+                "1": "long quintillion",
+                "*": "long quintillions"
+            }
+        },
+        "multiplier": "1E30"
+    },
+    "u2031": {
+        "name": {
+            "en": {
+                "1": "quintilliard",
+                "*": "quintilliards"
+            }
+        },
+        "multiplier": "1E33"
+    },
+    "u2032": {
+        "name": {
+            "en": {
+                "1": "long sextillion",
+                "*": "long sextillions"
+            }
+        },
+        "multiplier": "1E36"
+    },
+    "u2033": {
+        "name": {
+            "en": {
+                "1": "sextilliard",
+                "*": "sextilliards"
+            }
+        },
+        "multiplier": "1E39"
+    },
+    "u2034": {
+        "name": {
+            "en": {
+                "1": "long septillion",
+                "*": "long septillions"
+            }
+        },
+        "multiplier": "1E42"
+    },
+    "u2035": {
+        "name": {
+            "en": {
+                "1": "septilliard",
+                "*": "septilliards"
+            }
+        },
+        "multiplier": "1E45"
+    },
+    "u2036": {
+        "name": {
+            "en": {
+                "1": "long octillion",
+                "*": "long octillions"
+            }
+        },
+        "multiplier": "1E48"
+    },
+    "u2037": {
+        "name": {
+            "en": {
+                "1": "octilliard",
+                "*": "octilliards"
+            }
+        },
+        "multiplier": "1E51"
+    },
+    "u2038": {
+        "name": {
+            "en": {
+                "1": "long nonillion",
+                "*": "long nonillions"
+            }
+        },
+        "multiplier": "1E54"
+    },
+    "u2039": {
+        "name": {
+            "en": {
+                "1": "nonilliard",
+                "*": "nonilliards"
+            }
+        },
+        "multiplier": "1E57"
+    },
+    "u2040": {
+        "name": {
+            "en": {
+                "1": "long decillion",
+                "*": "long decillions"
+            }
+        },
+        "multiplier": "1E60"
+    },
+    "u2041": {
+        "name": {
+            "en": {
+                "1": "decilliard",
+                "*": "decilliards"
+            }
+        },
+        "multiplier": "1E63"
+    },
+    "u2042": {
+        "name": {
+            "en": {
+                "1": "long undecillion",
+                "*": "long undecillions"
+            }
+        },
+        "multiplier": "1E66"
+    },
+    "u2043": {
+        "name": {
+            "en": {
+                "1": "undecilliard",
+                "*": "undecilliards"
+            }
+        },
+        "multiplier": "1E69"
+    },
+    "u2044": {
+        "name": {
+            "en": {
+                "1": "long dodecillion",
+                "*": "long dodecillions"
+            }
+        },
+        "multiplier": "1E72"
+    },
+    "u2045": {
+        "name": {
+            "en": {
+                "1": "dodecilliard",
+                "*": "dodecilliards"
+            }
+        },
+        "multiplier": "1E75"
+    },
+    "u2046": {
+        "symbol": "%",
+        "name": {
+            "en": {
+                "*": "percent"
+            }
+        },
+        "divisor": 100
+    },
+    "u2047": {
+        "symbol": "\u2030",
+        "name": {
+            "en": {
+                "*": "per mille"
+            }
+        },
+        "divisor": 1000
+    },
+    "u2048": {
+        "symbol": "\u2031",
+        "name": {
+            "en": {
+                "*": "per myriad"
+            }
+        },
+        "divisor": 10000
+    },
+    "u2049": {
+        "symbol": "%",
+        "name": {
+            "en": {
+                "1": "part per hundred",
+                "*": "parts per hundred"
+            }
+        },
+        "divisor": 100
+    },
+    "u2050": {
+        "symbol": "\u2030",
+        "name": {
+            "en": {
+                "1": "part per thousand",
+                "*": "parts per thousand"
+            }
+        },
+        "divisor": 1000
+    },
+    "u2051": {
+        "symbol": "\u2031",
+        "name": {
+            "en": {
+                "1": "part per ten thousand",
+                "*": "parts per ten thousand"
+            }
+        },
+        "divisor": 10000
+    },
+    "u2052": {
+        "symbol": "ppm",
+        "name": {
+            "en": {
+                "1": "part per million",
+                "*": "parts per million"
+            }
+        },
+        "divisor": "1E6"
+    },
+    "u2053": {
+        "symbol": "ppb",
+        "name": {
+            "en": {
+                "1": "part per billion",
+                "*": "parts per billion"
+            }
+        },
+        "divisor": "1E9"
+    },
+    "u2054": {
+        "symbol": "ppt",
+        "name": {
+            "en": {
+                "1": "part per trillion",
+                "*": "parts per trillion"
+            }
+        },
+        "divisor": "1E12"
+    },
+    "u2055": {
+        "symbol": "ppq",
+        "name": {
+            "en": {
+                "1": "part per quadrillion",
+                "*": "parts per quadrillion"
+            }
+        },
+        "divisor": "1E15"
+    }
+}

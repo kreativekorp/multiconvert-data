@@ -1,0 +1,158 @@
+{
+	"u1500": {
+		"symbol": "B\u00B5A",
+		"name": {
+			"en": {
+				"1": "bel (microamperes)",
+				"*": "bels (microamperes)"
+			}
+		},
+		"instructions": "S6X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1501": {
+		"symbol": "dB\u00B5A",
+		"name": {
+			"en": {
+				"1": "decibel (microamperes)",
+				"*": "decibels (microamperes)"
+			}
+		},
+		"instructions": "D10S6X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1502": {
+		"symbol": "BmA",
+		"name": {
+			"en": {
+				"1": "bel (milliamperes)",
+				"*": "bels (milliamperes)"
+			}
+		},
+		"instructions": "S3X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1503": {
+		"symbol": "dBmA",
+		"name": {
+			"en": {
+				"1": "decibel (milliamperes)",
+				"*": "decibels (milliamperes)"
+			}
+		},
+		"instructions": "D10S3X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1504": {
+		"symbol": "BA",
+		"name": {
+			"en": {
+				"1": "bel (amperes)",
+				"*": "bels (amperes)"
+			}
+		},
+		"instructions": "X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1505": {
+		"symbol": "dBA",
+		"name": {
+			"en": {
+				"1": "decibel (amperes)",
+				"*": "decibels (amperes)"
+			}
+		},
+		"instructions": "D10X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1506": {
+		"symbol": "B\u00B5A",
+		"name": {
+			"en": {
+				"1": "bel (microamperes squared)",
+				"*": "bels (microamperes squared)"
+			}
+		},
+		"instructions": "D2S6X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1507": {
+		"symbol": "dB\u00B5A",
+		"name": {
+			"en": {
+				"1": "decibel (microamperes squared)",
+				"*": "decibels (microamperes squared)"
+			}
+		},
+		"instructions": "D20S6X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1508": {
+		"symbol": "BmA",
+		"name": {
+			"en": {
+				"1": "bel (milliamperes squared)",
+				"*": "bels (milliamperes squared)"
+			}
+		},
+		"instructions": "D2S3X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1509": {
+		"symbol": "dBmA",
+		"name": {
+			"en": {
+				"1": "decibel (milliamperes squared)",
+				"*": "decibels (milliamperes squared)"
+			}
+		},
+		"instructions": "D20S3X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1510": {
+		"symbol": "BA",
+		"name": {
+			"en": {
+				"1": "bel (amperes squared)",
+				"*": "bels (amperes squared)"
+			}
+		},
+		"instructions": "D2X10",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1511": {
+		"symbol": "dBA",
+		"name": {
+			"en": {
+				"1": "decibel (amperes squared)",
+				"*": "decibels (amperes squared)"
+			}
+		},
+		"instructions": "D20X10",
+		"dimension": {
+			"current": 1
+		}
+	}
+}

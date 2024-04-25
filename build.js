@@ -711,6 +711,16 @@ function mcformat(u, a) {
 	return a;
 }
 
+function fpequal(a, b, e) {
+	if (a.eq) return a.eq(b);
+	if (b.eq) return b.eq(a);
+	if (a == b) return true;
+	if (e <= 0) return false;
+	const norm = Math.min(Math.abs(a) + Math.abs(b), Number.MAX_VALUE);
+	// console.log("using epsilon " + Math.max(e * norm, e));
+	return Math.abs(a - b) < Math.max(e * norm, e);
+}
+
 // VALIDATE AND RUN TESTS
 
 for (const file of findFiles('tests')) {
@@ -730,11 +740,15 @@ for (const file of findFiles('tests')) {
 			} else if (key === 'inputs') {
 				if (value && typeof value === 'object') {
 					for (const k of Object.keys(value)) {
-						try {
-							const u = uparse(k);
-							inputs.push([u, value[k]]);
-						} catch (e) {
-							error(context, 'unit "' + k + '" could not be compiled: ' + e);
+						if (k === 'base') {
+							inputs.push([null, value[k]]);
+						} else {
+							try {
+								const u = uparse(k);
+								inputs.push([u, value[k]]);
+							} catch (e) {
+								error(context, 'unit "' + k + '" could not be compiled: ' + e);
+							}
 						}
 					}
 				} else {
@@ -743,16 +757,23 @@ for (const file of findFiles('tests')) {
 			} else if (key === 'outputs') {
 				if (value && typeof value === 'object') {
 					for (const k of Object.keys(value)) {
-						try {
-							const u = uparse(k);
-							outputs.push([u, value[k]]);
-						} catch (e) {
-							error(context, 'unit "' + k + '" could not be compiled: ' + e);
+						if (k === 'base') {
+							outputs.push([null, value[k]]);
+						} else {
+							try {
+								const u = uparse(k);
+								outputs.push([u, value[k]]);
+							} catch (e) {
+								error(context, 'unit "' + k + '" could not be compiled: ' + e);
+							}
 						}
 					}
 				} else {
 					error(context, 'value for "outputs" must be a non-null object');
 				}
+			} else if (key === 'base') {
+				inputs.push([null, value]);
+				outputs.push([null, value]);
 			} else {
 				try {
 					const u = uparse(key);
@@ -763,26 +784,29 @@ for (const file of findFiles('tests')) {
 				}
 			}
 		}
+		// console.log("test: " + context);
 		if (inputs.length && outputs.length) {
 			for (const [iu, iv] of inputs) {
-				const baseValue = mcparse(iu, iv);
+				const inputName = iu ? iu.name.en['*'] : 'base units';
+				const baseValue = iu ? mcparse(iu, iv) : iv;
 				for (const [ou, ov] of outputs) {
-					if (deq(iu['dimension'], ou['dimension'])) {
-						const v = mcformat(ou, baseValue);
-						if (v.eq ? v.eq(ov) : ov.eq ? ov.eq(v) : (v == ov || Math.abs(v - ov) < epsilon)) {
-							// console.log('PASS: ' + context + ': ' + iv + ' ' + iu.name.en['*'] + ' = ' + ov + ' ' + ou.name.en['*']);
+					const outputName = ou ? ou.name.en['*'] : 'base units';
+					if (!iu || !ou || deq(iu['dimension'], ou['dimension'])) {
+						const v = ou ? mcformat(ou, baseValue) : baseValue;
+						if (fpequal(v, ov, epsilon)) {
+							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
 						} else {
-							error(context, iv + ' ' + iu.name.en['*'] + ' should be ' + ov + ' ' + ou.name.en['*'] + ' but test produced ' + v + ' ' + ou.name.en['*']);
+							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
 						}
 					} else if (dcomp(iu['dimension'], ou['dimension'])) {
 						const v = mcformat(ou, 1 / baseValue);
-						if (v.eq ? v.eq(ov) : ov.eq ? ov.eq(v) : (v == ov || Math.abs(v - ov) < epsilon)) {
-							// console.log('PASS: ' + context + ': ' + iv + ' ' + iu.name.en['*'] + ' = ' + ov + ' ' + ou.name.en['*']);
+						if (fpequal(v, ov, epsilon)) {
+							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
 						} else {
-							error(context, iv + ' ' + iu.name.en['*'] + ' should be ' + ov + ' ' + ou.name.en['*'] + ' but test produced ' + v + ' ' + ou.name.en['*']);
+							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
 						}
 					} else {
-						error(context, 'input unit "' + iu.name.en['*'] + '" and output unit "' + ou.name.en['*'] + '" are not compatible');
+						error(context, 'input unit "' + inputName + '" and output unit "' + outputName + '" are not compatible');
 					}
 				}
 			}

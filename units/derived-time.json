@@ -1,807 +1,807 @@
 {
-    "u800": {
-        "name": {
-            "en": {
-                "1": "shake",
-                "*": "shakes"
-            }
-        },
-        "divisor": 100000000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u801": {
-        "name": {
-            "en": {
-                "1": "tick",
-                "*": "ticks"
-            }
-        },
-        "divisor": 60,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u802": {
-        "symbol": "wk",
-        "name": {
-            "en": {
-                "1": "week",
-                "*": "weeks"
-            }
-        },
-        "multiplier": 604800,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u803": {
-        "symbol": "fn",
-        "name": {
-            "en": {
-                "1": "fortnight",
-                "*": "fortnights"
-            }
-        },
-        "multiplier": 1209600,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u804": {
-        "name": {
-            "en": {
-                "1": "28-day month",
-                "*": "28-day months"
-            }
-        },
-        "multiplier": 2419200,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u805": {
-        "name": {
-            "en": {
-                "1": "29-day month",
-                "*": "29-day months"
-            }
-        },
-        "multiplier": 2505600,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u806": {
-        "name": {
-            "en": {
-                "1": "30-day month",
-                "*": "30-day months"
-            }
-        },
-        "multiplier": 2592000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u807": {
-        "name": {
-            "en": {
-                "1": "31-day month",
-                "*": "31-day months"
-            }
-        },
-        "multiplier": 2678400,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u808": {
-        "symbol": "mo",
-        "name": {
-            "en": {
-                "1": "month",
-                "*": "months"
-            }
-        },
-        "multiplier": 2629746,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u809": {
-        "symbol": "mo",
-        "name": {
-            "en": {
-                "1": "Gregorian month",
-                "*": "Gregorian months"
-            }
-        },
-        "multiplier": 2629746,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u810": {
-        "name": {
-            "en": {
-                "1": "Julian month",
-                "*": "Julian months"
-            }
-        },
-        "multiplier": 2629800,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u811": {
-        "name": {
-            "en": {
-                "1": "365-day year",
-                "*": "365-day years"
-            }
-        },
-        "multiplier": 31536000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u812": {
-        "name": {
-            "en": {
-                "1": "366-day year",
-                "*": "366-day years"
-            }
-        },
-        "multiplier": 31622400,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u813": {
-        "symbol": "yr",
-        "name": {
-            "en": {
-                "1": "year",
-                "*": "years"
-            }
-        },
-        "multiplier": 31556952,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u814": {
-        "symbol": "yr",
-        "name": {
-            "en": {
-                "1": "Gregorian year",
-                "*": "Gregorian years"
-            }
-        },
-        "multiplier": 31556952,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u815": {
-        "name": {
-            "en": {
-                "1": "Julian year",
-                "*": "Julian years"
-            }
-        },
-        "multiplier": 31557600,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u816": {
-        "symbol": "a",
-        "name": {
-            "en": {
-                "1": "annum",
-                "*": "annums"
-            }
-        },
-        "multiplier": 31557600,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u817": {
-        "symbol": "dec",
-        "name": {
-            "en": {
-                "1": "decade",
-                "*": "decades"
-            }
-        },
-        "multiplier": 315569520,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u818": {
-        "symbol": "dec",
-        "name": {
-            "en": {
-                "1": "Gregorian decade",
-                "*": "Gregorian decades"
-            }
-        },
-        "multiplier": 315569520,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u819": {
-        "name": {
-            "en": {
-                "1": "Julian decade",
-                "*": "Julian decades"
-            }
-        },
-        "multiplier": 315576000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u820": {
-        "symbol": "cen",
-        "name": {
-            "en": {
-                "1": "century",
-                "*": "centuries"
-            }
-        },
-        "multiplier": 3155695200,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u821": {
-        "symbol": "cen",
-        "name": {
-            "en": {
-                "1": "Gregorian century",
-                "*": "Gregorian centuries"
-            }
-        },
-        "multiplier": 3155695200,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u822": {
-        "name": {
-            "en": {
-                "1": "Julian century",
-                "*": "Julian centuries"
-            }
-        },
-        "multiplier": 3155760000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u823": {
-        "symbol": "mil",
-        "name": {
-            "en": {
-                "1": "millennium",
-                "*": "millennia"
-            }
-        },
-        "multiplier": 31556952000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u824": {
-        "symbol": "mil",
-        "name": {
-            "en": {
-                "1": "Gregorian millennium",
-                "*": "Gregorian millennia"
-            }
-        },
-        "multiplier": 31556952000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u825": {
-        "name": {
-            "en": {
-                "1": "Julian millennium",
-                "*": "Julian millennia"
-            }
-        },
-        "multiplier": 31557600000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u826": {
-        "name": {
-            "en": {
-                "1": "sidereal day",
-                "*": "sidereal days"
-            }
-        },
-        "multiplier": "86164.090530833",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u827": {
-        "name": {
-            "en": {
-                "1": "draconic month",
-                "*": "draconic months"
-            }
-        },
-        "multiplier": "2351135.8785888",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u828": {
-        "name": {
-            "en": {
-                "1": "tropical month",
-                "*": "tropical months"
-            }
-        },
-        "multiplier": "2360584.7056224",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u829": {
-        "name": {
-            "en": {
-                "1": "sidereal month",
-                "*": "sidereal months"
-            }
-        },
-        "multiplier": "2360591.5576608",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u830": {
-        "name": {
-            "en": {
-                "1": "anomalistic month",
-                "*": "anomalistic months"
-            }
-        },
-        "multiplier": "2380713.1094592",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u831": {
-        "name": {
-            "en": {
-                "1": "synodic month",
-                "*": "synodic months"
-            }
-        },
-        "multiplier": "2551442.8768992",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u832": {
-        "name": {
-            "en": {
-                "1": "draconic year",
-                "*": "draconic years"
-            }
-        },
-        "multiplier": "29947974.5562912",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u833": {
-        "name": {
-            "en": {
-                "1": "lunar year",
-                "*": "lunar years"
-            }
-        },
-        "multiplier": "30617314.5227904",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u834": {
-        "name": {
-            "en": {
-                "1": "tropical year",
-                "*": "tropical years"
-            }
-        },
-        "multiplier": "31556925.187488",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u835": {
-        "name": {
-            "en": {
-                "1": "sidereal year",
-                "*": "sidereal years"
-            }
-        },
-        "multiplier": "31558149.7676064",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u836": {
-        "name": {
-            "en": {
-                "1": "Gaussian year",
-                "*": "Gaussian years"
-            }
-        },
-        "multiplier": "31558196.01312",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u837": {
-        "name": {
-            "en": {
-                "1": "anomalistic year",
-                "*": "anomalistic years"
-            }
-        },
-        "multiplier": "31558432.5386496",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u838": {
-        "name": {
-            "en": {
-                "1": "full moon cycle",
-                "*": "full moon cycles"
-            }
-        },
-        "multiplier": "35578174.777056",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u860": {
-        "name": {
-            "en": {
-                "1": "Mercury rotation period",
-                "*": "Mercury rotation periods"
-            }
-        },
-        "multiplier": 5067030,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u861": {
-        "name": {
-            "en": {
-                "1": "Venus rotation period",
-                "*": "Venus rotation periods"
-            }
-        },
-        "multiplier": 20996000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u862": {
-        "name": {
-            "en": {
-                "1": "Earth rotation period",
-                "*": "Earth rotation periods"
-            }
-        },
-        "multiplier": "86164.1",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u863": {
-        "name": {
-            "en": {
-                "1": "Mars rotation period",
-                "*": "Mars rotation periods"
-            }
-        },
-        "multiplier": "88642.6632",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u864": {
-        "name": {
-            "en": {
-                "1": "Jupiter rotation period",
-                "*": "Jupiter rotation periods"
-            }
-        },
-        "multiplier": 35730,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u865": {
-        "name": {
-            "en": {
-                "1": "Saturn rotation period",
-                "*": "Saturn rotation periods"
-            }
-        },
-        "multiplier": 37800,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u866": {
-        "name": {
-            "en": {
-                "1": "Uranus rotation period",
-                "*": "Uranus rotation periods"
-            }
-        },
-        "multiplier": 56000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u867": {
-        "name": {
-            "en": {
-                "1": "Neptune rotation period",
-                "*": "Neptune rotation periods"
-            }
-        },
-        "multiplier": 66400,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u868": {
-        "name": {
-            "en": {
-                "1": "Pluto rotation period",
-                "*": "Pluto rotation periods"
-            }
-        },
-        "multiplier": 551810,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u870": {
-        "name": {
-            "en": {
-                "1": "Mercury day",
-                "*": "Mercury days"
-            }
-        },
-        "multiplier": 15201100,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u871": {
-        "name": {
-            "en": {
-                "1": "Venus day",
-                "*": "Venus days"
-            }
-        },
-        "multiplier": 10087100,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u872": {
-        "name": {
-            "en": {
-                "1": "Earth day",
-                "*": "Earth days"
-            }
-        },
-        "multiplier": 86400,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u873": {
-        "name": {
-            "en": {
-                "1": "Mars day",
-                "*": "Mars days"
-            }
-        },
-        "multiplier": "88775.2429",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u874": {
-        "name": {
-            "en": {
-                "1": "Jupiter day",
-                "*": "Jupiter days"
-            }
-        },
-        "multiplier": 35733,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u875": {
-        "name": {
-            "en": {
-                "1": "Saturn day",
-                "*": "Saturn days"
-            }
-        },
-        "multiplier": 37800,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u876": {
-        "name": {
-            "en": {
-                "1": "Uranus day",
-                "*": "Uranus days"
-            }
-        },
-        "multiplier": 56000,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u877": {
-        "name": {
-            "en": {
-                "1": "Neptune day",
-                "*": "Neptune days"
-            }
-        },
-        "multiplier": 66300,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u878": {
-        "name": {
-            "en": {
-                "1": "Pluto day",
-                "*": "Pluto days"
-            }
-        },
-        "multiplier": 551770,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u880": {
-        "name": {
-            "en": {
-                "1": "Mercury year",
-                "*": "Mercury years"
-            }
-        },
-        "multiplier": 7600544,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u881": {
-        "name": {
-            "en": {
-                "1": "Venus year",
-                "*": "Venus years"
-            }
-        },
-        "multiplier": 19414149,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u882": {
-        "name": {
-            "en": {
-                "1": "Earth year",
-                "*": "Earth years"
-            }
-        },
-        "multiplier": 31558149,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u883": {
-        "name": {
-            "en": {
-                "1": "Mars year",
-                "*": "Mars years"
-            }
-        },
-        "multiplier": 59355036,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u884": {
-        "name": {
-            "en": {
-                "1": "Jupiter year",
-                "*": "Jupiter years"
-            }
-        },
-        "multiplier": 374355660,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u885": {
-        "name": {
-            "en": {
-                "1": "Saturn year",
-                "*": "Saturn years"
-            }
-        },
-        "multiplier": 929292360,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u886": {
-        "name": {
-            "en": {
-                "1": "Uranus year",
-                "*": "Uranus years"
-            }
-        },
-        "multiplier": "2.65137E9",
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u887": {
-        "name": {
-            "en": {
-                "1": "Neptune year",
-                "*": "Neptune years"
-            }
-        },
-        "multiplier": 5200418600,
-        "dimension": {
-            "time": 1
-        }
-    },
-    "u888": {
-        "name": {
-            "en": {
-                "1": "Pluto year",
-                "*": "Pluto years"
-            }
-        },
-        "multiplier": 7823780700,
-        "dimension": {
-            "time": 1
-        }
-    }
+	"u800": {
+		"name": {
+			"en": {
+				"1": "shake",
+				"*": "shakes"
+			}
+		},
+		"divisor": 100000000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u801": {
+		"name": {
+			"en": {
+				"1": "tick",
+				"*": "ticks"
+			}
+		},
+		"divisor": 60,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u802": {
+		"symbol": "wk",
+		"name": {
+			"en": {
+				"1": "week",
+				"*": "weeks"
+			}
+		},
+		"multiplier": 604800,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u803": {
+		"symbol": "fn",
+		"name": {
+			"en": {
+				"1": "fortnight",
+				"*": "fortnights"
+			}
+		},
+		"multiplier": 1209600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u804": {
+		"name": {
+			"en": {
+				"1": "28-day month",
+				"*": "28-day months"
+			}
+		},
+		"multiplier": 2419200,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u805": {
+		"name": {
+			"en": {
+				"1": "29-day month",
+				"*": "29-day months"
+			}
+		},
+		"multiplier": 2505600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u806": {
+		"name": {
+			"en": {
+				"1": "30-day month",
+				"*": "30-day months"
+			}
+		},
+		"multiplier": 2592000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u807": {
+		"name": {
+			"en": {
+				"1": "31-day month",
+				"*": "31-day months"
+			}
+		},
+		"multiplier": 2678400,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u808": {
+		"symbol": "mo",
+		"name": {
+			"en": {
+				"1": "month",
+				"*": "months"
+			}
+		},
+		"multiplier": 2629746,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u809": {
+		"symbol": "mo",
+		"name": {
+			"en": {
+				"1": "Gregorian month",
+				"*": "Gregorian months"
+			}
+		},
+		"multiplier": 2629746,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u810": {
+		"name": {
+			"en": {
+				"1": "Julian month",
+				"*": "Julian months"
+			}
+		},
+		"multiplier": 2629800,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u811": {
+		"name": {
+			"en": {
+				"1": "365-day year",
+				"*": "365-day years"
+			}
+		},
+		"multiplier": 31536000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u812": {
+		"name": {
+			"en": {
+				"1": "366-day year",
+				"*": "366-day years"
+			}
+		},
+		"multiplier": 31622400,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u813": {
+		"symbol": "yr",
+		"name": {
+			"en": {
+				"1": "year",
+				"*": "years"
+			}
+		},
+		"multiplier": 31556952,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u814": {
+		"symbol": "yr",
+		"name": {
+			"en": {
+				"1": "Gregorian year",
+				"*": "Gregorian years"
+			}
+		},
+		"multiplier": 31556952,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u815": {
+		"name": {
+			"en": {
+				"1": "Julian year",
+				"*": "Julian years"
+			}
+		},
+		"multiplier": 31557600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u816": {
+		"symbol": "a",
+		"name": {
+			"en": {
+				"1": "annum",
+				"*": "annums"
+			}
+		},
+		"multiplier": 31557600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u817": {
+		"symbol": "dec",
+		"name": {
+			"en": {
+				"1": "decade",
+				"*": "decades"
+			}
+		},
+		"multiplier": 315569520,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u818": {
+		"symbol": "dec",
+		"name": {
+			"en": {
+				"1": "Gregorian decade",
+				"*": "Gregorian decades"
+			}
+		},
+		"multiplier": 315569520,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u819": {
+		"name": {
+			"en": {
+				"1": "Julian decade",
+				"*": "Julian decades"
+			}
+		},
+		"multiplier": 315576000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u820": {
+		"symbol": "cen",
+		"name": {
+			"en": {
+				"1": "century",
+				"*": "centuries"
+			}
+		},
+		"multiplier": 3155695200,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u821": {
+		"symbol": "cen",
+		"name": {
+			"en": {
+				"1": "Gregorian century",
+				"*": "Gregorian centuries"
+			}
+		},
+		"multiplier": 3155695200,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u822": {
+		"name": {
+			"en": {
+				"1": "Julian century",
+				"*": "Julian centuries"
+			}
+		},
+		"multiplier": 3155760000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u823": {
+		"symbol": "mil",
+		"name": {
+			"en": {
+				"1": "millennium",
+				"*": "millennia"
+			}
+		},
+		"multiplier": 31556952000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u824": {
+		"symbol": "mil",
+		"name": {
+			"en": {
+				"1": "Gregorian millennium",
+				"*": "Gregorian millennia"
+			}
+		},
+		"multiplier": 31556952000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u825": {
+		"name": {
+			"en": {
+				"1": "Julian millennium",
+				"*": "Julian millennia"
+			}
+		},
+		"multiplier": 31557600000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u826": {
+		"name": {
+			"en": {
+				"1": "sidereal day",
+				"*": "sidereal days"
+			}
+		},
+		"multiplier": "86164.090530833",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u827": {
+		"name": {
+			"en": {
+				"1": "draconic month",
+				"*": "draconic months"
+			}
+		},
+		"multiplier": "2351135.8785888",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u828": {
+		"name": {
+			"en": {
+				"1": "tropical month",
+				"*": "tropical months"
+			}
+		},
+		"multiplier": "2360584.7056224",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u829": {
+		"name": {
+			"en": {
+				"1": "sidereal month",
+				"*": "sidereal months"
+			}
+		},
+		"multiplier": "2360591.5576608",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u830": {
+		"name": {
+			"en": {
+				"1": "anomalistic month",
+				"*": "anomalistic months"
+			}
+		},
+		"multiplier": "2380713.1094592",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u831": {
+		"name": {
+			"en": {
+				"1": "synodic month",
+				"*": "synodic months"
+			}
+		},
+		"multiplier": "2551442.8768992",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u832": {
+		"name": {
+			"en": {
+				"1": "draconic year",
+				"*": "draconic years"
+			}
+		},
+		"multiplier": "29947974.5562912",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u833": {
+		"name": {
+			"en": {
+				"1": "lunar year",
+				"*": "lunar years"
+			}
+		},
+		"multiplier": "30617314.5227904",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u834": {
+		"name": {
+			"en": {
+				"1": "tropical year",
+				"*": "tropical years"
+			}
+		},
+		"multiplier": "31556925.187488",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u835": {
+		"name": {
+			"en": {
+				"1": "sidereal year",
+				"*": "sidereal years"
+			}
+		},
+		"multiplier": "31558149.7676064",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u836": {
+		"name": {
+			"en": {
+				"1": "Gaussian year",
+				"*": "Gaussian years"
+			}
+		},
+		"multiplier": "31558196.01312",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u837": {
+		"name": {
+			"en": {
+				"1": "anomalistic year",
+				"*": "anomalistic years"
+			}
+		},
+		"multiplier": "31558432.5386496",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u838": {
+		"name": {
+			"en": {
+				"1": "full moon cycle",
+				"*": "full moon cycles"
+			}
+		},
+		"multiplier": "35578174.777056",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u860": {
+		"name": {
+			"en": {
+				"1": "Mercury rotation period",
+				"*": "Mercury rotation periods"
+			}
+		},
+		"multiplier": 5067030,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u861": {
+		"name": {
+			"en": {
+				"1": "Venus rotation period",
+				"*": "Venus rotation periods"
+			}
+		},
+		"multiplier": 20996000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u862": {
+		"name": {
+			"en": {
+				"1": "Earth rotation period",
+				"*": "Earth rotation periods"
+			}
+		},
+		"multiplier": "86164.1",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u863": {
+		"name": {
+			"en": {
+				"1": "Mars rotation period",
+				"*": "Mars rotation periods"
+			}
+		},
+		"multiplier": "88642.6632",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u864": {
+		"name": {
+			"en": {
+				"1": "Jupiter rotation period",
+				"*": "Jupiter rotation periods"
+			}
+		},
+		"multiplier": 35730,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u865": {
+		"name": {
+			"en": {
+				"1": "Saturn rotation period",
+				"*": "Saturn rotation periods"
+			}
+		},
+		"multiplier": 37800,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u866": {
+		"name": {
+			"en": {
+				"1": "Uranus rotation period",
+				"*": "Uranus rotation periods"
+			}
+		},
+		"multiplier": 56000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u867": {
+		"name": {
+			"en": {
+				"1": "Neptune rotation period",
+				"*": "Neptune rotation periods"
+			}
+		},
+		"multiplier": 66400,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u868": {
+		"name": {
+			"en": {
+				"1": "Pluto rotation period",
+				"*": "Pluto rotation periods"
+			}
+		},
+		"multiplier": 551810,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u870": {
+		"name": {
+			"en": {
+				"1": "Mercury day",
+				"*": "Mercury days"
+			}
+		},
+		"multiplier": 15201100,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u871": {
+		"name": {
+			"en": {
+				"1": "Venus day",
+				"*": "Venus days"
+			}
+		},
+		"multiplier": 10087100,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u872": {
+		"name": {
+			"en": {
+				"1": "Earth day",
+				"*": "Earth days"
+			}
+		},
+		"multiplier": 86400,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u873": {
+		"name": {
+			"en": {
+				"1": "Mars day",
+				"*": "Mars days"
+			}
+		},
+		"multiplier": "88775.2429",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u874": {
+		"name": {
+			"en": {
+				"1": "Jupiter day",
+				"*": "Jupiter days"
+			}
+		},
+		"multiplier": 35733,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u875": {
+		"name": {
+			"en": {
+				"1": "Saturn day",
+				"*": "Saturn days"
+			}
+		},
+		"multiplier": 37800,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u876": {
+		"name": {
+			"en": {
+				"1": "Uranus day",
+				"*": "Uranus days"
+			}
+		},
+		"multiplier": 56000,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u877": {
+		"name": {
+			"en": {
+				"1": "Neptune day",
+				"*": "Neptune days"
+			}
+		},
+		"multiplier": 66300,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u878": {
+		"name": {
+			"en": {
+				"1": "Pluto day",
+				"*": "Pluto days"
+			}
+		},
+		"multiplier": 551770,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u880": {
+		"name": {
+			"en": {
+				"1": "Mercury year",
+				"*": "Mercury years"
+			}
+		},
+		"multiplier": 7600544,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u881": {
+		"name": {
+			"en": {
+				"1": "Venus year",
+				"*": "Venus years"
+			}
+		},
+		"multiplier": 19414149,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u882": {
+		"name": {
+			"en": {
+				"1": "Earth year",
+				"*": "Earth years"
+			}
+		},
+		"multiplier": 31558149,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u883": {
+		"name": {
+			"en": {
+				"1": "Mars year",
+				"*": "Mars years"
+			}
+		},
+		"multiplier": 59355036,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u884": {
+		"name": {
+			"en": {
+				"1": "Jupiter year",
+				"*": "Jupiter years"
+			}
+		},
+		"multiplier": 374355660,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u885": {
+		"name": {
+			"en": {
+				"1": "Saturn year",
+				"*": "Saturn years"
+			}
+		},
+		"multiplier": 929292360,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u886": {
+		"name": {
+			"en": {
+				"1": "Uranus year",
+				"*": "Uranus years"
+			}
+		},
+		"multiplier": "2.65137E9",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u887": {
+		"name": {
+			"en": {
+				"1": "Neptune year",
+				"*": "Neptune years"
+			}
+		},
+		"multiplier": 5200418600,
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u888": {
+		"name": {
+			"en": {
+				"1": "Pluto year",
+				"*": "Pluto years"
+			}
+		},
+		"multiplier": 7823780700,
+		"dimension": {
+			"time": 1
+		}
+	}
 }

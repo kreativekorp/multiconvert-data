@@ -1,0 +1,310 @@
+{
+	"u1100": {
+		"symbol": "erg",
+		"name": {
+			"en": {
+				"1": "erg",
+				"*": "ergs"
+			}
+		},
+		"divisor": 10000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1101": {
+		"symbol": "cal",
+		"name": {
+			"en": {
+				"1": "calorie",
+				"*": "calories"
+			}
+		},
+		"multiplier": "4.184",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1102": {
+		"symbol": "toe",
+		"name": {
+			"en": {
+				"*": "toe"
+			}
+		},
+		"multiplier": "4.1868E10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1103": {
+		"symbol": "BTU",
+		"name": {
+			"en": {
+				"1": "British thermal unit",
+				"*": "British thermal units"
+			}
+		},
+		"multiplier": "1054.35026444",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1104": {
+		"symbol": "thm",
+		"name": {
+			"en": {
+				"1": "therm",
+				"*": "therms"
+			}
+		},
+		"multiplier": "105435026.444",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1105": {
+		"symbol": "Dthm",
+		"name": {
+			"en": {
+				"1": "decatherm",
+				"*": "decatherms"
+			}
+		},
+		"multiplier": "1054350264.44",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1106": {
+		"symbol": "MDthm",
+		"name": {
+			"en": {
+				"*": "thousand decatherms"
+			}
+		},
+		"multiplier": 1054350264440,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1107": {
+		"symbol": "MMDthm",
+		"name": {
+			"en": {
+				"*": "million decatherms"
+			}
+		},
+		"multiplier": 1054350264440000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1108": {
+		"symbol": "quad",
+		"name": {
+			"en": {
+				"1": "quad",
+				"*": "quads"
+			}
+		},
+		"multiplier": "1.05435026444E18",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1109": {
+		"symbol": "hp",
+		"name": {
+			"en": {
+				"*": "mechanical horsepower"
+			}
+		},
+		"multiplier": "745.69987158227022",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1110": {
+		"symbol": "hp",
+		"name": {
+			"en": {
+				"*": "metric horsepower"
+			}
+		},
+		"multiplier": "735.49875",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1111": {
+		"symbol": "hp",
+		"name": {
+			"en": {
+				"*": "electrical horsepower"
+			}
+		},
+		"multiplier": 746,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1112": {
+		"symbol": "hp",
+		"name": {
+			"en": {
+				"*": "boiler horsepower"
+			}
+		},
+		"multiplier": "9809.5",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1113": {
+		"symbol": "B SWL",
+		"name": {
+			"en": {
+				"1": "bel (sound power level)",
+				"*": "bels (sound power level)"
+			}
+		},
+		"instructions": "S12X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1114": {
+		"symbol": "dB SWL",
+		"name": {
+			"en": {
+				"1": "decibel (sound power level)",
+				"*": "decibels (sound power level)"
+			}
+		},
+		"instructions": "D10S12X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1115": {
+		"symbol": "Bm",
+		"name": {
+			"en": {
+				"1": "bel (milliwatts)",
+				"*": "bels (milliwatts)"
+			}
+		},
+		"instructions": "S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1116": {
+		"symbol": "dBm",
+		"name": {
+			"en": {
+				"1": "decibel (milliwatts)",
+				"*": "decibels (milliwatts)"
+			}
+		},
+		"instructions": "D10S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1117": {
+		"symbol": "BW",
+		"name": {
+			"en": {
+				"1": "bel (watts)",
+				"*": "bels (watts)"
+			}
+		},
+		"instructions": "X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1118": {
+		"symbol": "dBW",
+		"name": {
+			"en": {
+				"1": "decibel (watts)",
+				"*": "decibels (watts)"
+			}
+		},
+		"instructions": "D10X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1119": {
+		"symbol": "Bk",
+		"name": {
+			"en": {
+				"1": "bel (kilowatts)",
+				"*": "bels (kilowatts)"
+			}
+		},
+		"instructions": "A3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1120": {
+		"symbol": "dBk",
+		"name": {
+			"en": {
+				"1": "decibel (kilowatts)",
+				"*": "decibels (kilowatts)"
+			}
+		},
+		"instructions": "D10A3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	}
+}

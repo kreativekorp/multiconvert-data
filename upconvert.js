@@ -7,6 +7,7 @@ function upconvert(s) {
 	s = s.replaceAll(/'s':'([^']+)'/g, '"symbol":"$1"');
 	s = s.replaceAll(/'n':'([^']+)','p':'([^']+)'/g, '"name":{"en":{"1":"$1","*":"$2"}}');
 	s = s.replaceAll(/'n':'([^']+)'/g, '"name":{"en":{"*":"$1"}}');
+	s = s.replaceAll(/('t':function\(a\)\{[^}]+\},)('f':function\(a\)\{[^}]+\},?)/g, '\n\n"instructions":"",\n$1\n$2\n\n');
 	s = s.replaceAll(/'m':([0-9]+[.][0-9]+([Ee][+-]?[0-9]+)?)/g, '"multiplier":"$1"');
 	s = s.replaceAll(/'w':([0-9]+[.][0-9]+([Ee][+-]?[0-9]+)?)/g, '"divisor":"$1"');
 	s = s.replaceAll(/'m'/g, '"multiplier"');

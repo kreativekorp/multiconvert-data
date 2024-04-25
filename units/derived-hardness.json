@@ -1,0 +1,56 @@
+{
+	"u1800": {
+		"name": {
+			"en": {
+				"*": "Vickers DPH HV/10"
+			}
+		},
+		"dimension": {
+			"hardness": 1
+		}
+	},
+	"u1801": {
+		"name": {
+			"en": {
+				"*": "Brinell BHN 500kg"
+			}
+		},
+		"instructions": "S1.1558D0.8075",
+		"dimension": {
+			"hardness": 1
+		}
+	},
+	"u1802": {
+		"name": {
+			"en": {
+				"*": "Brinell BHN 3000kg"
+			}
+		},
+		"instructions": "S9.7473D0.9139",
+		"dimension": {
+			"hardness": 1
+		}
+	},
+	"u1803": {
+		"name": {
+			"en": {
+				"*": "U.T.S. Mpa"
+			}
+		},
+		"instructions": "S20.308D3.1286",
+		"dimension": {
+			"hardness": 1
+		}
+	},
+	"u1804": {
+		"name": {
+			"en": {
+				"*": "U.T.S. Kpsi"
+			}
+		},
+		"instructions": "S2.9391D0.4538",
+		"dimension": {
+			"hardness": 1
+		}
+	}
+}

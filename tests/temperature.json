@@ -39,7 +39,7 @@
 		"u904": -90.1395,
 		"u905": 559.725,
 		"u906": -20.15,
-		"epsilon": 1E-9
+		"epsilon": 1E-12
 	},
 	{
 		"name": "freezing point of water, within epsilon",
@@ -52,7 +52,7 @@
 		"u904": 0,
 		"u905": 150,
 		"u906": 253,
-		"epsilon": 1E-9
+		"epsilon": 1E-15
 	},
 	{
 		"name": "boiling point of water, within epsilon",
@@ -65,6 +65,6 @@
 		"u904": 33,
 		"u905": 0,
 		"u906": 353,
-		"epsilon": 1E-9
+		"epsilon": 1E-15
 	}
 ]

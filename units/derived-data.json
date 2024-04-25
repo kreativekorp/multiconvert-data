@@ -1,0 +1,417 @@
+{
+	"u1600": {
+		"symbol": "c",
+		"name": {
+			"en": {
+				"1": "crumb",
+				"*": "crumbs"
+			}
+		},
+		"multiplier": 2,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1601": {
+		"symbol": "n",
+		"name": {
+			"en": {
+				"1": "nybble",
+				"*": "nybbles"
+			}
+		},
+		"multiplier": 4,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1602": {
+		"symbol": "B",
+		"name": {
+			"en": {
+				"1": "byte",
+				"*": "bytes"
+			}
+		},
+		"multiplier": 8,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1603": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "short word",
+				"*": "short words"
+			}
+		},
+		"multiplier": 16,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1604": {
+		"symbol": "l",
+		"name": {
+			"en": {
+				"1": "long word",
+				"*": "long words"
+			}
+		},
+		"multiplier": 32,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1605": {
+		"symbol": "ll",
+		"name": {
+			"en": {
+				"1": "long long word",
+				"*": "long long words"
+			}
+		},
+		"multiplier": 64,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1606": {
+		"name": {
+			"en": {
+				"1": "paragraph",
+				"*": "paragraphs"
+			}
+		},
+		"multiplier": 128,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1607": {
+		"name": {
+			"en": {
+				"1": "page",
+				"*": "pages"
+			}
+		},
+		"multiplier": 2048,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1608": {
+		"name": {
+			"en": {
+				"1": "block",
+				"*": "blocks"
+			}
+		},
+		"multiplier": 4096,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1609": {
+		"name": {
+			"en": {
+				"1": "chapter",
+				"*": "chapters"
+			}
+		},
+		"multiplier": 32768,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1610": {
+		"symbol": "p",
+		"name": {
+			"en": {
+				"1": "plane",
+				"*": "planes"
+			}
+		},
+		"multiplier": 524288,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1611": {
+		"name": {
+			"en": {
+				"1": "16-bit address space",
+				"*": "16-bit address spaces"
+			}
+		},
+		"multiplier": 524288,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1612": {
+		"name": {
+			"en": {
+				"1": "24-bit address space",
+				"*": "24-bit address spaces"
+			}
+		},
+		"multiplier": 134217728,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1613": {
+		"name": {
+			"en": {
+				"1": "32-bit address space",
+				"*": "32-bit address spaces"
+			}
+		},
+		"multiplier": 34359738368,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1614": {
+		"name": {
+			"en": {
+				"1": "64-bit address space",
+				"*": "64-bit address spaces"
+			}
+		},
+		"multiplier": "147573952589676412928",
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1615": {
+		"name": {
+			"en": {
+				"1": "Apple II 13-sector floppy",
+				"*": "Apple II 13-sector floppies"
+			}
+		},
+		"multiplier": 931840,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1616": {
+		"name": {
+			"en": {
+				"1": "Apple II 16-sector floppy",
+				"*": "Apple II 16-sector floppies"
+			}
+		},
+		"multiplier": 1146880,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1617": {
+		"name": {
+			"en": {
+				"1": "single-sided MFM floppy",
+				"*": "single-sided MFM floppies"
+			}
+		},
+		"multiplier": 2949120,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1618": {
+		"name": {
+			"en": {
+				"1": "single-sided GCR floppy",
+				"*": "single-sided GCR floppies"
+			}
+		},
+		"multiplier": 3276800,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1619": {
+		"name": {
+			"en": {
+				"1": "double-sided MFM floppy",
+				"*": "double-sided MFM floppies"
+			}
+		},
+		"multiplier": 5898240,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1620": {
+		"name": {
+			"en": {
+				"1": "double-sided GCR floppy",
+				"*": "double-sided GCR floppies"
+			}
+		},
+		"multiplier": 6553600,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1621": {
+		"name": {
+			"en": {
+				"1": "high-density MFM floppy",
+				"*": "high-density MFM floppies"
+			}
+		},
+		"multiplier": 11796480,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1622": {
+		"name": {
+			"en": {
+				"1": "high-density GCR floppy",
+				"*": "high-density GCR floppies"
+			}
+		},
+		"multiplier": 13107200,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1623": {
+		"name": {
+			"en": {
+				"1": "32MB ProDOS volume",
+				"*": "32MB ProDOS volumes"
+			}
+		},
+		"multiplier": 268435456,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1624": {
+		"name": {
+			"en": {
+				"1": "100MB Iomega Zip disk",
+				"*": "100MB Iomega Zip disks"
+			}
+		},
+		"multiplier": 838860800,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1625": {
+		"name": {
+			"en": {
+				"1": "120MB Sony Superfloppy",
+				"*": "120MB Sony Superfloppies"
+			}
+		},
+		"multiplier": 1006632960,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1626": {
+		"name": {
+			"en": {
+				"1": "650MB compact disc",
+				"*": "650MB compact discs"
+			}
+		},
+		"multiplier": 5452595200,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1627": {
+		"name": {
+			"en": {
+				"1": "700MB compact disc",
+				"*": "700MB compact discs"
+			}
+		},
+		"multiplier": 5872025600,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1628": {
+		"name": {
+			"en": {
+				"1": "1GB Iomega Jaz disk",
+				"*": "1GB Iomega Jaz disks"
+			}
+		},
+		"multiplier": 8589934592,
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1629": {
+		"name": {
+			"en": {
+				"1": "single-layer mini-DVD",
+				"*": "single-layer mini-DVDs"
+			}
+		},
+		"multiplier": "1.168E10",
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1630": {
+		"name": {
+			"en": {
+				"1": "dual-layer mini-DVD",
+				"*": "dual-layer mini-DVDs"
+			}
+		},
+		"multiplier": "2.128E10",
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1631": {
+		"name": {
+			"en": {
+				"1": "single-layer DVD",
+				"*": "single-layer DVDs"
+			}
+		},
+		"multiplier": "3.76E10",
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1632": {
+		"name": {
+			"en": {
+				"1": "dual-layer DVD",
+				"*": "dual-layer DVDs"
+			}
+		},
+		"multiplier": "6.832E10",
+		"dimension": {
+			"data": 1
+		}
+	},
+	"u1633": {
+		"name": {
+			"en": {
+				"1": "Internet",
+				"*": "Internets"
+			}
+		},
+		"divisor": 0,
+		"dimension": {
+			"data": 1
+		}
+	}
+}

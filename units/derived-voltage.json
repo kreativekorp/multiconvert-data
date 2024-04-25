@@ -1,0 +1,288 @@
+{
+	"u1400": {
+		"name": {
+			"en": {
+				"1": "abvolt",
+				"*": "abvolts"
+			}
+		},
+		"divisor": 100000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1401": {
+		"name": {
+			"en": {
+				"1": "statvolt",
+				"*": "statvolts"
+			}
+		},
+		"multiplier": "299.792458",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1402": {
+		"symbol": "B\u00B5V",
+		"name": {
+			"en": {
+				"1": "bel (microvolts)",
+				"*": "bels (microvolts)"
+			}
+		},
+		"instructions": "S6X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1403": {
+		"symbol": "dB\u00B5V",
+		"name": {
+			"en": {
+				"1": "decibel (microvolts)",
+				"*": "decibels (microvolts)"
+			}
+		},
+		"instructions": "D10S6X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1404": {
+		"symbol": "BmV",
+		"name": {
+			"en": {
+				"1": "bel (millivolts)",
+				"*": "bels (millivolts)"
+			}
+		},
+		"instructions": "S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1405": {
+		"symbol": "dBmV",
+		"name": {
+			"en": {
+				"1": "decibel (millivolts)",
+				"*": "decibels (millivolts)"
+			}
+		},
+		"instructions": "D10S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1406": {
+		"symbol": "BV",
+		"name": {
+			"en": {
+				"1": "bel (volts)",
+				"*": "bels (volts)"
+			}
+		},
+		"instructions": "X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1407": {
+		"symbol": "dBV",
+		"name": {
+			"en": {
+				"1": "decibel (volts)",
+				"*": "decibels (volts)"
+			}
+		},
+		"instructions": "D10X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1408": {
+		"symbol": "Bu",
+		"name": {
+			"en": {
+				"1": "bel (unloaded)",
+				"*": "bels (unloaded)"
+			}
+		},
+		"instructions": "X10M0.7745966692414834",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1409": {
+		"symbol": "dBu",
+		"name": {
+			"en": {
+				"1": "decibel (unloaded)",
+				"*": "decibels (unloaded)"
+			}
+		},
+		"instructions": "D10X10M0.7745966692414834",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1410": {
+		"symbol": "B\u00B5V",
+		"name": {
+			"en": {
+				"1": "bel (microvolts squared)",
+				"*": "bels (microvolts squared)"
+			}
+		},
+		"instructions": "D2S6X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1411": {
+		"symbol": "dB\u00B5V",
+		"name": {
+			"en": {
+				"1": "decibel (microvolts squared)",
+				"*": "decibels (microvolts squared)"
+			}
+		},
+		"instructions": "D20S6X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1412": {
+		"symbol": "BmV",
+		"name": {
+			"en": {
+				"1": "bel (millivolts squared)",
+				"*": "bels (millivolts squared)"
+			}
+		},
+		"instructions": "D2S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1413": {
+		"symbol": "dBmV",
+		"name": {
+			"en": {
+				"1": "decibel (millivolts squared)",
+				"*": "decibels (millivolts squared)"
+			}
+		},
+		"instructions": "D20S3X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1414": {
+		"symbol": "BV",
+		"name": {
+			"en": {
+				"1": "bel (volts squared)",
+				"*": "bels (volts squared)"
+			}
+		},
+		"instructions": "D2X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1415": {
+		"symbol": "dBV",
+		"name": {
+			"en": {
+				"1": "decibel (volts squared)",
+				"*": "decibels (volts squared)"
+			}
+		},
+		"instructions": "D20X10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1416": {
+		"symbol": "Bu",
+		"name": {
+			"en": {
+				"1": "bel (unloaded squared)",
+				"*": "bels (unloaded squared)"
+			}
+		},
+		"instructions": "D2X10M0.7745966692414834",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"u1417": {
+		"symbol": "dBu",
+		"name": {
+			"en": {
+				"1": "decibel (unloaded squared)",
+				"*": "decibels (unloaded squared)"
+			}
+		},
+		"instructions": "D20X10M0.7745966692414834",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	}
+}

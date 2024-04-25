@@ -1,0 +1,75 @@
+{
+	"u1300": {
+		"symbol": "m",
+		"name": {
+			"en": {
+				"1": "meter (wavelength)",
+				"*": "meters (wavelength)"
+			}
+		},
+		"instructions": "G299792458",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1301": {
+		"symbol": "\u00C5",
+		"name": {
+			"en": {
+				"1": "angstrom (wavelength)",
+				"*": "angstroms (wavelength)"
+			}
+		},
+		"instructions": "G2997924580000000000",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1302": {
+		"name": {
+			"en": {
+				"1": "octave above C\u2080",
+				"*": "octaves above C\u2080"
+			}
+		},
+		"instructions": "S0.75X2M27.5",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1303": {
+		"name": {
+			"en": {
+				"1": "semitone above C\u2080",
+				"*": "semitones above C\u2080"
+			}
+		},
+		"instructions": "S9D12X2M27.5",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1304": {
+		"name": {
+			"en": {
+				"1": "cent above C\u2080",
+				"*": "cents above C\u2080"
+			}
+		},
+		"instructions": "S900D1200X2M27.5",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1305": {
+		"name": {
+			"en": {
+				"*": "dollar value (MIDI)"
+			}
+		},
+		"instructions": "S69D12X2M440",
+		"dimension": {
+			"time": -1
+		}
+	}
+}

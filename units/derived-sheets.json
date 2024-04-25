@@ -1,0 +1,86 @@
+{
+	"u1700": {
+		"name": {
+			"en": {
+				"1": "short quire",
+				"*": "short quires"
+			}
+		},
+		"multiplier": 24,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1701": {
+		"name": {
+			"en": {
+				"1": "quire",
+				"*": "quires"
+			}
+		},
+		"multiplier": 25,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1702": {
+		"name": {
+			"en": {
+				"1": "short ream",
+				"*": "short reams"
+			}
+		},
+		"multiplier": 480,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1703": {
+		"name": {
+			"en": {
+				"1": "ream",
+				"*": "reams"
+			}
+		},
+		"multiplier": 500,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1704": {
+		"name": {
+			"en": {
+				"1": "long ream",
+				"*": "long reams"
+			}
+		},
+		"multiplier": 516,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1705": {
+		"name": {
+			"en": {
+				"1": "bundle",
+				"*": "bundles"
+			}
+		},
+		"multiplier": 1032,
+		"dimension": {
+			"sheets": 1
+		}
+	},
+	"u1706": {
+		"name": {
+			"en": {
+				"1": "bale",
+				"*": "bales"
+			}
+		},
+		"multiplier": 5160,
+		"dimension": {
+			"sheets": 1
+		}
+	}
+}

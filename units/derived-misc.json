@@ -1,0 +1,236 @@
+{
+	"u1900": {
+		"name": {
+			"en": {
+				"1": "particle",
+				"*": "particles"
+			}
+		},
+		"divisor": "6.02214076E23",
+		"dimension": {
+			"substance": 1
+		}
+	},
+	"u1901": {
+		"symbol": "P",
+		"name": {
+			"en": {
+				"*": "poise"
+			}
+		},
+		"divisor": 10,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"u1902": {
+		"symbol": "B SIL",
+		"name": {
+			"en": {
+				"1": "bel (sound intensity level)",
+				"*": "bels (sound intensity level)"
+			}
+		},
+		"instructions": "S12X10",
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1903": {
+		"symbol": "dB SIL",
+		"name": {
+			"en": {
+				"1": "decibel (sound intensity level)",
+				"*": "decibels (sound intensity level)"
+			}
+		},
+		"instructions": "D10S12X10",
+		"dimension": {
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1904": {
+		"name": {
+			"en": {
+				"1": "stilb",
+				"*": "stilbs"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1905": {
+		"symbol": "L",
+		"name": {
+			"en": {
+				"1": "lambert",
+				"*": "lamberts"
+			}
+		},
+		"instructions": "M10000Q1",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1906": {
+		"symbol": "fL",
+		"name": {
+			"en": {
+				"1": "footlambert",
+				"*": "footlamberts"
+			}
+		},
+		"instructions": "D0.09290304Q1",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1907": {
+		"symbol": "phot",
+		"name": {
+			"en": {
+				"*": "phot"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1908": {
+		"symbol": "cm-c",
+		"name": {
+			"en": {
+				"1": "centimeter-candle",
+				"*": "centimeter-candles"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1909": {
+		"symbol": "mc",
+		"name": {
+			"en": {
+				"1": "meter-candle",
+				"*": "meter-candles"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1910": {
+		"symbol": "in-c",
+		"name": {
+			"en": {
+				"1": "inch-candle",
+				"*": "inch-candles"
+			}
+		},
+		"divisor": "6.4516E-4",
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1911": {
+		"symbol": "fc",
+		"name": {
+			"en": {
+				"1": "foot-candle",
+				"*": "foot-candles"
+			}
+		},
+		"divisor": "0.09290304",
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1912": {
+		"symbol": "Ci",
+		"name": {
+			"en": {
+				"1": "curie",
+				"*": "curies"
+			}
+		},
+		"multiplier": "3.7E10",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1913": {
+		"symbol": "rad",
+		"name": {
+			"en": {
+				"1": "rad",
+				"*": "rads"
+			}
+		},
+		"divisor": 100,
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"u1914": {
+		"symbol": "rem",
+		"name": {
+			"en": {
+				"1": "rem",
+				"*": "rems"
+			}
+		},
+		"divisor": 100,
+		"dimension": {
+			"length": 2,
+			"time": -2
+		}
+	},
+	"u1915": {
+		"symbol": "gumol",
+		"name": {
+			"en": {
+				"1": "guacamole",
+				"*": "guacamoles"
+			}
+		},
+		"dimension": {
+			"guaca": 1
+		}
+	},
+	"u1916": {
+		"symbol": "mHel",
+		"name": {
+			"en": {
+				"1": "ship launched",
+				"*": "ships launched"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"beauty": 1
+		}
+	}
+}
