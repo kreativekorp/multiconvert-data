@@ -1,0 +1,44 @@
+{
+	"z0": {
+		"name": {
+			"en": "color"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){",
+			"return(!(a.toLowerCase&&(a=a.toLowerCase())))?NaN:",
+			"(a==='dc')?0:(a==='geomagnetic')?((0+3E0)/2):(a==='elf radio')?((3E0+3E1)/2):",
+			"(a==='slf radio')?((3E1+3E2)/2):(a==='ulf radio')?((3E2+3E3)/2):",
+			"(a==='vlf radio')?((3E3+3E4)/2):(a==='lf radio')?((3E4+3E5)/2):",
+			"(a==='mf radio')?((3E5+3E6)/2):(a==='hf radio')?((3E6+3E7)/2):",
+			"(a==='vhf radio')?((3E7+3E8)/2):(a==='uhf radio')?((3E8+3E9)/2):",
+			"(a==='shf microwave')?((3E9+3E10)/2):(a==='ehf microwave')?((3E10+3E11)/2):",
+			"(a==='thf terahertz')?((3E11+3E12)/2):(a==='far-infrared')?((3E12+30E12)/2):",
+			"(a==='mid-infrared')?((30E12+120E12)/2):(a==='near-infrared')?((120E12+400E12)/2):",
+			"(a==='red')?((400E12+480E12)/2):(a==='orange')?((480E12+510E12)/2):",
+			"(a==='yellow')?((510E12+530E12)/2):(a==='green')?((530E12+600E12)/2):",
+			"(a==='cyan')?((600E12+620E12)/2):(a==='blue')?((620E12+680E12)/2):",
+			"(a==='violet')?((680E12+790E12)/2):(a==='near-uv')?((790E12+1.5E15)/2):",
+			"(a==='far-uv')?((1.5E15+3E16)/2):(a==='extreme-uv/soft x-ray')?((3E16+3E17)/2):",
+			"(a==='hard x-ray')?((3E17+3E19)/2):(a==='gamma ray')?((3E19+3E21)/2):NaN;",
+			"}"
+		],
+		"formatter": [
+			"function(a){",
+			"return(!isFinite(a=Math.abs(a)))?'':(!a)?'DC':(a<3E0)?'Geomagnetic':",
+			"(a<3E1)?'ELF Radio':(a<3E2)?'SLF Radio':(a<3E3)?'ULF Radio':",
+			"(a<3E4)?'VLF Radio':(a<3E5)?'LF Radio':(a<3E6)?'MF Radio':",
+			"(a<3E7)?'HF Radio':(a<3E8)?'VHF Radio':(a<3E9)?'UHF Radio':",
+			"(a<3E10)?'SHF Microwave':(a<3E11)?'EHF Microwave':(a<3E12)?'THF Terahertz':",
+			"(a<30E12)?'Far-Infrared':(a<120E12)?'Mid-Infrared':(a<400E12)?'Near-Infrared':",
+			"(a<480E12)?'Red':(a<510E12)?'Orange':(a<530E12)?'Yellow':(a<600E12)?'Green':",
+			"(a<620E12)?'Cyan':(a<680E12)?'Blue':(a<790E12)?'Violet':",
+			"(a<1.5E15)?'Near-UV':(a<3E16)?'Far-UV':(a<3E17)?'Extreme-UV/Soft X-Ray':",
+			"(a<3E19)?'Hard X-Ray':'Gamma Ray';",
+			"}"
+		],
+		"dimension": {
+			"time": -1
+		}
+	}
+}

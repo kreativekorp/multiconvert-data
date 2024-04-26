@@ -1,0 +1,98 @@
+{
+	"k2": {
+		"name": {
+			"en": "inductor color code"
+		},
+		"datatype": "cc",
+		"cc-map": [
+			{
+				"0": {"color": "#000000", "name": {"en": "Black"}},
+				"1": {"color": "#663300", "name": {"en": "Brown"}},
+				"2": {"color": "#FF0000", "name": {"en": "Red"}},
+				"3": {"color": "#FF8000", "name": {"en": "Orange"}},
+				"4": {"color": "#FFFF00", "name": {"en": "Yellow"}},
+				"5": {"color": "#00CC00", "name": {"en": "Green"}},
+				"6": {"color": "#0000FF", "name": {"en": "Blue"}},
+				"7": {"color": "#8000FF", "name": {"en": "Violet"}},
+				"8": {"color": "#808080", "name": {"en": "Gray"}},
+				"9": {"color": "#FFFFFF", "name": {"en": "White"}}
+			},
+			{
+				"0": {"color": "#000000", "name": {"en": "Black"}},
+				"1": {"color": "#663300", "name": {"en": "Brown"}},
+				"2": {"color": "#FF0000", "name": {"en": "Red"}},
+				"3": {"color": "#FF8000", "name": {"en": "Orange"}},
+				"4": {"color": "#FFFF00", "name": {"en": "Yellow"}},
+				"5": {"color": "#00CC00", "name": {"en": "Green"}},
+				"6": {"color": "#0000FF", "name": {"en": "Blue"}},
+				"7": {"color": "#8000FF", "name": {"en": "Violet"}},
+				"8": {"color": "#808080", "name": {"en": "Gray"}},
+				"9": {"color": "#FFFFFF", "name": {"en": "White"}}
+			},
+			{
+				"-2": {"color": "#CCCCCC", "name": {"en": "Silver"}},
+				"-1": {"color": "#CC9933", "name": {"en": "Gold"}},
+				"0": {"color": "#000000", "name": {"en": "Black"}},
+				"1": {"color": "#663300", "name": {"en": "Brown"}},
+				"2": {"color": "#FF0000", "name": {"en": "Red"}},
+				"3": {"color": "#FF8000", "name": {"en": "Orange"}},
+				"4": {"color": "#FFFF00", "name": {"en": "Yellow"}},
+				"5": {"color": "#00CC00", "name": {"en": "Green"}},
+				"6": {"color": "#0000FF", "name": {"en": "Blue"}},
+				"7": {"color": "#8000FF", "name": {"en": "Violet"}},
+				"8": {"color": "#808080", "name": {"en": "Gray"}},
+				"9": {"color": "#FFFFFF", "name": {"en": "White"}}
+			}
+		],
+		"parser": [
+			"function(a){",
+			"return(a&&typeof(a)==='object'&&a.length===3)?",
+			"((a[0]*10+a[1]*1)*Math.pow(10,a[2]-6)):NaN",
+			"}"
+		],
+		"formatter": [
+			"function(a){",
+			"if(isNaN(a=Math.abs(a)*1E8)||a<0.5||a>=995E10)return null;",
+			"if(a<99.5){a=Math.round(a);return[Math.floor(a/10),a%10,-2];}",
+			"var ev=(''+Math.round(a)).length-4;a=Math.round(a/Math.pow(10,ev+2));",
+			"return(a<10)?[9,9,ev-1]:(a>99)?[1,0,ev+1]:[Math.floor(a/10),a%10,ev];",
+			"}"
+		],
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"k5": {
+		"name": {
+			"en": "inductor EIA code"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){",
+			"return(!(a.toUpperCase&&(a=a.toUpperCase())&&a.length===3))?NaN:",
+			"(a[0]==='L')?((a[1]*10+a[2]*1)/1E8):",
+			"(a[1]==='L')?((a[0]*10+a[2]*1)/1E7):",
+			"(a[2]==='L')?((a[0]*10+a[1]*1)/1E6):",
+			"((a[0]*10+a[1]*1)*Math.pow(10,a[2]-6))",
+			"}"
+		],
+		"formatter": [
+			"function(a){",
+			"if(isNaN(a=Math.abs(a)*1E8)||a<0.5||a>=995E10)return null;",
+			"if(a<99.5){a=Math.round(a);return('L'+Math.floor(a/10)+a%10);}",
+			"var ev=(''+Math.round(a)).length-4;a=Math.round(a/Math.pow(10,ev+2));",
+			"if(ev<0)return(a<10)?'L99':(a>99)?'100':(Math.floor(a/10)+'L'+a%10);",
+			"return((a<10)?[9,9,ev-1]:(a>99)?[1,0,ev+1]:[Math.floor(a/10),a%10,ev]).join('');",
+			"}"
+		],
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	}
+}

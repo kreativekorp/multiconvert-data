@@ -1,0 +1,146 @@
+{
+	"n200": {
+		"symbol": "mm",
+		"name": {
+			"en": {
+				"*": "mondopoint"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n201": {
+		"name": {
+			"en": {
+				"*": "UK adult\u2019s shoe size"
+			}
+		},
+		"instructions": "A25D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n202": {
+		"name": {
+			"en": {
+				"*": "UK children\u2019s shoe size"
+			}
+		},
+		"instructions": "A12D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n203": {
+		"name": {
+			"en": {
+				"*": "US men\u2019s shoe size"
+			}
+		},
+		"instructions": "A24D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n204": {
+		"name": {
+			"en": {
+				"*": "US women\u2019s shoe size"
+			}
+		},
+		"instructions": "A22.5D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n205": {
+		"name": {
+			"en": {
+				"*": "FIA women\u2019s shoe size"
+			}
+		},
+		"instructions": "A23D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n206": {
+		"name": {
+			"en": {
+				"*": "US children\u2019s shoe size"
+			}
+		},
+		"instructions": "M3A35D9S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n207": {
+		"name": {
+			"en": {
+				"*": "Brannock men\u2019s shoe size"
+			}
+		},
+		"instructions": "A22D3M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n208": {
+		"name": {
+			"en": {
+				"*": "Brannock women\u2019s shoe size"
+			}
+		},
+		"instructions": "A21D3M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n209": {
+		"name": {
+			"en": {
+				"*": "Australia men\u2019s shoe size"
+			}
+		},
+		"instructions": "A22.5D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n210": {
+		"name": {
+			"en": {
+				"*": "Australia women\u2019s shoe size"
+			}
+		},
+		"instructions": "A20.5D3S1M25.4D1000",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n211": {
+		"name": {
+			"en": {
+				"*": "Europe shoe size"
+			}
+		},
+		"instructions": "D1.5S2D100",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"n212": {
+		"name": {
+			"en": {
+				"*": "Asia shoe size"
+			}
+		},
+		"divisor": 100,
+		"dimension": {
+			"length": 1
+		}
+	}
+}

@@ -1,0 +1,134 @@
+{
+	"d0": {
+		"symbol": "M",
+		"name": {
+			"en": {
+				"*": "Mach number"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "air temperature"
+		},
+		"dep-dimension": {
+			"temperature": 1
+		},
+		"parser": "function(a,b){return a*Math.sqrt(b/273.15)*331.3}",
+		"formatter": "function(a,b){return a/Math.sqrt(b/273.15)/331.3}",
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"d1": {
+		"symbol": "in",
+		"name": {
+			"en": {
+				"1": "inch",
+				"*": "inches"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "image resolution"
+		},
+		"dep-dimension": {
+			"length": -1,
+			"pixels": 1
+		},
+		"parser": "function(a,b){return a*0.0254*b}",
+		"formatter": "function(a,b){return a/b/0.0254}",
+		"dimension": {
+			"pixels": 1
+		}
+	},
+	"d2": {
+		"symbol": "in\u00B2",
+		"name": {
+			"en": {
+				"1": "square inch",
+				"*": "square inches"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "image resolution"
+		},
+		"dep-dimension": {
+			"length": -1,
+			"pixels": 1
+		},
+		"parser": "function(a,b){return a*0.0254*0.0254*b*b}",
+		"formatter": "function(a,b){return a/b/b/0.0254/0.0254}",
+		"dimension": {
+			"pixels": 2
+		}
+	},
+	"d3": {
+		"symbol": "in\u00B3",
+		"name": {
+			"en": {
+				"1": "cubic inch",
+				"*": "cubic inches"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "image resolution"
+		},
+		"dep-dimension": {
+			"length": -1,
+			"pixels": 1
+		},
+		"parser": "function(a,b){return a*0.0254*0.0254*0.0254*b*b*b}",
+		"formatter": "function(a,b){return a/b/b/b/0.0254/0.0254/0.0254}",
+		"dimension": {
+			"pixels": 3
+		}
+	},
+	"d4": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second",
+				"*": "seconds"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "modem speed"
+		},
+		"dep-dimension": {
+			"time": -1,
+			"data": 1
+		},
+		"parser": "function(a,b){return a*b}",
+		"formatter": "function(a,b){return a/b}",
+		"dimension": {
+			"time": -1,
+			"data": 1
+		}
+	},
+	"d5": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second",
+				"*": "seconds"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "modem speed"
+		},
+		"dep-dimension": {
+			"time": -1,
+			"data": 1
+		},
+		"parser": "function(a,b){return a*b}",
+		"formatter": "function(a,b){return a/b}",
+		"dimension": {
+			"data": 1
+		}
+	}
+}

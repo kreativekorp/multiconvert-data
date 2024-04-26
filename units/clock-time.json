@@ -1,0 +1,27 @@
+{
+	"n1000": {
+		"symbol": "BMT",
+		"name": {
+			"en": {
+				"*": "Biel Mean Time"
+			}
+		},
+		"parser": "function(a){return((a*1.440)-60)*60}",
+		"formatter": "function(a){var b=((a/60)+60)/1.440;return b-1000*Math.floor(b/1000)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"n1001": {
+		"name": {
+			"en": {
+				"*": "Swatch Internet Time"
+			}
+		},
+		"parser": "function(a){return((a*1.440)-60)*60}",
+		"formatter": "function(a){var b=((a/60)+60)/1.440;return b-1000*Math.floor(b/1000)}",
+		"dimension": {
+			"time": 1
+		}
+	}
+}

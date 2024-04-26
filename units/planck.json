@@ -1,0 +1,224 @@
+{
+	"p0": {
+		"symbol": "L",
+		"name": {
+			"en": {
+				"*": "Planck length"
+			}
+		},
+		"multiplier": "1.616252E-35",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"p1": {
+		"symbol": "M",
+		"name": {
+			"en": {
+				"*": "Planck mass"
+			}
+		},
+		"multiplier": "2.17644E-8",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"p2": {
+		"symbol": "T",
+		"name": {
+			"en": {
+				"*": "Planck time"
+			}
+		},
+		"multiplier": "5.39124E-44",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"p3": {
+		"symbol": "Q",
+		"name": {
+			"en": {
+				"*": "Planck charge"
+			}
+		},
+		"multiplier": "1.87554587E-18",
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"p4": {
+		"symbol": "\u0398",
+		"name": {
+			"en": {
+				"*": "Planck temperature"
+			}
+		},
+		"multiplier": "1.416785E32",
+		"dimension": {
+			"temperature": 1
+		}
+	},
+	"p5": {
+		"symbol": "L\u00B2",
+		"name": {
+			"en": {
+				"*": "Planck area"
+			}
+		},
+		"multiplier": "2.61223E-70",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"p6": {
+		"symbol": "L\u00B3",
+		"name": {
+			"en": {
+				"*": "Planck volume"
+			}
+		},
+		"multiplier": "4.22419E-105",
+		"dimension": {
+			"length": 3
+		}
+	},
+	"p7": {
+		"symbol": "LMT\u207B\u00B9",
+		"name": {
+			"en": {
+				"*": "Planck momentum"
+			}
+		},
+		"multiplier": "6.52485",
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"p8": {
+		"symbol": "L\u00B2MT\u207B\u00B2",
+		"name": {
+			"en": {
+				"*": "Planck energy"
+			}
+		},
+		"multiplier": "1.9561E9",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"p9": {
+		"symbol": "LMT\u207B\u00B2",
+		"name": {
+			"en": {
+				"*": "Planck force"
+			}
+		},
+		"multiplier": "1.21027E44",
+		"dimension": {
+			"length": 1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"p10": {
+		"symbol": "L\u00B2MT\u207B\u00B3",
+		"name": {
+			"en": {
+				"*": "Planck power"
+			}
+		},
+		"multiplier": "3.62831E52",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"p11": {
+		"symbol": "L\u207B\u00B3M",
+		"name": {
+			"en": {
+				"*": "Planck density"
+			}
+		},
+		"multiplier": "5.155E96",
+		"dimension": {
+			"length": -3,
+			"mass": 1
+		}
+	},
+	"p12": {
+		"symbol": "T\u207B\u00B9",
+		"name": {
+			"en": {
+				"*": "Planck frequency"
+			}
+		},
+		"multiplier": "1.85487E43",
+		"dimension": {
+			"time": -1
+		}
+	},
+	"p13": {
+		"symbol": "L\u207B\u00B9MT\u207B\u00B2",
+		"name": {
+			"en": {
+				"*": "Planck pressure"
+			}
+		},
+		"multiplier": "4.63309E113",
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"p14": {
+		"symbol": "QT\u207B\u00B9",
+		"name": {
+			"en": {
+				"*": "Planck current"
+			}
+		},
+		"multiplier": "3.4789E25",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"p15": {
+		"symbol": "L\u00B2MT\u207B\u00B2Q\u207B\u00B9",
+		"name": {
+			"en": {
+				"*": "Planck voltage"
+			}
+		},
+		"multiplier": "1.04295E27",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -1
+		}
+	},
+	"p16": {
+		"symbol": "L\u00B2MT\u207B\u00B9Q\u207B\u00B2",
+		"name": {
+			"en": {
+				"*": "Planck impedance"
+			}
+		},
+		"multiplier": "29.9792458",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	}
+}

@@ -1,0 +1,140 @@
+[
+	{
+		"name": "Mach number at 0°C",
+		"base": 331.3,
+		"d0": 1,
+		"dep-inputs": {
+			"d0": 273.15
+		}
+	},
+	{
+		"name": "Mach number at 100°C",
+		"base": 387.22425817049134,
+		"d0": 1,
+		"dep-inputs": {
+			"d0": 373.15
+		}
+	},
+	{
+		"name": "inches at 72dpi",
+		"u55": 72,
+		"d1": 1,
+		"dep-inputs": {
+			"d1": 2834.6456692913386
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "inches at 96dpi",
+		"u55": 96,
+		"d1": 1,
+		"dep-inputs": {
+			"d1": 3779.52755905511811
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "square inches at 72dpi",
+		"u56": 5184,
+		"d2": 1,
+		"dep-inputs": {
+			"d2": 2834.6456692913386
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "square inches at 96dpi",
+		"u56": 9216,
+		"d2": 1,
+		"dep-inputs": {
+			"d2": 3779.52755905511811
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "cubic inches at 72dpi",
+		"u57": 373248,
+		"d3": 1,
+		"dep-inputs": {
+			"d3": 2834.6456692913386
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "cubic inches at 96dpi",
+		"u57": 884736,
+		"d3": 1,
+		"dep-inputs": {
+			"d3": 3779.52755905511811
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "1 second at 1200bps",
+		"base": 1200,
+		"d4": 1,
+		"dep-inputs": {
+			"d4": 1200
+		}
+	},
+	{
+		"name": "1 second at 9600bps",
+		"base": 9600,
+		"d4": 1,
+		"dep-inputs": {
+			"d4": 9600
+		}
+	},
+	{
+		"name": "2 seconds at 1200bps",
+		"base": 2400,
+		"d4": 2,
+		"dep-inputs": {
+			"d4": 1200
+		}
+	},
+	{
+		"name": "2 seconds at 9600bps",
+		"base": 19200,
+		"d4": 2,
+		"dep-inputs": {
+			"d4": 9600
+		}
+	},
+	{
+		"name": "1 second at 1200bps",
+		"u51": 1200,
+		"u1602": 150,
+		"d5": 1,
+		"dep-inputs": {
+			"d5": 1200
+		}
+	},
+	{
+		"name": "1 second at 9600bps",
+		"u51": 9600,
+		"u1602": 1200,
+		"d5": 1,
+		"dep-inputs": {
+			"d5": 9600
+		}
+	},
+	{
+		"name": "2 seconds at 1200bps",
+		"u51": 2400,
+		"u1602": 300,
+		"d5": 2,
+		"dep-inputs": {
+			"d5": 1200
+		}
+	},
+	{
+		"name": "2 seconds at 9600bps",
+		"u51": 19200,
+		"u1602": 2400,
+		"d5": 2,
+		"dep-inputs": {
+			"d5": 9600
+		}
+	}
+]

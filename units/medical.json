@@ -1,0 +1,3477 @@
+{
+	"m0": {
+		"symbol": "U/L",
+		"name": {
+			"en": {
+				"1": "unit per liter",
+				"*": "units per liter"
+			}
+		},
+		"divisor": 60000,
+		"dimension": {
+			"length": -3,
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m1": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d 17-ketosteroids"
+			}
+		},
+		"multiplier": "3.33",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m2": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d 5-hydroxyindoleacetic acid (5-HIAA)"
+			}
+		},
+		"multiplier": "5.23",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m3": {
+		"symbol": "\u00B5g/d",
+		"name": {
+			"en": {
+				"*": "\u00B5g/d coproporphyrin"
+			}
+		},
+		"multiplier": "1.527",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m4": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d homovanillic acid"
+			}
+		},
+		"multiplier": "5.489",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m5": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d metanephrine (total)"
+			}
+		},
+		"multiplier": "5.07",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m6": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d niacin (nicotinic acid)"
+			}
+		},
+		"multiplier": "7.3",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m7": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d pregnanediol"
+			}
+		},
+		"multiplier": "3.12",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m8": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d pregnanetriol"
+			}
+		},
+		"multiplier": "2.972",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m9": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d urobilinogen"
+			}
+		},
+		"multiplier": "1.7",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m10": {
+		"symbol": "mg/d",
+		"name": {
+			"en": {
+				"*": "mg/d vanillylmandelic acid (VMA)"
+			}
+		},
+		"multiplier": "5.046",
+		"divisor": "8.64E10",
+		"dimension": {
+			"time": -1,
+			"substance": 1
+		}
+	},
+	"m11": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL acetaminophen"
+			}
+		},
+		"multiplier": "0.006614",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m12": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL acetoacetate"
+			}
+		},
+		"multiplier": "0.09795",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m13": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL acetone"
+			}
+		},
+		"multiplier": "0.172",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m14": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL adrenocorticotropic hormone (ACTH)"
+			}
+		},
+		"multiplier": "2.2E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m15": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL alanine"
+			}
+		},
+		"multiplier": "0.1122",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m16": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL aldosterone"
+			}
+		},
+		"multiplier": "2.774E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m17": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL alprazolam"
+			}
+		},
+		"multiplier": "3.24E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m18": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL amikacin"
+			}
+		},
+		"multiplier": "0.001708",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m19": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL amiodarone"
+			}
+		},
+		"multiplier": "0.00155",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m20": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL amitriptyline"
+			}
+		},
+		"multiplier": "3.605E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m21": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL ammonia (as nitrogen)"
+			}
+		},
+		"multiplier": "7.14E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m22": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL amobarbital"
+			}
+		},
+		"multiplier": "0.00442",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m23": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL amphetamine"
+			}
+		},
+		"multiplier": "7.4E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m24": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL androstenedione"
+			}
+		},
+		"multiplier": "3.49E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m25": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL Angiotensin I"
+			}
+		},
+		"multiplier": "7.72E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m26": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL Angiotensin II"
+			}
+		},
+		"multiplier": "9.57E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m27": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L anion gap Na\u207A-(Cl\u207B+HCO\u2083\u207B)"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m28": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL antidiuretic hormone (ADH)"
+			}
+		},
+		"multiplier": "9.23E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m29": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL arginine"
+			}
+		},
+		"multiplier": "0.05705",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m30": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L arsenic"
+			}
+		},
+		"multiplier": "1.33E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m31": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL asparagine"
+			}
+		},
+		"multiplier": "0.075689",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m32": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL aspartic acid"
+			}
+		},
+		"multiplier": "0.07513",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m33": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL atrial natriuretic hormone"
+			}
+		},
+		"multiplier": "3.25E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m34": {
+		"symbol": "mEg/L",
+		"name": {
+			"en": {
+				"*": "mEg/L base excess"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m35": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L bicarbonate"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m36": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL bile acids (total)"
+			}
+		},
+		"multiplier": "0.002448",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m37": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL bilirubin, direct (conjugated)"
+			}
+		},
+		"multiplier": "0.017104",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m38": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL bilirubin, total"
+			}
+		},
+		"multiplier": "0.017104",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m39": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL biotin"
+			}
+		},
+		"multiplier": "4.09E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m40": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L bismuth"
+			}
+		},
+		"multiplier": "4.785E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m41": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL borderline high"
+			}
+		},
+		"multiplier": "0.0259",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m42": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL bromide (toxic)"
+			}
+		},
+		"divisor": 80,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m43": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL C-peptide"
+			}
+		},
+		"multiplier": "3.31E-7",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m44": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L C-reactive protein"
+			}
+		},
+		"multiplier": "9.524E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m45": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L cadmium"
+			}
+		},
+		"multiplier": "8.896E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m46": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L caffeine"
+			}
+		},
+		"multiplier": "5.15E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m47": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL calcitonin"
+			}
+		},
+		"multiplier": "2.92E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m48": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL calcium, ionized"
+			}
+		},
+		"divisor": 4,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m49": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL calcium, total"
+			}
+		},
+		"divisor": 4,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m50": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL carbamazepine"
+			}
+		},
+		"multiplier": "0.004233",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m51": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L carbon dioxide (total)"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m52": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL carotenoids"
+			}
+		},
+		"multiplier": "1.863E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m53": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL chloramphenicol"
+			}
+		},
+		"multiplier": "0.003095",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m54": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL chlordiazepoxide"
+			}
+		},
+		"multiplier": "0.003336",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m55": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L chloride"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m56": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL chlorpromazine"
+			}
+		},
+		"multiplier": "3.126E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m57": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L chlorpropamide"
+			}
+		},
+		"multiplier": "0.00361",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m58": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL cholesterol, high-density (HDL) (low level)"
+			}
+		},
+		"multiplier": "0.0259",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m59": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL cholesterol, low-density (LDL) (high level)"
+			}
+		},
+		"multiplier": "0.0259",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m60": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L cholinesterase"
+			}
+		},
+		"multiplier": "2.793E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m61": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L chromium"
+			}
+		},
+		"multiplier": "1.9232E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m62": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL citrate"
+			}
+		},
+		"multiplier": "0.05205",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m63": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL citrulline"
+			}
+		},
+		"multiplier": "0.057081",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m64": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL clonazepam"
+			}
+		},
+		"multiplier": "3.17E-7",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m65": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL clonidine"
+			}
+		},
+		"multiplier": "4.35E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m66": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL clozapine"
+			}
+		},
+		"multiplier": "3E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m67": {
+		"symbol": "g/dL",
+		"name": {
+			"en": {
+				"*": "g/dL coagulation factor I"
+			}
+		},
+		"multiplier": "0.02941",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m68": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L cobalt"
+			}
+		},
+		"multiplier": "1.6968E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m69": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL cocaine (toxic)"
+			}
+		},
+		"multiplier": "3.297E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m70": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL codeine"
+			}
+		},
+		"multiplier": "3.34E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m71": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL copper"
+			}
+		},
+		"multiplier": "1.57E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m72": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL corticotropin"
+			}
+		},
+		"multiplier": "2.2E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m73": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL cortisol"
+			}
+		},
+		"multiplier": "2.7588E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m74": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L cotinine"
+			}
+		},
+		"multiplier": "5.675E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m75": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL creatine"
+			}
+		},
+		"multiplier": "0.07625",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m76": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL creatinine"
+			}
+		},
+		"multiplier": "0.0884",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m77": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL cyanide (toxic)"
+			}
+		},
+		"multiplier": "0.02324",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m78": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL cyclic adenosine monophosphate (cAMP)"
+			}
+		},
+		"multiplier": "0.00304",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m79": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL cyclosporine"
+			}
+		},
+		"multiplier": "8.32E-7",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m80": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL cystine"
+			}
+		},
+		"multiplier": "0.041615",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m81": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL D-dimer"
+			}
+		},
+		"multiplier": "5.476E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m82": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL dehydroepiandrosterone (DHEA)"
+			}
+		},
+		"multiplier": "3.47E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m83": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL dehydroepiandrosterone sulfate (DHEA-S)"
+			}
+		},
+		"multiplier": "2.7E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m84": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL deoxycorticosterone"
+			}
+		},
+		"multiplier": "3.05E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m85": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL desipramine"
+			}
+		},
+		"multiplier": "3.754E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m86": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL desirable"
+			}
+		},
+		"multiplier": "0.0259",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m87": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL diazepam"
+			}
+		},
+		"multiplier": "3.5E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m88": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL digoxin"
+			}
+		},
+		"multiplier": "1.281E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m89": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L diltiazem"
+			}
+		},
+		"multiplier": "0.002412",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m90": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL disopyramide"
+			}
+		},
+		"multiplier": "0.002946",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m91": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL dopamine"
+			}
+		},
+		"multiplier": "6.528E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m92": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL doxepin"
+			}
+		},
+		"multiplier": "3.579E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m93": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL ephedrine (toxic)"
+			}
+		},
+		"multiplier": "0.006052",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m94": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL epinephrine"
+			}
+		},
+		"multiplier": "5.459E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m95": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL estradiol (E\u2082)"
+			}
+		},
+		"multiplier": "3.671E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m96": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL estriol (E\u2083)"
+			}
+		},
+		"multiplier": "3.467E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m97": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL estrone (E\u2081)"
+			}
+		},
+		"multiplier": "3.698E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m98": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL ethanol (ethyl alcohol)"
+			}
+		},
+		"multiplier": "0.2171",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m99": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL ethchlorvynol (toxic)"
+			}
+		},
+		"multiplier": "0.006915",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m100": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L ethosuximide"
+			}
+		},
+		"multiplier": "0.007084",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m101": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL ethylene glycol (toxic)"
+			}
+		},
+		"multiplier": "0.1611",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m102": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL fatty acids (nonesterified)"
+			}
+		},
+		"multiplier": "0.0355",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m103": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL fenfluramine"
+			}
+		},
+		"multiplier": "0.004324",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m104": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL fentanyl"
+			}
+		},
+		"multiplier": "0.002972",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m105": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL ferritin"
+			}
+		},
+		"multiplier": "2.247E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m106": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL fibrinogen"
+			}
+		},
+		"multiplier": "2.94E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m107": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL flecanide"
+			}
+		},
+		"multiplier": "0.002413",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m108": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL fluoride"
+			}
+		},
+		"multiplier": "0.5263",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m109": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL fluoxetine"
+			}
+		},
+		"multiplier": "3.23E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m110": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL flurazepam (toxic)"
+			}
+		},
+		"divisor": 400,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m111": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL folate (folic acid)"
+			}
+		},
+		"multiplier": "2.266E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m112": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L fructosamine"
+			}
+		},
+		"multiplier": "5.581",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m113": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL fructose"
+			}
+		},
+		"multiplier": "0.055506",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m114": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL galactose"
+			}
+		},
+		"multiplier": "0.0555",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m115": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL gastrin"
+			}
+		},
+		"multiplier": "4.81E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m116": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL gentamicin"
+			}
+		},
+		"multiplier": "0.00209",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m117": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL glucose"
+			}
+		},
+		"multiplier": "0.0555",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m118": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL glutamic acid"
+			}
+		},
+		"multiplier": "0.067967",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m119": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL glutamine"
+			}
+		},
+		"multiplier": "0.068423",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m120": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL glutethimide"
+			}
+		},
+		"multiplier": "0.004603",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m121": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL glycerol (free)"
+			}
+		},
+		"multiplier": "0.1086",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m122": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL glycine"
+			}
+		},
+		"multiplier": "0.1332",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m123": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL gold"
+			}
+		},
+		"multiplier": "5.077E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m124": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL haloperidol"
+			}
+		},
+		"multiplier": "2.66E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m125": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL high"
+			}
+		},
+		"multiplier": "0.0259",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m126": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L histamine"
+			}
+		},
+		"multiplier": "8.997E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m127": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL histidine"
+			}
+		},
+		"multiplier": "0.06445",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m128": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L homocysteine"
+			}
+		},
+		"multiplier": "0.007397",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m129": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL hydrocodone"
+			}
+		},
+		"multiplier": "0.00334",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m130": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL hydromorphone"
+			}
+		},
+		"multiplier": "0.003504",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m131": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL hydroxyproline"
+			}
+		},
+		"multiplier": "0.076266",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m132": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL ibuprofen"
+			}
+		},
+		"multiplier": "0.004848",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m133": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL imipramine"
+			}
+		},
+		"multiplier": "3.566E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m134": {
+		"symbol": "\u00B5IU/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5IU/mL insulin"
+			}
+		},
+		"multiplier": "6.945E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m135": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL insulinlike growth factor"
+			}
+		},
+		"multiplier": "1.31E-7",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m136": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L iodine"
+			}
+		},
+		"multiplier": "7.88E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m137": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL iron"
+			}
+		},
+		"multiplier": "1.79E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m138": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL iron-binding capacity"
+			}
+		},
+		"multiplier": "1.79E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m139": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL isoleucine"
+			}
+		},
+		"multiplier": "0.076236",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m140": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL isoniazid"
+			}
+		},
+		"multiplier": "0.007291",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m141": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L isopropanol (toxic)"
+			}
+		},
+		"multiplier": "0.0166",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m142": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL kanamycin"
+			}
+		},
+		"multiplier": "0.00208",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m143": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL ketamine"
+			}
+		},
+		"multiplier": "0.004206",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m144": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL lactate"
+			}
+		},
+		"multiplier": "0.111",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m145": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL lead"
+			}
+		},
+		"multiplier": "4.83E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m146": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL leucine"
+			}
+		},
+		"multiplier": "0.076237",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m147": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL lidocaine"
+			}
+		},
+		"multiplier": "0.004267",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m148": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL lipoprotein(a) [Lp(a)]"
+			}
+		},
+		"multiplier": "3.57E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m149": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L lithium"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m150": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL lorazepam"
+			}
+		},
+		"multiplier": "3.114E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m151": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L lycopene"
+			}
+		},
+		"multiplier": "0.001863",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m152": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL lysergic acid diethylamide"
+			}
+		},
+		"multiplier": "0.003726",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m153": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL lysine"
+			}
+		},
+		"multiplier": "0.068404",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m154": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L magnesium"
+			}
+		},
+		"divisor": 2,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m155": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L manganese"
+			}
+		},
+		"multiplier": "1.8202E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m156": {
+		"symbol": "ng/L",
+		"name": {
+			"en": {
+				"*": "ng/L melatonin"
+			}
+		},
+		"multiplier": "4.305E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m157": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL meperidine"
+			}
+		},
+		"multiplier": "4.043E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m158": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L mercury"
+			}
+		},
+		"multiplier": "4.985E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m159": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL metformin"
+			}
+		},
+		"multiplier": "0.007742",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m160": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL methadone"
+			}
+		},
+		"multiplier": "3.23E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m161": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL methamphetamine"
+			}
+		},
+		"multiplier": "0.0067",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m162": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL methanol"
+			}
+		},
+		"multiplier": "0.0312",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m163": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL methaqualone"
+			}
+		},
+		"divisor": 250,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m164": {
+		"symbol": "g/dL",
+		"name": {
+			"en": {
+				"*": "g/dL methemoglobin"
+			}
+		},
+		"multiplier": "0.155",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m165": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L methicillin"
+			}
+		},
+		"multiplier": "0.002636",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m166": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL methionine"
+			}
+		},
+		"multiplier": "0.06702",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m167": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L methotrexate"
+			}
+		},
+		"multiplier": "0.0022",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m168": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL methyldopa"
+			}
+		},
+		"multiplier": "0.004735",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m169": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL metoprolol"
+			}
+		},
+		"multiplier": "3.74E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m170": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL morphine"
+			}
+		},
+		"multiplier": "3.504E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m171": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L myoglobin"
+			}
+		},
+		"multiplier": "5.71E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m172": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL naproxen"
+			}
+		},
+		"multiplier": "0.004343",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m173": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L nickel"
+			}
+		},
+		"multiplier": "1.7033E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m174": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L nicotine"
+			}
+		},
+		"multiplier": "0.006164",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m175": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL nitrogen (nonprotein)"
+			}
+		},
+		"multiplier": "0.714",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m176": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL nitroprusside (as thiocyanate)"
+			}
+		},
+		"multiplier": "0.0172",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m177": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL norepinephrine"
+			}
+		},
+		"multiplier": "5.911E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m178": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL nortriptyline"
+			}
+		},
+		"multiplier": "3.797E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m179": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL ornithine"
+			}
+		},
+		"multiplier": "0.075666",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m180": {
+		"symbol": "mg/mL",
+		"name": {
+			"en": {
+				"*": "mg/mL oxalate"
+			}
+		},
+		"multiplier": "0.011107",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m181": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL oxazepam"
+			}
+		},
+		"multiplier": "0.003487",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m182": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL oxycodone"
+			}
+		},
+		"multiplier": "3.171E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m183": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL paraquat"
+			}
+		},
+		"multiplier": "0.005369",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m184": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL pentobarbital"
+			}
+		},
+		"multiplier": "0.004439",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m185": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL phencyclidine (toxic)"
+			}
+		},
+		"multiplier": "4.109E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m186": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL phenobarbital"
+			}
+		},
+		"multiplier": "0.00431",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m187": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL phenylalanine"
+			}
+		},
+		"multiplier": "0.060544",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m188": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL phenylpropanolamine"
+			}
+		},
+		"multiplier": "0.006613",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m189": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L phenytoin"
+			}
+		},
+		"multiplier": "0.003968",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m190": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL phosphorus (inorganic)"
+			}
+		},
+		"multiplier": "0.323",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m191": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL placental lactogen"
+			}
+		},
+		"multiplier": "4.6296E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m192": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL plasminogen (antigenic)"
+			}
+		},
+		"multiplier": "1.13E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m193": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL plasminogen activator inhibitor"
+			}
+		},
+		"multiplier": "1.9231E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m194": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L porphyrins (total)"
+			}
+		},
+		"multiplier": "1.203E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m195": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L potassium"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m196": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL primidone"
+			}
+		},
+		"multiplier": "0.004582",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m197": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL procainamide"
+			}
+		},
+		"multiplier": "0.00425",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m198": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL progesterone"
+			}
+		},
+		"multiplier": "3.18E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m199": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L prolactin"
+			}
+		},
+		"multiplier": "4.3478E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m200": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL proline"
+			}
+		},
+		"multiplier": "0.086858",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m201": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL propoxyphene"
+			}
+		},
+		"multiplier": "0.002946",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m202": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL propranolol"
+			}
+		},
+		"multiplier": "3.856E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m203": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL protoporphyrin"
+			}
+		},
+		"multiplier": "1.78E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m204": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL protriptyline"
+			}
+		},
+		"multiplier": "3.787E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m205": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL pyruvate"
+			}
+		},
+		"multiplier": "0.11356",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m206": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL quinidine"
+			}
+		},
+		"multiplier": "0.003082",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m207": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL renin"
+			}
+		},
+		"multiplier": "2.37E-11",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m208": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L rifampin"
+			}
+		},
+		"multiplier": "0.001215",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m209": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL salicylates"
+			}
+		},
+		"multiplier": "7.24E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m210": {
+		"symbol": "\u00B5g/L",
+		"name": {
+			"en": {
+				"*": "\u00B5g/L selenium"
+			}
+		},
+		"multiplier": "1.27E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m211": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL serine"
+			}
+		},
+		"multiplier": "0.095156",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m212": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL serotonin (5-hydroxytryptamine)"
+			}
+		},
+		"multiplier": "5.68E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m213": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL sex hormone-binding globulin"
+			}
+		},
+		"multiplier": "8.896E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m214": {
+		"symbol": "mEq/L",
+		"name": {
+			"en": {
+				"*": "mEq/L sodium"
+			}
+		},
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m215": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL Somatomedin C (insulinlike growth factor)"
+			}
+		},
+		"multiplier": "1.31E-7",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m216": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL somatostatin"
+			}
+		},
+		"multiplier": "6.11E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m217": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L streptomycin"
+			}
+		},
+		"multiplier": "0.001719",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m218": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L strychnine"
+			}
+		},
+		"multiplier": "0.00299",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m219": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL Substance P"
+			}
+		},
+		"multiplier": "7.42E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m220": {
+		"symbol": "mg/L",
+		"name": {
+			"en": {
+				"*": "mg/L sulfate"
+			}
+		},
+		"multiplier": "0.031188",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m221": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL taurine"
+			}
+		},
+		"multiplier": "0.07991",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m222": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL testosterone"
+			}
+		},
+		"multiplier": "3.47E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m223": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL tetrahydrocannabinol"
+			}
+		},
+		"multiplier": "0.00318",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m224": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL theophylline"
+			}
+		},
+		"multiplier": "0.00555",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m225": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL thiopental"
+			}
+		},
+		"multiplier": "0.004144",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m226": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL thioridazine"
+			}
+		},
+		"multiplier": "0.002699",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m227": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL threonine"
+			}
+		},
+		"multiplier": "0.084",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m228": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL thyroxine-binding globulin"
+			}
+		},
+		"multiplier": "1.7094E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m229": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL thyroxine, free (FT\u2084)"
+			}
+		},
+		"multiplier": "1.2871E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m230": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL thyroxine, total (T\u2084)"
+			}
+		},
+		"multiplier": "1.7094E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m231": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL tobramycin"
+			}
+		},
+		"multiplier": "0.002139",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m232": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL tocainide"
+			}
+		},
+		"multiplier": "0.005201",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m233": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL tolbutamide"
+			}
+		},
+		"multiplier": "0.0037",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m234": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL transferrin"
+			}
+		},
+		"multiplier": "1.23E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m235": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL triglycerides"
+			}
+		},
+		"multiplier": "0.0113",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m236": {
+		"symbol": "pg/dL",
+		"name": {
+			"en": {
+				"*": "pg/dL triiodothyronine, free (FT\u2083)"
+			}
+		},
+		"multiplier": "1.54E-11",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m237": {
+		"symbol": "ng/dL",
+		"name": {
+			"en": {
+				"*": "ng/dL triiodothyronine, total (T\u2083)"
+			}
+		},
+		"multiplier": "1.54E-8",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m238": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL tryptophan"
+			}
+		},
+		"multiplier": "0.048967",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m239": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL tyrosine"
+			}
+		},
+		"multiplier": "0.05519",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m240": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL urea nitrogen"
+			}
+		},
+		"multiplier": "0.357",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m241": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL uric acid"
+			}
+		},
+		"multiplier": "0.059485",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m242": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL valine"
+			}
+		},
+		"multiplier": "0.085361",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m243": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL valproic acid"
+			}
+		},
+		"multiplier": "0.006934",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m244": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL vancomycin"
+			}
+		},
+		"multiplier": "6.9E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m245": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL vasoactive intestinal polypeptide"
+			}
+		},
+		"multiplier": "2.96E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m246": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL vasopressin"
+			}
+		},
+		"multiplier": "9.23E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m247": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL verapamil"
+			}
+		},
+		"multiplier": "2.2E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m248": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL Vitamin A (retinol)"
+			}
+		},
+		"multiplier": "3.49E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m249": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL Vitamin B\u2081 (thiamine)"
+			}
+		},
+		"multiplier": "2.96E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m250": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL Vitamin B\u2082 (riboflavin)"
+			}
+		},
+		"multiplier": "2.66E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m251": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL Vitamin B\u2083"
+			}
+		},
+		"multiplier": "0.00456",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m252": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL Vitamin B\u2086 (pyridoxine)"
+			}
+		},
+		"multiplier": "4.046E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m253": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL Vitamin B\u2081\u2082"
+			}
+		},
+		"multiplier": "7.378E-10",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m254": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL Vitamin C (ascorbic acid)"
+			}
+		},
+		"multiplier": "0.05678",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m255": {
+		"symbol": "pg/mL",
+		"name": {
+			"en": {
+				"*": "pg/mL Vitamin D (1,25 dihydroxyvitamin D)"
+			}
+		},
+		"multiplier": "2.6E-9",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m256": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL Vitamin D (25-hydroxyvitamin D)"
+			}
+		},
+		"multiplier": "2.496E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m257": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL Vitamin E (a-tocopherol)"
+			}
+		},
+		"multiplier": "0.02322",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m258": {
+		"symbol": "ng/mL",
+		"name": {
+			"en": {
+				"*": "ng/mL Vitamin K"
+			}
+		},
+		"multiplier": "2.22E-6",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m259": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL warfarin"
+			}
+		},
+		"multiplier": "0.003247",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m260": {
+		"symbol": "\u00B5g/mL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/mL zidovudine"
+			}
+		},
+		"multiplier": "0.0037",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m261": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL zinc"
+			}
+		},
+		"multiplier": "1.53E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m262": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL \u03B1-aminobutyric acid"
+			}
+		},
+		"multiplier": "0.09697",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m263": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL \u03B1\u2081-antitrypsin"
+			}
+		},
+		"multiplier": "1.84E-4",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m264": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL \u03B2-carotene"
+			}
+		},
+		"multiplier": "1.863E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m265": {
+		"symbol": "mg/dL",
+		"name": {
+			"en": {
+				"*": "mg/dL \u03B2-hydroxybutyric acid"
+			}
+		},
+		"multiplier": "0.09606",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	},
+	"m266": {
+		"symbol": "\u00B5g/dL",
+		"name": {
+			"en": {
+				"*": "\u00B5g/dL \u03B4-aminolevulinic acid"
+			}
+		},
+		"multiplier": "7.63E-5",
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
+	}
+}

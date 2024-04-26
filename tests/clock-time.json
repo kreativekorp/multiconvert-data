@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Swatch Internet Time @000",
+		"u2": -3600,
+		"n1000": 0,
+		"n1001": 0
+	},
+	{
+		"name": "Swatch Internet Time @250",
+		"u2": 18000,
+		"n1000": 250,
+		"n1001": 250
+	},
+	{
+		"name": "Swatch Internet Time @500",
+		"u2": 39600,
+		"n1000": 500,
+		"n1001": 500
+	},
+	{
+		"name": "Swatch Internet Time @750",
+		"u2": 61200,
+		"n1000": 750,
+		"n1001": 750
+	}
+]

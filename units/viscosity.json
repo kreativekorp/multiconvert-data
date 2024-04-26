@@ -1,0 +1,287 @@
+{
+	"n101": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (EZ Zahn #1)",
+				"*": "seconds (EZ Zahn #1)"
+			}
+		},
+		"parser": "function(a){return(a*0.875-993/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+3476)+a)/1.75}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n102": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (EZ Zahn #2)",
+				"*": "seconds (EZ Zahn #2)"
+			}
+		},
+		"parser": "function(a){return(a*2.80-747/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+8366)+a)/5.60}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n103": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (EZ Zahn #3)",
+				"*": "seconds (EZ Zahn #3)"
+			}
+		},
+		"parser": "function(a){return(a*10.09-587/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+23691)+a)/20.18}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n104": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (EZ Zahn #4)",
+				"*": "seconds (EZ Zahn #4)"
+			}
+		},
+		"parser": "function(a){return(a*13.26-673/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+35696)+a)/26.52}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n105": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (EZ Zahn #5)",
+				"*": "seconds (EZ Zahn #5)"
+			}
+		},
+		"parser": "function(a){return(a*23.56-744/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+70115)+a)/47.12}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n111": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Signature Zahn #1)",
+				"*": "seconds (Signature Zahn #1)"
+			}
+		},
+		"parser": "function(a){return(a*1.59-1070/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+6805)+a)/3.18}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n112": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Signature Zahn #2)",
+				"*": "seconds (Signature Zahn #2)"
+			}
+		},
+		"parser": "function(a){return(a*4.18-760/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+12707)+a)/8.36}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n113": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Signature Zahn #3)",
+				"*": "seconds (Signature Zahn #3)"
+			}
+		},
+		"parser": "function(a){return(a*10.23-575/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+23529)+a)/20.46}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n114": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Signature Zahn #4)",
+				"*": "seconds (Signature Zahn #4)"
+			}
+		},
+		"parser": "function(a){return(a*15.13-545/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+32983)+a)/30.26}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n115": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Signature Zahn #5)",
+				"*": "seconds (Signature Zahn #5)"
+			}
+		},
+		"parser": "function(a){return(a*27.27-540/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+58903)+a)/54.54}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n122": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Ford #2)",
+				"*": "seconds (Ford #2)"
+			}
+		},
+		"parser": "function(a){return(a*1.24-770/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+3819)+a)/2.48}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n123": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Ford #3)",
+				"*": "seconds (Ford #3)"
+			}
+		},
+		"parser": "function(a){return(a*2.31-550/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+5082)+a)/4.62}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n124": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (Ford #4)",
+				"*": "seconds (Ford #4)"
+			}
+		},
+		"parser": "function(a){return(a*3.7-400/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+5920)+a)/7.4}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n133": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (ISO #3)",
+				"*": "seconds (ISO #3)"
+			}
+		},
+		"parser": "function(a){return(a*0.443-200/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+354)+a)/0.886}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n134": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (ISO #4)",
+				"*": "seconds (ISO #4)"
+			}
+		},
+		"parser": "function(a){return(a*1.37-200/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+1096)+a)/2.74}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n135": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (ISO #5)",
+				"*": "seconds (ISO #5)"
+			}
+		},
+		"parser": "function(a){return(a*3.28-220/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+2886)+a)/6.56}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n136": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (ISO #6)",
+				"*": "seconds (ISO #6)"
+			}
+		},
+		"parser": "function(a){return(a*6.90-570/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+15732)+a)/13.8}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n138": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (ISO #8)",
+				"*": "seconds (ISO #8)"
+			}
+		},
+		"parser": "function(a){return(a*21.78-306/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+26659)+a)/43.56}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	},
+	"n144": {
+		"symbol": "s",
+		"name": {
+			"en": {
+				"1": "second (DIN #4)",
+				"*": "seconds (DIN #4)"
+			}
+		},
+		"parser": "function(a){return(a*4.57-452/a)/100}",
+		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+8263)+a)/9.14}",
+		"dimension": {
+			"length": 2,
+			"time": -1
+		}
+	}
+}
