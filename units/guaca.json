@@ -1,0 +1,30 @@
+{
+	"z2": {
+		"symbol": "gu",
+		"name": {
+			"en": "guaca"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){",
+			"if(!(a.replace&&a.match&&a.trim&&(a=a.trim()).length))return NaN;",
+			"if(a.match(/^nan$|[@#]/i))return NaN;",
+			"if(a.match(/^[+]?(\u221E|inf(inity)?)$/i))return+1/0;",
+			"if(a.match(/^-(\u221E|inf(inity)?)$/i))return-1/0;",
+			"if(!isNaN(a))return(+a)?NaN:0;",
+			"a=a.replace(/avocado.?s number/ig,'@').replace(/[*\u00B7\u00D7]/g,'#');",
+			"var m=a.match(/^((@|[(]@[)])(#(.+))?|(.+)#(@|[(]@[)]))$/);",
+			"return(!m)?NaN:m[4]?+m[4]:m[5]?+m[5]:1;",
+			"}"
+		],
+		"formatter": [
+			"function(a){",
+			"return isNaN(a)?'':(!a)?'0':(a==1)?'Avocado\u2019s number':",
+			"isFinite(a)?(a+'\u00B7(Avocado\u2019s number)'):(a<0)?'-\u221E':'\u221E';",
+			"}"
+		],
+		"dimension": {
+			"guaca": 1
+		}
+	}
+}

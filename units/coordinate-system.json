@@ -1,0 +1,176 @@
+{
+	"z200": {
+		"symbol": [
+			"x",
+			"y",
+			"z"
+		],
+		"name": {
+			"en": "Cartesian coordinate system"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0],",
+			"a[1],",
+			"a[2]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0],",
+			"a[1],",
+			"a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"z201": {
+		"symbol": [
+			"r",
+			"\u03B8",
+			"z"
+		],
+		"name": {
+			"en": "cylindrical coordinate system (radians)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0]*Math.cos(a[1]),",
+			"a[0]*Math.sin(a[1]),",
+			"a[2]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"Math.sqrt(a[1]*a[1]+a[0]*a[0]),",
+			"Math.atan2(a[1],a[0]),",
+			"a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"z202": {
+		"symbol": [
+			"r",
+			"\u03B8",
+			"z"
+		],
+		"name": {
+			"en": "cylindrical coordinate system (degrees)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0]*Math.cos(a[1]*Math.PI/180),",
+			"a[0]*Math.sin(a[1]*Math.PI/180),",
+			"a[2]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"Math.sqrt(a[1]*a[1]+a[0]*a[0]),",
+			"Math.atan2(a[1],a[0])*180/Math.PI,",
+			"a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"z203": {
+		"symbol": [
+			"\u03C1",
+			"\u03B8",
+			"\u03C6"
+		],
+		"name": {
+			"en": "spherical coordinate system (radians)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0]*Math.cos(a[1])*Math.sin(a[2]),",
+			"a[0]*Math.sin(a[1])*Math.sin(a[2]),",
+			"a[0]*Math.cos(a[2])",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]),",
+			"Math.atan2(a[1],a[0]),",
+			"Math.acos(a[2]/Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]))",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"z204": {
+		"symbol": [
+			"\u03C1",
+			"\u03B8",
+			"\u03C6"
+		],
+		"name": {
+			"en": "spherical coordinate system (degrees)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[0]*Math.cos(a[1]*Math.PI/180)*Math.sin(a[2]*Math.PI/180),",
+			"a[0]*Math.sin(a[1]*Math.PI/180)*Math.sin(a[2]*Math.PI/180),",
+			"a[0]*Math.cos(a[2]*Math.PI/180)",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]),",
+			"Math.atan2(a[1],a[0])*180/Math.PI,",
+			"Math.acos(a[2]/Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]))*180/Math.PI",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	},
+	"z205": {
+		"symbol": [
+			"u",
+			"v",
+			"z"
+		],
+		"name": {
+			"en": "hyperbolic coordinate system"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"a[1]*Math.exp(a[0]),",
+			"a[1]*Math.exp(-a[0]),",
+			"a[2]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"-Math.log(a[1]/a[0])/2,",
+			"Math.sqrt(a[1]*a[0]),",
+			"a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"coordinate-system": 1
+		}
+	}
+}
