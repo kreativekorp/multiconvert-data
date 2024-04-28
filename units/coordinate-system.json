@@ -1,4 +1,9 @@
 {
+	"functions": {
+		"f200": "function(a){return(a&&typeof a==='object'&&a.length===3)}",
+		"f202": "function(a,b){return Math.sqrt(a*a+b*b)}",
+		"f203": "function(a,b,c){return Math.sqrt(a*a+b*b+c*c)}"
+	},
 	"z200": {
 		"symbol": [
 			"x",
@@ -10,20 +15,8 @@
 		},
 		"datatype": "tuple",
 		"tuple-dimension": 3,
-		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"a[0],",
-			"a[1],",
-			"a[2]",
-			"]:null}"
-		],
-		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"a[0],",
-			"a[1],",
-			"a[2]",
-			"]:null}"
-		],
+		"parser": "function(a){return f200(a)?a:null}",
+		"formatter": "function(a){return f200(a)?a:null}",
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -40,15 +33,15 @@
 		"datatype": "tuple",
 		"tuple-dimension": 3,
 		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"a[0]*Math.cos(a[1]),",
 			"a[0]*Math.sin(a[1]),",
 			"a[2]",
 			"]:null}"
 		],
 		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"Math.sqrt(a[1]*a[1]+a[0]*a[0]),",
+			"function(a){return f200(a)?[",
+			"f202(a[1],a[0]),",
 			"Math.atan2(a[1],a[0]),",
 			"a[2]",
 			"]:null}"
@@ -69,15 +62,15 @@
 		"datatype": "tuple",
 		"tuple-dimension": 3,
 		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"a[0]*Math.cos(a[1]*Math.PI/180),",
 			"a[0]*Math.sin(a[1]*Math.PI/180),",
 			"a[2]",
 			"]:null}"
 		],
 		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"Math.sqrt(a[1]*a[1]+a[0]*a[0]),",
+			"function(a){return f200(a)?[",
+			"f202(a[1],a[0]),",
 			"Math.atan2(a[1],a[0])*180/Math.PI,",
 			"a[2]",
 			"]:null}"
@@ -98,17 +91,17 @@
 		"datatype": "tuple",
 		"tuple-dimension": 3,
 		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"a[0]*Math.cos(a[1])*Math.sin(a[2]),",
 			"a[0]*Math.sin(a[1])*Math.sin(a[2]),",
 			"a[0]*Math.cos(a[2])",
 			"]:null}"
 		],
 		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]),",
+			"function(a){return f200(a)?[",
+			"f203(a[2],a[1],a[0]),",
 			"Math.atan2(a[1],a[0]),",
-			"Math.acos(a[2]/Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]))",
+			"Math.acos(a[2]/f203(a[2],a[1],a[0]))",
 			"]:null}"
 		],
 		"dimension": {
@@ -127,17 +120,17 @@
 		"datatype": "tuple",
 		"tuple-dimension": 3,
 		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"a[0]*Math.cos(a[1]*Math.PI/180)*Math.sin(a[2]*Math.PI/180),",
 			"a[0]*Math.sin(a[1]*Math.PI/180)*Math.sin(a[2]*Math.PI/180),",
 			"a[0]*Math.cos(a[2]*Math.PI/180)",
 			"]:null}"
 		],
 		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
-			"Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]),",
+			"function(a){return f200(a)?[",
+			"f203(a[2],a[1],a[0]),",
 			"Math.atan2(a[1],a[0])*180/Math.PI,",
-			"Math.acos(a[2]/Math.sqrt(a[2]*a[2]+a[1]*a[1]+a[0]*a[0]))*180/Math.PI",
+			"Math.acos(a[2]/f203(a[2],a[1],a[0]))*180/Math.PI",
 			"]:null}"
 		],
 		"dimension": {
@@ -156,14 +149,14 @@
 		"datatype": "tuple",
 		"tuple-dimension": 3,
 		"parser": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"a[1]*Math.exp(a[0]),",
 			"a[1]*Math.exp(-a[0]),",
 			"a[2]",
 			"]:null}"
 		],
 		"formatter": [
-			"function(a){return(a&&typeof a==='object'&&a.length===3)?[",
+			"function(a){return f200(a)?[",
 			"-Math.log(a[1]/a[0])/2,",
 			"Math.sqrt(a[1]*a[0]),",
 			"a[2]",

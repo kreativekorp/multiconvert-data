@@ -1,4 +1,35 @@
 {
+	"functions": {
+		"f1000": [
+			"function(a,b){if(!a)return NaN;",
+			"var am=Math.min(a.indexOf('A')+1||a.length+1,a.indexOf('a')+1||a.length+1)-1;",
+			"var pm=Math.min(a.indexOf('P')+1||a.length+1,a.indexOf('p')+1||a.length+1)-1;",
+			"var md=(am<=pm)?0:12;a=a.substring(0,Math.min(am,pm)).split(/[:;.,-]/g);",
+			"return(((a[0]%12)+md)*60+(a[1]%60||0)-b)*60+(a[2]%60||0)}"
+		],
+		"f1001": [
+			"function(a,b){",
+			"if(!isFinite(a=Math.floor(a)))return'';",
+			"if((a=(a+b*60)%86400)<0)a+=86400;",
+			"var h=Math.floor(a/3600);a-=h*3600;",
+			"var m=Math.floor(a/60),s=a-m*60;",
+			"return(h>12?h-12:h||12)+(m<10?':0'+m:':'+m)+",
+			"(!s?'':s<10?':0'+s:':'+s)+(h<12?' AM':' PM')}"
+		],
+		"f1200": [
+			"function(a,b){if(!a)return NaN;a=a.split(/[:;.,-]/g);",
+			"return((a[0]%24)*60+(a[1]%60||0)-b)*60+(a[2]%60||0)}"
+		],
+		"f1201": [
+			"function(a,b){",
+			"if(!isFinite(a=Math.floor(a)))return'';",
+			"if((a=(a+b*60)%86400)<0)a+=86400;",
+			"var h=Math.floor(a/3600);a-=h*3600;",
+			"var m=Math.floor(a/60),s=a-m*60;",
+			"return h+(m<10?':0'+m:':'+m)+",
+			"(!s?'':s<10?':0'+s:':'+s)}"
+		]
+	},
 	"n1000": {
 		"symbol": "BMT",
 		"name": {
@@ -20,6 +51,3326 @@
 		},
 		"parser": "function(a){return((a*1.440)-60)*60}",
 		"formatter": "function(a){var b=((a/60)+60)/1.440;return b-1000*Math.floor(b/1000)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1000": {
+		"symbol": "UTC",
+		"name": {
+			"en": {
+				"*": "Coordinated Universal Time (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,0)}",
+		"formatter": "function(a){return f1001(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1001": {
+		"symbol": "UTC-11",
+		"name": {
+			"en": {
+				"*": "Apia, Pago Pago (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-660)}",
+		"formatter": "function(a){return f1001(a,-660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1002": {
+		"symbol": "UTC-10",
+		"name": {
+			"en": {
+				"*": "Honolulu, Papeete (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-600)}",
+		"formatter": "function(a){return f1001(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1003": {
+		"symbol": "UTC-9",
+		"name": {
+			"en": {
+				"*": "Anchorage, Juneau (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-540)}",
+		"formatter": "function(a){return f1001(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1004": {
+		"symbol": "UTC-8",
+		"name": {
+			"en": {
+				"*": "Los Angeles, San Francisco (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-480)}",
+		"formatter": "function(a){return f1001(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1005": {
+		"symbol": "UTC-7",
+		"name": {
+			"en": {
+				"*": "Denver, Phoenix (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-420)}",
+		"formatter": "function(a){return f1001(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1006": {
+		"symbol": "UTC-6",
+		"name": {
+			"en": {
+				"*": "Chicago, Dallas (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-360)}",
+		"formatter": "function(a){return f1001(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1007": {
+		"symbol": "UTC-5",
+		"name": {
+			"en": {
+				"*": "New York, Toronto (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-300)}",
+		"formatter": "function(a){return f1001(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1008": {
+		"symbol": "UTC-4",
+		"name": {
+			"en": {
+				"*": "Halifax, Santiago (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-240)}",
+		"formatter": "function(a){return f1001(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1009": {
+		"symbol": "UTC-3",
+		"name": {
+			"en": {
+				"*": "Buenos Aires, Rio de Janeiro (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-180)}",
+		"formatter": "function(a){return f1001(a,-180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1010": {
+		"symbol": "UTC-2",
+		"name": {
+			"en": {
+				"*": "Fernando de Noronha, South Georgia (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-120)}",
+		"formatter": "function(a){return f1001(a,-120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1011": {
+		"symbol": "UTC-1",
+		"name": {
+			"en": {
+				"*": "Azores, Cape Verde (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-60)}",
+		"formatter": "function(a){return f1001(a,-60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1012": {
+		"symbol": "UTC\u00B10",
+		"name": {
+			"en": {
+				"*": "London, Lisbon (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,0)}",
+		"formatter": "function(a){return f1001(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1013": {
+		"symbol": "UTC+1",
+		"name": {
+			"en": {
+				"*": "Paris, Rome (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1014": {
+		"symbol": "UTC+2",
+		"name": {
+			"en": {
+				"*": "Athens, Cairo (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1015": {
+		"symbol": "UTC+3",
+		"name": {
+			"en": {
+				"*": "Baghdad, Moscow (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1016": {
+		"symbol": "UTC+3:30",
+		"name": {
+			"en": {
+				"*": "Tehran (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,210)}",
+		"formatter": "function(a){return f1001(a,210)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1017": {
+		"symbol": "UTC+4",
+		"name": {
+			"en": {
+				"*": "Dubai, Mauritius (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,240)}",
+		"formatter": "function(a){return f1001(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1018": {
+		"symbol": "UTC+5",
+		"name": {
+			"en": {
+				"*": "Karachi, Maldives (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1019": {
+		"symbol": "UTC+5:30",
+		"name": {
+			"en": {
+				"*": "Delhi, Mumbai (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,330)}",
+		"formatter": "function(a){return f1001(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1020": {
+		"symbol": "UTC+5:45",
+		"name": {
+			"en": {
+				"*": "Kathmandu (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,345)}",
+		"formatter": "function(a){return f1001(a,345)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1021": {
+		"symbol": "UTC+6",
+		"name": {
+			"en": {
+				"*": "Almaty, Dhaka (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1022": {
+		"symbol": "UTC+6:30",
+		"name": {
+			"en": {
+				"*": "Cocos Islands, Yangon (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,390)}",
+		"formatter": "function(a){return f1001(a,390)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1023": {
+		"symbol": "UTC+7",
+		"name": {
+			"en": {
+				"*": "Bangkok, Hanoi (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,420)}",
+		"formatter": "function(a){return f1001(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1024": {
+		"symbol": "UTC+8",
+		"name": {
+			"en": {
+				"*": "Beijing, Hong Kong (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1025": {
+		"symbol": "UTC+9",
+		"name": {
+			"en": {
+				"*": "Seoul, Tokyo (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1026": {
+		"symbol": "UTC+9:30",
+		"name": {
+			"en": {
+				"*": "Adelaide, Darwin (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,570)}",
+		"formatter": "function(a){return f1001(a,570)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1027": {
+		"symbol": "UTC+10",
+		"name": {
+			"en": {
+				"*": "Melbourne, Sydney (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,600)}",
+		"formatter": "function(a){return f1001(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1028": {
+		"symbol": "UTC+11",
+		"name": {
+			"en": {
+				"*": "Magadan, Noum\u00E9a (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,660)}",
+		"formatter": "function(a){return f1001(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1029": {
+		"symbol": "UTC+12",
+		"name": {
+			"en": {
+				"*": "Auckland, Suva (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,720)}",
+		"formatter": "function(a){return f1001(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1030": {
+		"symbol": "UTC+13",
+		"name": {
+			"en": {
+				"*": "Kiribati, Nuku'alofa (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,780)}",
+		"formatter": "function(a){return f1001(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1031": {
+		"symbol": "SST",
+		"name": {
+			"en": {
+				"*": "Samoa Standard Time (UTC-11) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-660)}",
+		"formatter": "function(a){return f1001(a,-660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1032": {
+		"symbol": "SDT",
+		"name": {
+			"en": {
+				"*": "Samoa Daylight Time (UTC-10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-600)}",
+		"formatter": "function(a){return f1001(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1033": {
+		"symbol": "HST",
+		"name": {
+			"en": {
+				"*": "Hawaii-Aleutian Standard Time (UTC-10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-600)}",
+		"formatter": "function(a){return f1001(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1034": {
+		"symbol": "HDT",
+		"name": {
+			"en": {
+				"*": "Hawaii-Aleutian Daylight Time (UTC-9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-540)}",
+		"formatter": "function(a){return f1001(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1035": {
+		"symbol": "AKST",
+		"name": {
+			"en": {
+				"*": "Alaska Standard Time (UTC-9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-540)}",
+		"formatter": "function(a){return f1001(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1036": {
+		"symbol": "AKDT",
+		"name": {
+			"en": {
+				"*": "Alaska Daylight Time (UTC-8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-480)}",
+		"formatter": "function(a){return f1001(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1037": {
+		"symbol": "PST",
+		"name": {
+			"en": {
+				"*": "Pacific Standard Time (UTC-8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-480)}",
+		"formatter": "function(a){return f1001(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1038": {
+		"symbol": "PDT",
+		"name": {
+			"en": {
+				"*": "Pacific Daylight Time (UTC-7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-420)}",
+		"formatter": "function(a){return f1001(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1039": {
+		"symbol": "MST",
+		"name": {
+			"en": {
+				"*": "Mountain Standard Time (UTC-7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-420)}",
+		"formatter": "function(a){return f1001(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1040": {
+		"symbol": "MDT",
+		"name": {
+			"en": {
+				"*": "Mountain Daylight Time (UTC-6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-360)}",
+		"formatter": "function(a){return f1001(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1041": {
+		"symbol": "CST",
+		"name": {
+			"en": {
+				"*": "Central Standard Time (UTC-6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-360)}",
+		"formatter": "function(a){return f1001(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1042": {
+		"symbol": "CDT",
+		"name": {
+			"en": {
+				"*": "Central Daylight Time (UTC-5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-300)}",
+		"formatter": "function(a){return f1001(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1043": {
+		"symbol": "EST",
+		"name": {
+			"en": {
+				"*": "Eastern Standard Time (UTC-5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-300)}",
+		"formatter": "function(a){return f1001(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1044": {
+		"symbol": "EDT",
+		"name": {
+			"en": {
+				"*": "Eastern Daylight Time (UTC-4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-240)}",
+		"formatter": "function(a){return f1001(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1045": {
+		"symbol": "AST",
+		"name": {
+			"en": {
+				"*": "Atlantic Standard Time (UTC-4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-240)}",
+		"formatter": "function(a){return f1001(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1046": {
+		"symbol": "ADT",
+		"name": {
+			"en": {
+				"*": "Atlantic Daylight Time (UTC-3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-180)}",
+		"formatter": "function(a){return f1001(a,-180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1047": {
+		"symbol": "ECT",
+		"name": {
+			"en": {
+				"*": "Eastern Caribbean Time (UTC-4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,-240)}",
+		"formatter": "function(a){return f1001(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1048": {
+		"symbol": "GMT",
+		"name": {
+			"en": {
+				"*": "Greenwich Mean Time (UTC\u00B10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,0)}",
+		"formatter": "function(a){return f1001(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1049": {
+		"symbol": "WET",
+		"name": {
+			"en": {
+				"*": "Western European Time (UTC\u00B10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,0)}",
+		"formatter": "function(a){return f1001(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1050": {
+		"symbol": "WEST",
+		"name": {
+			"en": {
+				"*": "Western European Summer Time (UTC+1) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1051": {
+		"symbol": "BST",
+		"name": {
+			"en": {
+				"*": "British Summer Time (UTC+1) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1052": {
+		"symbol": "IST",
+		"name": {
+			"en": {
+				"*": "Irish Summer Time (UTC+1) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1053": {
+		"symbol": "CET",
+		"name": {
+			"en": {
+				"*": "Central European Time (UTC+1) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1054": {
+		"symbol": "CEST",
+		"name": {
+			"en": {
+				"*": "Central European Summer Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1055": {
+		"symbol": "EET",
+		"name": {
+			"en": {
+				"*": "Eastern European Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1056": {
+		"symbol": "EEST",
+		"name": {
+			"en": {
+				"*": "Eastern European Summer Time (UTC+3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1057": {
+		"symbol": "WAT",
+		"name": {
+			"en": {
+				"*": "West Africa Time (UTC+1) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,60)}",
+		"formatter": "function(a){return f1001(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1058": {
+		"symbol": "WAST",
+		"name": {
+			"en": {
+				"*": "West Africa Summer Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1059": {
+		"symbol": "SAST",
+		"name": {
+			"en": {
+				"*": "South Africa Standard Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1060": {
+		"symbol": "CAT",
+		"name": {
+			"en": {
+				"*": "Central Africa Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1061": {
+		"symbol": "CAST",
+		"name": {
+			"en": {
+				"*": "Central Africa Summer Time (UTC+3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1062": {
+		"symbol": "EAT",
+		"name": {
+			"en": {
+				"*": "East Africa Time (UTC+3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1063": {
+		"symbol": "EAST",
+		"name": {
+			"en": {
+				"*": "East Africa Summer Time (UTC+4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,240)}",
+		"formatter": "function(a){return f1001(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1064": {
+		"symbol": "USZ1",
+		"name": {
+			"en": {
+				"*": "Kaliningrad Time (UTC+2) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,120)}",
+		"formatter": "function(a){return f1001(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1065": {
+		"symbol": "USZ1S",
+		"name": {
+			"en": {
+				"*": "Kaliningrad Summer Time (UTC+3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1066": {
+		"symbol": "MSK",
+		"name": {
+			"en": {
+				"*": "Moscow Time (UTC+3) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,180)}",
+		"formatter": "function(a){return f1001(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1067": {
+		"symbol": "MSD",
+		"name": {
+			"en": {
+				"*": "Moscow Summer Time (UTC+4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,240)}",
+		"formatter": "function(a){return f1001(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1068": {
+		"symbol": "SAMT",
+		"name": {
+			"en": {
+				"*": "Samara Time (UTC+4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,240)}",
+		"formatter": "function(a){return f1001(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1069": {
+		"symbol": "SAMST",
+		"name": {
+			"en": {
+				"*": "Samara Summer Time (UTC+5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1070": {
+		"symbol": "YEKT",
+		"name": {
+			"en": {
+				"*": "Yekaterinburg Time (UTC+5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1071": {
+		"symbol": "YEKST",
+		"name": {
+			"en": {
+				"*": "Yekaterinburg Summer Time (UTC+6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1072": {
+		"symbol": "OMST",
+		"name": {
+			"en": {
+				"*": "Omsk Time (UTC+6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1073": {
+		"symbol": "OMSST",
+		"name": {
+			"en": {
+				"*": "Omsk Summer Time (UTC+7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,420)}",
+		"formatter": "function(a){return f1001(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1074": {
+		"symbol": "KRAT",
+		"name": {
+			"en": {
+				"*": "Krasnoyarsk Time (UTC+7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,420)}",
+		"formatter": "function(a){return f1001(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1075": {
+		"symbol": "KRAST",
+		"name": {
+			"en": {
+				"*": "Krasnoyarsk Summer Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1076": {
+		"symbol": "IRKT",
+		"name": {
+			"en": {
+				"*": "Irkutsk Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1077": {
+		"symbol": "IRKST",
+		"name": {
+			"en": {
+				"*": "Irkutsk Summer Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1078": {
+		"symbol": "YAKT",
+		"name": {
+			"en": {
+				"*": "Yakutsk Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1079": {
+		"symbol": "YAKST",
+		"name": {
+			"en": {
+				"*": "Yakutsk Summer Time (UTC+10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,600)}",
+		"formatter": "function(a){return f1001(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1080": {
+		"symbol": "VLAT",
+		"name": {
+			"en": {
+				"*": "Vladinvostok Time (UTC+10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,600)}",
+		"formatter": "function(a){return f1001(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1081": {
+		"symbol": "VLAST",
+		"name": {
+			"en": {
+				"*": "Vladinvostok Summer Time (UTC+11) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,660)}",
+		"formatter": "function(a){return f1001(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1082": {
+		"symbol": "MAGT",
+		"name": {
+			"en": {
+				"*": "Magadan Time (UTC+11) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,660)}",
+		"formatter": "function(a){return f1001(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1083": {
+		"symbol": "MAGST",
+		"name": {
+			"en": {
+				"*": "Magadan Summer Time (UTC+12) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,720)}",
+		"formatter": "function(a){return f1001(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1084": {
+		"symbol": "PETT",
+		"name": {
+			"en": {
+				"*": "Kamchatka Time (UTC+12) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,720)}",
+		"formatter": "function(a){return f1001(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1085": {
+		"symbol": "PETST",
+		"name": {
+			"en": {
+				"*": "Kamchatka Summer Time (UTC+13) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,780)}",
+		"formatter": "function(a){return f1001(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1086": {
+		"symbol": "IRST",
+		"name": {
+			"en": {
+				"*": "Iran Standard Time (UTC+3:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,210)}",
+		"formatter": "function(a){return f1001(a,210)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1087": {
+		"symbol": "AZT",
+		"name": {
+			"en": {
+				"*": "Azerbaijan Time (UTC+4) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,240)}",
+		"formatter": "function(a){return f1001(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1088": {
+		"symbol": "IRDT",
+		"name": {
+			"en": {
+				"*": "Iran Daylight Time (UTC+4:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,270)}",
+		"formatter": "function(a){return f1001(a,270)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1089": {
+		"symbol": "PKT",
+		"name": {
+			"en": {
+				"*": "Pakistan Standard Time (UTC+5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1090": {
+		"name": {
+			"en": {
+				"*": "Tajikistan Time (UTC+5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1091": {
+		"name": {
+			"en": {
+				"*": "Uzbekistan Time (UTC+5) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,300)}",
+		"formatter": "function(a){return f1001(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1092": {
+		"symbol": "IST",
+		"name": {
+			"en": {
+				"*": "Indian Standard Time (UTC+5:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,330)}",
+		"formatter": "function(a){return f1001(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1093": {
+		"symbol": "SLT",
+		"name": {
+			"en": {
+				"*": "Sri Lanka Time (UTC+5:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,330)}",
+		"formatter": "function(a){return f1001(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1094": {
+		"symbol": "NPT",
+		"name": {
+			"en": {
+				"*": "Napal Time (UTC+5:45) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,345)}",
+		"formatter": "function(a){return f1001(a,345)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1095": {
+		"symbol": "BST",
+		"name": {
+			"en": {
+				"*": "Bangladesh Standard Time (UTC+6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1096": {
+		"symbol": "BTT",
+		"name": {
+			"en": {
+				"*": "Bhutan Time (UTC+6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1097": {
+		"symbol": "PST",
+		"name": {
+			"en": {
+				"*": "Pakistan Standard Time (UTC+6) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,360)}",
+		"formatter": "function(a){return f1001(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1098": {
+		"symbol": "ICT",
+		"name": {
+			"en": {
+				"*": "Indochina Time (UTC+7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,420)}",
+		"formatter": "function(a){return f1001(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1099": {
+		"symbol": "WIB",
+		"name": {
+			"en": {
+				"*": "Indonesian Western Standard Time (UTC+7) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,420)}",
+		"formatter": "function(a){return f1001(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1100": {
+		"symbol": "WITA",
+		"name": {
+			"en": {
+				"*": "Indonesian Central Standard Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1101": {
+		"symbol": "WIT",
+		"name": {
+			"en": {
+				"*": "Indonesian Eastern Standard Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1102": {
+		"name": {
+			"en": {
+				"*": "China Standard Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1103": {
+		"symbol": "HKT",
+		"name": {
+			"en": {
+				"*": "Hong Kong Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1104": {
+		"name": {
+			"en": {
+				"*": "Macau Standard Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1105": {
+		"name": {
+			"en": {
+				"*": "Chungyuan Standard Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1106": {
+		"symbol": "JST",
+		"name": {
+			"en": {
+				"*": "Japan Standard Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1107": {
+		"symbol": "KST",
+		"name": {
+			"en": {
+				"*": "Korea Standard Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1108": {
+		"symbol": "AWST",
+		"name": {
+			"en": {
+				"*": "Australian Western Standard Time (UTC+8) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,480)}",
+		"formatter": "function(a){return f1001(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1109": {
+		"symbol": "AWDT",
+		"name": {
+			"en": {
+				"*": "Australian Western Daylight Time (UTC+9) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,540)}",
+		"formatter": "function(a){return f1001(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1110": {
+		"symbol": "ACST",
+		"name": {
+			"en": {
+				"*": "Australian Central Standard Time (UTC+9:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,570)}",
+		"formatter": "function(a){return f1001(a,570)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1111": {
+		"symbol": "AEST",
+		"name": {
+			"en": {
+				"*": "Australian Eastern Standard Time (UTC+10) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,600)}",
+		"formatter": "function(a){return f1001(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1112": {
+		"symbol": "ACDT",
+		"name": {
+			"en": {
+				"*": "Australian Central Daylight Time (UTC+10:30) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,630)}",
+		"formatter": "function(a){return f1001(a,630)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1113": {
+		"symbol": "AEDT",
+		"name": {
+			"en": {
+				"*": "Australian Eastern Daylight Time (UTC+11) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,660)}",
+		"formatter": "function(a){return f1001(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1114": {
+		"symbol": "NZST",
+		"name": {
+			"en": {
+				"*": "New Zealand Standard Time (UTC+12) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,720)}",
+		"formatter": "function(a){return f1001(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1115": {
+		"symbol": "CHAST",
+		"name": {
+			"en": {
+				"*": "Chatham Standard Time (UTC+12:45) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,765)}",
+		"formatter": "function(a){return f1001(a,765)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1116": {
+		"symbol": "NZDT",
+		"name": {
+			"en": {
+				"*": "New Zealand Daylight Time (UTC+13) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,780)}",
+		"formatter": "function(a){return f1001(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1117": {
+		"symbol": "CHADT",
+		"name": {
+			"en": {
+				"*": "Chatham Daylight Time (UTC+13:45) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,825)}",
+		"formatter": "function(a){return f1001(a,825)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1118": {
+		"name": {
+			"en": {
+				"*": "Phoenix Islands Time (UTC+13) (12-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1000(a,780)}",
+		"formatter": "function(a){return f1001(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1200": {
+		"symbol": "UTC",
+		"name": {
+			"en": {
+				"*": "Coordinated Universal Time (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,0)}",
+		"formatter": "function(a){return f1201(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1201": {
+		"symbol": "UTC-11",
+		"name": {
+			"en": {
+				"*": "Apia, Pago Pago (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-660)}",
+		"formatter": "function(a){return f1201(a,-660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1202": {
+		"symbol": "UTC-10",
+		"name": {
+			"en": {
+				"*": "Honolulu, Papeete (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-600)}",
+		"formatter": "function(a){return f1201(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1203": {
+		"symbol": "UTC-9",
+		"name": {
+			"en": {
+				"*": "Anchorage, Juneau (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-540)}",
+		"formatter": "function(a){return f1201(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1204": {
+		"symbol": "UTC-8",
+		"name": {
+			"en": {
+				"*": "Los Angeles, San Francisco (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-480)}",
+		"formatter": "function(a){return f1201(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1205": {
+		"symbol": "UTC-7",
+		"name": {
+			"en": {
+				"*": "Denver, Phoenix (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-420)}",
+		"formatter": "function(a){return f1201(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1206": {
+		"symbol": "UTC-6",
+		"name": {
+			"en": {
+				"*": "Chicago, Dallas (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-360)}",
+		"formatter": "function(a){return f1201(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1207": {
+		"symbol": "UTC-5",
+		"name": {
+			"en": {
+				"*": "New York, Toronto (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-300)}",
+		"formatter": "function(a){return f1201(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1208": {
+		"symbol": "UTC-4",
+		"name": {
+			"en": {
+				"*": "Halifax, Santiago (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-240)}",
+		"formatter": "function(a){return f1201(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1209": {
+		"symbol": "UTC-3",
+		"name": {
+			"en": {
+				"*": "Buenos Aires, Rio de Janeiro (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-180)}",
+		"formatter": "function(a){return f1201(a,-180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1210": {
+		"symbol": "UTC-2",
+		"name": {
+			"en": {
+				"*": "Fernando de Noronha, South Georgia (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-120)}",
+		"formatter": "function(a){return f1201(a,-120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1211": {
+		"symbol": "UTC-1",
+		"name": {
+			"en": {
+				"*": "Azores, Cape Verde (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-60)}",
+		"formatter": "function(a){return f1201(a,-60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1212": {
+		"symbol": "UTC\u00B10",
+		"name": {
+			"en": {
+				"*": "London, Lisbon (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,0)}",
+		"formatter": "function(a){return f1201(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1213": {
+		"symbol": "UTC+1",
+		"name": {
+			"en": {
+				"*": "Paris, Rome (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1214": {
+		"symbol": "UTC+2",
+		"name": {
+			"en": {
+				"*": "Athens, Cairo (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1215": {
+		"symbol": "UTC+3",
+		"name": {
+			"en": {
+				"*": "Baghdad, Moscow (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1216": {
+		"symbol": "UTC+3:30",
+		"name": {
+			"en": {
+				"*": "Tehran (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,210)}",
+		"formatter": "function(a){return f1201(a,210)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1217": {
+		"symbol": "UTC+4",
+		"name": {
+			"en": {
+				"*": "Dubai, Mauritius (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,240)}",
+		"formatter": "function(a){return f1201(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1218": {
+		"symbol": "UTC+5",
+		"name": {
+			"en": {
+				"*": "Karachi, Maldives (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1219": {
+		"symbol": "UTC+5:30",
+		"name": {
+			"en": {
+				"*": "Delhi, Mumbai (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,330)}",
+		"formatter": "function(a){return f1201(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1220": {
+		"symbol": "UTC+5:45",
+		"name": {
+			"en": {
+				"*": "Kathmandu (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,345)}",
+		"formatter": "function(a){return f1201(a,345)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1221": {
+		"symbol": "UTC+6",
+		"name": {
+			"en": {
+				"*": "Almaty, Dhaka (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1222": {
+		"symbol": "UTC+6:30",
+		"name": {
+			"en": {
+				"*": "Cocos Islands, Yangon (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,390)}",
+		"formatter": "function(a){return f1201(a,390)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1223": {
+		"symbol": "UTC+7",
+		"name": {
+			"en": {
+				"*": "Bangkok, Hanoi (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,420)}",
+		"formatter": "function(a){return f1201(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1224": {
+		"symbol": "UTC+8",
+		"name": {
+			"en": {
+				"*": "Beijing, Hong Kong (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1225": {
+		"symbol": "UTC+9",
+		"name": {
+			"en": {
+				"*": "Seoul, Tokyo (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1226": {
+		"symbol": "UTC+9:30",
+		"name": {
+			"en": {
+				"*": "Adelaide, Darwin (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,570)}",
+		"formatter": "function(a){return f1201(a,570)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1227": {
+		"symbol": "UTC+10",
+		"name": {
+			"en": {
+				"*": "Melbourne, Sydney (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,600)}",
+		"formatter": "function(a){return f1201(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1228": {
+		"symbol": "UTC+11",
+		"name": {
+			"en": {
+				"*": "Magadan, Noum\u00E9a (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,660)}",
+		"formatter": "function(a){return f1201(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1229": {
+		"symbol": "UTC+12",
+		"name": {
+			"en": {
+				"*": "Auckland, Suva (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,720)}",
+		"formatter": "function(a){return f1201(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1230": {
+		"symbol": "UTC+13",
+		"name": {
+			"en": {
+				"*": "Kiribati, Nuku'alofa (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,780)}",
+		"formatter": "function(a){return f1201(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1231": {
+		"symbol": "SST",
+		"name": {
+			"en": {
+				"*": "Samoa Standard Time (UTC-11) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-660)}",
+		"formatter": "function(a){return f1201(a,-660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1232": {
+		"symbol": "SDT",
+		"name": {
+			"en": {
+				"*": "Samoa Daylight Time (UTC-10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-600)}",
+		"formatter": "function(a){return f1201(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1233": {
+		"symbol": "HST",
+		"name": {
+			"en": {
+				"*": "Hawaii-Aleutian Standard Time (UTC-10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-600)}",
+		"formatter": "function(a){return f1201(a,-600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1234": {
+		"symbol": "HDT",
+		"name": {
+			"en": {
+				"*": "Hawaii-Aleutian Daylight Time (UTC-9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-540)}",
+		"formatter": "function(a){return f1201(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1235": {
+		"symbol": "AKST",
+		"name": {
+			"en": {
+				"*": "Alaska Standard Time (UTC-9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-540)}",
+		"formatter": "function(a){return f1201(a,-540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1236": {
+		"symbol": "AKDT",
+		"name": {
+			"en": {
+				"*": "Alaska Daylight Time (UTC-8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-480)}",
+		"formatter": "function(a){return f1201(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1237": {
+		"symbol": "PST",
+		"name": {
+			"en": {
+				"*": "Pacific Standard Time (UTC-8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-480)}",
+		"formatter": "function(a){return f1201(a,-480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1238": {
+		"symbol": "PDT",
+		"name": {
+			"en": {
+				"*": "Pacific Daylight Time (UTC-7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-420)}",
+		"formatter": "function(a){return f1201(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1239": {
+		"symbol": "MST",
+		"name": {
+			"en": {
+				"*": "Mountain Standard Time (UTC-7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-420)}",
+		"formatter": "function(a){return f1201(a,-420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1240": {
+		"symbol": "MDT",
+		"name": {
+			"en": {
+				"*": "Mountain Daylight Time (UTC-6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-360)}",
+		"formatter": "function(a){return f1201(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1241": {
+		"symbol": "CST",
+		"name": {
+			"en": {
+				"*": "Central Standard Time (UTC-6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-360)}",
+		"formatter": "function(a){return f1201(a,-360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1242": {
+		"symbol": "CDT",
+		"name": {
+			"en": {
+				"*": "Central Daylight Time (UTC-5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-300)}",
+		"formatter": "function(a){return f1201(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1243": {
+		"symbol": "EST",
+		"name": {
+			"en": {
+				"*": "Eastern Standard Time (UTC-5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-300)}",
+		"formatter": "function(a){return f1201(a,-300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1244": {
+		"symbol": "EDT",
+		"name": {
+			"en": {
+				"*": "Eastern Daylight Time (UTC-4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-240)}",
+		"formatter": "function(a){return f1201(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1245": {
+		"symbol": "AST",
+		"name": {
+			"en": {
+				"*": "Atlantic Standard Time (UTC-4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-240)}",
+		"formatter": "function(a){return f1201(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1246": {
+		"symbol": "ADT",
+		"name": {
+			"en": {
+				"*": "Atlantic Daylight Time (UTC-3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-180)}",
+		"formatter": "function(a){return f1201(a,-180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1247": {
+		"symbol": "ECT",
+		"name": {
+			"en": {
+				"*": "Eastern Caribbean Time (UTC-4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,-240)}",
+		"formatter": "function(a){return f1201(a,-240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1248": {
+		"symbol": "GMT",
+		"name": {
+			"en": {
+				"*": "Greenwich Mean Time (UTC\u00B10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,0)}",
+		"formatter": "function(a){return f1201(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1249": {
+		"symbol": "WET",
+		"name": {
+			"en": {
+				"*": "Western European Time (UTC\u00B10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,0)}",
+		"formatter": "function(a){return f1201(a,0)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1250": {
+		"symbol": "WEST",
+		"name": {
+			"en": {
+				"*": "Western European Summer Time (UTC+1) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1251": {
+		"symbol": "BST",
+		"name": {
+			"en": {
+				"*": "British Summer Time (UTC+1) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1252": {
+		"symbol": "IST",
+		"name": {
+			"en": {
+				"*": "Irish Summer Time (UTC+1) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1253": {
+		"symbol": "CET",
+		"name": {
+			"en": {
+				"*": "Central European Time (UTC+1) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1254": {
+		"symbol": "CEST",
+		"name": {
+			"en": {
+				"*": "Central European Summer Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1255": {
+		"symbol": "EET",
+		"name": {
+			"en": {
+				"*": "Eastern European Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1256": {
+		"symbol": "EEST",
+		"name": {
+			"en": {
+				"*": "Eastern European Summer Time (UTC+3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1257": {
+		"symbol": "WAT",
+		"name": {
+			"en": {
+				"*": "West Africa Time (UTC+1) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,60)}",
+		"formatter": "function(a){return f1201(a,60)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1258": {
+		"symbol": "WAST",
+		"name": {
+			"en": {
+				"*": "West Africa Summer Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1259": {
+		"symbol": "SAST",
+		"name": {
+			"en": {
+				"*": "South Africa Standard Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1260": {
+		"symbol": "CAT",
+		"name": {
+			"en": {
+				"*": "Central Africa Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1261": {
+		"symbol": "CAST",
+		"name": {
+			"en": {
+				"*": "Central Africa Summer Time (UTC+3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1262": {
+		"symbol": "EAT",
+		"name": {
+			"en": {
+				"*": "East Africa Time (UTC+3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1263": {
+		"symbol": "EAST",
+		"name": {
+			"en": {
+				"*": "East Africa Summer Time (UTC+4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,240)}",
+		"formatter": "function(a){return f1201(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1264": {
+		"symbol": "USZ1",
+		"name": {
+			"en": {
+				"*": "Kaliningrad Time (UTC+2) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,120)}",
+		"formatter": "function(a){return f1201(a,120)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1265": {
+		"symbol": "USZ1S",
+		"name": {
+			"en": {
+				"*": "Kaliningrad Summer Time (UTC+3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1266": {
+		"symbol": "MSK",
+		"name": {
+			"en": {
+				"*": "Moscow Time (UTC+3) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,180)}",
+		"formatter": "function(a){return f1201(a,180)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1267": {
+		"symbol": "MSD",
+		"name": {
+			"en": {
+				"*": "Moscow Summer Time (UTC+4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,240)}",
+		"formatter": "function(a){return f1201(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1268": {
+		"symbol": "SAMT",
+		"name": {
+			"en": {
+				"*": "Samara Time (UTC+4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,240)}",
+		"formatter": "function(a){return f1201(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1269": {
+		"symbol": "SAMST",
+		"name": {
+			"en": {
+				"*": "Samara Summer Time (UTC+5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1270": {
+		"symbol": "YEKT",
+		"name": {
+			"en": {
+				"*": "Yekaterinburg Time (UTC+5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1271": {
+		"symbol": "YEKST",
+		"name": {
+			"en": {
+				"*": "Yekaterinburg Summer Time (UTC+6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1272": {
+		"symbol": "OMST",
+		"name": {
+			"en": {
+				"*": "Omsk Time (UTC+6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1273": {
+		"symbol": "OMSST",
+		"name": {
+			"en": {
+				"*": "Omsk Summer Time (UTC+7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,420)}",
+		"formatter": "function(a){return f1201(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1274": {
+		"symbol": "KRAT",
+		"name": {
+			"en": {
+				"*": "Krasnoyarsk Time (UTC+7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,420)}",
+		"formatter": "function(a){return f1201(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1275": {
+		"symbol": "KRAST",
+		"name": {
+			"en": {
+				"*": "Krasnoyarsk Summer Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1276": {
+		"symbol": "IRKT",
+		"name": {
+			"en": {
+				"*": "Irkutsk Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1277": {
+		"symbol": "IRKST",
+		"name": {
+			"en": {
+				"*": "Irkutsk Summer Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1278": {
+		"symbol": "YAKT",
+		"name": {
+			"en": {
+				"*": "Yakutsk Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1279": {
+		"symbol": "YAKST",
+		"name": {
+			"en": {
+				"*": "Yakutsk Summer Time (UTC+10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,600)}",
+		"formatter": "function(a){return f1201(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1280": {
+		"symbol": "VLAT",
+		"name": {
+			"en": {
+				"*": "Vladinvostok Time (UTC+10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,600)}",
+		"formatter": "function(a){return f1201(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1281": {
+		"symbol": "VLAST",
+		"name": {
+			"en": {
+				"*": "Vladinvostok Summer Time (UTC+11) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,660)}",
+		"formatter": "function(a){return f1201(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1282": {
+		"symbol": "MAGT",
+		"name": {
+			"en": {
+				"*": "Magadan Time (UTC+11) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,660)}",
+		"formatter": "function(a){return f1201(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1283": {
+		"symbol": "MAGST",
+		"name": {
+			"en": {
+				"*": "Magadan Summer Time (UTC+12) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,720)}",
+		"formatter": "function(a){return f1201(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1284": {
+		"symbol": "PETT",
+		"name": {
+			"en": {
+				"*": "Kamchatka Time (UTC+12) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,720)}",
+		"formatter": "function(a){return f1201(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1285": {
+		"symbol": "PETST",
+		"name": {
+			"en": {
+				"*": "Kamchatka Summer Time (UTC+13) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,780)}",
+		"formatter": "function(a){return f1201(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1286": {
+		"symbol": "IRST",
+		"name": {
+			"en": {
+				"*": "Iran Standard Time (UTC+3:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,210)}",
+		"formatter": "function(a){return f1201(a,210)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1287": {
+		"symbol": "AZT",
+		"name": {
+			"en": {
+				"*": "Azerbaijan Time (UTC+4) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,240)}",
+		"formatter": "function(a){return f1201(a,240)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1288": {
+		"symbol": "IRDT",
+		"name": {
+			"en": {
+				"*": "Iran Daylight Time (UTC+4:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,270)}",
+		"formatter": "function(a){return f1201(a,270)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1289": {
+		"symbol": "PKT",
+		"name": {
+			"en": {
+				"*": "Pakistan Standard Time (UTC+5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1290": {
+		"name": {
+			"en": {
+				"*": "Tajikistan Time (UTC+5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1291": {
+		"name": {
+			"en": {
+				"*": "Uzbekistan Time (UTC+5) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,300)}",
+		"formatter": "function(a){return f1201(a,300)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1292": {
+		"symbol": "IST",
+		"name": {
+			"en": {
+				"*": "Indian Standard Time (UTC+5:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,330)}",
+		"formatter": "function(a){return f1201(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1293": {
+		"symbol": "SLT",
+		"name": {
+			"en": {
+				"*": "Sri Lanka Time (UTC+5:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,330)}",
+		"formatter": "function(a){return f1201(a,330)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1294": {
+		"symbol": "NPT",
+		"name": {
+			"en": {
+				"*": "Napal Time (UTC+5:45) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,345)}",
+		"formatter": "function(a){return f1201(a,345)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1295": {
+		"symbol": "BST",
+		"name": {
+			"en": {
+				"*": "Bangladesh Standard Time (UTC+6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1296": {
+		"symbol": "BTT",
+		"name": {
+			"en": {
+				"*": "Bhutan Time (UTC+6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1297": {
+		"symbol": "PST",
+		"name": {
+			"en": {
+				"*": "Pakistan Standard Time (UTC+6) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,360)}",
+		"formatter": "function(a){return f1201(a,360)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1298": {
+		"symbol": "ICT",
+		"name": {
+			"en": {
+				"*": "Indochina Time (UTC+7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,420)}",
+		"formatter": "function(a){return f1201(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1299": {
+		"symbol": "WIB",
+		"name": {
+			"en": {
+				"*": "Indonesian Western Standard Time (UTC+7) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,420)}",
+		"formatter": "function(a){return f1201(a,420)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1300": {
+		"symbol": "WITA",
+		"name": {
+			"en": {
+				"*": "Indonesian Central Standard Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1301": {
+		"symbol": "WIT",
+		"name": {
+			"en": {
+				"*": "Indonesian Eastern Standard Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1302": {
+		"name": {
+			"en": {
+				"*": "China Standard Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1303": {
+		"symbol": "HKT",
+		"name": {
+			"en": {
+				"*": "Hong Kong Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1304": {
+		"name": {
+			"en": {
+				"*": "Macau Standard Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1305": {
+		"name": {
+			"en": {
+				"*": "Chungyuan Standard Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1306": {
+		"symbol": "JST",
+		"name": {
+			"en": {
+				"*": "Japan Standard Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1307": {
+		"symbol": "KST",
+		"name": {
+			"en": {
+				"*": "Korea Standard Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1308": {
+		"symbol": "AWST",
+		"name": {
+			"en": {
+				"*": "Australian Western Standard Time (UTC+8) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,480)}",
+		"formatter": "function(a){return f1201(a,480)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1309": {
+		"symbol": "AWDT",
+		"name": {
+			"en": {
+				"*": "Australian Western Daylight Time (UTC+9) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,540)}",
+		"formatter": "function(a){return f1201(a,540)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1310": {
+		"symbol": "ACST",
+		"name": {
+			"en": {
+				"*": "Australian Central Standard Time (UTC+9:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,570)}",
+		"formatter": "function(a){return f1201(a,570)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1311": {
+		"symbol": "AEST",
+		"name": {
+			"en": {
+				"*": "Australian Eastern Standard Time (UTC+10) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,600)}",
+		"formatter": "function(a){return f1201(a,600)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1312": {
+		"symbol": "ACDT",
+		"name": {
+			"en": {
+				"*": "Australian Central Daylight Time (UTC+10:30) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,630)}",
+		"formatter": "function(a){return f1201(a,630)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1313": {
+		"symbol": "AEDT",
+		"name": {
+			"en": {
+				"*": "Australian Eastern Daylight Time (UTC+11) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,660)}",
+		"formatter": "function(a){return f1201(a,660)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1314": {
+		"symbol": "NZST",
+		"name": {
+			"en": {
+				"*": "New Zealand Standard Time (UTC+12) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,720)}",
+		"formatter": "function(a){return f1201(a,720)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1315": {
+		"symbol": "CHAST",
+		"name": {
+			"en": {
+				"*": "Chatham Standard Time (UTC+12:45) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,765)}",
+		"formatter": "function(a){return f1201(a,765)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1316": {
+		"symbol": "NZDT",
+		"name": {
+			"en": {
+				"*": "New Zealand Daylight Time (UTC+13) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,780)}",
+		"formatter": "function(a){return f1201(a,780)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1317": {
+		"symbol": "CHADT",
+		"name": {
+			"en": {
+				"*": "Chatham Daylight Time (UTC+13:45) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,825)}",
+		"formatter": "function(a){return f1201(a,825)}",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"z1318": {
+		"name": {
+			"en": {
+				"*": "Phoenix Islands Time (UTC+13) (24-hour)"
+			}
+		},
+		"datatype": "text",
+		"parser": "function(a){return f1200(a,780)}",
+		"formatter": "function(a){return f1201(a,780)}",
 		"dimension": {
 			"time": 1
 		}

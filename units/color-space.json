@@ -1,0 +1,286 @@
+{
+	"functions": {
+		"f300": "function(a){return(a&&typeof a==='object'&&a.length===3)}",
+		"f303": "function(a,s){return[a[0]/s,a[1]/s,a[2]/s]}",
+		"f330": "function(a,s){return[a[0]*s,a[1]*s,a[2]*s]}",
+		"f313": [
+			"function(a,hs,vs){",
+			"var v=a[2]*2/vs;",
+			"var c=a[1]*(v<=1?v:2-v)/vs,h=a[0]*6/hs;",
+			"var x=c*(1-Math.abs(h%2-1)),m=(v-c)/2;",
+			"switch(Math.floor(h)%6){",
+			"case 0:return[c+m,x+m,m];",
+			"case 1:return[x+m,c+m,m];",
+			"case 2:return[m,c+m,x+m];",
+			"case 3:return[m,x+m,c+m];",
+			"case 4:return[x+m,m,c+m];",
+			"case 5:return[c+m,m,x+m];",
+			"default:return[0,0,0]}}"
+		],
+		"f323": [
+			"function(a,hs,vs){",
+			"var v=a[2]/vs;",
+			"var c=a[1]*v/vs,h=a[0]*6/hs;",
+			"var x=c*(1-Math.abs(h%2-1)),m=v-c;",
+			"switch(Math.floor(h)%6){",
+			"case 0:return[c+m,x+m,m];",
+			"case 1:return[x+m,c+m,m];",
+			"case 2:return[m,c+m,x+m];",
+			"case 3:return[m,x+m,c+m];",
+			"case 4:return[x+m,m,c+m];",
+			"case 5:return[c+m,m,x+m];",
+			"default:return[0,0,0]}}"
+		],
+		"f331": [
+			"function(a,hs,vs){",
+			"var M=Math.max(Math.max(a[0],a[1]),a[2]),m=Math.min(Math.min(a[0],a[1]),a[2]),c=M-m;",
+			"var h=!c?0:M==a[0]?(a[1]-a[2])/c:M==a[1]?(a[2]-a[0])/c+2:M==a[2]?(a[0]-a[1])/c+4:0;",
+			"while(h<0)h+=6;while(h>6)h-=6;var v=M+m;",
+			"return[hs*h/6,c?vs*c/(v<=1?v:2-v):0,vs*v/2]}"
+		],
+		"f332": [
+			"function(a,hs,vs){",
+			"var M=Math.max(Math.max(a[0],a[1]),a[2]),m=Math.min(Math.min(a[0],a[1]),a[2]),c=M-m;",
+			"var h=!c?0:M==a[0]?(a[1]-a[2])/c:M==a[1]?(a[2]-a[0])/c+2:M==a[2]?(a[0]-a[1])/c+4:0;",
+			"while(h<0)h+=6;while(h>6)h-=6;",
+			"return[hs*h/6,c?vs*c/M:0,vs*M]}"
+		]
+	},
+	"z300": {
+		"symbol": [
+			"X",
+			"Y",
+			"Z"
+		],
+		"name": {
+			"en": "CIEXYZ color space"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){if(!f300(a))return null;var",
+			"r=+3.2404542*a[0]-1.5371385*a[1]-0.4985314*a[2],",
+			"g=-0.9692660*a[0]+1.8760108*a[1]+0.0415560*a[2],",
+			"b=+0.0556434*a[0]-0.2040259*a[1]+1.0572252*a[2]",
+			";return[",
+			"r<=0.0031308?12.92*r:1.055*Math.pow(r,1/2.4)-0.055,",
+			"g<=0.0031308?12.92*g:1.055*Math.pow(g,1/2.4)-0.055,",
+			"b<=0.0031308?12.92*b:1.055*Math.pow(b,1/2.4)-0.055",
+			"]}"
+		],
+		"formatter": [
+			"function(a){if(!f300(a))return null;var",
+			"r=a[0]<=0.04045?a[0]/12.92:Math.pow((a[0]+0.055)/1.055,2.4),",
+			"g=a[1]<=0.04045?a[1]/12.92:Math.pow((a[1]+0.055)/1.055,2.4),",
+			"b=a[2]<=0.04045?a[2]/12.92:Math.pow((a[2]+0.055)/1.055,2.4)",
+			";return[",
+			"+0.4124564*r+0.3575761*g+0.1804375*b,",
+			"+0.2126729*r+0.7151522*g+0.0721750*b,",
+			"+0.0193339*r+0.1191920*g+0.9503041*b",
+			"]}"
+		],
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z301": {
+		"symbol": [
+			"R",
+			"G",
+			"B"
+		],
+		"name": {
+			"en": "sRGB color space (decimal)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?a:null}",
+		"formatter": "function(a){return f300(a)?a:null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z302": {
+		"symbol": [
+			"R",
+			"G",
+			"B"
+		],
+		"name": {
+			"en": "sRGB color space (8-bit)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f303(a,255):null}",
+		"formatter": "function(a){return f300(a)?f330(a,255):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z303": {
+		"symbol": [
+			"R",
+			"G",
+			"B"
+		],
+		"name": {
+			"en": "sRGB color space (16-bit)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f303(a,65535):null}",
+		"formatter": "function(a){return f300(a)?f330(a,65535):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z304": {
+		"name": {
+			"en": "sRGB color space (HTML)"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){if(a.trim)a=a.trim();if(a[0]==='#')a=a.substring(1);",
+			"var i=parseInt(a,16);return(isFinite(i)&&i>=0&&i<=0xFFFFFF)?",
+			"((a.length<=3)?[((i>>8)&15)/15,((i>>4)&15)/15,(i&15)/15]:",
+			"[((i>>16)&255)/255,((i>>8)&255)/255,(i&255)/255]):null}"
+		],
+		"formatter": [
+			"function(a){if(!f300(a))return'';",
+			"var s='#',i,d;for(i=0;i<3;i++){",
+			"if(isNaN(d=Math.round(a[i]*255)))return'';",
+			"d='00'+(d<0?0:d>255?255:d).toString(16).toUpperCase();",
+			"s+=d.substring(d.length-2)",
+			"}return s}"
+		],
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z305": {
+		"symbol": [
+			"H",
+			"S",
+			"V"
+		],
+		"name": {
+			"en": "HSV color model on sRGB (decimal)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f323(a,1,1):null}",
+		"formatter": "function(a){return f300(a)?f332(a,1,1):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z306": {
+		"symbol": [
+			"H",
+			"S",
+			"L"
+		],
+		"name": {
+			"en": "HSL color model on sRGB (decimal)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f313(a,1,1):null}",
+		"formatter": "function(a){return f300(a)?f331(a,1,1):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z307": {
+		"symbol": [
+			"Y",
+			"I",
+			"Q"
+		],
+		"name": {
+			"en": "YIQ color model on sRGB"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return f300(a)?[",
+			"a[0]+0.956*a[1]+0.619*a[2],",
+			"a[0]-0.272*a[1]-0.647*a[2],",
+			"a[0]-1.106*a[1]+1.703*a[2]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return f300(a)?[",
+			"+0.299*a[0]+0.587*a[1]+0.114*a[2],",
+			"+0.5959*a[0]-0.2746*a[1]-0.3213*a[2],",
+			"+0.2115*a[0]-0.5227*a[1]+0.3112*a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z308": {
+		"symbol": [
+			"Y",
+			"U",
+			"V"
+		],
+		"name": {
+			"en": "YUV color model on sRGB"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": [
+			"function(a){return f300(a)?[",
+			"a[0]+1.13983*a[2],",
+			"a[0]-0.39465*a[1]-0.5806*a[2],",
+			"a[0]+2.03211*a[1]",
+			"]:null}"
+		],
+		"formatter": [
+			"function(a){return f300(a)?[",
+			"+0.299*a[0]+0.587*a[1]+0.114*a[2],",
+			"-0.14713*a[0]-0.28886*a[1]+0.436*a[2],",
+			"+0.615*a[0]-0.51499*a[1]-0.10001*a[2]",
+			"]:null}"
+		],
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z309": {
+		"symbol": [
+			"H",
+			"S",
+			"V"
+		],
+		"name": {
+			"en": "HSV color model on sRGB (360/100/100)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f323(a,360,100):null}",
+		"formatter": "function(a){return f300(a)?f332(a,360,100):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	},
+	"z310": {
+		"symbol": [
+			"H",
+			"S",
+			"L"
+		],
+		"name": {
+			"en": "HSL color model on sRGB (360/100/100)"
+		},
+		"datatype": "tuple",
+		"tuple-dimension": 3,
+		"parser": "function(a){return f300(a)?f313(a,360,100):null}",
+		"formatter": "function(a){return f300(a)?f331(a,360,100):null}",
+		"dimension": {
+			"color-space": 1
+		}
+	}
+}
