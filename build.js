@@ -152,6 +152,58 @@ function getLS(ls, lang, num) {
 	return ls;
 }
 
+function formatLSInner(fmt, ls) {
+	if (typeof fmt !== 'object') fmt = {'*': fmt};
+	if (typeof ls !== 'object') ls = {'*': ls};
+	const rls = {};
+	for (const k of Object.keys(fmt).concat(Object.keys(ls))) {
+		rls[k] = (fmt[k] || fmt['*']).replaceAll('@', ls[k] || ls['*']);
+	}
+	return rls;
+}
+
+function formatLS(fmt, ls) {
+	if (typeof fmt !== 'object') fmt = {'en': fmt};
+	if (typeof ls !== 'object') ls = {'en': ls};
+	const rls = {};
+	for (const k of Object.keys(fmt).concat(Object.keys(ls))) {
+		if (fmt[k] && ls[k]) rls[k] = formatLSInner(fmt[k], ls[k]);
+	}
+	return rls;
+}
+
+function joinLSInner(delimiter, ls1, ls2) {
+	if (!ls1) return ls2;
+	if (!ls2) return ls1;
+	if (typeof ls1 !== 'object') ls1 = {'*': ls1};
+	if (typeof ls2 !== 'object') ls2 = {'*': ls2};
+	const rls = {};
+	for (const k of Object.keys(ls1).concat(Object.keys(ls2))) {
+		rls[k] = (ls1[k] || ls1['*']) + delimiter + (ls2[k] || ls2['*']);
+	}
+	return rls;
+}
+
+function joinLSOuter(delimiter, ls1, ls2) {
+	if (!ls1) return ls2;
+	if (!ls2) return ls1;
+	if (typeof ls1 !== 'object') ls1 = {'en': ls1};
+	if (typeof ls2 !== 'object') ls2 = {'en': ls2};
+	const rls = {};
+	for (const k of Object.keys(ls1).concat(Object.keys(ls2))) {
+		if (ls1[k] && ls2[k]) rls[k] = joinLSInner(delimiter, ls1[k], ls2[k]);
+	}
+	return rls;
+}
+
+function joinLS(delimiter, arr) {
+	let rls = null;
+	for (const ls of arr) {
+		rls = joinLSOuter(delimiter, rls, ls);
+	}
+	return rls;
+}
+
 // SIMPLE REVERSIBLE MATHEMATICAL PROCEDURE NOTATION
 
 function srmpCodeGenValid(s) {
@@ -490,21 +542,32 @@ for (const file of findFiles('units')) {
 				error(context, 'must not contain both "instructions" and "parser" and/or "formatter"');
 			}
 			if (srmpCodeGenValid(item['instructions'])) {
-				try {
-					const forwardCode = srmpCodeGenForward(item['instructions']);
-					const reverseCode = srmpCodeGenReverse(item['instructions']);
-					const forwardFn = new vm.Script('(' + forwardCode + ')').runInNewContext();
-					const reverseFn = new vm.Script('(' + reverseCode + ')').runInNewContext();
-					if (typeof forwardFn === 'function' && typeof reverseFn === 'function') {
-						item['instructions.forward.source'] = forwardCode;
-						item['instructions.reverse.source'] = reverseCode;
-						item['instructions.forward.compiled'] = forwardFn;
-						item['instructions.reverse.compiled'] = reverseFn;
-					} else {
+				const m = item['instructions'].match(/^\s*([MmDdCcQq])\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*$/);
+				if (m) {
+					switch (m[1]) {
+						case 'M': case 'm': item['multiplier'] = m[2]; break;
+						case 'D': case 'd': item['divisor'] = m[2]; break;
+						case 'C': case 'c': item['multiplier'] = Math.PI; item['divisor'] = m[2]; break;
+						case 'Q': case 'q': item['multiplier'] = m[2]; item['divisor'] = Math.PI; break;
+					}
+					delete item['instructions'];
+				} else {
+					try {
+						const forwardCode = srmpCodeGenForward(item['instructions']);
+						const reverseCode = srmpCodeGenReverse(item['instructions']);
+						const forwardFn = new vm.Script('(' + forwardCode + ')').runInNewContext();
+						const reverseFn = new vm.Script('(' + reverseCode + ')').runInNewContext();
+						if (typeof forwardFn === 'function' && typeof reverseFn === 'function') {
+							item['instructions.forward.source'] = forwardCode;
+							item['instructions.reverse.source'] = reverseCode;
+							item['instructions.forward.compiled'] = forwardFn;
+							item['instructions.reverse.compiled'] = reverseFn;
+						} else {
+							error(context, 'value for "instructions" failed to compile');
+						}
+					} catch (e) {
 						error(context, 'value for "instructions" failed to compile');
 					}
-				} catch (e) {
-					error(context, 'value for "instructions" failed to compile');
 				}
 			} else {
 				error(context, 'value for "instructions" must be a valid SRMP program but is "' + item['instructions'] + '"');
@@ -541,6 +604,63 @@ for (const file of findFiles('units')) {
 			validateDimension(context, 'dimension', item['dimension'], dimensionsMap);
 		}
 		putIfOK(context, unitMap, id, item);
+	}
+}
+
+const includeMap = {};
+for (const file of findFiles('includes')) {
+	const includes = JSON.parse(fs.readFileSync(file, 'utf8'));
+	for (const id of Object.keys(includes)) {
+		const context = file + ': include "' + id + '"';
+		const item = includes[id];
+		validateStart();
+		if (!id.match(/^i[0-9]+$/)) {
+			warning(context, 'identifier does not follow recommended pattern of i[0-9]+');
+		} else if (id === 'i36') {
+			warning(context, 'identifier "i36" is reserved for the currency category');
+		}
+		validateKeys(context, item, ['name', 'categories']);
+		validateLS(context, 'name', item['name']);
+		if (item['categories'] && typeof item['categories'] === 'object' && item['categories'].length) {
+			for (const cat of item['categories']) {
+				if (cat['include'] !== undefined) {
+					validateKeys(context, cat, ['include']);
+					if (!(cat['include'] === 'i36' || includeMap[cat['include']])) {
+						error(context, 'value for "include" references undefined include "' + cat['include'] + '"');
+					}
+				} else {
+					validateKeys(context, cat, ['type', 'units']);
+					const catType = unitTypeMap[cat['type']];
+					if (!catType) {
+						error(context, 'value for "type" references undefined unit type "' + cat['type'] + '"');
+					}
+					const units = cat['units'];
+					if (units && typeof units === 'object' && units.length) {
+						for (const unit of units) {
+							if (unit && typeof unit === 'string') {
+								if (!(unit === '-' || (unit.startsWith('"') && unit.endsWith('"')))) {
+									try {
+										const u = uparse(unit);
+										if (!(deq(catType['dimension'], u['dimension']) || dcomp(catType['dimension'], u['dimension']))) {
+											error(context, 'unit "' + unit + '" is being included in an incompatible category');
+										}
+									} catch (e) {
+										error(context, 'unit "' + unit + '" could not be compiled: ' + e);
+									}
+								}
+							} else {
+								error(context, 'value for "units" must be a non-empty array of non-empty strings');
+							}
+						}
+					} else {
+						error(context, 'value for "units" must be a non-empty array of non-empty strings');
+					}
+				}
+			}
+		} else {
+			error(context, 'value for "categories" must be a non-empty array');
+		}
+		putIfOK(context, includeMap, id, item);
 	}
 }
 
@@ -631,37 +751,194 @@ function dcomp(d1, d2) {
 
 // UNIT COMPOSITION UTILITIES
 
+function uccLoose() {
+	for (let i = 0; i < arguments.length; i++) {
+		if (!arguments[i]) return false;
+		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
+		if (!dcc(arguments[i]['dimension'])) return false;
+	}
+	return true;
+}
+
+function uccStrict() {
+	for (let i = 0; i < arguments.length; i++) {
+		if (!arguments[i]) return false;
+		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
+		if (!dcc(arguments[i]['dimension'])) return false;
+		if (arguments[i]['instructions'] !== undefined) return false;
+		if (arguments[i]['parser'] !== undefined) return false;
+		if (arguments[i]['formatter'] !== undefined) return false;
+	}
+	return true;
+}
+
+function allHaveKey(key, items) {
+	for (const item of items) {
+		if (!item[key]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function sup(n) {
+	let t = '';
+	const s = n.toString();
+	for (let i = 0; i < s.length; i++) {
+		switch (s[i]) {
+			case '0': t += '\u2070'; break; case '1': t += '\u00B9'; break;
+			case '2': t += '\u00B2'; break; case '3': t += '\u00B3'; break;
+			case '4': t += '\u2074'; break; case '5': t += '\u2075'; break;
+			case '6': t += '\u2076'; break; case '7': t += '\u2077'; break;
+			case '8': t += '\u2078'; break; case '9': t += '\u2079'; break;
+			case '+': t += '\u207A'; break; case '-': t += '\u207B'; break;
+			case '.': t += '\u2E33'; break; case ',': t += '\u2E34'; break;
+			case 'E': t += '\u1D31'; break; case 'e': t += '\u1D49'; break;
+			default: t += s[i];
+		}
+	}
+	return t;
+}
+
+function identity(a) {
+	return a;
+}
+
+function uparsefn(u) {
+	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
+		const multiplier = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
+		const divisor = (u['divisor'] !== undefined) ? u['divisor'] : 1;
+		return function(a) { return a * multiplier / divisor; };
+	} else if (u['instructions.forward.compiled'] !== undefined) {
+		return u['instructions.forward.compiled'];
+	} else if (u['parser.compiled'] !== undefined) {
+		return u['parser.compiled'];
+	} else {
+		return identity;
+	}
+}
+
+function uformatfn(u) {
+	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
+		const multiplier = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
+		const divisor = (u['divisor'] !== undefined) ? u['divisor'] : 1;
+		return function(a) { return a * divisor / multiplier; };
+	} else if (u['instructions.reverse.compiled'] !== undefined) {
+		return u['instructions.reverse.compiled'];
+	} else if (u['formatter.compiled'] !== undefined) {
+		return u['formatter.compiled'];
+	} else {
+		return identity;
+	}
+}
+
 function uexp(u, b, e) {
 	if (e.eq ? e.eq(0) : e == 0) return u;
 	if (b.eq ? b.eq(1) : b == 1) return u;
-	// stub
+	if (!uccLoose(u)) return null;
+	const prefix = prefixesMap[b+'^'+e];
+	if (!prefix) return null;
+	const n = {};
+	if (prefix['symbol'] && u['symbol']) {
+		n['symbol'] = prefix['symbol'] + u['symbol'];
+	}
+	if (prefix['format'] && u['name']) {
+		n['name'] = formatLS(prefix['format'], u['name']);
+	}
+	if (u['instructions'] !== undefined || u['parser'] !== undefined || u['formatter'] !== undefined) {
+		const pf = uparsefn(u), ff = uformatfn(u), base = b, exp = e;
+		n['parser.compiled'] = function(a) { return pf(a * Math.pow(base, exp)); };
+		n['formatter.compiled'] = function(a) { return ff(a) / Math.pow(base, exp); };
+	} else {
+		let m = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
+		let d = (u['divisor'] !== undefined) ? u['divisor'] : 1;
+		if (e > 0) m *= Math.pow(b, e);
+		if (e < 0) d *= Math.pow(b, -e);
+		if (m != d) {
+			if (m != 1) n['multiplier'] = m;
+			if (d != 1) n['divisor'] = d;
+		}
+	}
+	if (u['dimension']) n['dimension'] = u['dimension'];
+	return n;
 }
 
 function umul() {
 	if (arguments.length === 0) return null;
 	if (arguments.length === 1) return arguments[0];
-	// stub
+	if (!uccStrict.apply(null, arguments)) return null;
+	const n = {};
+	const args = Array.from(arguments);
+	if (allHaveKey('symbol', args)) {
+		n['symbol'] = args.map(a => a['symbol']).join('\u00B7');
+	}
+	if (allHaveKey('name', args)) {
+		n['name'] = joinLS(' ', args.map(a => a['name']));
+	}
+	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
+	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
+	for (let i = 1; i < args.length; i++) {
+		if (args[i]['multiplier'] !== undefined) n['multiplier'] *= args[i]['multiplier'];
+		if (args[i]['divisor'] !== undefined) n['divisor'] *= args[i]['divisor'];
+	}
+	const d = dmul.apply(null, args.map(a => a['dimension']));
+	if (!dempty(d)) n['dimension'] = d;
+	return n;
 }
 
 function udiv() {
 	if (arguments.length === 0) return null;
 	if (arguments.length === 1) return arguments[0];
-	// stub
+	if (!uccStrict.apply(null, arguments)) return null;
+	const n = {};
+	const args = Array.from(arguments);
+	if (allHaveKey('symbol', args)) {
+		n['symbol'] = args.map(a => a['symbol']).join('/');
+	}
+	if (allHaveKey('name', args)) {
+		n['name'] = joinLS(' per ', args.map(a => a['name']));
+	}
+	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
+	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
+	for (let i = 1; i < args.length; i++) {
+		if (args[i]['multiplier'] !== undefined) n['divisor'] *= args[i]['multiplier'];
+		if (args[i]['divisor'] !== undefined) n['multiplier'] *= args[i]['divisor'];
+	}
+	const d = ddiv.apply(null, args.map(a => a['dimension']));
+	if (!dempty(d)) n['dimension'] = d;
+	return n;
 }
 
 function upow(u, e) {
 	if (e.eq ? e.eq(0) : e == 0) return null;
 	if (e.eq ? e.eq(1) : e == 1) return u;
-	// stub
+	if (!uccStrict(u)) return null;
+	const degree = degreesMap[e];
+	if (!degree) return null;
+	const n = {};
+	if (u['symbol']) {
+		n['symbol'] = u['symbol'] + sup(e);
+	}
+	if (degree['format'] && u['name']) {
+		n['name'] = formatLS(degree['format'], u['name']);
+	}
+	n['multiplier'] = (u['multiplier'] !== undefined) ? Math.pow(u['multiplier'], e) : 1;
+	n['divisor'] = (u['divisor'] !== undefined) ? Math.pow(u['divisor'], e) : 1;
+	if (isNaN(n['multiplier']) || isNaN(n['divisor'])) return null;
+	const d = dpow(u['dimension'], e);
+	if (!dempty(d)) n['dimension'] = d;
+	return n;
 }
 
 function ufrac(u, mo, me, mp) {
+	if (!uccLoose(u)) return null;
 	// stub
 }
 
 function uhier() {
 	if (arguments.length === 0) return null;
 	if (arguments.length === 1) return arguments[0];
+	if (!uccLoose.apply(null, arguments)) return null;
 	// stub
 }
 
