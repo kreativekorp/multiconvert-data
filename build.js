@@ -932,14 +932,94 @@ function upow(u, e) {
 
 function ufrac(u, mo, me, mp) {
 	if (!uccLoose(u)) return null;
-	// stub
+	const n = {};
+	if (u['symbol']) n['symbol'] = u['symbol'];
+	if (u['name']) n['name'] = formatLS('fractional @', u['name']);
+	n['datatype'] = 'text';
+	const pf = uparsefn(u), ff = uformatfn(u), mod = mo, med = me, mpd = mp;
+	n['parser.compiled'] = function(a) {
+		if (!(a = a.replace(/^\s+|\s+$/g, ''))) return NaN;
+		if (a === '\u221E' || a === '+\u221E') return Infinity;
+		if (a === '-\u221E') return -Infinity;
+		const s = (a[0] === '-') ? (-1) : 1;
+		if (a[0] === '-' || a[0] === '+') a = a.substring(1);
+		let v = 0;
+		for (const p of a.split(/\s+/)) {
+			const b = p.split('/');
+			for (let i = 1; i < b.length; i++) b[0] /= b[i];
+			v += +b[0];
+		}
+		return pf(v * s);
+	};
+	n['formatter.compiled'] = function(a) {
+		if (isNaN((a = ff(a)))) return '';
+		if (!isFinite(a)) return ((a < 0) ? '-\u221E' : '\u221E');
+		const s = (a < 0) ? '-' : '';
+		const i = Math.floor((a = Math.abs(a)));
+		const f = a - i;
+		if (!f) return s + i;
+		let bestDen = 1, bestNum = 0, bestVal = 0, bestDif = f;
+		for (let den = 1; den <= mod || den <= med || den <= mpd; den++) {
+			if (
+				(den <= mod) ||
+				(den <= med && !(den & 1)) ||
+				(den <= mpd && !(den & (den - 1)))
+			) {
+				const num = Math.round(f * den);
+				const val = num / den;
+				const dif = Math.abs(val - f);
+				if (dif < bestDif) {
+					bestDen = den;
+					bestNum = num;
+					bestVal = val;
+					bestDif = dif;
+				}
+			}
+		}
+		if (!bestNum) return s + i;
+		if (bestNum == bestDen) return s + (i + 1);
+		return s + i + ' ' + bestNum + '/' + bestDen;
+	};
+	if (u['dimension']) n['dimension'] = u['dimension'];
+	return n;
 }
 
 function uhier() {
 	if (arguments.length === 0) return null;
 	if (arguments.length === 1) return arguments[0];
 	if (!uccLoose.apply(null, arguments)) return null;
-	// stub
+	const n = {};
+	const args = Array.from(arguments);
+	n['symbol'] = args.map(a => a['symbol']);
+	n['name'] = joinLS(', ', args.map(a => a['name']));
+	n['datatype'] = 'tuple';
+	n['tuple-dimension'] = args.length;
+	const td = args.length;
+	const pf = args.map(uparsefn);
+	const ff = args.map(uformatfn);
+	n['parser.compiled'] = function(a) {
+		if (!(a && typeof a === 'object' && a.length === td)) return NaN;
+		let d = 0;
+		for (let i = 0; i < td; i++) {
+			d += pf[i](a[i]);
+		}
+		return d;
+	};
+	n['formatter.compiled'] = function(a) {
+		if (!isFinite(a)) return null;
+		const d = [];
+		for (let i = 0; i < td; i++) {
+			const iv = ff[i](a);
+			const last = (i == td - 1);
+			d[i] = (i === (td - 1)) ? iv : ((iv < 0) ? Math.ceil(iv) : Math.floor(iv));
+			a = pf[i](iv - d[i]);
+		}
+		return d;
+	};
+	const d = args[0]['dimension'];
+	for (const arg of args) if (!deq(d, arg['dimension'])) return null;
+	if (!dempty(d)) n['dimension'] = d;
+	return n;
 }
 
 function uparse_ws(s) {
