@@ -397,7 +397,7 @@ function parseFunctions(context, functions) {
 			warning(ctx, 'identifier does not follow recommended pattern of f[0-9]+');
 		}
 		let script = functions[id];
-		if (script.join) script = script.join(' ');
+		if (script.join) script = script.join('\n');
 		if (script && typeof script === 'string') {
 			try {
 				const fn = new vm.Script('(' + script + ')').runInNewContext(functionCompiledMap);
@@ -580,11 +580,12 @@ for (const file of findFiles('units')) {
 			const validateScript = function(key) {
 				if (item[key] !== undefined) {
 					let script = item[key];
-					if (script.join) script = script.join(' ');
+					if (script.join) script = script.join('\n');
 					if (script && typeof script === 'string') {
 						try {
 							const fn = new vm.Script('(' + script + ')').runInNewContext(functionCompiledMap);
 							if (typeof fn === 'function') {
+								item[key + '.source'] = script;
 								item[key + '.compiled'] = fn;
 							} else {
 								error(context, 'value for "' + key + '" must compile to a JavaScript function');
@@ -605,6 +606,11 @@ for (const file of findFiles('units')) {
 		}
 		putIfOK(context, unitMap, id, item);
 	}
+}
+
+const unitMapAll = {};
+for (const id of Object.keys(unitMap)) {
+	unitMapAll[id] = unitMap[id];
 }
 
 const includeMap = {};
@@ -641,7 +647,9 @@ for (const file of findFiles('includes')) {
 								if (!(unit === '-' || (unit.startsWith('"') && unit.endsWith('"')))) {
 									try {
 										const u = uparse(unit);
-										if (!(deq(catType['dimension'], u['dimension']) || dcomp(catType['dimension'], u['dimension']))) {
+										if (deq(catType['dimension'], u['dimension']) || dcomp(catType['dimension'], u['dimension'])) {
+											unitMapAll[unit] = u;
+										} else {
 											error(context, 'unit "' + unit + '" is being included in an incompatible category');
 										}
 									} catch (e) {
@@ -663,6 +671,14 @@ for (const file of findFiles('includes')) {
 		putIfOK(context, includeMap, id, item);
 	}
 }
+
+console.log(Object.keys(unitTypeMap).length + ' unit types defined');
+console.log(Object.keys(functionSourceMap).length + ' functions defined');
+console.log(Object.keys(unitMap).length + ' units defined');
+console.log(Object.keys(unitMapAll).length + ' units defined or included');
+console.log(Object.keys(includeMap).length + ' includes defined');
+console.log(totalErrorCount + ' errors in data');
+console.log(totalWarningCount + ' warnings in data');
 
 // DIMENSIONAL ANALYSIS UTILITIES
 
@@ -1237,6 +1253,9 @@ function testEqual(a, b, e) {
 	return Math.abs(a - b) < Math.max(e * norm, e);
 }
 
+let testsTotal = 0;
+let testsFailed = 0;
+let testsPassed = 0;
 for (const file of findFiles('tests')) {
 	const tests = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const item of tests) {
@@ -1351,8 +1370,168 @@ for (const file of findFiles('tests')) {
 		} else {
 			error(context, 'test case must have at least one input and at least one output');
 		}
+		testsTotal++;
+		if (localErrorCount) testsFailed++;
+		if (!localErrorCount) testsPassed++;
 	}
 }
 
-console.log(totalErrorCount + ' errors');
-console.log(totalWarningCount + ' warnings');
+console.log(testsTotal + ' tests executed');
+console.log(testsPassed + ' tests passed');
+console.log(testsFailed + ' tests failed');
+console.log(totalErrorCount + ' errors total');
+console.log(totalWarningCount + ' warnings total');
+
+// WRITE OUTPUT FILE
+
+function dimObj(dim) {
+	const obj = {};
+	if (dim) {
+		for (const key of Object.keys(dim)) {
+			obj[dimensionsMap[key]['legacy-id']] = dim[key];
+		}
+	}
+	return obj;
+}
+
+function catObj(cat) {
+	if (cat['include']) return {'i': cat['include']};
+	return {'t': cat['type'], 'u': cat['units']};
+}
+
+function incObj(inc) {
+	const name = getLS(inc['name'], 'en', '*');
+	const categories = inc['categories'].map(catObj);
+	return {'n': name, 'c': categories};
+}
+
+const lines = [];
+lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
+lines.push('if(typeof m!==\'object\')m={};(function(m){');
+
+const mp = {};
+for (const key of Object.keys(degreesMap)) {
+	const item = degreesMap[key];
+	const nameLS = formatLS(item['format'], ' ');
+	const name = getLS(nameLS, 'en', '*').trim();
+	mp[key] = name;
+}
+lines.push('m.mp=' + JSON.stringify(mp) + ';');
+
+const dp = {};
+const bp = {};
+for (const key of Object.keys(prefixesMap)) {
+	const item = prefixesMap[key];
+	const symbol = item['symbol'];
+	const nameLS = formatLS(item['format'], ' ');
+	const name = getLS(nameLS, 'en', '*').trim();
+	const obj = {'s': symbol, 'n': name};
+	if (key.startsWith('10^')) dp[key.substring(3)] = obj;
+	if (key.startsWith('2^')) bp[key.substring(2)] = obj;
+}
+lines.push('m.dp=' + JSON.stringify(dp) + ';');
+lines.push('m.bp=' + JSON.stringify(bp) + ';');
+
+const t = {};
+for (const key of Object.keys(unitTypeMap)) {
+	const item = unitTypeMap[key];
+	const name = getLS(item['name'], 'en', '*');
+	const dim = dimObj(item['dimension']);
+	const obj = {'n': name};
+	if (!dempty(dim)) obj['d'] = dim;
+	t[key] = obj;
+}
+lines.push('m.t=' + JSON.stringify(t) + ';');
+
+for (const key of Object.keys(functionSourceMap)) {
+	lines.push('var ' + key + '=' + functionSourceMap[key] + ';');
+}
+
+const colorCodes = [];
+for (const key of Object.keys(unitMap)) {
+	const item = unitMap[key];
+	if (item['cc-map'] !== undefined) {
+		const ncc = [];
+		for (const cc of item['cc-map']) {
+			const obj = {};
+			for (const k of Object.keys(cc)) {
+				const h = cc[k]['color'];
+				const n = getLS(cc[k]['name'], 'en', '*');
+				obj[k] = {'h': h, 'n': n};
+			}
+			const s = JSON.stringify(obj);
+			let i = colorCodes.indexOf(s);
+			if (i < 0) {
+				i = colorCodes.length;
+				colorCodes.push(s);
+			}
+			ncc.push('cc' + i);
+		}
+		item['cc-map.source'] = '[' + ncc.join(',') + ']';
+	}
+}
+for (const key of Object.keys(colorCodes)) {
+	lines.push('var cc' + key + '=' + colorCodes[key] + ';');
+}
+
+lines.push('if(!m.r)m.r={};if(!m.u)m.u={};var uu={');
+for (const key of Object.keys(unitMap)) {
+	const item = unitMap[key];
+	const obj = {};
+	if (item['symbol'] !== undefined) {
+		obj['s'] = item['symbol'];
+	}
+	if (item['name'] !== undefined) {
+		const n = getLS(item['name'], 'en', 1);
+		const p = getLS(item['name'], 'en', '*');
+		obj['n'] = n; if (n !== p) obj['p'] = p;
+	}
+	if ((item['datatype'] || 'num') !== 'num') {
+		obj['k'] = item['datatype'];
+	}
+	if (item['tuple-dimension'] !== undefined) {
+		obj['td'] = item['tuple-dimension'];
+	}
+	if (item['dep-name'] !== undefined) {
+		obj['dn'] = getLS(item['dep-name'], 'en', '*');
+	}
+	if (item['dep-dimension'] !== undefined) {
+		obj['dd'] = dimObj(item['dep-dimension']);
+	}
+	if (item['cc-map'] !== undefined) {
+		obj['cc'] = '@@@@cc-map.source@@@@';
+	}
+	if (item['multiplier'] !== undefined || item['divisor'] !== undefined) {
+		if (item['multiplier'] !== undefined && item['multiplier'] != 1) {
+			obj['m'] = +item['multiplier'];
+		}
+		if (item['divisor'] !== undefined && item['divisor'] != 1) {
+			obj['w'] = +item['divisor'];
+		}
+	} else if (item['instructions'] !== undefined) {
+		obj['t'] = '@@@@instructions.forward.source@@@@';
+		obj['f'] = '@@@@instructions.reverse.source@@@@';
+	} else if (item['parser'] !== undefined || item['formatter'] !== undefined) {
+		obj['t'] = '@@@@parser.source@@@@';
+		obj['f'] = '@@@@formatter.source@@@@';
+	}
+	if (item['dimension'] !== undefined) {
+		obj['d'] = dimObj(item['dimension']);
+	}
+	let s = JSON.stringify(obj);
+	s = s.replaceAll(/("(cc|t|f)":)"@@@@([-a-z.]+)@@@@"/g, (g0, g1, g2, g3) => g1 + item[g3]);
+	lines.push('"' + key + '":' + s + ',');
+}
+lines.push('};for(var k in uu)m.u[k]=uu[k];m.r[\'main\']=true;');
+
+lines.push('if(!m.i)m.i={};var ii={');
+for (const key of Object.keys(includeMap)) {
+	const item = includeMap[key];
+	const obj = incObj(item);
+	lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
+}
+lines.push('};for(var k in ii)m.i[k]=ii[k];m.r[\'defaults\']=true;');
+
+lines.push('})(m);')
+fs.writeFileSync('mcdbmain.js', lines.join('\n'));
+console.log('written to mcdbmain.js');
