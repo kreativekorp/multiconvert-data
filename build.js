@@ -1381,6 +1381,7 @@ console.log(testsPassed + ' tests passed');
 console.log(testsFailed + ' tests failed');
 console.log(totalErrorCount + ' errors total');
 console.log(totalWarningCount + ' warnings total');
+if (totalErrorCount) process.exit(1);
 
 // WRITE OUTPUT FILE
 
@@ -1534,4 +1535,4 @@ lines.push('};for(var k in ii)m.i[k]=ii[k];m.r[\'defaults\']=true;');
 
 lines.push('})(m);')
 fs.writeFileSync('mcdbmain.js', lines.join('\n'));
-console.log('written to mcdbmain.js');
+console.log('Written to mcdbmain.js');

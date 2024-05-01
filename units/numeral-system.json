@@ -1,25 +1,27 @@
 {
 	"functions": {
 		"f100": [
-			"function(a,b){",
-			"if(a.trim)a=a.trim();if(b>10&&b<=36&&a.toUpperCase)a=a.toUpperCase();",
-			"if(a=='')return NaN;if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
-			"var ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
-			"var us=a.split(/[.,]/);if(!us.length)return 0;var n=1,r=0,d=0,i;",
+			"function(a,b,ab,re){",
+			"if(a.trim)a=a.trim();if(a=='')return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"if(!ab){if(b>10&&b<=36&&a.toUpperCase)a=a.toUpperCase();",
+			"ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'}",
+			"var us=a.split(/[.,]/),n=1,r=0,d=0,i=0;if(!us.length)return 0;",
 			"switch(us[0][0]){case'-':n=-1;case'+':us[0]=us[0].substring(1)}",
-			"i=0;while(i<us[0].length){if((a=ab.indexOf(us[0][i++]))<0)return NaN;r=r*b+a}",
-			"if(us.length==1)return n*r;",
-			"i=us[1].length;while(i>0){if((a=ab.indexOf(us[1][--i]))<0)return NaN;d=(d+a)/b}",
+			"if(re)us=us.map(function(s){return s.split(re).filter(function(x){return!!x})});",
+			"while(i<us[0].length){if((a=ab.indexOf(us[0][i++]))<0)return NaN;r=r*b+a}",
+			"if(us.length==1)return n*r;i=us[1].length;",
+			"while(i>0){if((a=ab.indexOf(us[1][--i]))<0)return NaN;d=(d+a)/b}",
 			"return n*(r+d);",
 			"}"
 		],
 		"f101": [
-			"function(a,b){",
+			"function(a,b,ab){",
 			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
-			"var ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
-			"var s=(a<0);a=Math.abs(a);var i=Math.floor(a);var d=a-i;var r='';",
-			"while(i>0){a=Math.floor(i/b);r=ab[Math.floor(i-b*a)]+r;i=a}if(!r)r='0';",
-			"if(d>0){r+='.';i=0;while(d>0&&i++<50){d*=b;a=Math.floor(d);r+=ab[a];d-=a}}",
+			"if(!ab)ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
+			"var s=a<0,i=Math.floor(a=Math.abs(a)),d=a-i,r='';",
+			"while(i>0){a=Math.floor(i/b);r=ab[Math.floor(i-b*a)]+r;i=a}if(!r)r=ab[0];",
+			"if(d>0){r+='.';i=0;while(d>0&&i++<50){r+=ab[a=Math.floor(d*=b)];d-=a}}",
 			"return(s?('-'+r):r);",
 			"}"
 		]
@@ -164,6 +166,42 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,60)}",
 		"formatter": "function(a){return f101(a,60)}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z197": {
+		"name": {
+			"en": "Kaktovik numerals"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){return f100(a,20,",
+			"['𝋀','𝋁','𝋂','𝋃','𝋄','𝋅','𝋆','𝋇','𝋈','𝋉','𝋊','𝋋','𝋌','𝋍','𝋎','𝋏','𝋐','𝋑','𝋒','𝋓'],",
+			"/(𝋀|𝋁|𝋂|𝋃|𝋄|𝋅|𝋆|𝋇|𝋈|𝋉|𝋊|𝋋|𝋌|𝋍|𝋎|𝋏|𝋐|𝋑|𝋒|𝋓)/g)}"
+		],
+		"formatter": [
+			"function(a){return f101(a,20,",
+			"['𝋀','𝋁','𝋂','𝋃','𝋄','𝋅','𝋆','𝋇','𝋈','𝋉','𝋊','𝋋','𝋌','𝋍','𝋎','𝋏','𝋐','𝋑','𝋒','𝋓'])}"
+		],
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z198": {
+		"name": {
+			"en": "Mayan numerals"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){return f100(a,20,",
+			"['𝋠','𝋡','𝋢','𝋣','𝋤','𝋥','𝋦','𝋧','𝋨','𝋩','𝋪','𝋫','𝋬','𝋭','𝋮','𝋯','𝋰','𝋱','𝋲','𝋳'],",
+			"/(𝋠|𝋡|𝋢|𝋣|𝋤|𝋥|𝋦|𝋧|𝋨|𝋩|𝋪|𝋫|𝋬|𝋭|𝋮|𝋯|𝋰|𝋱|𝋲|𝋳)/g)}"
+		],
+		"formatter": [
+			"function(a){return f101(a,20,",
+			"['𝋠','𝋡','𝋢','𝋣','𝋤','𝋥','𝋦','𝋧','𝋨','𝋩','𝋪','𝋫','𝋬','𝋭','𝋮','𝋯','𝋰','𝋱','𝋲','𝋳'])}"
+		],
 		"dimension": {
 			"numeral-system": 1
 		}
