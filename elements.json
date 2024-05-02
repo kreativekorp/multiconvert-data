@@ -1,0 +1,2872 @@
+{
+	"0": {
+		"symbol": "n",
+		"name": {
+			"en": "Neutronium"
+		}
+	},
+	"1": {
+		"symbol": "H",
+		"name": {
+			"en": "Hydrogen"
+		},
+		"properties": {
+			"t94": {
+				"value": 1.007947,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -258.975,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -252.87,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 72.77,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"2": {
+		"symbol": "He",
+		"name": {
+			"en": "Helium"
+		},
+		"properties": {
+			"t94": {
+				"value": 4.0026022,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -273.128,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -268.93,
+				"unit": "u110"
+			}
+		}
+	},
+	"3": {
+		"symbol": "Li",
+		"name": {
+			"en": "Lithium"
+		},
+		"properties": {
+			"t94": {
+				"value": 6.9412,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 180.7,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1342,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.98,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 59.62,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"4": {
+		"symbol": "Be",
+		"name": {
+			"en": "Beryllium"
+		},
+		"properties": {
+			"t94": {
+				"value": 9.0121823,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1278,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2469,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.57,
+				"unit": "u50"
+			}
+		}
+	},
+	"5": {
+		"symbol": "B",
+		"name": {
+			"en": "Boron"
+		},
+		"properties": {
+			"t94": {
+				"value": 10.8117,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2300,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3927,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.04,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 26.99,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"6": {
+		"symbol": "C",
+		"name": {
+			"en": "Carbon"
+		},
+		"properties": {
+			"t94": {
+				"value": 12.01078,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 3675,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4027,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.55,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 121.78,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"7": {
+		"symbol": "N",
+		"name": {
+			"en": "Nitrogen"
+		},
+		"properties": {
+			"t94": {
+				"value": 14.00672,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -209.86,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -195.79,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3.04,
+				"unit": "u50"
+			}
+		}
+	},
+	"8": {
+		"symbol": "O",
+		"name": {
+			"en": "Oxygen"
+		},
+		"properties": {
+			"t94": {
+				"value": 15.99943,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -222.65,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -182.95,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3.44,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 141.004,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"9": {
+		"symbol": "F",
+		"name": {
+			"en": "Fluorine"
+		},
+		"properties": {
+			"t94": {
+				"value": 18.99840325,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -219.52,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -188.12,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3.98,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": -328.165,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"10": {
+		"symbol": "Ne",
+		"name": {
+			"en": "Neon"
+		},
+		"properties": {
+			"t94": {
+				"value": 20.17976,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -248.447,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -246.08,
+				"unit": "u110"
+			}
+		}
+	},
+	"11": {
+		"symbol": "Na",
+		"name": {
+			"en": "Sodium",
+			"la": "Natrium"
+		},
+		"properties": {
+			"t94": {
+				"value": 22.989769282,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 98,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 883,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.93,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 52.87,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"12": {
+		"symbol": "Mg",
+		"name": {
+			"en": "Magnesium"
+		},
+		"properties": {
+			"t94": {
+				"value": 24.30506,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 650,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1090,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.31,
+				"unit": "u50"
+			}
+		}
+	},
+	"13": {
+		"symbol": "Al",
+		"name": {
+			"en": "Aluminum",
+			"la": "Aluminium"
+		},
+		"properties": {
+			"t94": {
+				"value": 26.98153868,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 660.25,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2519,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.61,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 41.86,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"14": {
+		"symbol": "Si",
+		"name": {
+			"en": "Silicon"
+		},
+		"properties": {
+			"t94": {
+				"value": 28.08553,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1410,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3265,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.9,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 134.07,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"15": {
+		"symbol": "P",
+		"name": {
+			"en": "Phosphorus"
+		},
+		"properties": {
+			"t94": {
+				"value": 30.9737622,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 44.1,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 280,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.19,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 72.03,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"16": {
+		"symbol": "S",
+		"name": {
+			"en": "Sulfur"
+		},
+		"properties": {
+			"t94": {
+				"value": 32.0655,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 115.36,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 444.6,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.58,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 200.41,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"17": {
+		"symbol": "Cl",
+		"name": {
+			"en": "Chlorine"
+		},
+		"properties": {
+			"t94": {
+				"value": 35.4532,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -100.84,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -34.04,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3.16,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": -349,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"18": {
+		"symbol": "Ar",
+		"name": {
+			"en": "Argon"
+		},
+		"properties": {
+			"t94": {
+				"value": 39.9481,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -189.19,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -185.85,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"19": {
+		"symbol": "K",
+		"name": {
+			"en": "Potassium",
+			"la": "Kallium"
+		},
+		"properties": {
+			"t94": {
+				"value": 39.09831,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 63.35,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 759,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.82,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 48.38,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"20": {
+		"symbol": "Ca",
+		"name": {
+			"en": "Calcium"
+		},
+		"properties": {
+			"t94": {
+				"value": 40.0784,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 839,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1484,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 2.37,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"21": {
+		"symbol": "Sc",
+		"name": {
+			"en": "Scandium"
+		},
+		"properties": {
+			"t94": {
+				"value": 44.9559126,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1539,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2836,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.36,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 182,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"22": {
+		"symbol": "Ti",
+		"name": {
+			"en": "Titanium"
+		},
+		"properties": {
+			"t94": {
+				"value": 47.8671,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1660,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3287,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.54,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 8.47,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"23": {
+		"symbol": "V",
+		"name": {
+			"en": "Vanadium"
+		},
+		"properties": {
+			"t94": {
+				"value": 50.94151,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1902,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3407,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.63,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 51,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"24": {
+		"symbol": "Cr",
+		"name": {
+			"en": "Chromium"
+		},
+		"properties": {
+			"t94": {
+				"value": 51.99616,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1857,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2671,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.66,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 65.2,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"25": {
+		"symbol": "Mn",
+		"name": {
+			"en": "Manganese"
+		},
+		"properties": {
+			"t94": {
+				"value": 54.9380455,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1246,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2061,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.55,
+				"unit": "u50"
+			}
+		}
+	},
+	"26": {
+		"symbol": "Fe",
+		"name": {
+			"en": "Iron",
+			"la": "Ferrum"
+		},
+		"properties": {
+			"t94": {
+				"value": 55.8452,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1535,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2861,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.83,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 14.63,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"27": {
+		"symbol": "Co",
+		"name": {
+			"en": "Cobalt"
+		},
+		"properties": {
+			"t94": {
+				"value": 58.9331955,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1495,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2927,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.88,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 64,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"28": {
+		"symbol": "Ni",
+		"name": {
+			"en": "Nickel"
+		},
+		"properties": {
+			"t94": {
+				"value": 58.69342,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1453,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2913,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.91,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 111.6,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"29": {
+		"symbol": "Cu",
+		"name": {
+			"en": "Copper",
+			"la": "Cuprum"
+		},
+		"properties": {
+			"t94": {
+				"value": 63.5463,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1084.6,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2562,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.9,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 119.24,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"30": {
+		"symbol": "Zn",
+		"name": {
+			"en": "Zinc"
+		},
+		"properties": {
+			"t94": {
+				"value": 65.4094,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 419.73,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 907,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.65,
+				"unit": "u50"
+			}
+		}
+	},
+	"31": {
+		"symbol": "Ga",
+		"name": {
+			"en": "Gallium"
+		},
+		"properties": {
+			"t94": {
+				"value": 69.7231,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 29.76,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2204,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.81,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 413,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"32": {
+		"symbol": "Ge",
+		"name": {
+			"en": "Germanium"
+		},
+		"properties": {
+			"t94": {
+				"value": 72.641,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 938.3,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2833,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.01,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 118.94,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"33": {
+		"symbol": "As",
+		"name": {
+			"en": "Arsenic"
+		},
+		"properties": {
+			"t94": {
+				"value": 74.921602,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 817,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 614,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.18,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 78.57,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"34": {
+		"symbol": "Se",
+		"name": {
+			"en": "Selenium"
+		},
+		"properties": {
+			"t94": {
+				"value": 78.963,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 221,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 685,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.55,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 194.97,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"35": {
+		"symbol": "Br",
+		"name": {
+			"en": "Bromine"
+		},
+		"properties": {
+			"t94": {
+				"value": 79.9041,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -7.1,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 58.8,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.96,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 342.54,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"36": {
+		"symbol": "Kr",
+		"name": {
+			"en": "Krypton"
+		},
+		"properties": {
+			"t94": {
+				"value": 83.7982,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -157.22,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -153.22,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 3,
+				"unit": "u50"
+			}
+		}
+	},
+	"37": {
+		"symbol": "Rb",
+		"name": {
+			"en": "Rubidium"
+		},
+		"properties": {
+			"t94": {
+				"value": 85.46783,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 39.64,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 688,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.82,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 46.89,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"38": {
+		"symbol": "Sr",
+		"name": {
+			"en": "Strontium"
+		},
+		"properties": {
+			"t94": {
+				"value": 87.621,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 769,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1382,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.95,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 5.02,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"39": {
+		"symbol": "Y",
+		"name": {
+			"en": "Yttrium"
+		},
+		"properties": {
+			"t94": {
+				"value": 88.905852,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1526,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3336,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.22,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 30,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"40": {
+		"symbol": "Zr",
+		"name": {
+			"en": "Zirconium"
+		},
+		"properties": {
+			"t94": {
+				"value": 91.2242,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1852,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4409,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.33,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 41,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"41": {
+		"symbol": "Nb",
+		"name": {
+			"en": "Niobium"
+		},
+		"properties": {
+			"t94": {
+				"value": 92.906382,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2468,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4744,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.6,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 862,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"42": {
+		"symbol": "Mo",
+		"name": {
+			"en": "Molybdenum"
+		},
+		"properties": {
+			"t94": {
+				"value": 95.942,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2617,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4639,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.16,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 72.3,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"43": {
+		"symbol": "Tc",
+		"name": {
+			"en": "Technetium"
+		},
+		"properties": {
+			"t94": {
+				"value": 98.9063,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2200,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4877,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.9,
+				"unit": "u50"
+			}
+		}
+	},
+	"44": {
+		"symbol": "Ru",
+		"name": {
+			"en": "Ruthenium"
+		},
+		"properties": {
+			"t94": {
+				"value": 101.072,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2250,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4150,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 101,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"45": {
+		"symbol": "Rh",
+		"name": {
+			"en": "Rhodium"
+		},
+		"properties": {
+			"t94": {
+				"value": 102.905502,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1966,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3695,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.28,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 110.3,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"46": {
+		"symbol": "Pd",
+		"name": {
+			"en": "Palladium"
+		},
+		"properties": {
+			"t94": {
+				"value": 106.421,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1552,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2963,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 54.24,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"47": {
+		"symbol": "Ag",
+		"name": {
+			"en": "Silver",
+			"la": "Argentium"
+		},
+		"properties": {
+			"t94": {
+				"value": 107.86822,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 961,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2162,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.93,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 125.86,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"48": {
+		"symbol": "Cd",
+		"name": {
+			"en": "Cadmium"
+		},
+		"properties": {
+			"t94": {
+				"value": 112.4118,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 321.18,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 767,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.69,
+				"unit": "u50"
+			}
+		}
+	},
+	"49": {
+		"symbol": "In",
+		"name": {
+			"en": "Indium"
+		},
+		"properties": {
+			"t94": {
+				"value": 114.8183,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 156.76,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2072,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.78,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 39,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"50": {
+		"symbol": "Sn",
+		"name": {
+			"en": "Tin",
+			"la": "Stannum"
+		},
+		"properties": {
+			"t94": {
+				"value": 118.7107,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 232.06,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2602,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.96,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 107.3,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"51": {
+		"symbol": "Sb",
+		"name": {
+			"en": "Antimony",
+			"la": "Stibbium"
+		},
+		"properties": {
+			"t94": {
+				"value": 121.7601,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 630.9,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1587,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.05,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 101.06,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"52": {
+		"symbol": "Te",
+		"name": {
+			"en": "Tellurium"
+		},
+		"properties": {
+			"t94": {
+				"value": 127.603,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 449.65,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 988,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.1,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 190.16,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"53": {
+		"symbol": "I",
+		"name": {
+			"en": "Iodine"
+		},
+		"properties": {
+			"t94": {
+				"value": 126.904473,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 113.5,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 184.3,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.66,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 295,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"54": {
+		"symbol": "Xe",
+		"name": {
+			"en": "Xenon"
+		},
+		"properties": {
+			"t94": {
+				"value": 131.2936,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -111.7,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -108.12,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.67,
+				"unit": "u50"
+			}
+		}
+	},
+	"55": {
+		"symbol": "Cs",
+		"name": {
+			"en": "Caesium"
+		},
+		"properties": {
+			"t94": {
+				"value": 132.90545192,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 28.55,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 671,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.79,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 45.51,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"56": {
+		"symbol": "Ba",
+		"name": {
+			"en": "Barium"
+		},
+		"properties": {
+			"t94": {
+				"value": 137.3277,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 729,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1897,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.89,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 13.95,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"57": {
+		"symbol": "La",
+		"name": {
+			"en": "Lanthanum"
+		},
+		"properties": {
+			"t94": {
+				"value": 138.905477,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 920,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3464,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.1,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 452,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"58": {
+		"symbol": "Ce",
+		"name": {
+			"en": "Cerium"
+		},
+		"properties": {
+			"t94": {
+				"value": 140.1161,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 798,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3443,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.12,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 922,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"59": {
+		"symbol": "Pr",
+		"name": {
+			"en": "Praseodymium"
+		},
+		"properties": {
+			"t94": {
+				"value": 140.907652,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 931,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3520,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.13,
+				"unit": "u50"
+			}
+		}
+	},
+	"60": {
+		"symbol": "Nd",
+		"name": {
+			"en": "Neodymium"
+		},
+		"properties": {
+			"t94": {
+				"value": 144.2423,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1016,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3074,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.14,
+				"unit": "u50"
+			}
+		}
+	},
+	"61": {
+		"symbol": "Pm",
+		"name": {
+			"en": "Promethium"
+		},
+		"properties": {
+			"t94": {
+				"value": 146.9151,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 931,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3000,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.13,
+				"unit": "u50"
+			}
+		}
+	},
+	"62": {
+		"symbol": "Sm",
+		"name": {
+			"en": "Samarium"
+		},
+		"properties": {
+			"t94": {
+				"value": 150.362,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1072,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1794,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.17,
+				"unit": "u50"
+			}
+		}
+	},
+	"63": {
+		"symbol": "Eu",
+		"name": {
+			"en": "Europium"
+		},
+		"properties": {
+			"t94": {
+				"value": 151.9641,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 822,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1529,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.2,
+				"unit": "u50"
+			}
+		}
+	},
+	"64": {
+		"symbol": "Gd",
+		"name": {
+			"en": "Gadolinium"
+		},
+		"properties": {
+			"t94": {
+				"value": 157.253,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1312,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3273,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.2,
+				"unit": "u50"
+			}
+		}
+	},
+	"65": {
+		"symbol": "Tb",
+		"name": {
+			"en": "Terbium"
+		},
+		"properties": {
+			"t94": {
+				"value": 158.925352,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1357,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3230,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.1,
+				"unit": "u50"
+			}
+		}
+	},
+	"66": {
+		"symbol": "Dy",
+		"name": {
+			"en": "Dysprosium"
+		},
+		"properties": {
+			"t94": {
+				"value": 162.5001,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1407,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2567,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.22,
+				"unit": "u50"
+			}
+		}
+	},
+	"67": {
+		"symbol": "Ho",
+		"name": {
+			"en": "Holmium"
+		},
+		"properties": {
+			"t94": {
+				"value": 164.930322,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1470,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2720,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.23,
+				"unit": "u50"
+			}
+		}
+	},
+	"68": {
+		"symbol": "Er",
+		"name": {
+			"en": "Erbium"
+		},
+		"properties": {
+			"t94": {
+				"value": 167.2593,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1522,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3230,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.24,
+				"unit": "u50"
+			}
+		}
+	},
+	"69": {
+		"symbol": "Tm",
+		"name": {
+			"en": "Thulium"
+		},
+		"properties": {
+			"t94": {
+				"value": 168.934212,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1545,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1950,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.25,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 992,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"70": {
+		"symbol": "Yb",
+		"name": {
+			"en": "Ytterbium"
+		},
+		"properties": {
+			"t94": {
+				"value": 173.043,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 824,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1196,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.1,
+				"unit": "u50"
+			}
+		}
+	},
+	"71": {
+		"symbol": "Lu",
+		"name": {
+			"en": "Lutetium"
+		},
+		"properties": {
+			"t94": {
+				"value": 174.9671,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1663,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3402,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.27,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 33,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"72": {
+		"symbol": "Hf",
+		"name": {
+			"en": "Hafnium"
+		},
+		"properties": {
+			"t94": {
+				"value": 178.492,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2227,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4603,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"73": {
+		"symbol": "Ta",
+		"name": {
+			"en": "Tantalum"
+		},
+		"properties": {
+			"t94": {
+				"value": 180.94791,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2996,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 5458,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.5,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 31,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"74": {
+		"symbol": "W",
+		"name": {
+			"en": "Tungsten",
+			"la": "Wolframium"
+		},
+		"properties": {
+			"t94": {
+				"value": 183.841,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 3407,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 5657,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.36,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 79,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"75": {
+		"symbol": "Re",
+		"name": {
+			"en": "Rhenium"
+		},
+		"properties": {
+			"t94": {
+				"value": 186.2071,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 3180,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 5627,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.9,
+				"unit": "u50"
+			}
+		}
+	},
+	"76": {
+		"symbol": "Os",
+		"name": {
+			"en": "Osmium"
+		},
+		"properties": {
+			"t94": {
+				"value": 190.233,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 3027,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 5012,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 104,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"77": {
+		"symbol": "Ir",
+		"name": {
+			"en": "Iridium"
+		},
+		"properties": {
+			"t94": {
+				"value": 192.2173,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2443,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4428,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 150.9,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"78": {
+		"symbol": "Pt",
+		"name": {
+			"en": "Platinum"
+		},
+		"properties": {
+			"t94": {
+				"value": 195.0849,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1772,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3825,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.28,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 205.04,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"79": {
+		"symbol": "Au",
+		"name": {
+			"en": "Gold",
+			"la": "Aurum"
+		},
+		"properties": {
+			"t94": {
+				"value": 196.9665694,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1064.58,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2856,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.54,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 222.75,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"80": {
+		"symbol": "Hg",
+		"name": {
+			"en": "Mercury",
+			"la": "Hydrargynum"
+		},
+		"properties": {
+			"t94": {
+				"value": 200.592,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -38.72,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 357,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2,
+				"unit": "u50"
+			}
+		}
+	},
+	"81": {
+		"symbol": "Tl",
+		"name": {
+			"en": "Thallium"
+		},
+		"properties": {
+			"t94": {
+				"value": 204.38332,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 304,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1473,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.62,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 36,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"82": {
+		"symbol": "Pb",
+		"name": {
+			"en": "Lead",
+			"la": "Plumbum"
+		},
+		"properties": {
+			"t94": {
+				"value": 207.21,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 327.6,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1749,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.33,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 35,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"83": {
+		"symbol": "Bi",
+		"name": {
+			"en": "Bismuth"
+		},
+		"properties": {
+			"t94": {
+				"value": 208.980401,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 271.52,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1564,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.02,
+				"unit": "u50"
+			},
+			"t155": {
+				"value": 90.92,
+				"unit": "u12_3/u5"
+			}
+		}
+	},
+	"84": {
+		"symbol": "Po",
+		"name": {
+			"en": "Polonium"
+		},
+		"properties": {
+			"t94": {
+				"value": 208.9824,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 254,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 962,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2,
+				"unit": "u50"
+			}
+		}
+	},
+	"85": {
+		"symbol": "At",
+		"name": {
+			"en": "Astatine"
+		},
+		"properties": {
+			"t94": {
+				"value": 209.9871,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 302,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 337,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			}
+		}
+	},
+	"86": {
+		"symbol": "Rn",
+		"name": {
+			"en": "Radon"
+		},
+		"properties": {
+			"t94": {
+				"value": 222.0176,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -71,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -61.7,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 2.2,
+				"unit": "u50"
+			}
+		}
+	},
+	"87": {
+		"symbol": "Fr",
+		"name": {
+			"en": "Francium"
+		},
+		"properties": {
+			"t94": {
+				"value": 223.0197,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 27,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 677,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.7,
+				"unit": "u50"
+			}
+		}
+	},
+	"88": {
+		"symbol": "Ra",
+		"name": {
+			"en": "Radium"
+		},
+		"properties": {
+			"t94": {
+				"value": 226.0254,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 700,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 1737,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 0.9,
+				"unit": "u50"
+			}
+		}
+	},
+	"89": {
+		"symbol": "Ac",
+		"name": {
+			"en": "Actinium"
+		},
+		"properties": {
+			"t94": {
+				"value": 227.0278,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1050,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3198,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.1,
+				"unit": "u50"
+			}
+		}
+	},
+	"90": {
+		"symbol": "Th",
+		"name": {
+			"en": "Thorium"
+		},
+		"properties": {
+			"t94": {
+				"value": 232.038062,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1755,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4788,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"91": {
+		"symbol": "Pa",
+		"name": {
+			"en": "Protactinium"
+		},
+		"properties": {
+			"t94": {
+				"value": 231.035882,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1600,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4027,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.5,
+				"unit": "u50"
+			}
+		}
+	},
+	"92": {
+		"symbol": "U",
+		"name": {
+			"en": "Uranium"
+		},
+		"properties": {
+			"t94": {
+				"value": 238.028913,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1132,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4131,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.38,
+				"unit": "u50"
+			}
+		}
+	},
+	"93": {
+		"symbol": "Np",
+		"name": {
+			"en": "Neptunium"
+		},
+		"properties": {
+			"t94": {
+				"value": 237.0482,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 640,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 4000,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.36,
+				"unit": "u50"
+			}
+		}
+	},
+	"94": {
+		"symbol": "Pu",
+		"name": {
+			"en": "Plutonium"
+		},
+		"properties": {
+			"t94": {
+				"value": 244.0642,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 640,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3228,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.28,
+				"unit": "u50"
+			}
+		}
+	},
+	"95": {
+		"symbol": "Am",
+		"name": {
+			"en": "Americium"
+		},
+		"properties": {
+			"t94": {
+				"value": 243.0614,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 994,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 2607,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.13,
+				"unit": "u50"
+			}
+		}
+	},
+	"96": {
+		"symbol": "Cm",
+		"name": {
+			"en": "Curium"
+		},
+		"properties": {
+			"t94": {
+				"value": 247.0703,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1067,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 3110,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.28,
+				"unit": "u50"
+			}
+		}
+	},
+	"97": {
+		"symbol": "Bk",
+		"name": {
+			"en": "Berkelium"
+		},
+		"properties": {
+			"t94": {
+				"value": 247.0703,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 986,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 710,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.13,
+				"unit": "u50"
+			}
+		}
+	},
+	"98": {
+		"symbol": "Cf",
+		"name": {
+			"en": "Californium"
+		},
+		"properties": {
+			"t94": {
+				"value": 251.0796,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1652,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": 900,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.28,
+				"unit": "u50"
+			}
+		}
+	},
+	"99": {
+		"symbol": "Es",
+		"name": {
+			"en": "Einsteinium"
+		},
+		"properties": {
+			"t94": {
+				"value": 252.0829,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 860,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"100": {
+		"symbol": "Fm",
+		"name": {
+			"en": "Fermium"
+		},
+		"properties": {
+			"t94": {
+				"value": 257.0951,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2781,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"101": {
+		"symbol": "Md",
+		"name": {
+			"en": "Mendelevium"
+		},
+		"properties": {
+			"t94": {
+				"value": 258.0986,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1521,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"102": {
+		"symbol": "No",
+		"name": {
+			"en": "Nobelium"
+		},
+		"properties": {
+			"t94": {
+				"value": 259.1009,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 1521,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.3,
+				"unit": "u50"
+			}
+		}
+	},
+	"103": {
+		"symbol": "Lr",
+		"name": {
+			"en": "Lawrencium"
+		},
+		"properties": {
+			"t94": {
+				"value": 260.1053,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": 2961,
+				"unit": "u110"
+			},
+			"t1036": {
+				"value": 1.291,
+				"unit": "u50"
+			}
+		}
+	},
+	"104": {
+		"symbol": "Rf",
+		"name": {
+			"en": "Rutherfordium"
+		},
+		"properties": {
+			"t94": {
+				"value": 261.1087,
+				"unit": "u141"
+			}
+		}
+	},
+	"105": {
+		"symbol": "Db",
+		"name": {
+			"en": "Dubnium"
+		},
+		"properties": {
+			"t94": {
+				"value": 262.1138,
+				"unit": "u141"
+			}
+		}
+	},
+	"106": {
+		"symbol": "Sg",
+		"name": {
+			"en": "Seaborgium"
+		},
+		"properties": {
+			"t94": {
+				"value": 263.1182,
+				"unit": "u141"
+			}
+		}
+	},
+	"107": {
+		"symbol": "Bh",
+		"name": {
+			"en": "Bohrium"
+		},
+		"properties": {
+			"t94": {
+				"value": 262.1229,
+				"unit": "u141"
+			}
+		}
+	},
+	"108": {
+		"symbol": "Hs",
+		"name": {
+			"en": "Hassium"
+		},
+		"properties": {
+			"t94": {
+				"value": 265,
+				"unit": "u141"
+			}
+		}
+	},
+	"109": {
+		"symbol": "Mt",
+		"name": {
+			"en": "Meitnerium"
+		},
+		"properties": {
+			"t94": {
+				"value": 266,
+				"unit": "u141"
+			}
+		}
+	},
+	"110": {
+		"symbol": "Ds",
+		"name": {
+			"en": "Darmstadtium"
+		},
+		"properties": {
+			"t94": {
+				"value": 269,
+				"unit": "u141"
+			}
+		}
+	},
+	"111": {
+		"symbol": "Rg",
+		"name": {
+			"en": "Roentgenium"
+		},
+		"properties": {
+			"t94": {
+				"value": 272,
+				"unit": "u141"
+			}
+		}
+	},
+	"112": {
+		"symbol": "Cn",
+		"name": {
+			"en": "Copernicium"
+		},
+		"properties": {
+			"t94": {
+				"value": 285,
+				"unit": "u141"
+			}
+		}
+	},
+	"113": {
+		"symbol": "Nh",
+		"name": {
+			"en": "Nihonium"
+		},
+		"properties": {
+			"t94": {
+				"value": 284,
+				"unit": "u141"
+			}
+		}
+	},
+	"114": {
+		"symbol": "Fl",
+		"name": {
+			"en": "Flerovium"
+		},
+		"properties": {
+			"t94": {
+				"value": 289,
+				"unit": "u141"
+			}
+		}
+	},
+	"115": {
+		"symbol": "Mc",
+		"name": {
+			"en": "Moscovium"
+		},
+		"properties": {
+			"t94": {
+				"value": 288,
+				"unit": "u141"
+			}
+		}
+	},
+	"116": {
+		"symbol": "Lv",
+		"name": {
+			"en": "Livermorium"
+		},
+		"properties": {
+			"t94": {
+				"value": 292,
+				"unit": "u141"
+			}
+		}
+	},
+	"117": {
+		"symbol": "Ts",
+		"name": {
+			"en": "Tennessine"
+		},
+		"properties": {
+			"t94": {
+				"value": 295,
+				"unit": "u141"
+			}
+		}
+	},
+	"118": {
+		"symbol": "Og",
+		"name": {
+			"en": "Oganesson"
+		},
+		"properties": {
+			"t94": {
+				"value": 294,
+				"unit": "u141"
+			}
+		}
+	}
+}

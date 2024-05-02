@@ -1,0 +1,47 @@
+{
+	"s102": {
+		"name": {
+			"en": "fuel efficiency calculator"
+		},
+		"variables": [
+			{
+				"type": "dependent",
+				"register": 0,
+				"name": {
+					"en": "distance"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0_3"
+			},
+			{
+				"type": "dependent",
+				"register": 1,
+				"name": {
+					"en": "fuel volume"
+				},
+				"dimension": {
+					"length": 3
+				},
+				"unit": "u107"
+			},
+			{
+				"type": "dependent",
+				"register": 2,
+				"name": {
+					"en": "fuel consumption"
+				},
+				"dimension": {
+					"length": -2
+				},
+				"unit": "u0_3/u107"
+			}
+		],
+		"solutions": {
+			"0,1": "function(r){r[2]=r[0]/r[1]}",
+			"1,2": "function(r){r[0]=r[2]*r[1]}",
+			"0,2": "function(r){r[1]=r[0]/r[2]}"
+		}
+	}
+}

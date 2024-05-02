@@ -1,0 +1,59 @@
+{
+	"s110": {
+		"name": {
+			"en": "square solver"
+		},
+		"variables": [
+			{
+				"type": "dependent",
+				"register": 0,
+				"name": {
+					"en": "side length"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 1,
+				"name": {
+					"en": "diagonal"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 2,
+				"name": {
+					"en": "perimeter"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 3,
+				"name": {
+					"en": "area"
+				},
+				"dimension": {
+					"length": 2
+				},
+				"unit": "u0^2"
+			}
+		],
+		"solutions": {
+			"0": "function(r){r[1]=r[0]*Math.sqrt(2);r[2]=r[0]*4;r[3]=r[0]*r[0]}",
+			"1": "function(r){r[0]=r[1]/Math.sqrt(2);r[2]=r[0]*4;r[3]=r[0]*r[0]}",
+			"2": "function(r){r[0]=r[2]/4;r[1]=r[0]*Math.sqrt(2);r[3]=r[0]*r[0]}",
+			"3": "function(r){r[0]=Math.sqrt(r[3]);r[1]=r[0]*Math.sqrt(2);r[2]=r[0]*4}"
+		}
+	}
+}

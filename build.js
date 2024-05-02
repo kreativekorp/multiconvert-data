@@ -301,6 +301,19 @@ function srmpCodeGenReverse(s) {
 	return 'function(a){return(' + kernel + ');}';
 }
 
+// OTHER UTILITIES
+
+function solverSolutionKeyValid(key) {
+	const reg = key.split ? key.split(',') : key;
+	if (!reg.length) return false;
+	for (let i = 0; i < reg.length; i++) {
+		if (reg[i] < 0) return false;
+		if (Math.ceil(reg[i]) !== Math.floor(reg[i])) return false;
+		if (i > 0 && reg[i] <= reg[i-1]) return false;
+	}
+	return true;
+}
+
 // READ AND VALIDATE
 
 const degreesMap = {};
@@ -439,6 +452,8 @@ for (const file of findFiles('units')) {
 			warning(context, 'identifiers starting with "f" are reserved for functions');
 		} else if (id.startsWith('i')) {
 			warning(context, 'identifiers starting with "i" are reserved for includes');
+		} else if (id.startsWith('s')) {
+			warning(context, 'identifiers starting with "s" are reserved for solvers and calculators');
 		} else if (id.startsWith('t')) {
 			warning(context, 'identifiers starting with "t" are reserved for unit types');
 		}
@@ -672,11 +687,132 @@ for (const file of findFiles('includes')) {
 	}
 }
 
+const elementsMap = {};
+for (const file of findFiles('elements')) {
+	const elements = JSON.parse(fs.readFileSync(file, 'utf8'));
+	for (const id of Object.keys(elements)) {
+		const context = file + ': element "' + id + '"';
+		const item = elements[id];
+		validateStart();
+		if (Math.ceil(id) !== Math.floor(id)) {
+			error(context, 'identifier must be an integer');
+		}
+		validateKeys(context, item, ['symbol', 'name'], ['properties']);
+		validateString(context, 'symbol', item['symbol']);
+		validateLS(context, 'name', item['name']);
+		if (item['properties'] !== undefined) {
+			if (item['properties'] && typeof item['properties'] === 'object') {
+				for (const key of Object.keys(item['properties'])) {
+					const unitType = unitTypeMap[key];
+					if (unitType) {
+						const ctx = context + ': property "' + key + '"';
+						const unitValue = item['properties'][key];
+						validateKeys(ctx, unitValue, ['value', 'unit']);
+						try {
+							const u = uparse(unitValue['unit']);
+							if (!deq(unitType['dimension'], u['dimension'])) {
+								error(ctx, 'unit "' + unitValue['unit'] + '" is not compatible with unit type "' + key + '"');
+							}
+						} catch (e) {
+							error(ctx, 'unit "' + unitValue['unit'] + '" could not be compiled: ' + e);
+						}
+					} else {
+						error(context, 'property declared for nonexistent unit type "' + key + '"');
+					}
+				}
+			} else {
+				error(context, 'value for "properties" must be a non-null object');
+			}
+		}
+		putIfOK(context, elementsMap, id, item);
+	}
+}
+
+const solversMap = {};
+for (const file of findFiles('solvers')) {
+	const solvers = JSON.parse(fs.readFileSync(file, 'utf8'));
+	for (const id of Object.keys(solvers)) {
+		const context = file + ': solver "' + id + '"';
+		const item = solvers[id];
+		validateStart();
+		if (!id.match(/^s[0-9]+$/)) {
+			warning(context, 'identifier does not follow recommended pattern of s[0-9]+');
+		}
+		validateKeys(context, item, ['name', 'variables', 'solutions'], []);
+		validateLS(context, 'name', item['name']);
+		if (item['variables'] && typeof item['variables'] === 'object' && item['variables'].length) {
+			for (let i = 0; i < item['variables'].length; i++) {
+				const ctx = context + ': variable at index ' + i;
+				const v = item['variables'][i];
+				validateKeys(ctx, v, ['type', 'register', 'name', 'unit'], ['dimension']);
+				if (!(v['type'] === 'independent' || v['type'] === 'dependent')) {
+					error(ctx, 'value for "type" must be "independent" or "dependent" but is "' + v['type'] + '"');
+				}
+				if (Math.ceil(v['register']) !== Math.floor(v['register']) || v['register'] < 0) {
+					error(ctx, 'value for "register" must be a non-negative integer but is "' + v['register'] + '"');
+				}
+				validateLS(ctx, 'name', v['name']);
+				if (v['dimension'] !== undefined) {
+					validateDimension(ctx, 'dimension', v['dimension'], dimensionsMap);
+				}
+				try {
+					const u = uparse(v['unit']);
+					if (!deq(v['dimension'], u['dimension'])) {
+						error(ctx, 'unit "' + v['unit'] + '" is not compatible with this variable');
+					}
+				} catch (e) {
+					if (v['unit'] && v['unit'].startsWith('c')) {
+						if (!deq(v['dimension'], {'currency': 1})) {
+							error(ctx, 'unit "' + v['unit'] + '" is not compatible with this variable');
+						}
+					} else {
+						error(ctx, 'unit "' + v['unit'] + '" could not be compiled: ' + e);
+					}
+				}
+			}
+		} else {
+			error(context, 'value for "variables" must be a non-empty array of non-null objects');
+		}
+		if (item['solutions'] && typeof item['solutions'] === 'object') {
+			item['solutions.source'] = {};
+			item['solutions.compiled'] = {};
+			for (const key of Object.keys(item['solutions'])) {
+				const ctx = context + ': solution "' + key + '"';
+				if (!solverSolutionKeyValid(key)) {
+					error(ctx, 'key must be a comma-separated list of monotonically-increasing non-negative integers');
+				}
+				let script = item['solutions'][key];
+				if (script.join) script = script.join('\n');
+				if (script && typeof script === 'string') {
+					try {
+						const fn = new vm.Script('(' + script + ')').runInNewContext();
+						if (typeof fn === 'function') {
+							item['solutions.source'][key] = script;
+							item['solutions.compiled'][key] = fn;
+						} else {
+							error(ctx, 'value must compile to a JavaScript function');
+						}
+					} catch (e) {
+						error(ctx, 'value must compile to a JavaScript function');
+					}
+				} else {
+					error(ctx, 'value must be a non-empty string or array of strings');
+				}
+			}
+		} else {
+			error(context, 'value for "solutions" must be a non-null object');
+		}
+		putIfOK(context, solversMap, id, item);
+	}
+}
+
 console.log(Object.keys(unitTypeMap).length + ' unit types defined');
 console.log(Object.keys(functionSourceMap).length + ' functions defined');
 console.log(Object.keys(unitMap).length + ' units defined');
 console.log(Object.keys(unitMapAll).length + ' units defined or included');
 console.log(Object.keys(includeMap).length + ' includes defined');
+console.log(Object.keys(elementsMap).length + ' elements defined');
+console.log(Object.keys(solversMap).length + ' solvers or calculators defined');
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
 
@@ -1261,114 +1397,174 @@ for (const file of findFiles('tests')) {
 	for (const item of tests) {
 		let context = file;
 		let epsilon = 0;
-		const inputs = [];
-		const outputs = [];
-		const depInputs = {};
 		validateStart();
-		for (const key of Object.keys(item)) {
-			const value = item[key];
-			if (key === 'name') {
-				context += ': ' + value;
-			} else if (key === 'epsilon') {
-				epsilon = Math.abs(value);
-			} else if (key === 'inputs') {
-				if (value && typeof value === 'object') {
-					for (const k of Object.keys(value)) {
-						const v = testValue(value[k]);
-						if (k === 'base') {
-							inputs.push([null, v]);
-						} else {
-							try {
-								const u = uparse(k);
-								inputs.push([u, v]);
-							} catch (e) {
-								error(context, 'unit "' + k + '" could not be compiled: ' + e);
-							}
-						}
+		if (item['solver'] !== undefined) {
+			validateKeys(context, item, ['solver', 'solution-sets'], ['name', 'epsilon', 'ignore-solutions']);
+			const solver = solversMap[item['solver']];
+			const solutionSets = [];
+			const ignoreSolutions = {};
+			for (const key of Object.keys(item)) {
+				const value = item[key];
+				if (key === 'name') {
+					context += ': ' + value;
+				} else if (key === 'epsilon') {
+					epsilon = Math.abs(value);
+				} else if (key === 'solver') {
+					if (!solver) {
+						error(context, 'solver "' + value + '" does not exist');
 					}
-				} else {
-					error(context, 'value for "inputs" must be a non-null object');
-				}
-			} else if (key === 'outputs') {
-				if (value && typeof value === 'object') {
-					for (const k of Object.keys(value)) {
-						const v = testValue(value[k]);
-						if (k === 'base') {
-							outputs.push([null, v]);
-						} else {
-							try {
-								const u = uparse(k);
-								outputs.push([u, v]);
-							} catch (e) {
-								error(context, 'unit "' + k + '" could not be compiled: ' + e);
-							}
-						}
-					}
-				} else {
-					error(context, 'value for "outputs" must be a non-null object');
-				}
-			} else if (key === 'dep-inputs') {
-				if (value && typeof value === 'object') {
-					for (const k of Object.keys(value)) {
-						const v = testValue(value[k]);
-						try {
-							const u = uparse(k);
-							if (u['dep-name']) {
-								depInputs[getLS(u['dep-name'])] = v;
+				} else if (key === 'solution-sets') {
+					if (value && typeof value === 'object' && value.length) {
+						for (let i = 0; i < value.length; i++) {
+							if (value[i] && typeof value[i] === 'object' && value[i].length) {
+								solutionSets.push(value[i]);
 							} else {
-								error(context, 'unit "' + k + '" should not have a dep-input');
+								error(context, 'value for "solution-sets" at index ' + i + ' must be a non-empty array');
 							}
-						} catch (e) {
-							error(context, 'unit "' + k + '" could not be compiled: ' + e);
-						}
-					}
-				} else {
-					error(context, 'value for "dep-inputs" must be a non-null object');
-				}
-			} else {
-				const v = testValue(value);
-				if (key === 'base') {
-					inputs.push([null, v]);
-					outputs.push([null, v]);
-				} else {
-					try {
-						const u = uparse(key);
-						inputs.push([u, v]);
-						outputs.push([u, v]);
-					} catch (e) {
-						error(context, 'unit "' + key + '" could not be compiled: ' + e);
-					}
-				}
-			}
-		}
-		// console.log("test: " + context);
-		if (inputs.length && outputs.length) {
-			for (const [iu, iv] of inputs) {
-				const inputName = iu ? getLS(iu.name) : 'base units';
-				const baseValue = iu ? mcparse(iu, iv, depInputs) : iv;
-				for (const [ou, ov] of outputs) {
-					const outputName = ou ? getLS(ou.name) : 'base units';
-					if (!iu || !ou || deq(iu['dimension'], ou['dimension'])) {
-						const v = ou ? mcformat(ou, baseValue, depInputs) : baseValue;
-						if (testEqual(v, ov, epsilon)) {
-							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
-						} else {
-							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
-						}
-					} else if (dcomp(iu['dimension'], ou['dimension'])) {
-						const v = mcformat(ou, 1 / baseValue, depInputs);
-						if (testEqual(v, ov, epsilon)) {
-							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
-						} else {
-							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
 						}
 					} else {
-						error(context, 'input unit "' + inputName + '" and output unit "' + outputName + '" are not compatible');
+						error(context, 'value for "solution-sets" must be a non-empty array');
+					}
+				} else if (key === 'ignore-solutions') {
+					if (value && typeof value === 'object' && value.length) {
+						for (let i = 0; i < value.length; i++) {
+							if (solverSolutionKeyValid(value[i])) {
+								ignoreSolutions[value[i].join ? value[i].join(',') : value[i]] = true;
+							} else {
+								error(context, 'value for "ignore-solutions" at index ' + i + ' must be a list of monotonically-increasing non-negative integers');
+							}
+						}
+					} else {
+						error(context, 'value for "ignore-solutions" must be a non-empty array');
+					}
+				} else {
+					error(context, 'unknown key "' + key + '"');
+				}
+			}
+			if (solver && solutionSets.length) {
+				const ivr = solver['variables'].filter(v => v['type'] !== 'dependent').map(v => +v['register']);
+				for (const ss of solutionSets) {
+					for (const sk of Object.keys(solver['solutions'])) {
+						if (!ignoreSolutions[sk]) {
+							const inr = ivr.concat(sk.split(',').map(v => +v));
+							const r = []; for (const ir of inr) r[ir] = ss[ir];
+							solver['solutions.compiled'][sk](r);
+							if (!testEqual(r, ss, epsilon)) {
+								error(context, 'solution for [' + inr.join(',') + '] given [' + inr.map(ir => ss[ir]).join(',') + '] should be [' + ss.join(',') + '] but test produced [' + r.join(',') + ']');
+							}
+						}
 					}
 				}
 			}
 		} else {
-			error(context, 'test case must have at least one input and at least one output');
+			const inputs = [];
+			const outputs = [];
+			const depInputs = {};
+			for (const key of Object.keys(item)) {
+				const value = item[key];
+				if (key === 'name') {
+					context += ': ' + value;
+				} else if (key === 'epsilon') {
+					epsilon = Math.abs(value);
+				} else if (key === 'inputs') {
+					if (value && typeof value === 'object') {
+						for (const k of Object.keys(value)) {
+							const v = testValue(value[k]);
+							if (k === 'base') {
+								inputs.push([null, v]);
+							} else {
+								try {
+									const u = uparse(k);
+									inputs.push([u, v]);
+								} catch (e) {
+									error(context, 'unit "' + k + '" could not be compiled: ' + e);
+								}
+							}
+						}
+					} else {
+						error(context, 'value for "inputs" must be a non-null object');
+					}
+				} else if (key === 'outputs') {
+					if (value && typeof value === 'object') {
+						for (const k of Object.keys(value)) {
+							const v = testValue(value[k]);
+							if (k === 'base') {
+								outputs.push([null, v]);
+							} else {
+								try {
+									const u = uparse(k);
+									outputs.push([u, v]);
+								} catch (e) {
+									error(context, 'unit "' + k + '" could not be compiled: ' + e);
+								}
+							}
+						}
+					} else {
+						error(context, 'value for "outputs" must be a non-null object');
+					}
+				} else if (key === 'dep-inputs') {
+					if (value && typeof value === 'object') {
+						for (const k of Object.keys(value)) {
+							const v = testValue(value[k]);
+							try {
+								const u = uparse(k);
+								if (u['dep-name']) {
+									depInputs[getLS(u['dep-name'])] = v;
+								} else {
+									error(context, 'unit "' + k + '" should not have a dep-input');
+								}
+							} catch (e) {
+								error(context, 'unit "' + k + '" could not be compiled: ' + e);
+							}
+						}
+					} else {
+						error(context, 'value for "dep-inputs" must be a non-null object');
+					}
+				} else {
+					const v = testValue(value);
+					if (key === 'base') {
+						inputs.push([null, v]);
+						outputs.push([null, v]);
+					} else {
+						try {
+							const u = uparse(key);
+							inputs.push([u, v]);
+							outputs.push([u, v]);
+						} catch (e) {
+							error(context, 'unit "' + key + '" could not be compiled: ' + e);
+						}
+					}
+				}
+			}
+			// console.log("test: " + context);
+			if (inputs.length && outputs.length) {
+				for (const [iu, iv] of inputs) {
+					const inputName = iu ? getLS(iu.name) : 'base units';
+					const baseValue = iu ? mcparse(iu, iv, depInputs) : iv;
+					for (const [ou, ov] of outputs) {
+						const outputName = ou ? getLS(ou.name) : 'base units';
+						if (!iu || !ou || deq(iu['dimension'], ou['dimension'])) {
+							const v = ou ? mcformat(ou, baseValue, depInputs) : baseValue;
+							if (testEqual(v, ov, epsilon)) {
+								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
+							} else {
+								error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
+							}
+						} else if (dcomp(iu['dimension'], ou['dimension'])) {
+							const v = mcformat(ou, 1 / baseValue, depInputs);
+							if (testEqual(v, ov, epsilon)) {
+								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
+							} else {
+								error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
+							}
+						} else {
+							error(context, 'input unit "' + inputName + '" and output unit "' + outputName + '" are not compatible');
+						}
+					}
+				}
+			} else {
+				error(context, 'test case must have at least one input and at least one output');
+			}
 		}
 		testsTotal++;
 		if (localErrorCount) testsFailed++;
@@ -1383,7 +1579,7 @@ console.log(totalErrorCount + ' errors total');
 console.log(totalWarningCount + ' warnings total');
 if (totalErrorCount) process.exit(1);
 
-// WRITE OUTPUT FILE
+// WRITE MCDBMAIN.JS
 
 function dimObj(dim) {
 	const obj = {};
@@ -1406,7 +1602,7 @@ function incObj(inc) {
 	return {'n': name, 'c': categories};
 }
 
-const lines = [];
+let lines = [];
 lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
 lines.push('if(typeof m!==\'object\')m={};(function(m){');
 
@@ -1535,4 +1731,88 @@ lines.push('};for(var k in ii)m.i[k]=ii[k];m.r[\'defaults\']=true;');
 
 lines.push('})(m);')
 fs.writeFileSync('mcdbmain.js', lines.join('\n'));
-console.log('Written to mcdbmain.js');
+console.log('Wrote mcdbmain.js');
+
+// WRITE MCDBMISC.JS
+
+lines = [];
+lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
+lines.push('if(typeof m!==\'object\')m={};(function(m){');
+
+lines.push('if(!m.r)m.r={};if(!m.e)m.e={};var ee={');
+for (const key of Object.keys(elementsMap)) {
+	const item = elementsMap[key];
+	const obj = {};
+	if (item['symbol'] !== undefined) {
+		obj['s'] = item['symbol'];
+	}
+	if (item['name'] !== undefined) {
+		const n = getLS(item['name'], 'en', '*');
+		const l = getLS(item['name'], 'la', '*');
+		obj['n'] = n; if (n !== l) obj['l'] = l;
+	}
+	if (item['properties'] !== undefined) {
+		obj['a'] = {};
+		for (const key of Object.keys(item['properties'])) {
+			obj['a'][key] = {};
+			const prop = item['properties'][key];
+			if (prop['value'] !== undefined) {
+				obj['a'][key]['v'] = prop['value'];
+			}
+			if (prop['unit'] !== undefined) {
+				obj['a'][key]['u'] = prop['unit'];
+			}
+		}
+	}
+	lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
+}
+lines.push('};for(var k in ee)m.e[k]=ee[k];m.r[\'elements\']=true;');
+
+lines.push('if(!m.s)m.s={};var ss={');
+for (const key of Object.keys(solversMap)) {
+	const item = solversMap[key];
+	const obj = {};
+	if (item['name'] !== undefined) {
+		obj['n'] = getLS(item['name'], 'en', '*');
+	}
+	if (item['variables'] !== undefined) {
+		obj['v'] = [];
+		for (const v of item['variables']) {
+			const vo = {};
+			switch (v['type']) {
+				case 'independent': vo['vt'] = 'iv'; break;
+				case 'dependent': vo['vt'] = 'dv'; break;
+			}
+			if (v['register'] !== undefined) {
+				vo['r'] = v['register'];
+			}
+			if (v['name'] !== undefined) {
+				vo['n'] = getLS(v['name'], 'en', '*');
+			}
+			if (v['dimension'] !== undefined) {
+				vo['d'] = dimObj(v['dimension']);
+			}
+			if (v['unit'] !== undefined) {
+				vo['u'] = v['unit'];
+			}
+			obj['v'].push(vo);
+		}
+	}
+	if (item['solutions'] !== undefined) {
+		obj['ng'] = 0;
+		obj['g'] = {};
+		for (const k of Object.keys(item['solutions'])) {
+			const n = k.split(',').length;
+			if (obj['ng'] < n) obj['ng'] = n;
+			obj['g'][k] = '@@@@' + k + '@@@@';
+		}
+	}
+	let s = JSON.stringify(obj);
+	s = s.replaceAll(/("([0-9,]+)":)"@@@@\2@@@@"/g, (g0, g1, g2) => g1 + item['solutions.source'][g2]);
+	lines.push('"' + key + '":' + s + ',');
+}
+lines.push('};for(var k in ss)m.s[k]=ss[k];m.r[\'solvers\']=true;');
+
+lines.push('})(m);')
+fs.writeFileSync('mcdbmisc.js', lines.join('\n'));
+console.log('Wrote mcdbmisc.js');

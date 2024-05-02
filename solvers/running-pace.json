@@ -1,0 +1,48 @@
+{
+	"s106": {
+		"name": {
+			"en": "running pace calculator"
+		},
+		"variables": [
+			{
+				"type": "dependent",
+				"register": 0,
+				"name": {
+					"en": "distance"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 1,
+				"name": {
+					"en": "time"
+				},
+				"dimension": {
+					"time": 1
+				},
+				"unit": "u100"
+			},
+			{
+				"type": "dependent",
+				"register": 2,
+				"name": {
+					"en": "running pace"
+				},
+				"dimension": {
+					"length": 1,
+					"time": -1
+				},
+				"unit": "u0/u100"
+			}
+		],
+		"solutions": {
+			"0,1": "function(r){r[2]=r[0]/r[1]}",
+			"1,2": "function(r){r[0]=r[2]*r[1]}",
+			"0,2": "function(r){r[1]=r[0]/r[2]}"
+		}
+	}
+}

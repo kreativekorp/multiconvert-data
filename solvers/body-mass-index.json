@@ -1,0 +1,48 @@
+{
+	"s100": {
+		"name": {
+			"en": "body mass index calculator"
+		},
+		"variables": [
+			{
+				"type": "dependent",
+				"register": 0,
+				"name": {
+					"en": "height"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 1,
+				"name": {
+					"en": "mass"
+				},
+				"dimension": {
+					"mass": 1
+				},
+				"unit": "u1"
+			},
+			{
+				"type": "dependent",
+				"register": 2,
+				"name": {
+					"en": "body mass index"
+				},
+				"dimension": {
+					"length": -2,
+					"mass": 1
+				},
+				"unit": "u64"
+			}
+		],
+		"solutions": {
+			"0,1": "function(r){r[2]=r[1]/r[0]/r[0]}",
+			"0,2": "function(r){r[1]=r[2]*r[0]*r[0]}",
+			"1,2": "function(r){r[0]=Math.sqrt(r[1]/r[2])}"
+		}
+	}
+}

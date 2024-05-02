@@ -1,0 +1,59 @@
+{
+	"s101": {
+		"name": {
+			"en": "circle solver"
+		},
+		"variables": [
+			{
+				"type": "dependent",
+				"register": 0,
+				"name": {
+					"en": "radius"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 1,
+				"name": {
+					"en": "diameter"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 2,
+				"name": {
+					"en": "circumference"
+				},
+				"dimension": {
+					"length": 1
+				},
+				"unit": "u0"
+			},
+			{
+				"type": "dependent",
+				"register": 3,
+				"name": {
+					"en": "area"
+				},
+				"dimension": {
+					"length": 2
+				},
+				"unit": "u0^2"
+			}
+		],
+		"solutions": {
+			"0": "function(r){r[1]=r[0]*2;r[2]=r[1]*Math.PI;r[3]=r[0]*r[0]*Math.PI}",
+			"1": "function(r){r[0]=r[1]/2;r[2]=r[1]*Math.PI;r[3]=r[0]*r[0]*Math.PI}",
+			"2": "function(r){r[1]=r[2]/Math.PI;r[0]=r[1]/2;r[3]=r[0]*r[0]*Math.PI}",
+			"3": "function(r){r[0]=Math.sqrt(r[3]/Math.PI);r[1]=r[0]*2;r[2]=r[1]*Math.PI}"
+		}
+	}
+}
