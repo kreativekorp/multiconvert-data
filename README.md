@@ -182,7 +182,7 @@ The following instructions are allowed in the `instructions` field:
 
 Instructions such as integer divide, modulus, comparisons, gamma function, etc. are not available because they cannot be performed in reverse.
 
-Scientific notation is not supported in the `instructions` field. An instruction such as `M2E3` will be interpreted as *x'* = e<sup>2*x*</sup>−3, not *x'* = 2000*x*.
+Scientific notation uses the underscore (`_` instead of `E` or `e`) in the `instructions` field. An instruction such as `M2E3` will be interpreted as *x'* = e<sup>2*x*</sup>−3, not *x'* = 2000*x*. To get the latter, use the instruction `M2_3`.
 
 ### Derived Units Using JavaScript Functions ###
 Consider the definition of the DIN #4 kinematic viscosity cup:

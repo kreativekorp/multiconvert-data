@@ -20,7 +20,7 @@
 				"*": "angstroms (wavelength)"
 			}
 		},
-		"instructions": "G2997924580000000000",
+		"instructions": "G299792458_10",
 		"dimension": {
 			"time": -1
 		}

@@ -207,15 +207,15 @@ function joinLS(delimiter, arr) {
 // SIMPLE REVERSIBLE MATHEMATICAL PROCEDURE NOTATION
 
 function srmpCodeGenValid(s) {
-	s = s.replaceAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))/g, '');
+	s = s.replaceAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)(_[+-]?[0-9]+)?)/g, '');
 	return !s.replaceAll(/\s/g, '');
 }
 
 function srmpCodeGenParse(opcode, s) {
 	const operations = [];
-	for (const m of s.matchAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))/g)) {
+	for (const m of s.matchAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)(_[+-]?[0-9]+)?)/g)) {
 		if (m[1]) opcode = m[1];
-		if (m[2]) operations.push([opcode, m[2]]);
+		if (m[2]) operations.push([opcode, m[2].replaceAll('_', 'e')]);
 	}
 	return operations;
 }
