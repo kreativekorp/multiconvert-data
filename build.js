@@ -3,31 +3,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-
-// FILE SYSTEM UTILITIES
-
-function listFiles(paths, parent) {
-	if (fs.statSync(parent).isDirectory()) {
-		for (const child of fs.readdirSync(parent)) {
-			if (!child.startsWith('.')) {
-				listFiles(paths, path.join(parent, child));
-			}
-		}
-	} else {
-		paths.push(parent);
-	}
-}
-
-function findFiles(prefix) {
-	foundFiles = [];
-	const ok = new RegExp('^' + prefix.replace(/\P{L}/gu, '[-._]') + '([-._]|$)', 'iu');
-	for (const child of fs.readdirSync('.')) {
-		if (ok.test(child)) {
-			listFiles(foundFiles, child);
-		}
-	}
-	return foundFiles;
-}
+const da = require('./lib/dimension.js');
+const fsutil = require('./lib/fsutilities.js');
+const ls = require('./lib/languagestring.js');
+const srmp = require('./lib/srmp.js');
 
 // LOGGING AND VALIDATION UTILITIES
 
@@ -116,6 +95,23 @@ function validateLS(context, key, object, requiredSubstring) {
 	}
 }
 
+function validateLSOrder(context, key, object) {
+	if (!(object && typeof object === 'object')) {
+		error(context, 'value for "' + key + '" must be a non-null object');
+		return;
+	}
+	const keys = Object.keys(object);
+	if (keys.indexOf('en') < 0) {
+		error(context, 'value for "' + key + '" must contain required key "en"');
+	}
+	for (const lang of keys) {
+		const value = object[lang];
+		if (!(value === 'ltr' || value === 'rtl')) {
+			error(context, 'value for "' + key + '", language "' + lang + '", must be "ltr" or "rtl"');
+		}
+	}
+}
+
 function validateDimension(context, key, object, dimensionsMap) {
 	if (!(object && typeof object === 'object')) {
 		error(context, 'value for "' + key + '" must be a non-null object');
@@ -142,165 +138,6 @@ function putIfOK(context, map, key, value) {
 	}
 }
 
-// LANGUAGE STRING UTILITIES
-
-function getLS(ls, lang, num) {
-	if (typeof ls !== 'object') return ls;
-	ls = (lang !== undefined && ls[lang] !== undefined) ? ls[lang] : ls['en'];
-	if (typeof ls !== 'object') return ls;
-	ls = (num !== undefined && ls[num] !== undefined) ? ls[num] : ls['*'];
-	return ls;
-}
-
-function formatLSInner(fmt, ls) {
-	if (typeof fmt !== 'object') fmt = {'*': fmt};
-	if (typeof ls !== 'object') ls = {'*': ls};
-	const rls = {};
-	for (const k of Object.keys(fmt).concat(Object.keys(ls))) {
-		rls[k] = (fmt[k] || fmt['*']).replaceAll('@', ls[k] || ls['*']);
-	}
-	return rls;
-}
-
-function formatLS(fmt, ls) {
-	if (typeof fmt !== 'object') fmt = {'en': fmt};
-	if (typeof ls !== 'object') ls = {'en': ls};
-	const rls = {};
-	for (const k of Object.keys(fmt).concat(Object.keys(ls))) {
-		if (fmt[k] && ls[k]) rls[k] = formatLSInner(fmt[k], ls[k]);
-	}
-	return rls;
-}
-
-function joinLSInner(delimiter, ls1, ls2) {
-	if (!ls1) return ls2;
-	if (!ls2) return ls1;
-	if (typeof ls1 !== 'object') ls1 = {'*': ls1};
-	if (typeof ls2 !== 'object') ls2 = {'*': ls2};
-	const rls = {};
-	for (const k of Object.keys(ls1).concat(Object.keys(ls2))) {
-		rls[k] = (ls1[k] || ls1['*']) + delimiter + (ls2[k] || ls2['*']);
-	}
-	return rls;
-}
-
-function joinLSOuter(delimiter, ls1, ls2) {
-	if (!ls1) return ls2;
-	if (!ls2) return ls1;
-	if (typeof ls1 !== 'object') ls1 = {'en': ls1};
-	if (typeof ls2 !== 'object') ls2 = {'en': ls2};
-	const rls = {};
-	for (const k of Object.keys(ls1).concat(Object.keys(ls2))) {
-		if (ls1[k] && ls2[k]) rls[k] = joinLSInner(delimiter, ls1[k], ls2[k]);
-	}
-	return rls;
-}
-
-function joinLS(delimiter, arr) {
-	let rls = null;
-	for (const ls of arr) {
-		rls = joinLSOuter(delimiter, rls, ls);
-	}
-	return rls;
-}
-
-// SIMPLE REVERSIBLE MATHEMATICAL PROCEDURE NOTATION
-
-function srmpCodeGenValid(s) {
-	s = s.replaceAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)(_[+-]?[0-9]+)?)/g, '');
-	return !s.replaceAll(/\s/g, '');
-}
-
-function srmpCodeGenParse(opcode, s) {
-	const operations = [];
-	for (const m of s.matchAll(/([A-Za-z])|([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)(_[+-]?[0-9]+)?)/g)) {
-		if (m[1]) opcode = m[1];
-		if (m[2]) operations.push([opcode, m[2].replaceAll('_', 'e')]);
-	}
-	return operations;
-}
-
-function srmpCodeGenOperation(kernel, opcode, operand) {
-	switch (opcode) {
-		case 'A': case 'a': case '!S': case '!s': return '(' + kernel + ')+(' + operand + ')';
-		case 'S': case 's': case '!A': case '!a': return '(' + kernel + ')-(' + operand + ')';
-		case 'Z': case 'z': case '!Z': case '!z': return '(' + operand + ')-(' + kernel + ')';
-		case 'M': case 'm': case '!D': case '!d': return '(' + kernel + ')*(' + operand + ')';
-		case 'D': case 'd': case '!M': case '!m': return '(' + kernel + ')/(' + operand + ')';
-		case 'G': case 'g': case '!G': case '!g': return '(' + operand + ')/(' + kernel + ')';
-		case 'C': case 'c': case '!Q': case '!q': return '(' + kernel + ')*Math.PI/(' + operand + ')';
-		case 'Q': case 'q': case '!C': case '!c': return '(' + kernel + ')*(' + operand + ')/Math.PI';
-		case 'P': case 'p': case '!R': case '!r': return 'Math.pow(' + kernel + ',' + operand + ')';
-		case 'X': case 'x': case '!L': case '!l': return 'Math.pow(' + operand + ',' + kernel + ')';
-		case 'R': case 'r': case '!P': case '!p':
-			if (operand.eq ? operand.eq(2) : operand == 2) return 'Math.sqrt(' + kernel + ')';
-			if (operand.eq ? operand.eq(3) : operand == 3) return 'Math.cbrt(' + kernel + ')';
-			return 'Math.pow(' + kernel + ',1/(' + operand + '))';
-		case 'L': case 'l': case '!X': case '!x':
-			if (operand.eq ? operand.eq(2) : operand == 2) return 'Math.log2(' + kernel + ')';
-			if (operand.eq ? operand.eq(10) : operand == 10) return 'Math.log10(' + kernel + ')';
-			return 'Math.log(' + kernel + ')/Math.log(' + operand + ')';
-		case 'E': case 'e': case '!N': case '!n':
-			if (operand.eq ? operand.eq(0) : operand == 0) return 'Math.exp(' + kernel + ')';
-			if (operand.eq ? operand.eq(1) : operand == 1) return 'Math.expm1(' + kernel + ')';
-			return 'Math.exp(' + kernel + ')-(' + operand + ')';
-		case 'N': case 'n': case '!E': case '!e':
-			if (operand.eq ? operand.eq(0) : operand == 0) return 'Math.log(' + kernel + ')';
-			if (operand.eq ? operand.eq(1) : operand == 1) return 'Math.log1p(' + kernel + ')';
-			return 'Math.log((' + kernel + ')+(' + operand + '))';
-		case 'V': case 'v': case '!F': case '!f':
-			operand = operand.neg ? operand.neg() : -operand;
-			// fallthrough;
-		case 'F': case 'f': case '!V': case '!v':
-			if (operand.eq ? operand.eq( +1) : operand ==  +1) return 'Math.sin(' + kernel + ')';
-			if (operand.eq ? operand.eq( +2) : operand ==  +2) return 'Math.cos(' + kernel + ')';
-			if (operand.eq ? operand.eq( +3) : operand ==  +3) return 'Math.tan(' + kernel + ')';
-			if (operand.eq ? operand.eq( +4) : operand ==  +4) return '1/Math.tan(' + kernel + ')';
-			if (operand.eq ? operand.eq( +5) : operand ==  +5) return '1/Math.cos(' + kernel + ')';
-			if (operand.eq ? operand.eq( +6) : operand ==  +6) return '1/Math.sin(' + kernel + ')';
-			if (operand.eq ? operand.eq( +7) : operand ==  +7) return 'Math.sinh(' + kernel + ')';
-			if (operand.eq ? operand.eq( +8) : operand ==  +8) return 'Math.cosh(' + kernel + ')';
-			if (operand.eq ? operand.eq( +9) : operand ==  +9) return 'Math.tanh(' + kernel + ')';
-			if (operand.eq ? operand.eq(+10) : operand == +10) return '1/Math.tanh(' + kernel + ')';
-			if (operand.eq ? operand.eq(+11) : operand == +11) return '1/Math.cosh(' + kernel + ')';
-			if (operand.eq ? operand.eq(+12) : operand == +12) return '1/Math.sinh(' + kernel + ')';
-			if (operand.eq ? operand.eq( -1) : operand ==  -1) return 'Math.asin(' + kernel + ')';
-			if (operand.eq ? operand.eq( -2) : operand ==  -2) return 'Math.acos(' + kernel + ')';
-			if (operand.eq ? operand.eq( -3) : operand ==  -3) return 'Math.atan(' + kernel + ')';
-			if (operand.eq ? operand.eq( -4) : operand ==  -4) return 'Math.PI/2-Math.atan(' + kernel + ')';
-			if (operand.eq ? operand.eq( -5) : operand ==  -5) return 'Math.acos(1/(' + kernel + '))';
-			if (operand.eq ? operand.eq( -6) : operand ==  -6) return 'Math.asin(1/(' + kernel + '))';
-			if (operand.eq ? operand.eq( -7) : operand ==  -7) return 'Math.asinh(' + kernel + ')';
-			if (operand.eq ? operand.eq( -8) : operand ==  -8) return 'Math.acosh(' + kernel + ')';
-			if (operand.eq ? operand.eq( -9) : operand ==  -9) return 'Math.atanh(' + kernel + ')';
-			if (operand.eq ? operand.eq(-10) : operand == -10) return 'Math.atanh(1/(' + kernel + '))';
-			if (operand.eq ? operand.eq(-11) : operand == -11) return 'Math.acosh(1/(' + kernel + '))';
-			if (operand.eq ? operand.eq(-12) : operand == -12) return 'Math.asinh(1/(' + kernel + '))';
-			return kernel;
-		default: return kernel;
-	}
-}
-
-function srmpCodeGenForward(s) {
-	let kernel = 'a';
-	const operations = srmpCodeGenParse('M', s);
-	for (let i = 0; i < operations.length; i++) {
-		const [opcode, operand] = operations[i];
-		kernel = srmpCodeGenOperation(kernel, opcode, operand);
-	}
-	return 'function(a){return(' + kernel + ');}';
-}
-
-function srmpCodeGenReverse(s) {
-	let kernel = 'a';
-	const operations = srmpCodeGenParse('M', s);
-	for (let i = operations.length - 1; i >= 0; i--) {
-		const [opcode, operand] = operations[i];
-		kernel = srmpCodeGenOperation(kernel, '!' + opcode, operand);
-	}
-	return 'function(a){return(' + kernel + ');}';
-}
-
 // OTHER UTILITIES
 
 function solverSolutionKeyValid(key) {
@@ -316,8 +153,20 @@ function solverSolutionKeyValid(key) {
 
 // READ AND VALIDATE
 
+const composition = JSON.parse(fs.readFileSync('composition.json', 'utf8'));
+validateStart();
+validateKeys('composition.json', composition, ['mul-joiner', 'mul-order', 'div-joiner', 'div-order', 'hier-joiner', 'hier-order', 'frac-format'], []);
+validateLS('composition.json', 'mul-joiner', composition['mul-joiner'], '@');
+validateLSOrder('composition.json', 'mul-order', composition['mul-order']);
+validateLS('composition.json', 'div-joiner', composition['div-joiner'], '@');
+validateLSOrder('composition.json', 'div-order', composition['div-order']);
+validateLS('composition.json', 'hier-joiner', composition['hier-joiner'], '@');
+validateLSOrder('composition.json', 'hier-order', composition['hier-order']);
+validateLS('composition.json', 'frac-format', composition['frac-format'], '@');
+if (totalErrorCount) process.exit(1);
+
 const degreesMap = {};
-for (const file of findFiles('degrees')) {
+for (const file of fsutil.findFiles('.', 'degrees')) {
 	const degrees = JSON.parse(fs.readFileSync(file, 'utf8'));
 	const context = file;
 	for (const item of degrees) {
@@ -332,7 +181,7 @@ for (const file of findFiles('degrees')) {
 }
 
 const dimensionsMap = {};
-for (const file of findFiles('dimensions')) {
+for (const file of fsutil.findFiles('.', 'dimensions')) {
 	const dimensions = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(dimensions)) {
 		const context = file + ': dimension "' + id + '"';
@@ -354,7 +203,7 @@ for (const file of findFiles('dimensions')) {
 }
 
 const prefixesMap = {};
-for (const file of findFiles('prefixes')) {
+for (const file of fsutil.findFiles('.', 'prefixes')) {
 	const prefixes = JSON.parse(fs.readFileSync(file, 'utf8'));
 	const context = file;
 	for (const item of prefixes) {
@@ -373,7 +222,7 @@ for (const file of findFiles('prefixes')) {
 }
 
 const unitTypeMap = {};
-for (const file of findFiles('unit-types')) {
+for (const file of fsutil.findFiles('.', 'unit-types')) {
 	const unitTypes = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(unitTypes)) {
 		const context = file + ': unit type "' + id + '"';
@@ -434,7 +283,7 @@ function parseFunctions(context, functions) {
 }
 
 const unitMap = {};
-for (const file of findFiles('units')) {
+for (const file of fsutil.findFiles('.', 'units')) {
 	const units = JSON.parse(fs.readFileSync(file, 'utf8'));
 	if (units['functions'] !== undefined) {
 		parseFunctions(file, units['functions']);
@@ -556,20 +405,15 @@ for (const file of findFiles('units')) {
 			if (item['parser'] !== undefined || item['formatter'] !== undefined) {
 				error(context, 'must not contain both "instructions" and "parser" and/or "formatter"');
 			}
-			if (srmpCodeGenValid(item['instructions'])) {
-				const m = item['instructions'].match(/^\s*([MmDdCcQq])\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*$/);
+			if (srmp.validate(item['instructions'])) {
+				const m = srmp.rationalize(item['instructions']);
 				if (m) {
-					switch (m[1]) {
-						case 'M': case 'm': item['multiplier'] = m[2]; break;
-						case 'D': case 'd': item['divisor'] = m[2]; break;
-						case 'C': case 'c': item['multiplier'] = Math.PI; item['divisor'] = m[2]; break;
-						case 'Q': case 'q': item['multiplier'] = m[2]; item['divisor'] = Math.PI; break;
-					}
+					[item['multiplier'], item['divisor']] = m;
 					delete item['instructions'];
 				} else {
 					try {
-						const forwardCode = srmpCodeGenForward(item['instructions']);
-						const reverseCode = srmpCodeGenReverse(item['instructions']);
+						const forwardCode = srmp.codegenForward(item['instructions']);
+						const reverseCode = srmp.codegenReverse(item['instructions']);
 						const forwardFn = new vm.Script('(' + forwardCode + ')').runInNewContext();
 						const reverseFn = new vm.Script('(' + reverseCode + ')').runInNewContext();
 						if (typeof forwardFn === 'function' && typeof reverseFn === 'function') {
@@ -629,7 +473,7 @@ for (const id of Object.keys(unitMap)) {
 }
 
 const includeMap = {};
-for (const file of findFiles('includes')) {
+for (const file of fsutil.findFiles('.', 'includes')) {
 	const includes = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(includes)) {
 		const context = file + ': include "' + id + '"';
@@ -662,7 +506,7 @@ for (const file of findFiles('includes')) {
 								if (!(unit === '-' || (unit.startsWith('"') && unit.endsWith('"')))) {
 									try {
 										const u = uparse(unit);
-										if (deq(catType['dimension'], u['dimension']) || dcomp(catType['dimension'], u['dimension'])) {
+										if (da.eq(catType['dimension'], u['dimension']) || da.comp(catType['dimension'], u['dimension'])) {
 											unitMapAll[unit] = u;
 										} else {
 											error(context, 'unit "' + unit + '" is being included in an incompatible category');
@@ -688,7 +532,7 @@ for (const file of findFiles('includes')) {
 }
 
 const elementsMap = {};
-for (const file of findFiles('elements')) {
+for (const file of fsutil.findFiles('.', 'elements')) {
 	const elements = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(elements)) {
 		const context = file + ': element "' + id + '"';
@@ -710,7 +554,7 @@ for (const file of findFiles('elements')) {
 						validateKeys(ctx, unitValue, ['value', 'unit']);
 						try {
 							const u = uparse(unitValue['unit']);
-							if (!deq(unitType['dimension'], u['dimension'])) {
+							if (!da.eq(unitType['dimension'], u['dimension'])) {
 								error(ctx, 'unit "' + unitValue['unit'] + '" is not compatible with unit type "' + key + '"');
 							}
 						} catch (e) {
@@ -729,7 +573,7 @@ for (const file of findFiles('elements')) {
 }
 
 const solversMap = {};
-for (const file of findFiles('solvers')) {
+for (const file of fsutil.findFiles('.', 'solvers')) {
 	const solvers = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(solvers)) {
 		const context = file + ': solver "' + id + '"';
@@ -757,12 +601,12 @@ for (const file of findFiles('solvers')) {
 				}
 				try {
 					const u = uparse(v['unit']);
-					if (!deq(v['dimension'], u['dimension'])) {
+					if (!da.eq(v['dimension'], u['dimension'])) {
 						error(ctx, 'unit "' + v['unit'] + '" is not compatible with this variable');
 					}
 				} catch (e) {
 					if (v['unit'] && v['unit'].startsWith('c')) {
-						if (!deq(v['dimension'], {'currency': 1})) {
+						if (!da.eq(v['dimension'], {'currency': 1})) {
 							error(ctx, 'unit "' + v['unit'] + '" is not compatible with this variable');
 						}
 					} else {
@@ -816,25 +660,14 @@ console.log(Object.keys(solversMap).length + ' solvers or calculators defined');
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
 
-// DIMENSIONAL ANALYSIS UTILITIES
+// UNIT COMPOSITION UTILITIES
 
-function dempty() {
+function uccLoose() {
 	for (let i = 0; i < arguments.length; i++) {
-		if (arguments[i]) {
-			for (const dim of Object.keys(arguments[i])) {
-				if (+arguments[i][dim]) {
-					return false;
-				}
-			}
-		}
-	}
-	return true;
-}
-
-function dcc() {
-	for (let i = 0; i < arguments.length; i++) {
-		if (arguments[i]) {
-			for (const dim of Object.keys(arguments[i])) {
+		if (!arguments[i]) return false;
+		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
+		if (arguments[i]['dimension']) {
+			for (const dim of Object.keys(arguments[i]['dimension'])) {
 				if (dimensionsMap[dim] && dimensionsMap[dim]['composable'] === false) {
 					return false;
 				}
@@ -844,82 +677,20 @@ function dcc() {
 	return true;
 }
 
-function dmul() {
-	const r = {};
-	for (let i = 0; i < arguments.length; i++) {
-		if (arguments[i]) {
-			for (const dim of Object.keys(arguments[i])) {
-				const deg = +arguments[i][dim];
-				if (deg) {
-					if (r[dim]) {
-						if (!(r[dim] += deg)) delete r[dim];
-					} else {
-						r[dim] = deg;
-					}
-				}
-			}
-		}
-	}
-	return r;
-}
-
-function ddiv() {
-	const r = {};
-	for (let i = 0; i < arguments.length; i++) {
-		if (arguments[i]) {
-			for (const dim of Object.keys(arguments[i])) {
-				const deg = i ? -arguments[i][dim] : +arguments[i][dim];
-				if (deg) {
-					if (r[dim]) {
-						if (!(r[dim] += deg)) delete r[dim];
-					} else {
-						r[dim] = deg;
-					}
-				}
-			}
-		}
-	}
-	return r;
-}
-
-function dpow(d, e) {
-	const r = {};
-	if (d) {
-		for (const dim of Object.keys(d)) {
-			const deg = d[dim] * e;
-			if (deg) r[dim] = deg;
-		}
-	}
-	return r;
-}
-
-function deq(d1, d2) {
-	return dempty(ddiv(d1, d2));
-}
-
-function dcomp(d1, d2) {
-	return dempty(dmul(d1, d2));
-}
-
-// UNIT COMPOSITION UTILITIES
-
-function uccLoose() {
-	for (let i = 0; i < arguments.length; i++) {
-		if (!arguments[i]) return false;
-		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
-		if (!dcc(arguments[i]['dimension'])) return false;
-	}
-	return true;
-}
-
 function uccStrict() {
 	for (let i = 0; i < arguments.length; i++) {
 		if (!arguments[i]) return false;
 		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
-		if (!dcc(arguments[i]['dimension'])) return false;
 		if (arguments[i]['instructions'] !== undefined) return false;
 		if (arguments[i]['parser'] !== undefined) return false;
 		if (arguments[i]['formatter'] !== undefined) return false;
+		if (arguments[i]['dimension']) {
+			for (const dim of Object.keys(arguments[i]['dimension'])) {
+				if (dimensionsMap[dim] && dimensionsMap[dim]['composable'] === false) {
+					return false;
+				}
+			}
+		}
 	}
 	return true;
 }
@@ -995,7 +766,7 @@ function uexp(u, b, e) {
 		n['symbol'] = prefix['symbol'] + u['symbol'];
 	}
 	if (prefix['format'] && u['name']) {
-		n['name'] = formatLS(prefix['format'], u['name']);
+		n['name'] = ls.format(prefix['format'], u['name']);
 	}
 	if (u['instructions'] !== undefined || u['parser'] !== undefined || u['formatter'] !== undefined) {
 		const pf = uparsefn(u), ff = uformatfn(u), base = b, exp = e;
@@ -1025,7 +796,11 @@ function umul() {
 		n['symbol'] = args.map(a => a['symbol']).join('\u00B7');
 	}
 	if (allHaveKey('name', args)) {
-		n['name'] = joinLS(' ', args.map(a => a['name']));
+		n['name'] = ls.join(
+			composition['mul-joiner'],
+			composition['mul-order'],
+			args.map(a => a['name'])
+		);
 	}
 	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
 	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
@@ -1033,8 +808,8 @@ function umul() {
 		if (args[i]['multiplier'] !== undefined) n['multiplier'] *= args[i]['multiplier'];
 		if (args[i]['divisor'] !== undefined) n['divisor'] *= args[i]['divisor'];
 	}
-	const d = dmul.apply(null, args.map(a => a['dimension']));
-	if (!dempty(d)) n['dimension'] = d;
+	const d = da.mul.apply(null, args.map(a => a['dimension']));
+	if (!da.empty(d)) n['dimension'] = d;
 	return n;
 }
 
@@ -1048,7 +823,11 @@ function udiv() {
 		n['symbol'] = args.map(a => a['symbol']).join('/');
 	}
 	if (allHaveKey('name', args)) {
-		n['name'] = joinLS(' per ', args.map(a => a['name']));
+		n['name'] = ls.join(
+			composition['div-joiner'],
+			composition['div-order'],
+			args.map(a => a['name'])
+		);
 	}
 	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
 	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
@@ -1056,8 +835,8 @@ function udiv() {
 		if (args[i]['multiplier'] !== undefined) n['divisor'] *= args[i]['multiplier'];
 		if (args[i]['divisor'] !== undefined) n['multiplier'] *= args[i]['divisor'];
 	}
-	const d = ddiv.apply(null, args.map(a => a['dimension']));
-	if (!dempty(d)) n['dimension'] = d;
+	const d = da.div.apply(null, args.map(a => a['dimension']));
+	if (!da.empty(d)) n['dimension'] = d;
 	return n;
 }
 
@@ -1072,13 +851,13 @@ function upow(u, e) {
 		n['symbol'] = u['symbol'] + sup(e);
 	}
 	if (degree['format'] && u['name']) {
-		n['name'] = formatLS(degree['format'], u['name']);
+		n['name'] = ls.format(degree['format'], u['name']);
 	}
 	n['multiplier'] = (u['multiplier'] !== undefined) ? Math.pow(u['multiplier'], e) : 1;
 	n['divisor'] = (u['divisor'] !== undefined) ? Math.pow(u['divisor'], e) : 1;
 	if (isNaN(n['multiplier']) || isNaN(n['divisor'])) return null;
-	const d = dpow(u['dimension'], e);
-	if (!dempty(d)) n['dimension'] = d;
+	const d = da.pow(u['dimension'], e);
+	if (!da.empty(d)) n['dimension'] = d;
 	return n;
 }
 
@@ -1086,7 +865,7 @@ function ufrac(u, mo, me, mp) {
 	if (!uccLoose(u)) return null;
 	const n = {};
 	if (u['symbol']) n['symbol'] = u['symbol'];
-	if (u['name']) n['name'] = formatLS('fractional @', u['name']);
+	if (u['name']) n['name'] = ls.format(composition['frac-format'], u['name']);
 	n['datatype'] = 'text';
 	const pf = uparsefn(u), ff = uformatfn(u), mod = mo, med = me, mpd = mp;
 	n['parser.compiled'] = function(a) {
@@ -1143,7 +922,11 @@ function uhier() {
 	const n = {};
 	const args = Array.from(arguments);
 	n['symbol'] = args.map(a => a['symbol']);
-	n['name'] = joinLS(', ', args.map(a => a['name']));
+	n['name'] = ls.join(
+		composition['hier-joiner'],
+		composition['hier-order'],
+		args.map(a => a['name'])
+	);
 	n['datatype'] = 'tuple';
 	n['tuple-dimension'] = args.length;
 	const td = args.length;
@@ -1169,8 +952,8 @@ function uhier() {
 		return d;
 	};
 	const d = args[0]['dimension'];
-	for (const arg of args) if (!deq(d, arg['dimension'])) return null;
-	if (!dempty(d)) n['dimension'] = d;
+	for (const arg of args) if (!da.eq(d, arg['dimension'])) return null;
+	if (!da.empty(d)) n['dimension'] = d;
 	return n;
 }
 
@@ -1208,7 +991,7 @@ function uparse_exp(s) {
 		const m = s.match(/^[+-]?[0-9]+/);
 		if (!m) throw new Error('Expected integer but found "' + s + '"');
 		const u = uexp(p.u, ((ch === '_') ? 10 : 2), +m[0]);
-		if (!u) throw new Error('Cannot exponentiate the unit "' + getLS(p.u.name) + '"');
+		if (!u) throw new Error('Cannot exponentiate the unit "' + ls.get(p.u.name) + '"');
 		s = uparse_ws(s.substring(m[0].length));
 		return {'u': u, 's': s};
 	} else {
@@ -1224,7 +1007,7 @@ function uparse_pow(s) {
 		const m = s.match(/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)/);
 		if (!m) throw new Error('Expected number but found "' + s + '"');
 		const u = upow(p.u, +m[0]);
-		if (!u) throw new Error('Cannot exponentiate the unit "' + getLS(p.u.name) + '"');
+		if (!u) throw new Error('Cannot exponentiate the unit "' + ls.get(p.u.name) + '"');
 		s = uparse_ws(s.substring(m[0].length));
 		return {'u': u, 's': s};
 	} else {
@@ -1244,7 +1027,7 @@ function uparse_mul(s) {
 	}
 	const u = umul.apply(null, pp);
 	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot multiply the units: ' + pp.map(u => getLS(u.name)).join(', '));
+	throw new Error('Cannot multiply the units: ' + pp.map(u => ls.get(u.name)).join(', '));
 }
 
 function uparse_div(s) {
@@ -1259,7 +1042,7 @@ function uparse_div(s) {
 	}
 	const u = udiv.apply(null, pp);
 	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot divide the units: ' + pp.map(u => getLS(u.name)).join(', '));
+	throw new Error('Cannot divide the units: ' + pp.map(u => ls.get(u.name)).join(', '));
 }
 
 function uparse_frac(s) {
@@ -1273,7 +1056,7 @@ function uparse_frac(s) {
 		const me = +m[3] || mo;
 		const mp = +m[5] || me;
 		const u = ufrac(p.u, mo, me, mp);
-		if (!u) throw new Error('Cannot fractionalize the unit "' + getLS(p.u.name) + '"');
+		if (!u) throw new Error('Cannot fractionalize the unit "' + ls.get(p.u.name) + '"');
 		s = uparse_ws(s.substring(m[0].length));
 		return {'u': u, 's': s};
 	} else {
@@ -1293,7 +1076,7 @@ function uparse_hier(s) {
 	}
 	const u = uhier.apply(null, pp);
 	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot compose the units: ' + pp.map(u => getLS(u.name)).join(', '));
+	throw new Error('Cannot compose the units: ' + pp.map(u => ls.get(u.name)).join(', '));
 }
 
 function uparse(s) {
@@ -1315,8 +1098,8 @@ function mcparse(u, a, depInputs) {
 	} else if (u['instructions.forward.compiled'] !== undefined) {
 		a = u['instructions.forward.compiled'](a);
 	} else if (u['parser.compiled'] !== undefined) {
-		if (depInputs && u['dep-name'] && depInputs[getLS(u['dep-name'])] !== undefined) {
-			a = u['parser.compiled'](a, depInputs[getLS(u['dep-name'])]);
+		if (depInputs && u['dep-name'] && depInputs[ls.get(u['dep-name'])] !== undefined) {
+			a = u['parser.compiled'](a, depInputs[ls.get(u['dep-name'])]);
 		} else {
 			a = u['parser.compiled'](a);
 		}
@@ -1335,8 +1118,8 @@ function mcformat(u, a, depInputs) {
 	} else if (u['instructions.reverse.compiled'] !== undefined) {
 		a = u['instructions.reverse.compiled'](a);
 	} else if (u['formatter.compiled'] !== undefined) {
-		if (depInputs && u['dep-name'] && depInputs[getLS(u['dep-name'])] !== undefined) {
-			a = u['formatter.compiled'](a, depInputs[getLS(u['dep-name'])]);
+		if (depInputs && u['dep-name'] && depInputs[ls.get(u['dep-name'])] !== undefined) {
+			a = u['formatter.compiled'](a, depInputs[ls.get(u['dep-name'])]);
 		} else {
 			a = u['formatter.compiled'](a);
 		}
@@ -1392,7 +1175,7 @@ function testEqual(a, b, e) {
 let testsTotal = 0;
 let testsFailed = 0;
 let testsPassed = 0;
-for (const file of findFiles('tests')) {
+for (const file of fsutil.findFiles('.', 'tests')) {
 	const tests = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const item of tests) {
 		let context = file;
@@ -1509,7 +1292,7 @@ for (const file of findFiles('tests')) {
 							try {
 								const u = uparse(k);
 								if (u['dep-name']) {
-									depInputs[getLS(u['dep-name'])] = v;
+									depInputs[ls.get(u['dep-name'])] = v;
 								} else {
 									error(context, 'unit "' + k + '" should not have a dep-input');
 								}
@@ -1539,18 +1322,18 @@ for (const file of findFiles('tests')) {
 			// console.log("test: " + context);
 			if (inputs.length && outputs.length) {
 				for (const [iu, iv] of inputs) {
-					const inputName = iu ? getLS(iu.name) : 'base units';
+					const inputName = iu ? ls.get(iu.name) : 'base units';
 					const baseValue = iu ? mcparse(iu, iv, depInputs) : iv;
 					for (const [ou, ov] of outputs) {
-						const outputName = ou ? getLS(ou.name) : 'base units';
-						if (!iu || !ou || deq(iu['dimension'], ou['dimension'])) {
+						const outputName = ou ? ls.get(ou.name) : 'base units';
+						if (!iu || !ou || da.eq(iu['dimension'], ou['dimension'])) {
 							const v = ou ? mcformat(ou, baseValue, depInputs) : baseValue;
 							if (testEqual(v, ov, epsilon)) {
 								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
 							} else {
 								error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
 							}
-						} else if (dcomp(iu['dimension'], ou['dimension'])) {
+						} else if (da.comp(iu['dimension'], ou['dimension'])) {
 							const v = mcformat(ou, 1 / baseValue, depInputs);
 							if (testEqual(v, ov, epsilon)) {
 								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
@@ -1597,7 +1380,7 @@ function catObj(cat) {
 }
 
 function incObj(inc) {
-	const name = getLS(inc['name'], 'en', '*');
+	const name = ls.get(inc['name'], 'en', '*');
 	const categories = inc['categories'].map(catObj);
 	return {'n': name, 'c': categories};
 }
@@ -1609,8 +1392,8 @@ lines.push('if(typeof m!==\'object\')m={};(function(m){');
 const mp = {};
 for (const key of Object.keys(degreesMap)) {
 	const item = degreesMap[key];
-	const nameLS = formatLS(item['format'], ' ');
-	const name = getLS(nameLS, 'en', '*').trim();
+	const nameLS = ls.format(item['format'], ' ');
+	const name = ls.get(nameLS, 'en', '*').trim();
 	mp[key] = name;
 }
 lines.push('m.mp=' + JSON.stringify(mp) + ';');
@@ -1620,8 +1403,8 @@ const bp = {};
 for (const key of Object.keys(prefixesMap)) {
 	const item = prefixesMap[key];
 	const symbol = item['symbol'];
-	const nameLS = formatLS(item['format'], ' ');
-	const name = getLS(nameLS, 'en', '*').trim();
+	const nameLS = ls.format(item['format'], ' ');
+	const name = ls.get(nameLS, 'en', '*').trim();
 	const obj = {'s': symbol, 'n': name};
 	if (key.startsWith('10^')) dp[key.substring(3)] = obj;
 	if (key.startsWith('2^')) bp[key.substring(2)] = obj;
@@ -1632,10 +1415,10 @@ lines.push('m.bp=' + JSON.stringify(bp) + ';');
 const t = {};
 for (const key of Object.keys(unitTypeMap)) {
 	const item = unitTypeMap[key];
-	const name = getLS(item['name'], 'en', '*');
+	const name = ls.get(item['name'], 'en', '*');
 	const dim = dimObj(item['dimension']);
 	const obj = {'n': name};
-	if (!dempty(dim)) obj['d'] = dim;
+	if (!da.empty(dim)) obj['d'] = dim;
 	t[key] = obj;
 }
 lines.push('m.t=' + JSON.stringify(t) + ';');
@@ -1653,7 +1436,7 @@ for (const key of Object.keys(unitMap)) {
 			const obj = {};
 			for (const k of Object.keys(cc)) {
 				const h = cc[k]['color'];
-				const n = getLS(cc[k]['name'], 'en', '*');
+				const n = ls.get(cc[k]['name'], 'en', '*');
 				obj[k] = {'h': h, 'n': n};
 			}
 			const s = JSON.stringify(obj);
@@ -1679,8 +1462,8 @@ for (const key of Object.keys(unitMap)) {
 		obj['s'] = item['symbol'];
 	}
 	if (item['name'] !== undefined) {
-		const n = getLS(item['name'], 'en', 1);
-		const p = getLS(item['name'], 'en', '*');
+		const n = ls.get(item['name'], 'en', 1);
+		const p = ls.get(item['name'], 'en', '*');
 		obj['n'] = n; if (n !== p) obj['p'] = p;
 	}
 	if ((item['datatype'] || 'num') !== 'num') {
@@ -1690,7 +1473,7 @@ for (const key of Object.keys(unitMap)) {
 		obj['td'] = item['tuple-dimension'];
 	}
 	if (item['dep-name'] !== undefined) {
-		obj['dn'] = getLS(item['dep-name'], 'en', '*');
+		obj['dn'] = ls.get(item['dep-name'], 'en', '*');
 	}
 	if (item['dep-dimension'] !== undefined) {
 		obj['dd'] = dimObj(item['dep-dimension']);
@@ -1747,8 +1530,8 @@ for (const key of Object.keys(elementsMap)) {
 		obj['s'] = item['symbol'];
 	}
 	if (item['name'] !== undefined) {
-		const n = getLS(item['name'], 'en', '*');
-		const l = getLS(item['name'], 'la', '*');
+		const n = ls.get(item['name'], 'en', '*');
+		const l = ls.get(item['name'], 'la', '*');
 		obj['n'] = n; if (n !== l) obj['l'] = l;
 	}
 	if (item['properties'] !== undefined) {
@@ -1773,7 +1556,7 @@ for (const key of Object.keys(solversMap)) {
 	const item = solversMap[key];
 	const obj = {};
 	if (item['name'] !== undefined) {
-		obj['n'] = getLS(item['name'], 'en', '*');
+		obj['n'] = ls.get(item['name'], 'en', '*');
 	}
 	if (item['variables'] !== undefined) {
 		obj['v'] = [];
@@ -1787,7 +1570,7 @@ for (const key of Object.keys(solversMap)) {
 				vo['r'] = v['register'];
 			}
 			if (v['name'] !== undefined) {
-				vo['n'] = getLS(v['name'], 'en', '*');
+				vo['n'] = ls.get(v['name'], 'en', '*');
 			}
 			if (v['dimension'] !== undefined) {
 				vo['d'] = dimObj(v['dimension']);

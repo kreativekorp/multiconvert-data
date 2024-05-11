@@ -1,0 +1,23 @@
+{
+	"mul-joiner": {
+		"en": "@{0,1} @{1}"
+	},
+	"mul-order": {
+		"en": "rtl"
+	},
+	"div-joiner": {
+		"en": "@{0} per @{1,1}"
+	},
+	"div-order": {
+		"en": "ltr"
+	},
+	"hier-joiner": {
+		"en": "@0, @1"
+	},
+	"hier-order": {
+		"en": "ltr"
+	},
+	"frac-format": {
+		"en": "fractional @"
+	}
+}
