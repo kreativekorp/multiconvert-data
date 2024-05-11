@@ -7,6 +7,7 @@ const da = require('./lib/dimension.js');
 const fsutil = require('./lib/fsutilities.js');
 const ls = require('./lib/languagestring.js');
 const srmp = require('./lib/srmp.js');
+const unit = require('./lib/unitparser.js');
 
 // LOGGING AND VALIDATION UTILITIES
 
@@ -164,6 +165,7 @@ validateLS('composition.json', 'hier-joiner', composition['hier-joiner'], '@');
 validateLSOrder('composition.json', 'hier-order', composition['hier-order']);
 validateLS('composition.json', 'frac-format', composition['frac-format'], '@');
 if (totalErrorCount) process.exit(1);
+unit.loadComposition(composition);
 
 const degreesMap = {};
 for (const file of fsutil.findFiles('.', 'degrees')) {
@@ -179,6 +181,7 @@ for (const file of fsutil.findFiles('.', 'degrees')) {
 		putIfOK(context, degreesMap, item['degree'], item);
 	}
 }
+unit.loadDegrees(degreesMap);
 
 const dimensionsMap = {};
 for (const file of fsutil.findFiles('.', 'dimensions')) {
@@ -201,6 +204,7 @@ for (const file of fsutil.findFiles('.', 'dimensions')) {
 		putIfOK(context, dimensionsMap, id, item);
 	}
 }
+unit.loadDimensions(dimensionsMap);
 
 const prefixesMap = {};
 for (const file of fsutil.findFiles('.', 'prefixes')) {
@@ -220,6 +224,7 @@ for (const file of fsutil.findFiles('.', 'prefixes')) {
 		putIfOK(context, prefixesMap, item['base'] + '^' + item['exponent'], item);
 	}
 }
+unit.loadPrefixes(prefixesMap);
 
 const unitTypeMap = {};
 for (const file of fsutil.findFiles('.', 'unit-types')) {
@@ -297,6 +302,8 @@ for (const file of fsutil.findFiles('.', 'units')) {
 			warning(context, 'identifier does not follow recommended pattern of [a-z][0-9]+');
 		} else if (id.startsWith('c')) {
 			warning(context, 'identifiers starting with "c" are reserved for units of currency');
+		} else if (id.startsWith('e')) {
+			warning(context, 'identifiers starting with "e" are reserved for chemical element data');
 		} else if (id.startsWith('f')) {
 			warning(context, 'identifiers starting with "f" are reserved for functions');
 		} else if (id.startsWith('i')) {
@@ -466,6 +473,8 @@ for (const file of fsutil.findFiles('.', 'units')) {
 		putIfOK(context, unitMap, id, item);
 	}
 }
+unit.loadFunctions(functionCompiledMap);
+unit.loadUnits(unitMap);
 
 const unitMapAll = {};
 for (const id of Object.keys(unitMap)) {
@@ -501,18 +510,18 @@ for (const file of fsutil.findFiles('.', 'includes')) {
 					}
 					const units = cat['units'];
 					if (units && typeof units === 'object' && units.length) {
-						for (const unit of units) {
-							if (unit && typeof unit === 'string') {
-								if (!(unit === '-' || (unit.startsWith('"') && unit.endsWith('"')))) {
+						for (const us of units) {
+							if (us && typeof us === 'string') {
+								if (!(us === '-' || (us.startsWith('"') && us.endsWith('"')))) {
 									try {
-										const u = uparse(unit);
+										const u = unit.parse(us);
 										if (da.eq(catType['dimension'], u['dimension']) || da.comp(catType['dimension'], u['dimension'])) {
-											unitMapAll[unit] = u;
+											unitMapAll[us] = u;
 										} else {
-											error(context, 'unit "' + unit + '" is being included in an incompatible category');
+											error(context, 'unit "' + us + '" is being included in an incompatible category');
 										}
 									} catch (e) {
-										error(context, 'unit "' + unit + '" could not be compiled: ' + e);
+										error(context, 'unit "' + us + '" could not be compiled: ' + e);
 									}
 								}
 							} else {
@@ -553,7 +562,7 @@ for (const file of fsutil.findFiles('.', 'elements')) {
 						const unitValue = item['properties'][key];
 						validateKeys(ctx, unitValue, ['value', 'unit']);
 						try {
-							const u = uparse(unitValue['unit']);
+							const u = unit.parse(unitValue['unit']);
 							if (!da.eq(unitType['dimension'], u['dimension'])) {
 								error(ctx, 'unit "' + unitValue['unit'] + '" is not compatible with unit type "' + key + '"');
 							}
@@ -600,7 +609,7 @@ for (const file of fsutil.findFiles('.', 'solvers')) {
 					validateDimension(ctx, 'dimension', v['dimension'], dimensionsMap);
 				}
 				try {
-					const u = uparse(v['unit']);
+					const u = unit.parse(v['unit']);
 					if (!da.eq(v['dimension'], u['dimension'])) {
 						error(ctx, 'unit "' + v['unit'] + '" is not compatible with this variable');
 					}
@@ -659,431 +668,6 @@ console.log(Object.keys(elementsMap).length + ' elements defined');
 console.log(Object.keys(solversMap).length + ' solvers or calculators defined');
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
-
-// UNIT COMPOSITION UTILITIES
-
-function uccLoose() {
-	for (let i = 0; i < arguments.length; i++) {
-		if (!arguments[i]) return false;
-		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
-		if (arguments[i]['dimension']) {
-			for (const dim of Object.keys(arguments[i]['dimension'])) {
-				if (dimensionsMap[dim] && dimensionsMap[dim]['composable'] === false) {
-					return false;
-				}
-			}
-		}
-	}
-	return true;
-}
-
-function uccStrict() {
-	for (let i = 0; i < arguments.length; i++) {
-		if (!arguments[i]) return false;
-		if ((arguments[i]['datatype'] || 'num') !== 'num') return false;
-		if (arguments[i]['instructions'] !== undefined) return false;
-		if (arguments[i]['parser'] !== undefined) return false;
-		if (arguments[i]['formatter'] !== undefined) return false;
-		if (arguments[i]['dimension']) {
-			for (const dim of Object.keys(arguments[i]['dimension'])) {
-				if (dimensionsMap[dim] && dimensionsMap[dim]['composable'] === false) {
-					return false;
-				}
-			}
-		}
-	}
-	return true;
-}
-
-function allHaveKey(key, items) {
-	for (const item of items) {
-		if (!item[key]) {
-			return false;
-		}
-	}
-	return true;
-}
-
-function sup(n) {
-	let t = '';
-	const s = n.toString();
-	for (let i = 0; i < s.length; i++) {
-		switch (s[i]) {
-			case '0': t += '\u2070'; break; case '1': t += '\u00B9'; break;
-			case '2': t += '\u00B2'; break; case '3': t += '\u00B3'; break;
-			case '4': t += '\u2074'; break; case '5': t += '\u2075'; break;
-			case '6': t += '\u2076'; break; case '7': t += '\u2077'; break;
-			case '8': t += '\u2078'; break; case '9': t += '\u2079'; break;
-			case '+': t += '\u207A'; break; case '-': t += '\u207B'; break;
-			case '.': t += '\u2E33'; break; case ',': t += '\u2E34'; break;
-			case 'E': t += '\u1D31'; break; case 'e': t += '\u1D49'; break;
-			default: t += s[i];
-		}
-	}
-	return t;
-}
-
-function identity(a) {
-	return a;
-}
-
-function uparsefn(u) {
-	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
-		const multiplier = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
-		const divisor = (u['divisor'] !== undefined) ? u['divisor'] : 1;
-		return function(a) { return a * multiplier / divisor; };
-	} else if (u['instructions.forward.compiled'] !== undefined) {
-		return u['instructions.forward.compiled'];
-	} else if (u['parser.compiled'] !== undefined) {
-		return u['parser.compiled'];
-	} else {
-		return identity;
-	}
-}
-
-function uformatfn(u) {
-	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
-		const multiplier = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
-		const divisor = (u['divisor'] !== undefined) ? u['divisor'] : 1;
-		return function(a) { return a * divisor / multiplier; };
-	} else if (u['instructions.reverse.compiled'] !== undefined) {
-		return u['instructions.reverse.compiled'];
-	} else if (u['formatter.compiled'] !== undefined) {
-		return u['formatter.compiled'];
-	} else {
-		return identity;
-	}
-}
-
-function uexp(u, b, e) {
-	if (e.eq ? e.eq(0) : e == 0) return u;
-	if (b.eq ? b.eq(1) : b == 1) return u;
-	if (!uccLoose(u)) return null;
-	const prefix = prefixesMap[b+'^'+e];
-	if (!prefix) return null;
-	const n = {};
-	if (prefix['symbol'] && u['symbol']) {
-		n['symbol'] = prefix['symbol'] + u['symbol'];
-	}
-	if (prefix['format'] && u['name']) {
-		n['name'] = ls.format(prefix['format'], u['name']);
-	}
-	if (u['instructions'] !== undefined || u['parser'] !== undefined || u['formatter'] !== undefined) {
-		const pf = uparsefn(u), ff = uformatfn(u), base = b, exp = e;
-		n['parser.compiled'] = function(a) { return pf(a * Math.pow(base, exp)); };
-		n['formatter.compiled'] = function(a) { return ff(a) / Math.pow(base, exp); };
-	} else {
-		let m = (u['multiplier'] !== undefined) ? u['multiplier'] : 1;
-		let d = (u['divisor'] !== undefined) ? u['divisor'] : 1;
-		if (e > 0) m *= Math.pow(b, e);
-		if (e < 0) d *= Math.pow(b, -e);
-		if (m != d) {
-			if (m != 1) n['multiplier'] = m;
-			if (d != 1) n['divisor'] = d;
-		}
-	}
-	if (u['dimension']) n['dimension'] = u['dimension'];
-	return n;
-}
-
-function umul() {
-	if (arguments.length === 0) return null;
-	if (arguments.length === 1) return arguments[0];
-	if (!uccStrict.apply(null, arguments)) return null;
-	const n = {};
-	const args = Array.from(arguments);
-	if (allHaveKey('symbol', args)) {
-		n['symbol'] = args.map(a => a['symbol']).join('\u00B7');
-	}
-	if (allHaveKey('name', args)) {
-		n['name'] = ls.join(
-			composition['mul-joiner'],
-			composition['mul-order'],
-			args.map(a => a['name'])
-		);
-	}
-	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
-	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
-	for (let i = 1; i < args.length; i++) {
-		if (args[i]['multiplier'] !== undefined) n['multiplier'] *= args[i]['multiplier'];
-		if (args[i]['divisor'] !== undefined) n['divisor'] *= args[i]['divisor'];
-	}
-	const d = da.mul.apply(null, args.map(a => a['dimension']));
-	if (!da.empty(d)) n['dimension'] = d;
-	return n;
-}
-
-function udiv() {
-	if (arguments.length === 0) return null;
-	if (arguments.length === 1) return arguments[0];
-	if (!uccStrict.apply(null, arguments)) return null;
-	const n = {};
-	const args = Array.from(arguments);
-	if (allHaveKey('symbol', args)) {
-		n['symbol'] = args.map(a => a['symbol']).join('/');
-	}
-	if (allHaveKey('name', args)) {
-		n['name'] = ls.join(
-			composition['div-joiner'],
-			composition['div-order'],
-			args.map(a => a['name'])
-		);
-	}
-	n['multiplier'] = (args[0]['multiplier'] !== undefined) ? args[0]['multiplier'] : 1;
-	n['divisor'] = (args[0]['divisor'] !== undefined) ? args[0]['divisor'] : 1;
-	for (let i = 1; i < args.length; i++) {
-		if (args[i]['multiplier'] !== undefined) n['divisor'] *= args[i]['multiplier'];
-		if (args[i]['divisor'] !== undefined) n['multiplier'] *= args[i]['divisor'];
-	}
-	const d = da.div.apply(null, args.map(a => a['dimension']));
-	if (!da.empty(d)) n['dimension'] = d;
-	return n;
-}
-
-function upow(u, e) {
-	if (e.eq ? e.eq(0) : e == 0) return null;
-	if (e.eq ? e.eq(1) : e == 1) return u;
-	if (!uccStrict(u)) return null;
-	const degree = degreesMap[e];
-	if (!degree) return null;
-	const n = {};
-	if (u['symbol']) {
-		n['symbol'] = u['symbol'] + sup(e);
-	}
-	if (degree['format'] && u['name']) {
-		n['name'] = ls.format(degree['format'], u['name']);
-	}
-	n['multiplier'] = (u['multiplier'] !== undefined) ? Math.pow(u['multiplier'], e) : 1;
-	n['divisor'] = (u['divisor'] !== undefined) ? Math.pow(u['divisor'], e) : 1;
-	if (isNaN(n['multiplier']) || isNaN(n['divisor'])) return null;
-	const d = da.pow(u['dimension'], e);
-	if (!da.empty(d)) n['dimension'] = d;
-	return n;
-}
-
-function ufrac(u, mo, me, mp) {
-	if (!uccLoose(u)) return null;
-	const n = {};
-	if (u['symbol']) n['symbol'] = u['symbol'];
-	if (u['name']) n['name'] = ls.format(composition['frac-format'], u['name']);
-	n['datatype'] = 'text';
-	const pf = uparsefn(u), ff = uformatfn(u), mod = mo, med = me, mpd = mp;
-	n['parser.compiled'] = function(a) {
-		if (!(a = a.replace(/^\s+|\s+$/g, ''))) return NaN;
-		if (a === '\u221E' || a === '+\u221E') return Infinity;
-		if (a === '-\u221E') return -Infinity;
-		const s = (a[0] === '-') ? (-1) : 1;
-		if (a[0] === '-' || a[0] === '+') a = a.substring(1);
-		let v = 0;
-		for (const p of a.split(/\s+/)) {
-			const b = p.split('/');
-			for (let i = 1; i < b.length; i++) b[0] /= b[i];
-			v += +b[0];
-		}
-		return pf(v * s);
-	};
-	n['formatter.compiled'] = function(a) {
-		if (isNaN((a = ff(a)))) return '';
-		if (!isFinite(a)) return ((a < 0) ? '-\u221E' : '\u221E');
-		const s = (a < 0) ? '-' : '';
-		const i = Math.floor((a = Math.abs(a)));
-		const f = a - i;
-		if (!f) return s + i;
-		let bestDen = 1, bestNum = 0, bestVal = 0, bestDif = f;
-		for (let den = 1; den <= mod || den <= med || den <= mpd; den++) {
-			if (
-				(den <= mod) ||
-				(den <= med && !(den & 1)) ||
-				(den <= mpd && !(den & (den - 1)))
-			) {
-				const num = Math.round(f * den);
-				const val = num / den;
-				const dif = Math.abs(val - f);
-				if (dif < bestDif) {
-					bestDen = den;
-					bestNum = num;
-					bestVal = val;
-					bestDif = dif;
-				}
-			}
-		}
-		if (!bestNum) return s + i;
-		if (bestNum == bestDen) return s + (i + 1);
-		return s + i + ' ' + bestNum + '/' + bestDen;
-	};
-	if (u['dimension']) n['dimension'] = u['dimension'];
-	return n;
-}
-
-function uhier() {
-	if (arguments.length === 0) return null;
-	if (arguments.length === 1) return arguments[0];
-	if (!uccLoose.apply(null, arguments)) return null;
-	const n = {};
-	const args = Array.from(arguments);
-	n['symbol'] = args.map(a => a['symbol']);
-	n['name'] = ls.join(
-		composition['hier-joiner'],
-		composition['hier-order'],
-		args.map(a => a['name'])
-	);
-	n['datatype'] = 'tuple';
-	n['tuple-dimension'] = args.length;
-	const td = args.length;
-	const pf = args.map(uparsefn);
-	const ff = args.map(uformatfn);
-	n['parser.compiled'] = function(a) {
-		if (!(a && typeof a === 'object' && a.length === td)) return NaN;
-		let d = 0;
-		for (let i = 0; i < td; i++) {
-			d += pf[i](a[i]);
-		}
-		return d;
-	};
-	n['formatter.compiled'] = function(a) {
-		if (!isFinite(a)) return null;
-		const d = [];
-		for (let i = 0; i < td; i++) {
-			const iv = ff[i](a);
-			const last = (i == td - 1);
-			d[i] = (i === (td - 1)) ? iv : ((iv < 0) ? Math.ceil(iv) : Math.floor(iv));
-			a = pf[i](iv - d[i]);
-		}
-		return d;
-	};
-	const d = args[0]['dimension'];
-	for (const arg of args) if (!da.eq(d, arg['dimension'])) return null;
-	if (!da.empty(d)) n['dimension'] = d;
-	return n;
-}
-
-function uparse_ws(s) {
-	return s.replace(/^\s+|\s+$/g, '');
-}
-
-function uparse_unit(s) {
-	s = uparse_ws(s);
-	if (s.startsWith('(')) {
-		s = uparse_ws(s.substring(1));
-		const p = uparse_div(s);
-		s = uparse_ws(p.s);
-		if (s.startsWith(')')) {
-			s = uparse_ws(s.substring(1));
-			return {'u': p.u, 's': s};
-		} else {
-			throw new Error('Expected ) but found "' + s + '"');
-		}
-	} else {
-		const m = s.match(/^[A-Za-z][A-Za-z0-9]*/);
-		if (!m) throw new Error('Expected unit ID but found "' + s + '"');
-		const u = unitMap[m[0]];
-		if (!u) throw new Error('There is no unit ID ' + m[0]);
-		s = uparse_ws(s.substring(m[0].length));
-		return {'u': u, 's': s};
-	}
-}
-
-function uparse_exp(s) {
-	const p = uparse_unit(s);
-	const ch = (s = uparse_ws(p.s)).substring(0,1);
-	if (ch === '_' || ch === '.' || ch === ':') {
-		s = uparse_ws(s.substring(1));
-		const m = s.match(/^[+-]?[0-9]+/);
-		if (!m) throw new Error('Expected integer but found "' + s + '"');
-		const u = uexp(p.u, ((ch === '_') ? 10 : 2), +m[0]);
-		if (!u) throw new Error('Cannot exponentiate the unit "' + ls.get(p.u.name) + '"');
-		s = uparse_ws(s.substring(m[0].length));
-		return {'u': u, 's': s};
-	} else {
-		return p;
-	}
-}
-
-function uparse_pow(s) {
-	const p = uparse_exp(s);
-	const ch = (s = uparse_ws(p.s)).substring(0,1);
-	if (ch === '^') {
-		s = uparse_ws(s.substring(1));
-		const m = s.match(/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)/);
-		if (!m) throw new Error('Expected number but found "' + s + '"');
-		const u = upow(p.u, +m[0]);
-		if (!u) throw new Error('Cannot exponentiate the unit "' + ls.get(p.u.name) + '"');
-		s = uparse_ws(s.substring(m[0].length));
-		return {'u': u, 's': s};
-	} else {
-		return p;
-	}
-}
-
-function uparse_mul(s) {
-	let p = uparse_pow(s);
-	const pp = [p.u];
-	let ch = (s = uparse_ws(p.s)).substring(0,1);
-	while (ch === '*') {
-		s = uparse_ws(s.substring(1));
-		p = uparse_pow(s);
-		pp.push(p.u);
-		ch = (s = uparse_ws(p.s)).substring(0,1);
-	}
-	const u = umul.apply(null, pp);
-	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot multiply the units: ' + pp.map(u => ls.get(u.name)).join(', '));
-}
-
-function uparse_div(s) {
-	let p = uparse_mul(s);
-	const pp = [p.u];
-	let ch = (s = uparse_ws(p.s)).substring(0,1);
-	while (ch === '/') {
-		s = uparse_ws(s.substring(1));
-		p = uparse_mul(s);
-		pp.push(p.u);
-		ch = (s = uparse_ws(p.s)).substring(0,1);
-	}
-	const u = udiv.apply(null, pp);
-	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot divide the units: ' + pp.map(u => ls.get(u.name)).join(', '));
-}
-
-function uparse_frac(s) {
-	const p = uparse_div(s);
-	const ch = (s = uparse_ws(p.s)).substring(0,1);
-	if (ch === '%') {
-		s = uparse_ws(s.substring(1));
-		const m = s.match(/^([0-9]+)(\s*,\s*([0-9]+))?(\s*,\s*([0-9]+))?/);
-		if (!m) throw new Error('Expected integer but found "' + s + '"');
-		const mo = +m[1] || 1;
-		const me = +m[3] || mo;
-		const mp = +m[5] || me;
-		const u = ufrac(p.u, mo, me, mp);
-		if (!u) throw new Error('Cannot fractionalize the unit "' + ls.get(p.u.name) + '"');
-		s = uparse_ws(s.substring(m[0].length));
-		return {'u': u, 's': s};
-	} else {
-		return p;
-	}
-}
-
-function uparse_hier(s) {
-	let p = uparse_frac(s);
-	const pp = [p.u];
-	let ch = (s = uparse_ws(p.s)).substring(0,1);
-	while (ch === ',') {
-		s = uparse_ws(s.substring(1));
-		p = uparse_frac(s);
-		pp.push(p.u);
-		ch = (s = uparse_ws(p.s)).substring(0,1);
-	}
-	const u = uhier.apply(null, pp);
-	if (u) return {'u': u, 's': s};
-	throw new Error('Cannot compose the units: ' + pp.map(u => ls.get(u.name)).join(', '));
-}
-
-function uparse(s) {
-	const p = uparse_hier(s);
-	if (!(s = uparse_ws(p.s))) return p.u;
-	throw new Error('Expected end of string but found "' + s + '"');
-}
 
 // UNIT CONVERSION UTILITIES
 
@@ -1257,7 +841,7 @@ for (const file of fsutil.findFiles('.', 'tests')) {
 								inputs.push([null, v]);
 							} else {
 								try {
-									const u = uparse(k);
+									const u = unit.parse(k);
 									inputs.push([u, v]);
 								} catch (e) {
 									error(context, 'unit "' + k + '" could not be compiled: ' + e);
@@ -1275,7 +859,7 @@ for (const file of fsutil.findFiles('.', 'tests')) {
 								outputs.push([null, v]);
 							} else {
 								try {
-									const u = uparse(k);
+									const u = unit.parse(k);
 									outputs.push([u, v]);
 								} catch (e) {
 									error(context, 'unit "' + k + '" could not be compiled: ' + e);
@@ -1290,7 +874,7 @@ for (const file of fsutil.findFiles('.', 'tests')) {
 						for (const k of Object.keys(value)) {
 							const v = testValue(value[k]);
 							try {
-								const u = uparse(k);
+								const u = unit.parse(k);
 								if (u['dep-name']) {
 									depInputs[ls.get(u['dep-name'])] = v;
 								} else {
@@ -1310,7 +894,7 @@ for (const file of fsutil.findFiles('.', 'tests')) {
 						outputs.push([null, v]);
 					} else {
 						try {
-							const u = uparse(key);
+							const u = unit.parse(key);
 							inputs.push([u, v]);
 							outputs.push([u, v]);
 						} catch (e) {
