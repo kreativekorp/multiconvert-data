@@ -31,6 +31,72 @@ To build and test the data files, you need Node.js and UglifyJS (`npm install ug
 
 The minified data files are currently mostly useless to most people. If you are using this data in your own application, it is recommended to use the JSON source files for your own purposes and use the build script just for validation and testing.
 
+## Unit Identifiers
+Units in the MultiConvert database are identified by a lowercase letter followed by one or more digits. The following ranges are currently used:
+
+| range           | file                       | usage                                                                            |
+| --------------- | -------------------------- | -------------------------------------------------------------------------------- |
+| `u0`‑`u49`      | `base-si.json`             | Base units and coherent derived units in the International System of Units (SI). |
+| `u50`‑`u99`     | `base-nonsi.json`          | Base units and coherent derived units not recognized by SI.                      |
+| `u100`‑`u199`   | `derived-si.json`          | Non-SI units accepted for use with SI.                                           |
+| `u200`‑`u299`   | `derived-length.json`      | Non-SI units of length.                                                          |
+| `u300`‑`u399`   | `derived-area.json`        | Non-SI units of area.                                                            |
+| `u400`‑`u499`   | `derived-volume.json`      | Non-SI units of volume.                                                          |
+| `u500`‑`u599`   | `derived-vel-acc.json`     | Non-SI units of velocity and acceleration.                                       |
+| `u600`‑`u699`   | `derived-mass.json`        | Non-SI units of mass.                                                            |
+| `u700`‑`u799`   | `derived-force.json`       | Non-SI units of force.                                                           |
+| `u800`‑`u899`   | `derived-time.json`        | Non-SI units of time.                                                            |
+| `u900`‑`u999`   | `derived‑temperature.json` | Non-SI units of temperature.                                                     |
+| `u1000`‑`u1099` | `derived-angle.json`       | Non-SI units of angular displacement.                                            |
+| `u1100`‑`u1199` | `derived-power.json`       | Non-SI units of power.                                                           |
+| `u1200`‑`u1299` | `derived-pressure.json`    | Non-SI units of pressure.                                                        |
+| `u1300`‑`u1399` | `derived-frequency.json`   | Non-SI units of frequency.                                                       |
+| `u1400`‑`u1499` | `derived-voltage.json`     | Non-SI units of voltage.                                                         |
+| `u1500`‑`u1599` | `derived-current.json`     | Non-SI units of current.                                                         |
+| `u1600`‑`u1699` | `derived-data.json`        | Units of data or information (bits and bytes).                                   |
+| `u1700`‑`u1799` | `derived-sheets.json`      | Units of page or sheet count (quires, reams, and bales).                         |
+| `u1800`‑`u1899` | `derived-hardness.json`    | Units of hardness of materials.                                                  |
+| `u1900`‑`u1999` | `derived-misc.json`        | Units expressed with a single decimal number not included in other categories.   |
+| `u2000`‑`u2099` | `dimensionless.json`       | Dimensionless units.                                                             |
+| `n100`‑`n199`   | `viscosity.json`           | Units of kinematic viscosity.                                                    |
+| `n200`‑`n299`   | `shoe-size.json`           | Shoe sizes.                                                                      |
+| `n1000`‑`n1001` | `clock-time.json`          | Biel Mean Time (also known as Swatch Internet Time).                             |
+| `z0`‑`z2`       | `frequency-color.json`<br>`frequency-pitch.json`<br>`guaca.json` | Units not expressed with a single decimal number not included in other categories. |
+| `z100`‑`z199`   | `numeral-system.json`      | Numeral systems (binary, octal, hexadecimal, Roman numerals, et cetera).         |
+| `z200`‑`z299`   | `coordinate-system.json`   | Coordinate systems (Cartesian, polar, spherical, et cetera).                     |
+| `z300`‑`z399`   | `color-space.json`         | Color spaces (RGB, HSV, YIQ, YUV, et cetera).                                    |
+| `z1000`‑`z1999` | `clock-time.json`          | Wall clock time in different time zones.                                         |
+| `k0`‑`k5`       | `capacitor-code.json`<br>`inductor-code.json`<br>`resistor-code.json` | Color codes and EIA codes for electronic components. |
+| `c0`‑`c19999`   |                            | Units of currency. These are not present in this repository but generated dynamically by MultiConvert from third-party data. |
+| `d0`‑`d99`      | `dependent.json`           | Units for which conversion requires the specification of an independent variable (such as air temperature for Mach number). |
+| `m0`‑`m999`     | `medical.json`             | Units of concentration of various medications.                                   |
+| `p0`‑`p99`      | `planck.json`              | Planck units.                                                                    |
+
+Identifiers starting with `e`, `f`, `i`, `s`, and `t` are not used for units as they are used for other objects.
+
+Identifiers starting with `n` are generally used for units for which mathematically exact conversion is not possible. (For some reason Biel Mean Time has an `n` identifier even though it's an exact conversion.)
+
+### Unit Expressions
+Units created through the use of SI or IEEE prefixes or multiplication and division of base units are not defined in data files but derived mathematically, and as such are identified not by a single identifier but by a *unit expression*. For example:
+
+| expression               | unit                                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------------------ |
+| `u0_3`                   | kilometers                                                                                       |
+| `u0_-3`                  | millimeters                                                                                      |
+| `u0^2`                   | square meters                                                                                    |
+| `u0/u2`                  | meters per second                                                                                |
+| `u10*u0`                 | newton meters                                                                                    |
+| `u700*u0_-2`             | dyne centimeters                                                                                 |
+| `u51.10`                 | kibibits (`u51` × 2<sup>10</sup>)                                                                |
+| `u1602.20`               | mebibytes (`u1602` × 2<sup>20</sup>)                                                             |
+| `u13/u0^2*u4`            | watts (`u13`) per square meter (`u0^2`) kelvin (`u4`)                                            |
+| `u1103/u210^2*u101*u902` | British thermal units (`u1103`) per square foot (`u210^2`) hour (`u101`) degree Rankine (`u902`) |
+| `u1/u0^0.5*u2^2`         | kilograms (`u1`) per square root meter (`u0^0.5`) square second (`u2^2`)                         |
+
+As shown above, unit expressions can get arbitrarily complex.
+
+Division in unit expressions has lower precedence than multiplication, so `u0*u1/u2*u3` is equivalent to `(u0*u1)/(u2*u3)`, not `((u0*u1)/u2)*u3`.
+
 ## Example Unit Definitions
 
 ### Base Units
