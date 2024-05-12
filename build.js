@@ -5,6 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const da = require('./lib/dimension.js');
 const fsutil = require('./lib/fsutilities.js');
+const index = require('./lib/index.js');
 const ls = require('./lib/languagestring.js');
 const srmp = require('./lib/srmp.js');
 const unit = require('./lib/unitparser.js');
@@ -250,6 +251,7 @@ for (const file of fsutil.findFiles('.', 'unit-types')) {
 		putIfOK(context, unitTypeMap, id, item);
 	}
 }
+index.build({'type': 'unit-type'}, 'en', unitTypeMap);
 
 const functionSourceMap = {};
 const functionCompiledMap = {};
@@ -475,6 +477,8 @@ for (const file of fsutil.findFiles('.', 'units')) {
 }
 unit.loadFunctions(functionCompiledMap);
 unit.loadUnits(unitMap);
+index.build({'type': 'function'}, 'en', functionSourceMap);
+index.build({'type': 'unit'}, 'en', unitMap);
 
 const unitMapAll = {};
 for (const id of Object.keys(unitMap)) {
@@ -517,6 +521,9 @@ for (const file of fsutil.findFiles('.', 'includes')) {
 										const u = unit.parse(us);
 										if (da.eq(catType['dimension'], u['dimension']) || da.comp(catType['dimension'], u['dimension'])) {
 											unitMapAll[us] = u;
+											if (!index.cslookup(us)) {
+												index.build({'type': 'unit'}, 'en', {[us]: u});
+											}
 										} else {
 											error(context, 'unit "' + us + '" is being included in an incompatible category');
 										}
@@ -539,8 +546,10 @@ for (const file of fsutil.findFiles('.', 'includes')) {
 		putIfOK(context, includeMap, id, item);
 	}
 }
+index.build({'type': 'include'}, 'en', includeMap);
 
 const elementsMap = {};
+const keyedElementsMap = {};
 for (const file of fsutil.findFiles('.', 'elements')) {
 	const elements = JSON.parse(fs.readFileSync(file, 'utf8'));
 	for (const id of Object.keys(elements)) {
@@ -578,8 +587,10 @@ for (const file of fsutil.findFiles('.', 'elements')) {
 			}
 		}
 		putIfOK(context, elementsMap, id, item);
+		putIfOK(context, keyedElementsMap, 'e' + id, item);
 	}
 }
+index.build({'type': 'element'}, 'en', keyedElementsMap);
 
 const solversMap = {};
 for (const file of fsutil.findFiles('.', 'solvers')) {
@@ -658,6 +669,40 @@ for (const file of fsutil.findFiles('.', 'solvers')) {
 		putIfOK(context, solversMap, id, item);
 	}
 }
+index.build({'type': 'solver'}, 'en', solversMap);
+
+for (const file of fsutil.findFiles('.', 'disambiguation')) {
+	const disambiguation = JSON.parse(fs.readFileSync(file, 'utf8'));
+	const context = file;
+	validateStart();
+	const langs = Object.keys(disambiguation);
+	if (langs.indexOf('en') < 0) {
+		error(context, 'must contain required key "en"');
+	}
+	for (const lang of langs) {
+		const entries = disambiguation[lang];
+		if (entries && typeof entries === 'object') {
+			for (const indexKey of Object.keys(entries)) {
+				if (!(entries[indexKey] && typeof entries[indexKey] === 'object')) {
+					error(context, 'value for "' + lang + '", index "' + indexKey + '", must be a non-null object');
+				}
+			}
+		} else {
+			error(context, 'value for "' + lang + '" must be a non-null object');
+		}
+	}
+	if (localErrorCount) continue;
+	const results = index.disambiguate('en', disambiguation);
+	for (const indexKey of Object.keys(disambiguation['en'])) {
+		if (results[indexKey] === undefined) {
+			warning(context, 'key "' + indexKey + '" did not match an ambiguous index entry');
+		} else if (results[indexKey] === false) {
+			error(context, 'key "' + indexKey + '" failed to match exactly one candidate');
+		} else if (results[indexKey] !== true) {
+			error(context, 'key "' + indexKey + '" caused an impossible condition');
+		}
+	}
+}
 
 console.log(Object.keys(unitTypeMap).length + ' unit types defined');
 console.log(Object.keys(functionSourceMap).length + ' functions defined');
@@ -666,6 +711,10 @@ console.log(Object.keys(unitMapAll).length + ' units defined or included');
 console.log(Object.keys(includeMap).length + ' includes defined');
 console.log(Object.keys(elementsMap).length + ' elements defined');
 console.log(Object.keys(solversMap).length + ' solvers or calculators defined');
+console.log(Object.keys(index.index).length + ' terms in search index');
+console.log(Object.keys(index.index).filter(k => index.index[k].length > 1).length + ' ambiguous terms originally in search index');
+console.log(Object.keys(index.index).filter(k => index.index[k].length > 1 && index.index[k].filter(e => e.disambiguated).length == 1).length + ' ambiguous terms resolved by disambiguation');
+console.log(Object.keys(index.index).filter(k => index.index[k].length > 1 && index.index[k].filter(e => e.disambiguated).length != 1).length + ' ambiguous terms remaining in search index');
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
 
