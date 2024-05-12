@@ -703,6 +703,9 @@ for (const file of fsutil.findFiles('.', 'disambiguation')) {
 		}
 	}
 }
+const ambiguities = Object.keys(index.index).filter(k => index.index[k].length > 1);
+const resolvedAmbiguities = ambiguities.filter(k => index.index[k].filter(e => e.disambiguated).length == 1);
+const remainingAmbiguities = ambiguities.filter(k => index.index[k].filter(e => e.disambiguated).length != 1);
 
 console.log(Object.keys(unitTypeMap).length + ' unit types defined');
 console.log(Object.keys(functionSourceMap).length + ' functions defined');
@@ -712,9 +715,9 @@ console.log(Object.keys(includeMap).length + ' includes defined');
 console.log(Object.keys(elementsMap).length + ' elements defined');
 console.log(Object.keys(solversMap).length + ' solvers or calculators defined');
 console.log(Object.keys(index.index).length + ' terms in search index');
-console.log(Object.keys(index.index).filter(k => index.index[k].length > 1).length + ' ambiguous terms originally in search index');
-console.log(Object.keys(index.index).filter(k => index.index[k].length > 1 && index.index[k].filter(e => e.disambiguated).length == 1).length + ' ambiguous terms resolved by disambiguation');
-console.log(Object.keys(index.index).filter(k => index.index[k].length > 1 && index.index[k].filter(e => e.disambiguated).length != 1).length + ' ambiguous terms remaining in search index');
+console.log(ambiguities.length + ' ambiguous terms originally in search index');
+console.log(resolvedAmbiguities.length + ' ambiguous terms resolved by disambiguation');
+console.log(remainingAmbiguities.length + ' ambiguous terms remaining in search index');
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
 
