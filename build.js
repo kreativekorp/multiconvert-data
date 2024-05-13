@@ -130,8 +130,12 @@ function validateDimension(context, key, object, dimensionsMap) {
 	}
 }
 
+function validateOK() {
+	return !localErrorCount;
+}
+
 function putIfOK(context, map, key, value) {
-	if (!localErrorCount) {
+	if (validateOK()) {
 		if (map[key]) {
 			error(context, 'duplicate key "' + key + '"');
 		} else {
@@ -139,8 +143,6 @@ function putIfOK(context, map, key, value) {
 		}
 	}
 }
-
-// OTHER UTILITIES
 
 function solverSolutionKeyValid(key) {
 	const reg = key.split ? key.split(',') : key;
@@ -165,7 +167,7 @@ validateLSOrder('composition.json', 'div-order', composition['div-order']);
 validateLS('composition.json', 'hier-joiner', composition['hier-joiner'], '@');
 validateLSOrder('composition.json', 'hier-order', composition['hier-order']);
 validateLS('composition.json', 'frac-format', composition['frac-format'], '@');
-if (totalErrorCount) process.exit(1);
+if (!validateOK()) process.exit(1);
 unit.loadComposition(composition);
 
 const degreesMap = {};
@@ -691,7 +693,7 @@ for (const file of fsutil.findFiles('.', 'disambiguation')) {
 			error(context, 'value for "' + lang + '" must be a non-null object');
 		}
 	}
-	if (localErrorCount) continue;
+	if (!validateOK()) continue;
 	const results = index.disambiguate('en', disambiguation);
 	for (const indexKey of Object.keys(disambiguation['en'])) {
 		if (results[indexKey] === undefined) {
@@ -721,7 +723,7 @@ console.log(remainingAmbiguities.length + ' ambiguous terms remaining in search 
 console.log(totalErrorCount + ' errors in data');
 console.log(totalWarningCount + ' warnings in data');
 
-// UNIT CONVERSION UTILITIES
+// VALIDATE AND RUN TESTS
 
 function mcparse(u, a, depInputs) {
 	if (u['multiplier'] !== undefined || u['divisor'] !== undefined) {
@@ -762,8 +764,6 @@ function mcformat(u, a, depInputs) {
 	}
 	return a;
 }
-
-// VALIDATE AND RUN TESTS
 
 function testValue(v) {
 	if (v === '$$UNDEFINED$$') return undefined;
