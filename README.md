@@ -97,6 +97,44 @@ As shown above, unit expressions can get arbitrarily complex.
 
 Division in unit expressions has lower precedence than multiplication, so `u0*u1/u2*u3` is equivalent to `(u0*u1)/(u2*u3)`, not `((u0*u1)/u2)*u3`.
 
+### Looking Up Unit Identifiers
+If you need to look up an identifier, you can use the included `mcvt.js` utility program. You can look up by identifier, symbol, or name.
+
+	$ ./mcvt.js u0
+	
+	d    id    type    sym    name      dimension
+	-    --    ----    ---    ------    ---------
+	     u0    unit    m      meters    length
+	
+	$ ./mcvt.js meters
+	
+	d    id    type    sym    name      dimension
+	-    --    ----    ---    ------    ---------
+	     u0    unit    m      meters    length
+	
+	$
+
+If multiple objects match your query, `mcvt.js` will list all matched objects. An asterisk in the first column indicates the default specified in the file `disambiguation.json`.
+
+	$ ./mcvt.js m
+	
+	d    id       type    sym    name                   dimension
+	-    -----    ----    ---    -------------------    ---------
+	*    u0       unit    m      meters                 length
+	     u1300    unit    m      meters (wavelength)    time^-1
+	
+	$
+
+You can look up unit expressions as well.
+
+	$ ./mcvt.js u1/u0^0.5*u2^2
+	
+	d    id                type    sym           name                                             dimension
+	-    --------------    ----    ----------    ---------------------------------------------    ------------------------
+	     u1/u0^0.5*u2^2    unit    kg/m⁰⸳⁵·s²    kilograms per square root meter square second    mass length^-0.5 time^-2
+	
+	$
+
 ## Example Unit Definitions
 
 ### Base Units
