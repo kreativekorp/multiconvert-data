@@ -273,110 +273,143 @@ const listOps = [',', ';', '::'];
 
 // Built-in functions.
 const builtins = {
-	'abs': ops.abs,
-	'sgn': Math.sign,
-	'sign': Math.sign,
-	'signum': Math.sign,
-	'sqrt': ops.sqrt,
-	'cbrt': ops.cbrt,
-	'qtrt': ops.qtrt,
-	'toDegrees': ops.toDegrees,
-	'toRadians': ops.toRadians,
-	'todegrees': ops.toDegrees,
-	'toradians': ops.toRadians,
-	'toDeg': ops.toDegrees,
-	'toRad': ops.toRadians,
-	'todeg': ops.toDegrees,
-	'torad': ops.toRadians,
-	'isFinite': isFinite,
-	'isfinite': isFinite,
-	'isInfinite': (a => !(isFinite(a) || isNaN(a))),
-	'isinfinite': (a => !(isFinite(a) || isNaN(a))),
-	'isInf': (a => !(isFinite(a) || isNaN(a))),
-	'isinf': (a => !(isFinite(a) || isNaN(a))),
-	'isNaN': isNaN,
-	'isnan': isNaN,
-	'sum': ops.sum,
-	'altsum': ops.altsum,
-	'prod': ops.prod,
-	'product': ops.prod,
-	'rsr': ops.rsr,
-	// TODO rms
+	'abs':           {'function': ops.abs,                           'arity': 1},
+	'sgn':           {'function': ops.sign,                          'arity': 1},
+	'sign':          {'function': ops.sign,                          'arity': 1},
+	'signum':        {'function': ops.sign,                          'arity': 1},
+	'sqrt':          {'function': ops.sqrt,                          'arity': 1},
+	'cbrt':          {'function': ops.cbrt,                          'arity': 1},
+	'qtrt':          {'function': ops.qtrt,                          'arity': 1},
+	'toDegrees':     {'function': ops.toDegrees,                     'arity': 1},
+	'toRadians':     {'function': ops.toRadians,                     'arity': 1},
+	'todegrees':     {'function': ops.toDegrees,                     'arity': 1},
+	'toradians':     {'function': ops.toRadians,                     'arity': 1},
+	'toDeg':         {'function': ops.toDegrees,                     'arity': 1},
+	'toRad':         {'function': ops.toRadians,                     'arity': 1},
+	'todeg':         {'function': ops.toDegrees,                     'arity': 1},
+	'torad':         {'function': ops.toRadians,                     'arity': 1},
+	'isFinite':      {'function': ops.isFinite,                      'arity': 1},
+	'isfinite':      {'function': ops.isFinite,                      'arity': 1},
+	'isInfinite':    {'function': ops.isInfinite,                    'arity': 1},
+	'isinfinite':    {'function': ops.isInfinite,                    'arity': 1},
+	'isInf':         {'function': ops.isInfinite,                    'arity': 1},
+	'isinf':         {'function': ops.isInfinite,                    'arity': 1},
+	'isNaN':         {'function': ops.isNaN,                         'arity': 1},
+	'isnan':         {'function': ops.isNaN,                         'arity': 1},
+	'sum':           {'function': ops.sum,                           'arity': Infinity},
+	'altsum':        {'function': ops.altsum,                        'arity': Infinity},
+	'prod':          {'function': ops.prod,                          'arity': Infinity},
+	'product':       {'function': ops.prod,                          'arity': Infinity},
+	'altprod':       {'function': ops.altprod,                       'arity': Infinity},
+	'altproduct':    {'function': ops.altprod,                       'arity': Infinity},
+	'rsr':           {'function': ops.rsr,                           'arity': Infinity},
+	'rms':           {'function': ops.rms,                           'arity': Infinity},
 	// TODO random, randomrange, randomdecimal
-	'ceil': Math.ceil,
-	'floor': Math.floor,
-	'aug': (a => (a < 0) ? Math.floor(a) : Math.ceil(a)),
-	'trunc': (a => (a < 0) ? Math.ceil(a) : Math.floor(a)),
-	'round': Math.round,
-	'rint': Math.round,
-	'int': Math.trunc,
-	'frac': (a => a - Math.trunc(a)),
-	'exp': Math.exp,
-	'exp1': Math.expm1,
-	'expm1': Math.expm1,
-	'exp2': (a => ops.pow(2, a)),
-	'exp10': (a => ops.pow(10, a)),
-	'ln': Math.log,
-	'ln1': Math.log1p,
-	'ln1p': Math.log1p,
-	'log': Math.log,
-	'log1': Math.log1p,
-	'log1p': Math.log1p,
-	'log2': (a => ops.log(a, 2)),
-	'log10': (a => ops.log(a, 10)),
-	'pow': ops.pow,
-	'root': ops.root,
-	'sin': Math.sin,
-	'cos': Math.cos,
-	'tan': Math.tan,
-	'cot': ops.cot,
-	'sec': ops.sec,
-	'csc': ops.csc,
-	'asin': Math.asin,
-	'acos': Math.acos,
-	'atan': Math.atan,
-	'acot': ops.acot,
-	'asec': ops.asec,
-	'acsc': ops.acsc,
-	'sinh': Math.sinh,
-	'cosh': Math.cosh,
-	'tanh': Math.tanh,
-	'coth': ops.coth,
-	'sech': ops.sech,
-	'csch': ops.csch,
-	'asinh': Math.asinh,
-	'acosh': Math.acosh,
-	'atanh': Math.atanh,
-	'acoth': ops.acoth,
-	'asech': ops.asech,
-	'acsch': ops.acsch,
-	'hypot': Math.hypot,
-	'atan2': Math.atan2,
-	'radius': Math.hypot,
-	'theta': ((a,b) => Math.atan2(b,a)),
-	'xcoord': ((r,t) => ops.mul(r,Math.cos(t))),
-	'ycoord': ((r,t) => ops.mul(r,Math.sin(t))),
-	// TODO avg, geom, harm, average, geomean, harmean
-	'min': Math.min,
-	'max': Math.max,
-	'minimum': Math.min,
-	'maximum': Math.max,
-	// TODO stddev, pstddev, sstddev, variance, pvariance, svariance
-	// TODO annuity, compound
+	'ceil':          {'function': ops.ceil,                          'arity': 1},
+	'floor':         {'function': ops.floor,                         'arity': 1},
+	'aug':           {'function': ops.aug,                           'arity': 1},
+	'trunc':         {'function': ops.trunc,                         'arity': 1},
+	'round':         {'function': ops.round,                         'arity': 1},
+	'rint':          {'function': ops.round,                         'arity': 1},
+	'int':           {'function': ops.trunc,                         'arity': 1},
+	'frac':          {'function': ops.frac,                          'arity': 1},
+	'exp':           {'function': Math.exp,                          'arity': 1},
+	'exp1':          {'function': Math.expm1,                        'arity': 1},
+	'expm1':         {'function': Math.expm1,                        'arity': 1},
+	'exp2':          {'function': (a => ops.exp(a, 2)),              'arity': 1},
+	'exp10':         {'function': (a => ops.exp(a, 10)),             'arity': 1},
+	'ln':            {'function': Math.log,                          'arity': 1},
+	'ln1':           {'function': Math.log1p,                        'arity': 1},
+	'ln1p':          {'function': Math.log1p,                        'arity': 1},
+	'log':           {'function': Math.log,                          'arity': 1},
+	'log1':          {'function': Math.log1p,                        'arity': 1},
+	'log1p':         {'function': Math.log1p,                        'arity': 1},
+	'log2':          {'function': (a => ops.log(a, 2)),              'arity': 1},
+	'log10':         {'function': (a => ops.log(a, 10)),             'arity': 1},
+	'pow':           {'function': ops.pow,                           'arity': 2},
+	'root':          {'function': ops.root,                          'arity': 2},
+	'sin':           {'function': Math.sin,   'inverse': Math.asin,  'fname': [['sin', 1]],   'arity': 1},
+	'cos':           {'function': Math.cos,   'inverse': Math.acos,  'fname': [['cos', 1]],   'arity': 1},
+	'tan':           {'function': Math.tan,   'inverse': Math.atan,  'fname': [['tan', 1]],   'arity': 1},
+	'cot':           {'function': ops.cot,    'inverse': ops.acot,   'fname': [['cot', 1]],   'arity': 1},
+	'sec':           {'function': ops.sec,    'inverse': ops.asec,   'fname': [['sec', 1]],   'arity': 1},
+	'csc':           {'function': ops.csc,    'inverse': ops.acsc,   'fname': [['csc', 1]],   'arity': 1},
+	'asin':          {'function': Math.asin,  'inverse': Math.sin,   'fname': [['sin', -1]],  'arity': 1},
+	'acos':          {'function': Math.acos,  'inverse': Math.cos,   'fname': [['cos', -1]],  'arity': 1},
+	'atan':          {'function': Math.atan,  'inverse': Math.tan,   'fname': [['tan', -1]],  'arity': 1},
+	'acot':          {'function': ops.acot,   'inverse': ops.cot,    'fname': [['cot', -1]],  'arity': 1},
+	'asec':          {'function': ops.asec,   'inverse': ops.sec,    'fname': [['sec', -1]],  'arity': 1},
+	'acsc':          {'function': ops.acsc,   'inverse': ops.csc,    'fname': [['csc', -1]],  'arity': 1},
+	'sinh':          {'function': Math.sinh,  'inverse': Math.asinh, 'fname': [['sinh', 1]],  'arity': 1},
+	'cosh':          {'function': Math.cosh,  'inverse': Math.acosh, 'fname': [['cosh', 1]],  'arity': 1},
+	'tanh':          {'function': Math.tanh,  'inverse': Math.atanh, 'fname': [['tanh', 1]],  'arity': 1},
+	'coth':          {'function': ops.coth,   'inverse': ops.acoth,  'fname': [['coth', 1]],  'arity': 1},
+	'sech':          {'function': ops.sech,   'inverse': ops.asech,  'fname': [['sech', 1]],  'arity': 1},
+	'csch':          {'function': ops.csch,   'inverse': ops.acsch,  'fname': [['csch', 1]],  'arity': 1},
+	'asinh':         {'function': Math.asinh, 'inverse': Math.sinh,  'fname': [['sinh', -1]], 'arity': 1},
+	'acosh':         {'function': Math.acosh, 'inverse': Math.cosh,  'fname': [['cosh', -1]], 'arity': 1},
+	'atanh':         {'function': Math.atanh, 'inverse': Math.tanh,  'fname': [['tanh', -1]], 'arity': 1},
+	'acoth':         {'function': ops.acoth,  'inverse': ops.coth,   'fname': [['coth', -1]], 'arity': 1},
+	'asech':         {'function': ops.asech,  'inverse': ops.sech,   'fname': [['sech', -1]], 'arity': 1},
+	'acsch':         {'function': ops.acsch,  'inverse': ops.csch,   'fname': [['csch', -1]], 'arity': 1},
+	'hypot':         {'function': ops.hypot,                         'arity': 2},
+	'atan2':         {'function': ops.atan2,                         'arity': 2},
+	'radius':        {'function': ops.hypot,                         'arity': 2},
+	'theta':         {'function': ((a,b) => ops.atan2(b,a)),         'arity': 2},
+	'xcoord':        {'function': ops.xcoord,                        'arity': 2},
+	'ycoord':        {'function': ops.ycoord,                        'arity': 2},
+	'avg':           {'function': ops.average,                       'arity': Infinity},
+	'average':       {'function': ops.average,                       'arity': Infinity},
+	'geom':          {'function': ops.geomean,                       'arity': Infinity},
+	'geomean':       {'function': ops.geomean,                       'arity': Infinity},
+	'harm':          {'function': ops.harmean,                       'arity': Infinity},
+	'harmean':       {'function': ops.harmean,                       'arity': Infinity},
+	'min':           {'function': Math.min,                          'arity': Infinity},
+	'max':           {'function': Math.max,                          'arity': Infinity},
+	'minimum':       {'function': Math.min,                          'arity': Infinity},
+	'maximum':       {'function': Math.max,                          'arity': Infinity},
+	'stddev':        {'function': ops.pstddev,                       'arity': Infinity},
+	'pstddev':       {'function': ops.pstddev,                       'arity': Infinity},
+	'sstddev':       {'function': ops.sstddev,                       'arity': Infinity},
+	'variance':      {'function': ops.pvariance,                     'arity': Infinity},
+	'pvariance':     {'function': ops.pvariance,                     'arity': Infinity},
+	'svariance':     {'function': ops.svariance,                     'arity': Infinity},
+	'median':        {'function': ops.median,                        'arity': Infinity},
+	'annuity':       {'function': ops.annuity,                       'arity': 2},
+	'compound':      {'function': ops.compound,                      'arity': 2},
 	// TODO fact, lfact, lnfact, factorial, lfactorial, lnfactorial
 	// TODO gamma, lgamma, lngamma, beta, lbeta, lnbeta
 	// TODO ncr, choose, npr, pick
 	// TODO agm, gcd, lcm
 	// TODO reversebits, reversebytes
 	// TODO bitlength, bitmingle, bitselect
-	// TODO bitand, bitxor, bitor, and, or, xor, equal
-	// TODO asc, desc, inc, incr, dec, decr
-	// TODO ascending, descending, increasing, decreasing
-	// TODO if, between, minmax, median
-	// TODO all, any
-	'len': (a => ops.str(a).length),
-	'length': (a => ops.str(a).length),
-	// TODO reverse, concat, concatsp, implode
+	'bitand':        {'function': ops.bitand,                        'arity': Infinity},
+	'bitxor':        {'function': ops.bitxor,                        'arity': Infinity},
+	'bitor':         {'function': ops.bitor,                         'arity': Infinity},
+	'and':           {'function': ops.and,                           'arity': Infinity},
+	'all':           {'function': ops.and,                           'arity': Infinity},
+	'xor':           {'function': ops.xor,                           'arity': Infinity},
+	'or':            {'function': ops.or,                            'arity': Infinity},
+	'any':           {'function': ops.or,                            'arity': Infinity},
+	'equal':         {'function': ops.equal,                         'arity': Infinity},
+	'asc':           {'function': ops.ascending,                     'arity': Infinity},
+	'ascending':     {'function': ops.ascending,                     'arity': Infinity},
+	'desc':          {'function': ops.descending,                    'arity': Infinity},
+	'descending':    {'function': ops.descending,                    'arity': Infinity},
+	'inc':           {'function': ops.increasing,                    'arity': Infinity},
+	'incr':          {'function': ops.increasing,                    'arity': Infinity},
+	'increasing':    {'function': ops.increasing,                    'arity': Infinity},
+	'dec':           {'function': ops.decreasing,                    'arity': Infinity},
+	'decr':          {'function': ops.decreasing,                    'arity': Infinity},
+	'decreasing':    {'function': ops.decreasing,                    'arity': Infinity},
+	// TODO if, between, minmax
+	'len':           {'function': (a => ops.str(a).length),          'arity': 1},
+	'length':        {'function': (a => ops.str(a).length),          'arity': 1},
+	'concat':        {'function': ops.concat,                        'arity': Infinity},
+	'concatenate':   {'function': ops.concat,                        'arity': Infinity},
+	'concatsp':      {'function': ops.concatsp,                      'arity': Infinity},
+	'concatenatesp': {'function': ops.concatsp,                      'arity': Infinity},
+	// TODO reverse, implode
 	// TODO strcmp, offset, instr, rinstr, explode, replace, replaceAll
 	// TODO left, center, right, mid, substr, substring
 	// TODO lpad, cpad, rpad, trim, ltrim, rtrim
@@ -386,14 +419,14 @@ const builtins = {
 	// TODO hash, rot13, html/url/urlQuery encode/decode
 	// TODO head, tail, number, lconcat, lreverse, llength, map, filter, reduce
 	// TODO atob, btoa, pack, unpack
-	'idmatrix': ops.idmatrix,
-	'transpose': function() { return ops.transpose(Array.from(arguments)); },
-	'det': function(){ return ops.det(Array.from(arguments)); },
-	'minor': ops.minor,
-	'cofactor': ops.cofactor,
-	'comatrix': function() { return ops.comatrix(Array.from(arguments)); },
-	'adj': function() { return ops.adj(Array.from(arguments)); },
-	'inv': function() { return ops.inv(Array.from(arguments)); },
+	'idmatrix':      {'function': ops.idmatrix,                      'arity': 1},
+	'transpose':     {'function': ops.transpose,                     'arity': 1},
+	'det':           {'function': ops.det,                           'arity': 1},
+	'minor':         {'function': ops.minor,                         'arity': 3},
+	'cofactor':      {'function': ops.cofactor,                      'arity': 3},
+	'comatrix':      {'function': ops.comatrix,                      'arity': 1},
+	'adj':           {'function': ops.adj,                           'arity': 1},
+	'inv':           {'function': ops.inv,                           'arity': 1},
 };
 
 // PARSER FOR EXPRESSIONS
@@ -406,7 +439,7 @@ function parseFactor(tokens, i) {
 	} else if (tokens[i]['type'] === 'id') {
 		const id = tokens[i]['id'];
 		if (builtins[id]) {
-			const item = {'type': 'function', 'key': id, 'value': id, 'function': builtins[id]};
+			const item = {'type': 'function', 'name': id, ...builtins[id]};
 			return [item, i+1];
 		} else try {
 			const item = lookup(id);
@@ -557,8 +590,8 @@ function evaluateBinary(op, a, b) {
 		case 'in': case 'to':           return ops.convert(a, b);
 		case '*': case '×': case '·':   return ops.mul(a, b);
 		case '/': case '÷':             return ops.div(a, b);
-		case '//': case '\\':           return Math.trunc(a / b);
-		case '%':                       return a % b;
+		case '//': case '\\':           return ops.idiv(a, b);
+		case '%':                       return ops.mod(a, b);
 		case '+':                       return ops.add(a, b);
 		case '-':                       return ops.sub(a, b);
 		case '<<': case '<<<':          return a << b;
@@ -578,7 +611,7 @@ function evaluateBinary(op, a, b) {
 		case '<>': case '!=':           return a != b;
 		case '≠': case '≠≠':            return a != b;
 		case '!==': case '≠≠≠':         return a !== b;
-		case '<=>': case '⇔':           return Math.sign(a - b);
+		case '<=>': case '⇔':           return ops.cmp(a, b);
 		case '&&':                      return ops.bool(a) && ops.bool(b);
 		case '##':                      return ops.bool(a) != ops.bool(b);
 		case '||':                      return ops.bool(a) || ops.bool(b);
@@ -614,8 +647,8 @@ function evaluate(expr, context) {
 		case 'list':
 			return expr['items'].map(e => evaluate(e, context));
 		case 'function':
-			const fn = expr['function'] || unit.functions[expr['key']];
-			return {'type': 'function', 'name': expr['key'], 'key': expr['key'], 'function': fn};
+			if (expr['function']) return expr;
+			return {'type': 'function', 'name': expr['key'], 'key': expr['key'], 'function': unit.functions[expr['key']]};
 		case 'unit':
 			return {'type': 'unit', 'name': expr['value']['name'] || expr['key'], 'key': expr['key'], 'unit': expr['value']};
 		case 'unit-type':
@@ -674,7 +707,7 @@ function execute(command, context) {
 		const result = evaluate(expr, context);
 		console.log(ops.str(result));
 	} catch (e) {
-		console.log(e.message);
+		console.log(ops.bool(context['trace']) ? e : e.message);
 	}
 }
 
