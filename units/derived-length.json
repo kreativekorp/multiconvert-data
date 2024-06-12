@@ -770,5 +770,44 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u262": {
+		"symbol": "u",
+		"name": {
+			"en": {
+				"1": "keyboard unit",
+				"*": "keyboard units"
+			}
+		},
+		"multiplier": "0.01905",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u263": {
+		"symbol": "v",
+		"name": {
+			"en": {
+				"1": "quarter of a keyboard unit",
+				"*": "quarters of a keyboard unit"
+			}
+		},
+		"multiplier": "0.0047625",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u264": {
+		"symbol": "w",
+		"name": {
+			"en": {
+				"1": "twentieth of a keyboard unit",
+				"*": "twentieths of a keyboard unit"
+			}
+		},
+		"multiplier": "0.0009525",
+		"dimension": {
+			"length": 1
+		}
 	}
 }

@@ -225,7 +225,7 @@
 				"*": "atomic mass units"
 			}
 		},
-		"multiplier": "1.66053886E-27",
+		"multiplier": "1.66053906892E-27",
 		"dimension": {
 			"mass": 1
 		}
@@ -241,6 +241,32 @@
 		"multiplier": 149597870691,
 		"dimension": {
 			"length": 1
+		}
+	},
+	"u143": {
+		"symbol": "u",
+		"name": {
+			"en": {
+				"1": "unified atomic mass unit",
+				"*": "unified atomic mass units"
+			}
+		},
+		"multiplier": "1.66053906892E-27",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u144": {
+		"symbol": "Da",
+		"name": {
+			"en": {
+				"1": "dalton",
+				"*": "daltons"
+			}
+		},
+		"multiplier": "1.66053906892E-27",
+		"dimension": {
+			"mass": 1
 		}
 	},
 	"u160": {

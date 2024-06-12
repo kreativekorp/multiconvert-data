@@ -186,6 +186,10 @@
 		"yd/gal": {"key": "u211/u405"},
 		"mi/gal": {"key": "u217/u405"},
 		"pc": {"key": "u239"},
+		"u": {
+			"key": "u262",
+			"message": "For the unit of mass, use `Da` (daltons)."
+		},
 		"gal": {"key": "u405"},
 		"gal/s": {"key": "u405/u2"},
 		"gal/min": {"key": "u405/u100"},

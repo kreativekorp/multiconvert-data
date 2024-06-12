@@ -234,6 +234,7 @@ function lookup(id) {
 				const name = di[0]['value']['name'] && ls.get(di[0]['value']['name'], 'en', '*') || di[0]['key'];
 				const dimn = di[0]['value']['dimension'] ? (' of ' + fmtdim(di[0]['value']['dimension'])) : '';
 				console.log('Assuming `' + id + '` is the ' + type + dimn + ' `' + name + '`.');
+				if (typeof di[0]['disambiguated'] === 'string') console.log(di[0]['disambiguated']);
 				console.log('Look up `' + id + '` alone to see all ' + items.length + ' options.');
 				assumed[id] = di[0];
 			}
