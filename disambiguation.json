@@ -171,7 +171,10 @@
 		"pt": {"key": "u202"},
 		"point": {"key": "u202"},
 		"points": {"key": "u202"},
-		"in": {"key": "u207"},
+		"in": {
+			"key": "u207",
+			"message": "|For unit conversion, use `to` instead of `in`."
+		},
 		"inch": {"key": "u207"},
 		"inches": {"key": "u207"},
 		"in^2": {"key": "u207^2"},

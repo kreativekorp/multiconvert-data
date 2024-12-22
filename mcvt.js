@@ -233,9 +233,12 @@ function lookup(id) {
 				const type = di[0]['type'].replaceAll('-', ' ');
 				const name = di[0]['value']['name'] && ls.get(di[0]['value']['name'], 'en', '*') || di[0]['key'];
 				const dimn = di[0]['value']['dimension'] ? (' of ' + fmtdim(di[0]['value']['dimension'])) : '';
+				const msgs = (typeof di[0]['disambiguated'] === 'string') ? di[0]['disambiguated'].split('|') : [];
+				if (msgs[2]) console.log(msgs[2]);
 				console.log('Assuming `' + id + '` is the ' + type + dimn + ' `' + name + '`.');
-				if (typeof di[0]['disambiguated'] === 'string') console.log(di[0]['disambiguated']);
+				if (msgs[0]) console.log(msgs[0]);
 				console.log('Look up `' + id + '` alone to see all ' + items.length + ' options.');
+				if (msgs[1]) console.log(msgs[1]);
 				assumed[id] = di[0];
 			}
 			return di[0];

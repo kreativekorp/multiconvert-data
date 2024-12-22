@@ -809,5 +809,98 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u265": {
+		"symbol": "LDU",
+		"name": {
+			"en": {
+				"1": "LDraw unit",
+				"*": "LDraw units"
+			}
+		},
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u266": {
+		"symbol": "LU",
+		"name": {
+			"en": {
+				"1": "LEGO\u00AE unit",
+				"*": "LEGO\u00AE units"
+			}
+		},
+		"multiplier": 4,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u267": {
+		"name": {
+			"en": {
+				"1": "LEGO\u00AE plate",
+				"*": "LEGO\u00AE plates"
+			}
+		},
+		"multiplier": 8,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u268": {
+		"name": {
+			"en": {
+				"1": "LEGO\u00AE stud",
+				"*": "LEGO\u00AE studs"
+			}
+		},
+		"multiplier": 20,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u269": {
+		"name": {
+			"en": {
+				"1": "LEGO\u00AE brick",
+				"*": "LEGO\u00AE bricks"
+			}
+		},
+		"multiplier": 24,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u270": {
+		"symbol": "P",
+		"name": {
+			"en": {
+				"1": "pin step",
+				"*": "pin steps"
+			}
+		},
+		"multiplier": 20,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u271": {
+		"symbol": "p",
+		"name": {
+			"en": {
+				"*": "plastic"
+			}
+		},
+		"multiplier": 4,
+		"divisor": 2500,
+		"dimension": {
+			"length": 1
+		}
 	}
 }
