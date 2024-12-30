@@ -135,6 +135,60 @@ You can look up unit expressions as well.
 	
 	$
 
+## Performing Unit Conversions and Calculations
+
+The `mcvt.js` utility program can also perform unit conversions and calculations. All the usual mathematical operators and functions are available, as well as some unusual ones.
+
+	$ ./mcvt.js '1 mile to kilometers'
+	1.609344 kilometers
+	$ ./mcvt.js '2 + 2'
+	4
+	$ ./mcvt.js '2 miles + 2 kilometers'
+	3.242742384474668 miles
+	$ ./mcvt.js '2 kilometers + 2 miles'
+	5.218688 kilometers
+	$ ./mcvt.js 'sqrt(16 `square meters`)'
+	4 square root square meters
+	$ ./mcvt.js 'rsr(2 ohms, 6 ohms)'
+	1.5 per per ohm
+	$
+
+(Some NLP is missing here admittedly but it is mathematically correct at least.)
+
+You can also run `mcvt.js` without arguments to start an interactive shell.
+
+	$ ./mcvt.js
+	mcvt> 1 mile to kilometers
+	1.609344 kilometers
+	mcvt> 2 + 2
+	4
+	mcvt> 2 miles + 2 kilometers
+	3.242742384474668 miles
+	mcvt> 2 kilometers + 2 miles
+	5.218688 kilometers
+	mcvt> sqrt(16 `square meters`)
+	4 square root square meters
+	mcvt> rsr(2 ohms, 6 ohms)
+	1.5 per per ohm
+	mcvt> quit
+	$
+
+Assignment is also supported using the `:=` operator and works with all kinds of objects, not just numbers.
+
+	$ ./mcvt.js
+	mcvt> v1 := 3.218688 kilometers
+	3.218688 kilometers
+	mcvt> v1 to miles
+	2 miles
+	mcvt> x := 2
+	2
+	mcvt> f := miles to kilometers
+	function `miles to kilometers`
+	mcvt> f(x)
+	3.218688
+	mcvt> quit
+	$
+
 ## Example Unit Definitions
 
 ### Base Units
@@ -320,7 +374,7 @@ The input to the `parser` function and the output of the `formatter` function ne
 			"function (a) {",
 			"  if (a.trim) a = a.trim();",
 			"  if (!a) return NaN;",
-			"  var i='CCDDEFFGGAAB'.indexOf(a[0].toUpperCase());",
+			"  var i = 'CCDDEFFGGAAB'.indexOf(a[0].toUpperCase());",
 			"  if (i < 0) return NaN;",
 			"  a = a.substring(1);",
 			"  if (a.trim) a = a.trim();",
@@ -331,13 +385,13 @@ The input to the `parser` function and the output of the `formatter` function ne
    			"    a = a.substring(1);",
 			"  }",
 			"  if (a.trim) a = a.trim();",
-			"  if (!a.length || !isFinite(a)) a=4;",
+			"  if (!a.length || !isFinite(a)) a = 4;",
 			"  return (27.5 * Math.pow(2, (a * 12 + i - 9) / 12));",
 			"}"
 		],
 		"formatter": [
 			"function (a) {",
-			"  if (!(a=Math.abs(a)) || !isFinite(a)) return '';",
+			"  if (!(a = Math.abs(a)) || !isFinite(a)) return '';",
 			"  var i = Math.round(Math.log(a / 27.5) * 12 / Math.log(2) + 9);",
 			"  a = Math.floor(i / 12);",
 			"  return ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'][i - 12 * a] + a;",
