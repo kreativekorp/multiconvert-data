@@ -148,12 +148,10 @@ The `mcvt.js` utility program can also perform unit conversions and calculations
 	$ ./mcvt.js '2 kilometers + 2 miles'
 	5.218688 kilometers
 	$ ./mcvt.js 'sqrt(16 `square meters`)'
-	4 square root square meters
+	4 meters
 	$ ./mcvt.js 'rsr(2 ohms, 6 ohms)'
-	1.5 per per ohm
+	1.5 ohms
 	$
-
-(Some NLP is missing here admittedly but it is mathematically correct at least.)
 
 You can also run `mcvt.js` without arguments to start an interactive shell.
 
@@ -167,9 +165,9 @@ You can also run `mcvt.js` without arguments to start an interactive shell.
 	mcvt> 2 kilometers + 2 miles
 	5.218688 kilometers
 	mcvt> sqrt(16 `square meters`)
-	4 square root square meters
+	4 meters
 	mcvt> rsr(2 ohms, 6 ohms)
-	1.5 per per ohm
+	1.5 ohms
 	mcvt> quit
 	$
 
