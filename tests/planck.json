@@ -1,0 +1,98 @@
+[
+	{
+		"name": "Planck area",
+		"p5": 1,
+		"p0^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck volume",
+		"p6": 1,
+		"p0^3": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck momentum",
+		"p7": 1,
+		"p0*p1/p2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck energy",
+		"p8": 1,
+		"p0^2*p1/p2^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck force",
+		"p9": 1,
+		"p0*p1/p2^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck power",
+		"p10": 1,
+		"p0^2*p1/p2^3": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck density",
+		"p11": 1,
+		"p1/p0^3": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck frequency",
+		"p12": 1,
+		"p2^-1": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck pressure",
+		"p13": 1,
+		"p1/p0*p2^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck current (k\u2091 = 1)",
+		"p14": 1,
+		"p3/p2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck voltage (k\u2091 = 1)",
+		"p15": 1,
+		"p0^2*p1/p2^2*p3": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck impedance (k\u2091 = 1)",
+		"p16": 1,
+		"p0^2*p1/p2*p3^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck acceleration",
+		"p17": 1,
+		"p0/p2^2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck current (\u03B5\u2080 = 1)",
+		"p19": 1,
+		"p18/p2": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck voltage (\u03B5\u2080 = 1)",
+		"p20": 1,
+		"p0^2*p1/p2^2*p18": 1,
+		"epsilon": 1E-4
+	},
+	{
+		"name": "Planck impedance (\u03B5\u2080 = 1)",
+		"p21": 1,
+		"p0^2*p1/p2*p18^2": 1,
+		"epsilon": 1E-4
+	}
+]
