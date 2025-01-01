@@ -157,18 +157,35 @@ function solverSolutionKeyValid(key) {
 
 // READ AND VALIDATE
 
-const composition = JSON.parse(fs.readFileSync('composition.json', 'utf8'));
-validateStart();
-validateKeys('composition.json', composition, ['mul-joiner', 'mul-order', 'div-joiner', 'div-order', 'hier-joiner', 'hier-order', 'frac-format'], []);
-validateLS('composition.json', 'mul-joiner', composition['mul-joiner'], '@');
-validateLSOrder('composition.json', 'mul-order', composition['mul-order']);
-validateLS('composition.json', 'div-joiner', composition['div-joiner'], '@');
-validateLSOrder('composition.json', 'div-order', composition['div-order']);
-validateLS('composition.json', 'hier-joiner', composition['hier-joiner'], '@');
-validateLSOrder('composition.json', 'hier-order', composition['hier-order']);
-validateLS('composition.json', 'frac-format', composition['frac-format'], '@');
-if (!validateOK()) process.exit(1);
-unit.loadComposition(composition);
+let compositionLoaded = false;
+for (const file of fsutil.findFiles('.', 'composition')) {
+	if (compositionLoaded) {
+		error(file, 'multiple instances of composition.json; cannot continue');
+		process.exit(1);
+	} else {
+		const composition = JSON.parse(fs.readFileSync(file, 'utf8'));
+		validateStart();
+		validateKeys(file, composition, ['mul-joiner', 'mul-order', 'div-joiner', 'div-order', 'hier-joiner', 'hier-order', 'frac-format'], []);
+		validateLS(file, 'mul-joiner', composition['mul-joiner'], '@');
+		validateLSOrder(file, 'mul-order', composition['mul-order']);
+		validateLS(file, 'div-joiner', composition['div-joiner'], '@');
+		validateLSOrder(file, 'div-order', composition['div-order']);
+		validateLS(file, 'hier-joiner', composition['hier-joiner'], '@');
+		validateLSOrder(file, 'hier-order', composition['hier-order']);
+		validateLS(file, 'frac-format', composition['frac-format'], '@');
+		if (validateOK()) {
+			unit.loadComposition(composition);
+			compositionLoaded = true;
+		} else {
+			error(file, 'errors in composition.json; cannot continue');
+			process.exit(1);
+		}
+	}
+}
+if (!compositionLoaded) {
+	error('composition.json', 'cannot find composition.json; cannot continue');
+	process.exit(1);
+}
 
 const degreesMap = {};
 for (const file of fsutil.findFiles('.', 'degrees')) {

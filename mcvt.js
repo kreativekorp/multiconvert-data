@@ -11,8 +11,10 @@ const unit = require('./lib/unitparser.js');
 
 // READ DATA
 
-const composition = JSON.parse(fs.readFileSync('composition.json', 'utf8'));
-unit.loadComposition(composition);
+for (const file of fsutil.findFiles('.', 'composition')) {
+	const composition = JSON.parse(fs.readFileSync(file, 'utf8'));
+	unit.loadComposition(composition);
+}
 
 for (const file of fsutil.findFiles('.', 'degrees')) {
 	const degrees = JSON.parse(fs.readFileSync(file, 'utf8'));
