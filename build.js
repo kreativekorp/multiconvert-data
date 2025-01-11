@@ -513,8 +513,8 @@ for (const file of fsutil.findFiles('.', 'includes')) {
 		validateStart();
 		if (!id.match(/^i[0-9]+$/)) {
 			warning(context, 'identifier does not follow recommended pattern of i[0-9]+');
-		} else if (id === 'i36') {
-			warning(context, 'identifier "i36" is reserved for the currency category');
+		} else if (String.fromCharCode(id.substring(1)).match(/\p{Sc}/u)) {
+			warning(context, 'identifier "' + id + '" is reserved for the currency category');
 		}
 		validateKeys(context, item, ['name', 'categories']);
 		validateLS(context, 'name', item['name']);
@@ -522,7 +522,7 @@ for (const file of fsutil.findFiles('.', 'includes')) {
 			for (const cat of item['categories']) {
 				if (cat['include'] !== undefined) {
 					validateKeys(context, cat, ['include']);
-					if (!(cat['include'] === 'i36' || includeMap[cat['include']])) {
+					if (!includeMap[cat['include']] && ['i36','i162'].indexOf(cat['include']) < 0) {
 						error(context, 'value for "include" references undefined include "' + cat['include'] + '"');
 					}
 				} else {

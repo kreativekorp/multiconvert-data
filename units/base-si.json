@@ -51,8 +51,7 @@
 		"symbol": "K",
 		"name": {
 			"en": {
-				"1": "kelvin",
-				"*": "kelvins"
+				"*": "kelvin"
 			}
 		},
 		"dimension": {
