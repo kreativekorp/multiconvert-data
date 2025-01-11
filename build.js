@@ -825,189 +825,208 @@ function testEqual(a, b, e) {
 	return Math.abs(a - b) < Math.max(e * norm, e);
 }
 
-let testsTotal = 0;
-let testsFailed = 0;
-let testsPassed = 0;
-for (const file of fsutil.findFiles('.', 'tests')) {
-	const tests = JSON.parse(fs.readFileSync(file, 'utf8'));
-	for (const item of tests) {
-		let context = file;
-		let epsilon = 0;
-		validateStart();
-		if (item['solver'] !== undefined) {
-			validateKeys(context, item, ['solver', 'solution-sets'], ['name', 'epsilon', 'ignore-solutions']);
-			const solver = solversMap[item['solver']];
-			const solutionSets = [];
-			const ignoreSolutions = {};
-			for (const key of Object.keys(item)) {
-				const value = item[key];
-				if (key === 'name') {
-					context += ': ' + value;
-				} else if (key === 'epsilon') {
-					epsilon = Math.abs(value);
-				} else if (key === 'solver') {
-					if (!solver) {
-						error(context, 'solver "' + value + '" does not exist');
-					}
-				} else if (key === 'solution-sets') {
-					if (value && typeof value === 'object' && value.length) {
-						for (let i = 0; i < value.length; i++) {
-							if (value[i] && typeof value[i] === 'object' && value[i].length) {
-								solutionSets.push(value[i]);
-							} else {
-								error(context, 'value for "solution-sets" at index ' + i + ' must be a non-empty array');
-							}
+function testRun(context, item) {
+	let epsilon = 0;
+	validateStart();
+	if (item['solver'] !== undefined) {
+		validateKeys(context, item, ['solver', 'solution-sets'], ['name', 'epsilon', 'ignore-solutions']);
+		const solver = solversMap[item['solver']];
+		const solutionSets = [];
+		const ignoreSolutions = {};
+		for (const key of Object.keys(item)) {
+			const value = item[key];
+			if (key === 'name') {
+				context += ': ' + value;
+			} else if (key === 'epsilon') {
+				epsilon = Math.abs(value);
+			} else if (key === 'solver') {
+				if (!solver) {
+					error(context, 'solver "' + value + '" does not exist');
+				}
+			} else if (key === 'solution-sets') {
+				if (value && typeof value === 'object' && value.length) {
+					for (let i = 0; i < value.length; i++) {
+						if (value[i] && typeof value[i] === 'object' && value[i].length) {
+							solutionSets.push(value[i]);
+						} else {
+							error(context, 'value for "solution-sets" at index ' + i + ' must be a non-empty array');
 						}
-					} else {
-						error(context, 'value for "solution-sets" must be a non-empty array');
-					}
-				} else if (key === 'ignore-solutions') {
-					if (value && typeof value === 'object' && value.length) {
-						for (let i = 0; i < value.length; i++) {
-							if (solverSolutionKeyValid(value[i])) {
-								ignoreSolutions[value[i].join ? value[i].join(',') : value[i]] = true;
-							} else {
-								error(context, 'value for "ignore-solutions" at index ' + i + ' must be a list of monotonically-increasing non-negative integers');
-							}
-						}
-					} else {
-						error(context, 'value for "ignore-solutions" must be a non-empty array');
 					}
 				} else {
-					error(context, 'unknown key "' + key + '"');
+					error(context, 'value for "solution-sets" must be a non-empty array');
+				}
+			} else if (key === 'ignore-solutions') {
+				if (value && typeof value === 'object' && value.length) {
+					for (let i = 0; i < value.length; i++) {
+						if (solverSolutionKeyValid(value[i])) {
+							ignoreSolutions[value[i].join ? value[i].join(',') : value[i]] = true;
+						} else {
+							error(context, 'value for "ignore-solutions" at index ' + i + ' must be a list of monotonically-increasing non-negative integers');
+						}
+					}
+				} else {
+					error(context, 'value for "ignore-solutions" must be a non-empty array');
+				}
+			} else {
+				error(context, 'unknown key "' + key + '"');
+			}
+		}
+		if (solver && solutionSets.length) {
+			const ivr = solver['variables'].filter(v => v['type'] !== 'dependent').map(v => +v['register']);
+			for (const ss of solutionSets) {
+				for (const sk of Object.keys(solver['solutions'])) {
+					if (!ignoreSolutions[sk]) {
+						const inr = ivr.concat(sk.split(',').map(v => +v));
+						const r = []; for (const ir of inr) r[ir] = ss[ir];
+						solver['solutions.compiled'][sk](r);
+						if (!testEqual(r, ss, epsilon)) {
+							error(context, 'solution for [' + inr.join(',') + '] given [' + inr.map(ir => ss[ir]).join(',') + '] should be [' + ss.join(',') + '] but test produced [' + r.join(',') + ']');
+						}
+					}
 				}
 			}
-			if (solver && solutionSets.length) {
-				const ivr = solver['variables'].filter(v => v['type'] !== 'dependent').map(v => +v['register']);
-				for (const ss of solutionSets) {
-					for (const sk of Object.keys(solver['solutions'])) {
-						if (!ignoreSolutions[sk]) {
-							const inr = ivr.concat(sk.split(',').map(v => +v));
-							const r = []; for (const ir of inr) r[ir] = ss[ir];
-							solver['solutions.compiled'][sk](r);
-							if (!testEqual(r, ss, epsilon)) {
-								error(context, 'solution for [' + inr.join(',') + '] given [' + inr.map(ir => ss[ir]).join(',') + '] should be [' + ss.join(',') + '] but test produced [' + r.join(',') + ']');
-							}
-						}
-					}
-				}
-			}
-		} else {
-			const inputs = [];
-			const outputs = [];
-			const depInputs = {};
-			for (const key of Object.keys(item)) {
-				const value = item[key];
-				if (key === 'name') {
-					context += ': ' + value;
-				} else if (key === 'epsilon') {
-					epsilon = Math.abs(value);
-				} else if (key === 'inputs') {
-					if (value && typeof value === 'object') {
-						for (const k of Object.keys(value)) {
-							const v = testValue(value[k]);
-							if (k === 'base') {
-								inputs.push([null, v]);
-							} else {
-								try {
-									const u = unit.parse(k);
-									inputs.push([u, v]);
-								} catch (e) {
-									error(context, 'unit "' + k + '" could not be compiled: ' + e);
-								}
-							}
-						}
-					} else {
-						error(context, 'value for "inputs" must be a non-null object');
-					}
-				} else if (key === 'outputs') {
-					if (value && typeof value === 'object') {
-						for (const k of Object.keys(value)) {
-							const v = testValue(value[k]);
-							if (k === 'base') {
-								outputs.push([null, v]);
-							} else {
-								try {
-									const u = unit.parse(k);
-									outputs.push([u, v]);
-								} catch (e) {
-									error(context, 'unit "' + k + '" could not be compiled: ' + e);
-								}
-							}
-						}
-					} else {
-						error(context, 'value for "outputs" must be a non-null object');
-					}
-				} else if (key === 'dep-inputs') {
-					if (value && typeof value === 'object') {
-						for (const k of Object.keys(value)) {
-							const v = testValue(value[k]);
+		}
+	} else {
+		const inputs = [];
+		const outputs = [];
+		const depInputs = {};
+		for (const key of Object.keys(item)) {
+			const value = item[key];
+			if (key === 'name') {
+				context += ': ' + value;
+			} else if (key === 'epsilon') {
+				epsilon = Math.abs(value);
+			} else if (key === 'inputs') {
+				if (value && typeof value === 'object') {
+					for (const k of Object.keys(value)) {
+						const v = testValue(value[k]);
+						if (k === 'base') {
+							inputs.push([null, v]);
+						} else {
 							try {
 								const u = unit.parse(k);
-								if (u['dep-name']) {
-									depInputs[ls.get(u['dep-name'])] = v;
-								} else {
-									error(context, 'unit "' + k + '" should not have a dep-input');
-								}
+								inputs.push([u, v]);
 							} catch (e) {
 								error(context, 'unit "' + k + '" could not be compiled: ' + e);
 							}
 						}
-					} else {
-						error(context, 'value for "dep-inputs" must be a non-null object');
 					}
 				} else {
-					const v = testValue(value);
-					if (key === 'base') {
-						inputs.push([null, v]);
-						outputs.push([null, v]);
-					} else {
-						try {
-							const u = unit.parse(key);
-							inputs.push([u, v]);
-							outputs.push([u, v]);
-						} catch (e) {
-							error(context, 'unit "' + key + '" could not be compiled: ' + e);
-						}
-					}
+					error(context, 'value for "inputs" must be a non-null object');
 				}
-			}
-			// console.log("test: " + context);
-			if (inputs.length && outputs.length) {
-				for (const [iu, iv] of inputs) {
-					const inputName = iu ? ls.get(iu.name) : 'base units';
-					const baseValue = iu ? mcparse(iu, iv, depInputs) : iv;
-					for (const [ou, ov] of outputs) {
-						const outputName = ou ? ls.get(ou.name) : 'base units';
-						if (!iu || !ou || da.eq(iu['dimension'], ou['dimension'])) {
-							const v = ou ? mcformat(ou, baseValue, depInputs) : baseValue;
-							if (testEqual(v, ov, epsilon)) {
-								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
-							} else {
-								error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
-							}
-						} else if (da.comp(iu['dimension'], ou['dimension'])) {
-							const v = mcformat(ou, 1 / baseValue, depInputs);
-							if (testEqual(v, ov, epsilon)) {
-								// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
-							} else {
-								error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
-							}
+			} else if (key === 'outputs') {
+				if (value && typeof value === 'object') {
+					for (const k of Object.keys(value)) {
+						const v = testValue(value[k]);
+						if (k === 'base') {
+							outputs.push([null, v]);
 						} else {
-							error(context, 'input unit "' + inputName + '" and output unit "' + outputName + '" are not compatible');
+							try {
+								const u = unit.parse(k);
+								outputs.push([u, v]);
+							} catch (e) {
+								error(context, 'unit "' + k + '" could not be compiled: ' + e);
+							}
 						}
 					}
+				} else {
+					error(context, 'value for "outputs" must be a non-null object');
+				}
+			} else if (key === 'dep-inputs') {
+				if (value && typeof value === 'object') {
+					for (const k of Object.keys(value)) {
+						const v = testValue(value[k]);
+						try {
+							const u = unit.parse(k);
+							if (u['dep-name']) {
+								depInputs[ls.get(u['dep-name'])] = v;
+							} else {
+								error(context, 'unit "' + k + '" should not have a dep-input');
+							}
+						} catch (e) {
+							error(context, 'unit "' + k + '" could not be compiled: ' + e);
+						}
+					}
+				} else {
+					error(context, 'value for "dep-inputs" must be a non-null object');
 				}
 			} else {
-				error(context, 'test case must have at least one input and at least one output');
+				const v = testValue(value);
+				if (key === 'base') {
+					inputs.push([null, v]);
+					outputs.push([null, v]);
+				} else {
+					try {
+						const u = unit.parse(key);
+						inputs.push([u, v]);
+						outputs.push([u, v]);
+					} catch (e) {
+						error(context, 'unit "' + key + '" could not be compiled: ' + e);
+					}
+				}
 			}
 		}
-		testsTotal++;
-		if (localErrorCount) testsFailed++;
-		if (!localErrorCount) testsPassed++;
+		// console.log("test: " + context);
+		if (inputs.length && outputs.length) {
+			for (const [iu, iv] of inputs) {
+				const inputName = iu ? ls.get(iu.name) : 'base units';
+				const baseValue = iu ? mcparse(iu, iv, depInputs) : iv;
+				for (const [ou, ov] of outputs) {
+					const outputName = ou ? ls.get(ou.name) : 'base units';
+					if (!iu || !ou || da.eq(iu['dimension'], ou['dimension'])) {
+						const v = ou ? mcformat(ou, baseValue, depInputs) : baseValue;
+						if (testEqual(v, ov, epsilon)) {
+							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
+						} else {
+							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
+						}
+					} else if (da.comp(iu['dimension'], ou['dimension'])) {
+						const v = mcformat(ou, 1 / baseValue, depInputs);
+						if (testEqual(v, ov, epsilon)) {
+							// console.log('PASS: ' + context + ': ' + iv + ' ' + inputName + ' = ' + ov + ' ' + outputName);
+						} else {
+							error(context, iv + ' ' + inputName + ' should be ' + ov + ' ' + outputName + ' but test produced ' + v + ' ' + outputName);
+						}
+					} else {
+						error(context, 'input unit "' + inputName + '" and output unit "' + outputName + '" are not compatible');
+					}
+				}
+			}
+		} else {
+			error(context, 'test case must have at least one input and at least one output');
+		}
 	}
+	return !localErrorCount;
 }
 
+function testRunAll(context, tests) {
+	let testsPassed = 0;
+	let testsFailed = 0;
+	let testsTotal = 0;
+	for (const item of tests) {
+		const ok = testRun(context, item);
+		if (ok) testsPassed++;
+		else testsFailed++;
+		testsTotal++;
+	}
+	return [testsPassed, testsFailed, testsTotal];
+}
+
+function testRunAllFiles(files) {
+	let testsPassed = 0;
+	let testsFailed = 0;
+	let testsTotal = 0;
+	for (const file of files) {
+		const tests = JSON.parse(fs.readFileSync(file, 'utf8'));
+		const [p,f,t] = testRunAll(file, tests);
+		testsPassed += p;
+		testsFailed += f;
+		testsTotal += t;
+	}
+	return [testsPassed, testsFailed, testsTotal];
+}
+
+const [testsPassed, testsFailed, testsTotal] = testRunAllFiles(fsutil.findFiles('.', 'tests'));
 console.log(testsTotal + ' tests executed');
 console.log(testsPassed + ' tests passed');
 console.log(testsFailed + ' tests failed');
@@ -1038,217 +1057,225 @@ function incObj(inc) {
 	return {'n': name, 'c': categories};
 }
 
-let lines = [];
-lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
-lines.push('if(typeof m!==\'object\')m={};(function(m){');
+function buildMainJS() {
+	const lines = [];
+	lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
+	lines.push('if(typeof m!==\'object\')m={};(function(m){');
 
-const mp = {};
-for (const key of Object.keys(degreesMap)) {
-	const item = degreesMap[key];
-	const nameLS = ls.format(item['format'], ' ');
-	const name = ls.get(nameLS, 'en', '*').trim();
-	mp[key] = name;
-}
-lines.push('m.mp=' + JSON.stringify(mp) + ';');
+	const mp = {};
+	for (const key of Object.keys(degreesMap)) {
+		const item = degreesMap[key];
+		const nameLS = ls.format(item['format'], ' ');
+		const name = ls.get(nameLS, 'en', '*').trim();
+		mp[key] = name;
+	}
+	lines.push('m.mp=' + JSON.stringify(mp) + ';');
 
-const dp = {};
-const bp = {};
-for (const key of Object.keys(prefixesMap)) {
-	const item = prefixesMap[key];
-	const symbol = item['symbol'];
-	const nameLS = ls.format(item['format'], ' ');
-	const name = ls.get(nameLS, 'en', '*').trim();
-	const obj = {'s': symbol, 'n': name};
-	if (key.startsWith('10^')) dp[key.substring(3)] = obj;
-	if (key.startsWith('2^')) bp[key.substring(2)] = obj;
-}
-lines.push('m.dp=' + JSON.stringify(dp) + ';');
-lines.push('m.bp=' + JSON.stringify(bp) + ';');
+	const dp = {};
+	const bp = {};
+	for (const key of Object.keys(prefixesMap)) {
+		const item = prefixesMap[key];
+		const symbol = item['symbol'];
+		const nameLS = ls.format(item['format'], ' ');
+		const name = ls.get(nameLS, 'en', '*').trim();
+		const obj = {'s': symbol, 'n': name};
+		if (key.startsWith('10^')) dp[key.substring(3)] = obj;
+		if (key.startsWith('2^')) bp[key.substring(2)] = obj;
+	}
+	lines.push('m.dp=' + JSON.stringify(dp) + ';');
+	lines.push('m.bp=' + JSON.stringify(bp) + ';');
 
-const t = {};
-for (const key of Object.keys(unitTypeMap)) {
-	const item = unitTypeMap[key];
-	const name = ls.get(item['name'], 'en', '*');
-	const dim = dimObj(item['dimension']);
-	const obj = {'n': name};
-	if (!da.empty(dim)) obj['d'] = dim;
-	t[key] = obj;
-}
-lines.push('m.t=' + JSON.stringify(t) + ';');
+	const t = {};
+	for (const key of Object.keys(unitTypeMap)) {
+		const item = unitTypeMap[key];
+		const name = ls.get(item['name'], 'en', '*');
+		const dim = dimObj(item['dimension']);
+		const obj = {'n': name};
+		if (!da.empty(dim)) obj['d'] = dim;
+		t[key] = obj;
+	}
+	lines.push('m.t=' + JSON.stringify(t) + ';');
 
-for (const key of Object.keys(functionSourceMap)) {
-	lines.push('var ' + key + '=' + functionSourceMap[key] + ';');
-}
+	for (const key of Object.keys(functionSourceMap)) {
+		lines.push('var ' + key + '=' + functionSourceMap[key] + ';');
+	}
 
-const colorCodes = [];
-for (const key of Object.keys(unitMap)) {
-	const item = unitMap[key];
-	if (item['cc-map'] !== undefined) {
-		const ncc = [];
-		for (const cc of item['cc-map']) {
-			const obj = {};
-			for (const k of Object.keys(cc)) {
-				const h = cc[k]['color'];
-				const n = ls.get(cc[k]['name'], 'en', '*');
-				obj[k] = {'h': h, 'n': n};
+	const colorCodes = [];
+	for (const key of Object.keys(unitMap)) {
+		const item = unitMap[key];
+		if (item['cc-map'] !== undefined) {
+			const ncc = [];
+			for (const cc of item['cc-map']) {
+				const obj = {};
+				for (const k of Object.keys(cc)) {
+					const h = cc[k]['color'];
+					const n = ls.get(cc[k]['name'], 'en', '*');
+					obj[k] = {'h': h, 'n': n};
+				}
+				const s = JSON.stringify(obj);
+				let i = colorCodes.indexOf(s);
+				if (i < 0) {
+					i = colorCodes.length;
+					colorCodes.push(s);
+				}
+				ncc.push('cc' + i);
 			}
-			const s = JSON.stringify(obj);
-			let i = colorCodes.indexOf(s);
-			if (i < 0) {
-				i = colorCodes.length;
-				colorCodes.push(s);
+			item['cc-map.source'] = '[' + ncc.join(',') + ']';
+		}
+	}
+	for (const key of Object.keys(colorCodes)) {
+		lines.push('var cc' + key + '=' + colorCodes[key] + ';');
+	}
+
+	lines.push('if(!m.r)m.r={};if(!m.u)m.u={};var uu={');
+	for (const key of Object.keys(unitMap)) {
+		const item = unitMap[key];
+		const obj = {};
+		if (item['symbol'] !== undefined) {
+			obj['s'] = item['symbol'];
+		}
+		if (item['name'] !== undefined) {
+			const n = ls.get(item['name'], 'en', 1);
+			const p = ls.get(item['name'], 'en', '*');
+			obj['n'] = n; if (n !== p) obj['p'] = p;
+		}
+		if ((item['datatype'] || 'num') !== 'num') {
+			obj['k'] = item['datatype'];
+		}
+		if (item['tuple-dimension'] !== undefined) {
+			obj['td'] = item['tuple-dimension'];
+		}
+		if (item['dep-name'] !== undefined) {
+			obj['dn'] = ls.get(item['dep-name'], 'en', '*');
+		}
+		if (item['dep-dimension'] !== undefined) {
+			obj['dd'] = dimObj(item['dep-dimension']);
+		}
+		if (item['cc-map'] !== undefined) {
+			obj['cc'] = '@@@@cc-map.source@@@@';
+		}
+		if (item['multiplier'] !== undefined || item['divisor'] !== undefined) {
+			if (item['multiplier'] !== undefined && item['multiplier'] != 1) {
+				obj['m'] = +item['multiplier'];
 			}
-			ncc.push('cc' + i);
+			if (item['divisor'] !== undefined && item['divisor'] != 1) {
+				obj['w'] = +item['divisor'];
+			}
+		} else if (item['instructions'] !== undefined) {
+			obj['t'] = '@@@@instructions.forward.source@@@@';
+			obj['f'] = '@@@@instructions.reverse.source@@@@';
+		} else if (item['parser'] !== undefined || item['formatter'] !== undefined) {
+			obj['t'] = '@@@@parser.source@@@@';
+			obj['f'] = '@@@@formatter.source@@@@';
 		}
-		item['cc-map.source'] = '[' + ncc.join(',') + ']';
+		if (item['dimension'] !== undefined) {
+			obj['d'] = dimObj(item['dimension']);
+		}
+		let s = JSON.stringify(obj);
+		s = s.replaceAll(/("(cc|t|f)":)"@@@@([-a-z.]+)@@@@"/g, (g0, g1, g2, g3) => g1 + item[g3]);
+		lines.push('"' + key + '":' + s + ',');
 	}
-}
-for (const key of Object.keys(colorCodes)) {
-	lines.push('var cc' + key + '=' + colorCodes[key] + ';');
+	lines.push('};for(var k in uu)m.u[k]=uu[k];m.r[\'main\']=true;');
+
+	lines.push('if(!m.i)m.i={};var ii={');
+	for (const key of Object.keys(includeMap)) {
+		const item = includeMap[key];
+		const obj = incObj(item);
+		lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
+	}
+	lines.push('};for(var k in ii)m.i[k]=ii[k];m.r[\'defaults\']=true;');
+
+	lines.push('})(m);');
+	return lines;
 }
 
-lines.push('if(!m.r)m.r={};if(!m.u)m.u={};var uu={');
-for (const key of Object.keys(unitMap)) {
-	const item = unitMap[key];
-	const obj = {};
-	if (item['symbol'] !== undefined) {
-		obj['s'] = item['symbol'];
-	}
-	if (item['name'] !== undefined) {
-		const n = ls.get(item['name'], 'en', 1);
-		const p = ls.get(item['name'], 'en', '*');
-		obj['n'] = n; if (n !== p) obj['p'] = p;
-	}
-	if ((item['datatype'] || 'num') !== 'num') {
-		obj['k'] = item['datatype'];
-	}
-	if (item['tuple-dimension'] !== undefined) {
-		obj['td'] = item['tuple-dimension'];
-	}
-	if (item['dep-name'] !== undefined) {
-		obj['dn'] = ls.get(item['dep-name'], 'en', '*');
-	}
-	if (item['dep-dimension'] !== undefined) {
-		obj['dd'] = dimObj(item['dep-dimension']);
-	}
-	if (item['cc-map'] !== undefined) {
-		obj['cc'] = '@@@@cc-map.source@@@@';
-	}
-	if (item['multiplier'] !== undefined || item['divisor'] !== undefined) {
-		if (item['multiplier'] !== undefined && item['multiplier'] != 1) {
-			obj['m'] = +item['multiplier'];
-		}
-		if (item['divisor'] !== undefined && item['divisor'] != 1) {
-			obj['w'] = +item['divisor'];
-		}
-	} else if (item['instructions'] !== undefined) {
-		obj['t'] = '@@@@instructions.forward.source@@@@';
-		obj['f'] = '@@@@instructions.reverse.source@@@@';
-	} else if (item['parser'] !== undefined || item['formatter'] !== undefined) {
-		obj['t'] = '@@@@parser.source@@@@';
-		obj['f'] = '@@@@formatter.source@@@@';
-	}
-	if (item['dimension'] !== undefined) {
-		obj['d'] = dimObj(item['dimension']);
-	}
-	let s = JSON.stringify(obj);
-	s = s.replaceAll(/("(cc|t|f)":)"@@@@([-a-z.]+)@@@@"/g, (g0, g1, g2, g3) => g1 + item[g3]);
-	lines.push('"' + key + '":' + s + ',');
-}
-lines.push('};for(var k in uu)m.u[k]=uu[k];m.r[\'main\']=true;');
-
-lines.push('if(!m.i)m.i={};var ii={');
-for (const key of Object.keys(includeMap)) {
-	const item = includeMap[key];
-	const obj = incObj(item);
-	lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
-}
-lines.push('};for(var k in ii)m.i[k]=ii[k];m.r[\'defaults\']=true;');
-
-lines.push('})(m);')
-fs.writeFileSync('mcdbmain.js', lines.join('\n'));
+fs.writeFileSync('mcdbmain.js', buildMainJS().join('\n'));
 console.log('Wrote mcdbmain.js');
 
 // WRITE MCDBMISC.JS
 
-lines = [];
-lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
-lines.push('if(typeof m!==\'object\')m={};(function(m){');
+function buildMiscJS() {
+	const lines = [];
+	lines.push('/* Anything worth doing is worth overdoing. -- Mick Jagger */');
+	lines.push('if(typeof m!==\'object\')m={};(function(m){');
 
-lines.push('if(!m.r)m.r={};if(!m.e)m.e={};var ee={');
-for (const key of Object.keys(elementsMap)) {
-	const item = elementsMap[key];
-	const obj = {};
-	if (item['symbol'] !== undefined) {
-		obj['s'] = item['symbol'];
-	}
-	if (item['name'] !== undefined) {
-		const n = ls.get(item['name'], 'en', '*');
-		const l = ls.get(item['name'], 'la', '*');
-		obj['n'] = n; if (n !== l) obj['l'] = l;
-	}
-	if (item['properties'] !== undefined) {
-		obj['a'] = {};
-		for (const key of Object.keys(item['properties'])) {
-			obj['a'][key] = {};
-			const prop = item['properties'][key];
-			if (prop['value'] !== undefined) {
-				obj['a'][key]['v'] = prop['value'];
-			}
-			if (prop['unit'] !== undefined) {
-				obj['a'][key]['u'] = prop['unit'];
+	lines.push('if(!m.r)m.r={};if(!m.e)m.e={};var ee={');
+	for (const key of Object.keys(elementsMap)) {
+		const item = elementsMap[key];
+		const obj = {};
+		if (item['symbol'] !== undefined) {
+			obj['s'] = item['symbol'];
+		}
+		if (item['name'] !== undefined) {
+			const n = ls.get(item['name'], 'en', '*');
+			const l = ls.get(item['name'], 'la', '*');
+			obj['n'] = n; if (n !== l) obj['l'] = l;
+		}
+		if (item['properties'] !== undefined) {
+			obj['a'] = {};
+			for (const key of Object.keys(item['properties'])) {
+				obj['a'][key] = {};
+				const prop = item['properties'][key];
+				if (prop['value'] !== undefined) {
+					obj['a'][key]['v'] = prop['value'];
+				}
+				if (prop['unit'] !== undefined) {
+					obj['a'][key]['u'] = prop['unit'];
+				}
 			}
 		}
+		lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
 	}
-	lines.push('"' + key + '":' + JSON.stringify(obj) + ',');
+	lines.push('};for(var k in ee)m.e[k]=ee[k];m.r[\'elements\']=true;');
+
+	lines.push('if(!m.s)m.s={};var ss={');
+	for (const key of Object.keys(solversMap)) {
+		const item = solversMap[key];
+		const obj = {};
+		if (item['name'] !== undefined) {
+			obj['n'] = ls.get(item['name'], 'en', '*');
+		}
+		if (item['variables'] !== undefined) {
+			obj['v'] = [];
+			for (const v of item['variables']) {
+				const vo = {};
+				switch (v['type']) {
+					case 'independent': vo['vt'] = 'iv'; break;
+					case 'dependent': vo['vt'] = 'dv'; break;
+				}
+				if (v['register'] !== undefined) {
+					vo['r'] = v['register'];
+				}
+				if (v['name'] !== undefined) {
+					vo['n'] = ls.get(v['name'], 'en', '*');
+				}
+				if (v['dimension'] !== undefined) {
+					vo['d'] = dimObj(v['dimension']);
+				}
+				if (v['unit'] !== undefined) {
+					vo['u'] = v['unit'];
+				}
+				obj['v'].push(vo);
+			}
+		}
+		if (item['solutions'] !== undefined) {
+			obj['ng'] = 0;
+			obj['g'] = {};
+			for (const k of Object.keys(item['solutions'])) {
+				const n = k.split(',').length;
+				if (obj['ng'] < n) obj['ng'] = n;
+				obj['g'][k] = '@@@@' + k + '@@@@';
+			}
+		}
+		let s = JSON.stringify(obj);
+		s = s.replaceAll(/("([0-9,]+)":)"@@@@\2@@@@"/g, (g0, g1, g2) => g1 + item['solutions.source'][g2]);
+		lines.push('"' + key + '":' + s + ',');
+	}
+	lines.push('};for(var k in ss)m.s[k]=ss[k];m.r[\'solvers\']=true;');
+
+	lines.push('})(m);');
+	return lines;
 }
-lines.push('};for(var k in ee)m.e[k]=ee[k];m.r[\'elements\']=true;');
 
-lines.push('if(!m.s)m.s={};var ss={');
-for (const key of Object.keys(solversMap)) {
-	const item = solversMap[key];
-	const obj = {};
-	if (item['name'] !== undefined) {
-		obj['n'] = ls.get(item['name'], 'en', '*');
-	}
-	if (item['variables'] !== undefined) {
-		obj['v'] = [];
-		for (const v of item['variables']) {
-			const vo = {};
-			switch (v['type']) {
-				case 'independent': vo['vt'] = 'iv'; break;
-				case 'dependent': vo['vt'] = 'dv'; break;
-			}
-			if (v['register'] !== undefined) {
-				vo['r'] = v['register'];
-			}
-			if (v['name'] !== undefined) {
-				vo['n'] = ls.get(v['name'], 'en', '*');
-			}
-			if (v['dimension'] !== undefined) {
-				vo['d'] = dimObj(v['dimension']);
-			}
-			if (v['unit'] !== undefined) {
-				vo['u'] = v['unit'];
-			}
-			obj['v'].push(vo);
-		}
-	}
-	if (item['solutions'] !== undefined) {
-		obj['ng'] = 0;
-		obj['g'] = {};
-		for (const k of Object.keys(item['solutions'])) {
-			const n = k.split(',').length;
-			if (obj['ng'] < n) obj['ng'] = n;
-			obj['g'][k] = '@@@@' + k + '@@@@';
-		}
-	}
-	let s = JSON.stringify(obj);
-	s = s.replaceAll(/("([0-9,]+)":)"@@@@\2@@@@"/g, (g0, g1, g2) => g1 + item['solutions.source'][g2]);
-	lines.push('"' + key + '":' + s + ',');
-}
-lines.push('};for(var k in ss)m.s[k]=ss[k];m.r[\'solvers\']=true;');
-
-lines.push('})(m);')
-fs.writeFileSync('mcdbmisc.js', lines.join('\n'));
+fs.writeFileSync('mcdbmisc.js', buildMiscJS().join('\n'));
 console.log('Wrote mcdbmisc.js');
