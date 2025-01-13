@@ -131,6 +131,7 @@ function evaluateArray(tokens, context, trace) {
 		const values = (ops.type(result) === 'array') ? result : [result];
 		let i = 0; for (const v of values) context['$' + (++i)] = v;
 		context['$0'] = result; context['$@'] = values; context['$#'] = i;
+		while (('$' + (++i)) in context) delete context['$' + i];
 	} catch (e) {
 		console.log(trace ? e : e.message);
 	}
