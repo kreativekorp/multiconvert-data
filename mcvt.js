@@ -19,6 +19,17 @@ function fmtname(n) {
 	return n ? ls.get(n, 'en', '*') : '';
 }
 
+function fmtdim(d, t) {
+	if (da.empty(d)) return '';
+	const ds = da.str(d);
+	if (t === 'unit-type') return ds;
+	const tn = unit.type({'dimension': d})['name'];
+	const ts = tn ? ls.get(tn, 'en', '*') : '';
+	if (!ts || ts === ds) return ds;
+	if (ds.replaceAll('-',' ') === ts) return ts;
+	return ts + ' (' + ds + ')';
+}
+
 function rept(s, w) {
 	let r = '';
 	while (w > 0) { r += s; w--; }
@@ -41,7 +52,7 @@ function printItems(items) {
 		['type', ...items.map(item => item['type'])],
 		['sym', ...items.map(item => fmtsym(item['value']['symbol']))],
 		['name', ...items.map(item => fmtname(item['value']['name']))],
-		['dimension', ...items.map(item => da.str(item['value']['dimension']))]
+		['dimension', ...items.map(item => fmtdim(item['value']['dimension'], item['type']))]
 	];
 	const colWidths = cols.map(col => Math.max(...col.map(s => s.length)));
 	for (let r = 0; r <= items.length; r++) {
