@@ -115,11 +115,12 @@ function tokenToId(token) {
 	return token['image'];
 }
 
+const idPattern = /^([\p{L}\p{M}][\p{L}\p{M}\p{N}]*|[\p{Sc}][\p{L}\p{M}\p{N}]+|[\p{Sc}][^\p{Cc}\p{Cf}\p{Z}]?)$/u;
 function printContext(context) {
 	const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 	const keys = Object.keys(context).sort(collator.compare);
 	for (const k of keys) {
-		const ks = k.match(/^([\p{L}\p{M}][\p{L}\p{M}\p{N}]*)$/u) ? k : ('`' + k + '`');
+		const ks = k.match(idPattern) ? k : ('`' + k + '`');
 		console.log(ks + ' := ' + ops.str(context[k]));
 	}
 }
@@ -130,7 +131,8 @@ function evaluateArray(tokens, context, trace) {
 		const result = interp.evaluate(expr, context);
 		const values = (ops.type(result) === 'array') ? result : [result];
 		let i = 0; for (const v of values) context['$' + (++i)] = v;
-		context['$0'] = result; context['$@'] = values; context['$#'] = i;
+		context['$0'] = result; context['$*'] = ops.str(result);
+		context['$@'] = values; context['$#'] = i;
 		while (('$' + (++i)) in context) delete context['$' + i];
 	} catch (e) {
 		console.log(trace ? e : e.message);
