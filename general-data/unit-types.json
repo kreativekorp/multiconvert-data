@@ -101,6 +101,7 @@
 		"name": {
 			"en": "angular jerk"
 		},
+		"name-priority": 1,
 		"dimension": {
 			"time": -3,
 			"angle": 1
@@ -162,6 +163,7 @@
 		"name": {
 			"en": "angular snap"
 		},
+		"name-priority": 1,
 		"dimension": {
 			"time": -4,
 			"angle": 1
@@ -822,6 +824,7 @@
 		"name": {
 			"en": "jerk"
 		},
+		"name-priority": 1,
 		"dimension": {
 			"length": 1,
 			"time": -3
@@ -872,6 +875,7 @@
 		"name": {
 			"en": "length"
 		},
+		"name-priority": 1,
 		"dimension": {
 			"length": 1
 		}
@@ -1261,6 +1265,7 @@
 		"name": {
 			"en": "snap"
 		},
+		"name-priority": 1,
 		"dimension": {
 			"length": 1,
 			"time": -4
@@ -1632,6 +1637,66 @@
 			"mass": 1,
 			"time": -2,
 			"substance": -1
+		}
+	},
+	"t156": {
+		"icon": "angularbang.png",
+		"name": {
+			"en": "angular bang"
+		},
+		"dimension": {
+			"time": -7,
+			"angle": 1
+		}
+	},
+	"t157": {
+		"icon": "angularboom.png",
+		"name": {
+			"en": "angular boom"
+		},
+		"dimension": {
+			"time": -8,
+			"angle": 1
+		}
+	},
+	"t158": {
+		"icon": "angularcrash.png",
+		"name": {
+			"en": "angular crash"
+		},
+		"dimension": {
+			"time": -9,
+			"angle": 1
+		}
+	},
+	"t159": {
+		"icon": "bang.png",
+		"name": {
+			"en": "bang"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -7
+		}
+	},
+	"t160": {
+		"icon": "boom.png",
+		"name": {
+			"en": "boom"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -8
+		}
+	},
+	"t161": {
+		"icon": "crash.png",
+		"name": {
+			"en": "crash"
+		},
+		"dimension": {
+			"length": 1,
+			"time": -9
 		}
 	},
 	"t500": {
