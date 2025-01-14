@@ -350,15 +350,15 @@ Consider the definition of the DIN #4 kinematic viscosity cup:
 				"*": "seconds (DIN #4)"
 			}
 		},
-		"parser": "function (a) { return (a*4.57-452/a)/100 }",
-		"formatter": "function (a) { a *= 100; return (Math.sqrt(a*a+8263)+a)/9.14 }",
+		"parser": "function (a) { return (a * 4.57 - 452 / a) / 100 }",
+		"formatter": "function (a) { a *= 100; return (Math.sqrt(a * a + 8263) + a) / 9.14 }",
 		"dimension": {
 			"length": 2,
 			"time": -1
 		}
 	}
 
-This is read as "to convert from `n144`, seconds using DIN #4, to square meters per second (the base unit for kinematic viscosity), use the function `f(a)=(a*4.57-452/a)/100`; to convert in the other direction, multiply by 100, then use the function `f(a)=(sqrt(a*a+8263)+a)/9.14`."
+This is read as "to convert $a$ from `n144`, seconds using DIN #4, to square meters per second (the base unit for kinematic viscosity), use the expression $\frac{4.57a-\frac{452}{a}}{100}$; to convert $a$ in the other direction, multiply $a$ by 100, then use the expression $\frac{a+\sqrt{a^2+8263}}{9.14}$."
 
 The input to the `parser` function and the output of the `formatter` function need not be a number. Consider the definition of frequency described as musical pitch:
 
@@ -399,7 +399,9 @@ The input to the `parser` function and the output of the `formatter` function ne
 		}
 	}
 
-The `"datatype": "text"` key-value pair indicates that the `parser` function takes a string and the `formatter` function returns a string. The `parser` and `formatter` functions in this example have been prettified for readability. Most functions in the actual data files are minimized.
+The `"datatype": "text"` key-value pair indicates that the `parser` function takes a string and the `formatter` function returns a string.
+
+The `parser` and `formatter` functions in these examples have been prettified for readability. Most functions in the actual data files are minimized.
 
 It is generally recommended for JavaScript functions in unit definitions to use syntax as archaic as possible for maximum compatibility, hence the use of `function (a) { ... }` instead of `a => { ... }`, the check for `a.trim`, the use of `var` instead of `const` or `let`, the expression `Math.log(a / 27.5) * 12 / Math.log(2)` instead of `Math.log2(a / 27.5) * 12`, etc.
 
@@ -477,11 +479,11 @@ Consider the definition of energy:
 			"mass": 1,
 			"time": -2
 		}
-	},
+	}
 
-The `icon` key-value pair specifies an image file in the `typeicons` directory.
+The `icon` field specifies an image file in the `typeicons` directory.
 
-The `name-priority` key-value pair, if present, indicates that this unit type is preferred above others with the same dimension when looking up a unit type by dimension. In this case, "energy" is the preferred unit type over "heat" (which has the same dimension of length squared times mass over time squared) as it is more generic.
+The `name-priority` field, if present, indicates that this unit type is preferred above others with the same dimension when looking up a unit type by dimension. In this case, "energy" is the preferred unit type over "heat" (which has the same dimension of length squared times mass over time squared) as it is more generic.
 
 Consider the definition of fracture toughness:
 
@@ -495,6 +497,6 @@ Consider the definition of fracture toughness:
 			"mass": 1,
 			"time": -2
 		}
-	},
+	}
 
 As demonstrated in this case, dimensions can have half-integer exponents.
