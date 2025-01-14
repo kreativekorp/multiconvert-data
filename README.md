@@ -74,7 +74,7 @@ Units in the MultiConvert database are identified by a lowercase letter followed
 
 Identifiers starting with `e`, `f`, `i`, `s`, and `t` are not used for units as they are used for other objects.
 
-Identifiers starting with `n` are generally used for units for which mathematically exact conversion is not possible. (For some reason Biel Mean Time has an `n` identifier even though it's an exact conversion.)
+Identifiers starting with `n` are used for units for which conversion is noninvertible or inexact. Biel Mean Time uses modular arithmetic so is noninvertible. Shoe sizes vary greatly between manufacturers so are impossible to convert exactly. Kinematic viscosity conversions are both inexact and, since they involve a calculation more complex than a simple series of arithmetic operations, produce slightly different results depending on the direction of the conversion, making them noninvertible.
 
 ### Unit Expressions
 Units created through the use of SI or IEEE prefixes or multiplication and division of base units are not defined in data files but derived mathematically, and as such are identified not by a single identifier but by a *unit expression*. For example:
@@ -119,9 +119,9 @@ If multiple objects match your query, `mcvt.js` will list all matched objects. A
 	$ ./mcvt.js m
 	
 	d    id       type    sym    name                   dimension
-	-    -----    ----    ---    -------------------    ---------
+	-    -----    ----    ---    -------------------    ------------------
 	*    u0       unit    m      meters                 length
-	     u1300    unit    m      meters (wavelength)    time^-1
+	     u1300    unit    m      meters (wavelength)    frequency (time⁻¹)
 	
 	$
 
@@ -130,13 +130,12 @@ You can look up unit expressions as well.
 	$ ./mcvt.js u1/u0^0.5*u2^2
 	
 	d    id                type    sym           name                                             dimension
-	-    --------------    ----    ----------    ---------------------------------------------    ------------------------
-	     u1/u0^0.5*u2^2    unit    kg/m⁰⸳⁵·s²    kilograms per square root meter square second    mass length^-0.5 time^-2
+	-    --------------    ----    ----------    ---------------------------------------------    -----------------------------------------
+	     u1/u0^0.5*u2^2    unit    kg/m⁰⸳⁵·s²    kilograms per square root meter square second    fracture toughness (mass/length⁰⸳⁵·time²)
 	
 	$
 
 ## Performing Unit Conversions and Calculations
-
 The `mcvt.js` utility program can also perform unit conversions and calculations. All the usual mathematical operators and functions are available, as well as some unusual ones.
 
 	$ ./mcvt.js '1 mile to kilometers'
@@ -452,3 +451,50 @@ Consider this test case for numeral system:
 	}
 
 In this test case, the values of `0.a` for `z120` (vigesimal or base 20) and `0.i` for `z136` (sexatrigesimal or base 36) should only be tested as inputs; they should not be tested as outputs because the lowercase letters of the expected output would not match the uppercase letters of the actual output (`0.A` and `0.I` respectively). Similarly, the empty string for `z199` (Roman numerals) should only be tested as an output (given a non-integer, the Roman numeral conversion returns an empty string); it should not be tested as an input because an empty string would result in the actual output of an empty string for every other unit, which will not match any of the expected outputs.
+
+## Unit Types
+Unit types or categories are defined in the file `unit-types.json` and are identified by a lowercase letter `t` followed by one or more digits. The following ranges are currently used:
+
+| range           | usage                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| `t0`‑`t499`     | Unit types using base units in the International System of Units (SI) with integer exponents.     |
+| `t500`‑`t999`   | Unit types using base units in the International System of Units (SI) with non-integer exponents. |
+| `t1000`‑`t1499` | Unit types using base units not recognized by SI with integer exponents.                          |
+
+Currently, the only unit type using SI base units with non-integer exponents is fracture toughness (mass per square root length time squared), and there are no unit types using non-SI base units with non-integer exponents.
+
+### Example Unit Types
+Consider the definition of energy:
+
+	"t55": {
+		"icon": "energy.png",
+		"name": {
+			"en": "energy"
+		},
+		"name-priority": 1,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
+	},
+
+The `icon` key-value pair specifies an image file in the `typeicons` directory.
+
+The `name-priority` key-value pair, if present, indicates that this unit type is preferred above others with the same dimension when looking up a unit type by dimension. In this case, "energy" is the preferred unit type over "heat" (which has the same dimension of length squared times mass over time squared) as it is more generic.
+
+Consider the definition of fracture toughness:
+
+	"t500": {
+		"icon": "fracturetoughness.png",
+		"name": {
+			"en": "fracture toughness"
+		},
+		"dimension": {
+			"length": -0.5,
+			"mass": 1,
+			"time": -2
+		}
+	},
+
+As demonstrated in this case, dimensions can have half-integer exponents.
