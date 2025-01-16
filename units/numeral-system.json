@@ -34,6 +34,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,2)}",
 		"formatter": "function(a){return f101(a,2)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 2,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -46,6 +48,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,3)}",
 		"formatter": "function(a){return f101(a,3)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 3,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -58,6 +62,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,4)}",
 		"formatter": "function(a){return f101(a,4)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 4,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -70,6 +76,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,5)}",
 		"formatter": "function(a){return f101(a,5)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 5,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -82,6 +90,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,6)}",
 		"formatter": "function(a){return f101(a,6)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 6,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -94,6 +104,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,8)}",
 		"formatter": "function(a){return f101(a,8)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 8,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -106,6 +118,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,10)}",
 		"formatter": "function(a){return f101(a,10)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 10,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -118,6 +132,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,12)}",
 		"formatter": "function(a){return f101(a,12)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 12,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -130,6 +146,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,16)}",
 		"formatter": "function(a){return f101(a,16)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 16,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -142,6 +160,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,20)}",
 		"formatter": "function(a){return f101(a,20)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 20,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -154,6 +174,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,36)}",
 		"formatter": "function(a){return f101(a,36)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 36,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -166,6 +188,8 @@
 		"datatype": "text",
 		"parser": "function(a){return f100(a,60)}",
 		"formatter": "function(a){return f101(a,60)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 60,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -229,6 +253,8 @@
 			"['','I','II','III','IV','V','VI','VII','VIII','IX'][Math.floor(a)%10]);",
 			"}"
 		],
+		"legacy-mc5-class": "RomanNumConv",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"numeral-system": 1
 		}

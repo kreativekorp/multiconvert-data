@@ -79,6 +79,8 @@
 			"+0.0193339*r+0.1191920*g+0.9503041*b",
 			"]}"
 		],
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"color-space": 1
 		}
@@ -96,6 +98,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?a:null}",
 		"formatter": "function(a){return f300(a)?a:null}",
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 10,
 		"dimension": {
 			"color-space": 1
 		}
@@ -113,6 +117,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f303(a,255):null}",
 		"formatter": "function(a){return f300(a)?f330(a,255):null}",
+		"legacy-mc5-class": "ColorSpace255",
+		"legacy-mc5-variant": 10,
 		"dimension": {
 			"color-space": 1
 		}
@@ -130,6 +136,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f303(a,65535):null}",
 		"formatter": "function(a){return f300(a)?f330(a,65535):null}",
+		"legacy-mc5-class": "ColorSpace65535",
+		"legacy-mc5-variant": 10,
 		"dimension": {
 			"color-space": 1
 		}
@@ -153,6 +161,8 @@
 			"s+=d.substring(d.length-2)",
 			"}return s}"
 		],
+		"legacy-mc5-class": "ColorSpaceHTML",
+		"legacy-mc5-variant": 10,
 		"dimension": {
 			"color-space": 1
 		}
@@ -170,6 +180,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f323(a,1,1):null}",
 		"formatter": "function(a){return f300(a)?f332(a,1,1):null}",
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 20,
 		"dimension": {
 			"color-space": 1
 		}
@@ -187,6 +199,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f313(a,1,1):null}",
 		"formatter": "function(a){return f300(a)?f331(a,1,1):null}",
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 21,
 		"dimension": {
 			"color-space": 1
 		}
@@ -216,6 +230,8 @@
 			"+0.2115*a[0]-0.5227*a[1]+0.3112*a[2]",
 			"]:null}"
 		],
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 30,
 		"dimension": {
 			"color-space": 1
 		}
@@ -245,6 +261,8 @@
 			"+0.615*a[0]-0.51499*a[1]-0.10001*a[2]",
 			"]:null}"
 		],
+		"legacy-mc5-class": "ColorSpace",
+		"legacy-mc5-variant": 31,
 		"dimension": {
 			"color-space": 1
 		}

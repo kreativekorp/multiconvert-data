@@ -23,6 +23,8 @@
 			"isFinite(a)?(a+'\u00B7(Avocado\u2019s number)'):(a<0)?'-\u221E':'\u221E';",
 			"}"
 		],
+		"legacy-mc5-class": "GuacaStr",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"guaca": 1
 		}

@@ -70,6 +70,12 @@
 			"3": "function(r){r[2]=r[3]/r[0];r[4]=r[3]+r[0];r[5]=r[4]/r[1]}",
 			"4": "function(r){r[3]=r[4]-r[0];r[2]=r[3]/r[0];r[5]=r[4]/r[1]}",
 			"5": "function(r){r[4]=r[5]*r[1];r[3]=r[4]-r[0];r[2]=r[3]/r[0]}"
+		},
+		"legacy-solutions-mcsm": {
+			"2": "r2 M0 s3 A0 s4 D1 s5",
+			"3": "r3 D0 s2 r3 A0 s4 D1 s5",
+			"4": "r4 S0 s3 D0 s2 r4 D1 s5",
+			"5": "r5 M1 s4 S0 s3 D0 s2"
 		}
 	}
 }

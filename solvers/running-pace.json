@@ -43,6 +43,11 @@
 			"0,1": "function(r){r[2]=r[0]/r[1]}",
 			"1,2": "function(r){r[0]=r[2]*r[1]}",
 			"0,2": "function(r){r[1]=r[0]/r[2]}"
+		},
+		"legacy-solutions-mcsm": {
+			"0,1": "r0 D1 s2",
+			"1,2": "r2 M1 s0",
+			"0,2": "r0 D2 s1"
 		}
 	}
 }

@@ -37,6 +37,8 @@
 			"(a<3E19)?'Hard X-Ray':'Gamma Ray';",
 			"}"
 		],
+		"legacy-mc5-class": "EMFreqStr",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"time": -1
 		}

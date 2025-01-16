@@ -3,12 +3,18 @@
 		"degree": 2,
 		"format": {
 			"en": "square @"
+		},
+		"alt-format": {
+			"en": "@ squared"
 		}
 	},
 	{
 		"degree": 3,
 		"format": {
 			"en": "cubic @"
+		},
+		"alt-format": {
+			"en": "@ cubed"
 		}
 	},
 	{

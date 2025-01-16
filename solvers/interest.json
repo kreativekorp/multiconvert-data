@@ -90,6 +90,12 @@
 				"r[2]=(r[5]*(e-r[0]*r[1]-1))/r[0]/r[0]/e;",
 				"r[3]=r[2]*e;r[4]=(r[0]*r[2])/(1-n)}"
 			]
+		},
+		"legacy-solutions-mcsm": {
+			"2": "r0 +1 E1 M2 s3                                  r1 n s254 r0 +1 E254 ~1 C0 M2 s4    r0 +1 E1 s254 r0 M1 Z254 -1 D254 D0 D0 i M2 s5",
+			"3": "r1 n s254 r0 +1 E254 M3 s2                      r1 n s254 r0 +1 E254 ~1 C0 M2 s4    r0 +1 E1 s254 r0 M1 Z254 -1 D254 D0 D0 i M2 s5",
+			"4": "r1 n s254 r0 +1 E254 ~1 D0 M4 s2                r0 +1 E1 M2 s3                      r0 +1 E1 s254 r0 M1 Z254 -1 D254 D0 D0 i M2 s5",
+			"5": "r0 +1 E1 s254 r0 M1 Z254 -1 D254 D0 D0 M5 s2    r0 +1 E1 M2 s3                      r1 n s254 r0 +1 E254 ~1 C0 M2 s4"
 		}
 	}
 }

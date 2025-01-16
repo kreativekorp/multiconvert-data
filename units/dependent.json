@@ -15,6 +15,8 @@
 		},
 		"parser": "function(a,b){return a*Math.sqrt(b/273.15)*331.3}",
 		"formatter": "function(a,b){return a/Math.sqrt(b/273.15)/331.3}",
+		"legacy-mcsm-forward": "s0 r1 -273.15 /273.15 +1 @9 *331.3 C0",
+		"legacy-mcsm-reverse": "s0 r1 -273.15 /273.15 +1 @9 *331.3 M0",
 		"dimension": {
 			"length": 1,
 			"time": -1
@@ -38,6 +40,8 @@
 		},
 		"parser": "function(a,b){return a*0.0254*b}",
 		"formatter": "function(a,b){return a/b/0.0254}",
+		"legacy-mcsm-forward": "D1 /0.0254",
+		"legacy-mcsm-reverse": "*0.0254 M1",
 		"dimension": {
 			"pixels": 1
 		}
@@ -60,6 +64,8 @@
 		},
 		"parser": "function(a,b){return a*0.0254*0.0254*b*b}",
 		"formatter": "function(a,b){return a/b/b/0.0254/0.0254}",
+		"legacy-mcsm-forward": "D1 D1 /0.0254 /0.0254",
+		"legacy-mcsm-reverse": "*0.0254 *0.0254 M1 M1",
 		"dimension": {
 			"pixels": 2
 		}
@@ -82,6 +88,8 @@
 		},
 		"parser": "function(a,b){return a*0.0254*0.0254*0.0254*b*b*b}",
 		"formatter": "function(a,b){return a/b/b/b/0.0254/0.0254/0.0254}",
+		"legacy-mcsm-forward": "D1 D1 D1 /0.0254 /0.0254 /0.0254",
+		"legacy-mcsm-reverse": "*0.0254 *0.0254 *0.0254 M1 M1 M1",
 		"dimension": {
 			"pixels": 3
 		}
@@ -104,6 +112,8 @@
 		},
 		"parser": "function(a,b){return a*b}",
 		"formatter": "function(a,b){return a/b}",
+		"legacy-mcsm-forward": "D1",
+		"legacy-mcsm-reverse": "M1",
 		"dimension": {
 			"time": -1,
 			"data": 1
@@ -127,6 +137,8 @@
 		},
 		"parser": "function(a,b){return a*b}",
 		"formatter": "function(a,b){return a/b}",
+		"legacy-mcsm-forward": "D1",
+		"legacy-mcsm-reverse": "M1",
 		"dimension": {
 			"data": 1
 		}

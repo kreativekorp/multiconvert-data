@@ -17,6 +17,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f200(a)?a:null}",
 		"formatter": "function(a){return f200(a)?a:null}",
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -46,6 +48,8 @@
 			"a[2]",
 			"]:null}"
 		],
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 1,
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -75,6 +79,8 @@
 			"a[2]",
 			"]:null}"
 		],
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 2,
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -104,6 +110,8 @@
 			"Math.acos(a[2]/f203(a[2],a[1],a[0]))",
 			"]:null}"
 		],
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 3,
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -133,6 +141,8 @@
 			"Math.acos(a[2]/f203(a[2],a[1],a[0]))*180/Math.PI",
 			"]:null}"
 		],
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 4,
 		"dimension": {
 			"coordinate-system": 1
 		}
@@ -162,6 +172,8 @@
 			"a[2]",
 			"]:null}"
 		],
+		"legacy-mc5-class": "CoordSys",
+		"legacy-mc5-variant": 5,
 		"dimension": {
 			"coordinate-system": 1
 		}

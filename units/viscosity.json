@@ -9,6 +9,8 @@
 		},
 		"parser": "function(a){return(a*0.875-993/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+3476)+a)/1.75}",
+		"legacy-mcsm-forward": "*100 s0 M0 +3476 @9 A0 /1.75",
+		"legacy-mcsm-reverse": "s0 |993 s1 r0 *0.875 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -24,6 +26,8 @@
 		},
 		"parser": "function(a){return(a*2.80-747/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+8366)+a)/5.60}",
+		"legacy-mcsm-forward": "*100 s0 M0 +8366 @9 A0 /5.60",
+		"legacy-mcsm-reverse": "s0 |747 s1 r0 *2.80 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -39,6 +43,8 @@
 		},
 		"parser": "function(a){return(a*10.09-587/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+23691)+a)/20.18}",
+		"legacy-mcsm-forward": "*100 s0 M0 +23691 @9 A0 /20.18",
+		"legacy-mcsm-reverse": "s0 |587 s1 r0 *10.09 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -54,6 +60,8 @@
 		},
 		"parser": "function(a){return(a*13.26-673/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+35696)+a)/26.52}",
+		"legacy-mcsm-forward": "*100 s0 M0 +35696 @9 A0 /26.52",
+		"legacy-mcsm-reverse": "s0 |673 s1 r0 *13.26 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -69,6 +77,8 @@
 		},
 		"parser": "function(a){return(a*23.56-744/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+70115)+a)/47.12}",
+		"legacy-mcsm-forward": "*100 s0 M0 +70115 @9 A0 /47.12",
+		"legacy-mcsm-reverse": "s0 |744 s1 r0 *23.56 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -84,6 +94,8 @@
 		},
 		"parser": "function(a){return(a*1.59-1070/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+6805)+a)/3.18}",
+		"legacy-mcsm-forward": "*100 s0 M0 +6805 @9 A0 /3.18",
+		"legacy-mcsm-reverse": "s0 |1070 s1 r0 *1.59 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -99,6 +111,8 @@
 		},
 		"parser": "function(a){return(a*4.18-760/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+12707)+a)/8.36}",
+		"legacy-mcsm-forward": "*100 s0 M0 +12707 @9 A0 /8.36",
+		"legacy-mcsm-reverse": "s0 |760 s1 r0 *4.18 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -114,6 +128,8 @@
 		},
 		"parser": "function(a){return(a*10.23-575/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+23529)+a)/20.46}",
+		"legacy-mcsm-forward": "*100 s0 M0 +23529 @9 A0 /20.46",
+		"legacy-mcsm-reverse": "s0 |575 s1 r0 *10.23 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -129,6 +145,8 @@
 		},
 		"parser": "function(a){return(a*15.13-545/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+32983)+a)/30.26}",
+		"legacy-mcsm-forward": "*100 s0 M0 +32983 @9 A0 /30.26",
+		"legacy-mcsm-reverse": "s0 |545 s1 r0 *15.13 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -144,6 +162,8 @@
 		},
 		"parser": "function(a){return(a*27.27-540/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+58903)+a)/54.54}",
+		"legacy-mcsm-forward": "*100 s0 M0 +58903 @9 A0 /54.54",
+		"legacy-mcsm-reverse": "s0 |540 s1 r0 *27.27 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -159,6 +179,8 @@
 		},
 		"parser": "function(a){return(a*1.24-770/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+3819)+a)/2.48}",
+		"legacy-mcsm-forward": "*100 s0 M0 +3819 @9 A0 /2.48",
+		"legacy-mcsm-reverse": "s0 |770 s1 r0 *1.24 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -174,6 +196,8 @@
 		},
 		"parser": "function(a){return(a*2.31-550/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+5082)+a)/4.62}",
+		"legacy-mcsm-forward": "*100 s0 M0 +5082 @9 A0 /4.62",
+		"legacy-mcsm-reverse": "s0 |550 s1 r0 *2.31 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -189,6 +213,8 @@
 		},
 		"parser": "function(a){return(a*3.7-400/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+5920)+a)/7.4}",
+		"legacy-mcsm-forward": "*100 s0 M0 +5920 @9 A0 /7.4",
+		"legacy-mcsm-reverse": "s0 |400 s1 r0 *3.7 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -204,6 +230,8 @@
 		},
 		"parser": "function(a){return(a*0.443-200/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+354)+a)/0.886}",
+		"legacy-mcsm-forward": "*100 s0 M0 +354 @9 A0 /0.886",
+		"legacy-mcsm-reverse": "s0 |200 s1 r0 *0.443 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -219,6 +247,8 @@
 		},
 		"parser": "function(a){return(a*1.37-200/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+1096)+a)/2.74}",
+		"legacy-mcsm-forward": "*100 s0 M0 +1096 @9 A0 /2.74",
+		"legacy-mcsm-reverse": "s0 |200 s1 r0 *1.37 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -234,6 +264,8 @@
 		},
 		"parser": "function(a){return(a*3.28-220/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+2886)+a)/6.56}",
+		"legacy-mcsm-forward": "*100 s0 M0 +2886 @9 A0 /6.56",
+		"legacy-mcsm-reverse": "s0 |220 s1 r0 *3.28 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -249,6 +281,8 @@
 		},
 		"parser": "function(a){return(a*6.90-570/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+15732)+a)/13.8}",
+		"legacy-mcsm-forward": "*100 s0 M0 +15732 @9 A0 /13.8",
+		"legacy-mcsm-reverse": "s0 |570 s1 r0 *6.90 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -264,6 +298,8 @@
 		},
 		"parser": "function(a){return(a*21.78-306/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+26659)+a)/43.56}",
+		"legacy-mcsm-forward": "*100 s0 M0 +26659 @9 A0 /43.56",
+		"legacy-mcsm-reverse": "s0 |306 s1 r0 *21.78 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -279,6 +315,8 @@
 		},
 		"parser": "function(a){return(a*4.57-452/a)/100}",
 		"formatter": "function(a){a*=100;return(Math.sqrt(a*a+8263)+a)/9.14}",
+		"legacy-mcsm-forward": "*100 s0 M0 +8263 @9 A0 /9.14",
+		"legacy-mcsm-reverse": "s0 |452 s1 r0 *4.57 S1 /100",
 		"dimension": {
 			"length": 2,
 			"time": -1

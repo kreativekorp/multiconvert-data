@@ -1,6 +1,7 @@
 {
 	"length": {
 		"legacy-id": "L",
+		"legacy-id-mc5": 0,
 		"symbol": "L",
 		"name": {
 			"en": "length"
@@ -8,6 +9,7 @@
 	},
 	"mass": {
 		"legacy-id": "M",
+		"legacy-id-mc5": 1,
 		"symbol": "M",
 		"name": {
 			"en": "mass"
@@ -15,6 +17,7 @@
 	},
 	"time": {
 		"legacy-id": "T",
+		"legacy-id-mc5": 2,
 		"symbol": "T",
 		"name": {
 			"en": "time"
@@ -22,6 +25,7 @@
 	},
 	"current": {
 		"legacy-id": "I",
+		"legacy-id-mc5": 3,
 		"symbol": "I",
 		"name": {
 			"en": "electric current"
@@ -29,6 +33,7 @@
 	},
 	"temperature": {
 		"legacy-id": "Q",
+		"legacy-id-mc5": 4,
 		"symbol": "Q",
 		"name": {
 			"en": "temperature"
@@ -36,6 +41,7 @@
 	},
 	"substance": {
 		"legacy-id": "N",
+		"legacy-id-mc5": 5,
 		"symbol": "N",
 		"name": {
 			"en": "amount of substance"
@@ -43,6 +49,7 @@
 	},
 	"intensity": {
 		"legacy-id": "J",
+		"legacy-id-mc5": 6,
 		"symbol": "J",
 		"name": {
 			"en": "luminous intensity"
@@ -50,18 +57,21 @@
 	},
 	"angle": {
 		"legacy-id": "A",
+		"legacy-id-mc5": 7,
 		"name": {
 			"en": "angular displacement"
 		}
 	},
 	"currency": {
 		"legacy-id": "C",
+		"legacy-id-mc5": "curr",
 		"name": {
 			"en": "currency"
 		}
 	},
 	"data": {
 		"legacy-id": "D",
+		"legacy-id-mc5": 8,
 		"name": {
 			"en": "data"
 		}
