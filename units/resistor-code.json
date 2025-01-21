@@ -89,6 +89,8 @@
 			"return((a<10)?[9,9,ev-1]:(a>99)?[1,0,ev+1]:[Math.floor(a/10),a%10,ev]).join('');",
 			"}"
 		],
+		"legacy-mc5-class": "EIACodeStr",
+		"legacy-mc5-variant": 0,
 		"dimension": {
 			"length": 2,
 			"mass": 1,

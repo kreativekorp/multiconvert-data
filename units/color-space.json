@@ -280,6 +280,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f323(a,360,100):null}",
 		"formatter": "function(a){return f300(a)?f332(a,360,100):null}",
+		"legacy-mc5-class": "ColorSpace360100",
+		"legacy-mc5-variant": 20,
 		"dimension": {
 			"color-space": 1
 		}
@@ -297,6 +299,8 @@
 		"tuple-dimension": 3,
 		"parser": "function(a){return f300(a)?f313(a,360,100):null}",
 		"formatter": "function(a){return f300(a)?f331(a,360,100):null}",
+		"legacy-mc5-class": "ColorSpace360100",
+		"legacy-mc5-variant": 21,
 		"dimension": {
 			"color-space": 1
 		}
