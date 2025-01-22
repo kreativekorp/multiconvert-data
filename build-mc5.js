@@ -227,9 +227,6 @@ function unitCompatible(us) {
 	if (us === '-' || (us.startsWith('"') && us.endsWith('"'))) {
 		return (builtIncludeUnits[us] = true);
 	}
-	if (us.includes('%')) {
-		return (builtIncludeUnits[us] = false);
-	}
 	for (const m of us.matchAll(/[A-Za-z][A-Za-z0-9]*/g)) {
 		if (!builtUnits[m[0]]) {
 			return (builtIncludeUnits[us] = false);
