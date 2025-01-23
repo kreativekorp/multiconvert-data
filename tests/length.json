@@ -201,6 +201,213 @@
 		"u207%1,1,32": "11 31/32"
 	},
 	{
+		"name": "fractional inches",
+		"u207": -11.25,
+		"u207%1,1,32": "-11 1/4",
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 11.125,
+		"u207%1,1,32": "11 1/8",
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": -11.0625,
+		"u207%1,1,32": "-11 1/16",
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 11.03125,
+		"u207%1,1,32": "11 1/32",
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.5,
+		"u207%1,1,32": "1/2",
+		"inputs": {
+			"u207%1,1,32": "0 1/2"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": -0.75,
+		"u207%1,1,32": "-3/4",
+		"inputs": {
+			"u207%1,1,32": "-0 3/4"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.875,
+		"u207%1,1,32": "7/8",
+		"inputs": {
+			"u207%1,1,32": "0 7/8"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": -0.9375,
+		"u207%1,1,32": "-15/16",
+		"inputs": {
+			"u207%1,1,32": "-0 15/16"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.96875,
+		"u207%1,1,32": "31/32",
+		"inputs": {
+			"u207%1,1,32": "0 31/32"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": -0.25,
+		"u207%1,1,32": "-1/4",
+		"inputs": {
+			"u207%1,1,32": "-0 1/4"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.125,
+		"u207%1,1,32": "1/8",
+		"inputs": {
+			"u207%1,1,32": "0 1/8"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": -0.0625,
+		"u207%1,1,32": "-1/16",
+		"inputs": {
+			"u207%1,1,32": "-0 1/16"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.03125,
+		"u207%1,1,32": "1/32",
+		"inputs": {
+			"u207%1,1,32": "0 1/32"
+		},
+		"epsilon": 1E-15
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": -11.99
+		},
+		"outputs": {
+			"u207%1,1,32": "-12"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": 11.99
+		},
+		"outputs": {
+			"u207%1,1,32": "12"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": -11.01
+		},
+		"outputs": {
+			"u207%1,1,32": "-11"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": 11.01
+		},
+		"outputs": {
+			"u207%1,1,32": "11"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": -0.99
+		},
+		"outputs": {
+			"u207%1,1,32": "-1"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": 0.99
+		},
+		"outputs": {
+			"u207%1,1,32": "1"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": -0.01
+		},
+		"outputs": {
+			"u207%1,1,32": "-0"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"inputs": {
+			"u207": 0.01
+		},
+		"outputs": {
+			"u207%1,1,32": "0"
+		}
+	},
+	{
+		"name": "fractional inches",
+		"u207": 0.0,
+		"u207%1,1,32": "0"
+	},
+	{
+		"name": "fractional inches",
+		"u207": 1.0,
+		"u207%1,1,32": "1"
+	},
+	{
+		"name": "fractional inches",
+		"u207": 11,
+		"u207%1,1,32": "11"
+	},
+	{
+		"name": "fractional inches",
+		"u207": -0.0,
+		"u207%1,1,32": "-0"
+	},
+	{
+		"name": "fractional inches",
+		"u207": -1.0,
+		"u207%1,1,32": "-1"
+	},
+	{
+		"name": "fractional inches",
+		"u207": -11,
+		"u207%1,1,32": "-11"
+	},
+	{
 		"name": "LDU",
 		"u265": 1,
 		"u266": 0.25,
