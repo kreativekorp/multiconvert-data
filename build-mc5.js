@@ -70,7 +70,7 @@ function dimensionString(d) {
 }
 
 function srmpToMcsmString(i) {
-	return srmp.parse(i).map(([opcode,operand]) => {
+	return srmp.parseForward(i).map(([opcode,operand]) => {
 		switch (opcode) {
 			case 'A': case 'a': return ('+' + operand);
 			case 'S': case 's': return ('-' + operand);
