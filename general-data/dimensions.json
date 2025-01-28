@@ -96,18 +96,21 @@
 	},
 	"guaca": {
 		"legacy-id": "guaca",
+		"joke": true,
 		"name": {
 			"en": "guaca"
 		}
 	},
 	"beauty": {
 		"legacy-id": "helen",
+		"joke": true,
 		"name": {
 			"en": "beauty"
 		}
 	},
 	"coolness": {
 		"legacy-id": "fonzie",
+		"joke": true,
 		"name": {
 			"en": "coolness"
 		}
@@ -121,6 +124,8 @@
 	"color-space": {
 		"legacy-id": "color-space",
 		"composable": false,
+		"datatype": "tuple",
+		"tuple-dimension": 3,
 		"name": {
 			"en": "color space"
 		}
@@ -128,6 +133,8 @@
 	"coordinate-system": {
 		"legacy-id": "coord-system",
 		"composable": false,
+		"datatype": "tuple",
+		"tuple-dimension": 3,
 		"name": {
 			"en": "coordinate system"
 		}
