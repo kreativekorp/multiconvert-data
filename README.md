@@ -62,9 +62,12 @@ Units in the MultiConvert database are identified by a lowercase letter followed
 | `n200`‑`n299`   | `shoe-size.json`           | Shoe sizes.                                                                      |
 | `n1000`‑`n1001` | `clock-time.json`          | Biel Mean Time (also known as Swatch Internet Time).                             |
 | `z0`‑`z2`       | `frequency-color.json`<br>`frequency-pitch.json`<br>`guaca.json` | Units not expressed with a single decimal number not included in other categories. |
-| `z100`‑`z199`   | `numeral-system.json`      | Numeral systems (binary, octal, hexadecimal, Roman numerals, et cetera).         |
+| `z100`‑`z169`   | `numeral-system.json`      | Numeral systems using ASCII characters (binary, octal, hexadecimal, et cetera).  |
+| `z170`‑`z199`   | `numeral-system.json`      | Non-positional or non-decimal numeral systems (Roman, Kaktovik, et cetera).      |
 | `z200`‑`z299`   | `coordinate-system.json`   | Coordinate systems (Cartesian, polar, spherical, et cetera).                     |
 | `z300`‑`z399`   | `color-space.json`         | Color spaces (RGB, HSV, YIQ, YUV, et cetera).                                    |
+| `z800`‑`z899`   | `numeral-system.json`      | Numeral systems using non-ASCII digits (Arabic-Indic, Devanagari, et cetera).    |
+| `z900`-`z999`   | `numeral-system.json`      | Numeral systems using an informal encoding in the Unicode Private Use Area (Tengwar, Klingon, et cetera). |
 | `z1000`‑`z1999` | `clock-time.json`          | Wall clock time in different time zones.                                         |
 | `k0`‑`k5`       | `capacitor-code.json`<br>`inductor-code.json`<br>`resistor-code.json` | Color codes and EIA codes for electronic components. |
 | `c0`‑`c19999`   |                            | Units of currency. These are not present in this repository but generated dynamically by MultiConvert from third-party data. |
@@ -452,7 +455,7 @@ Consider this test case for numeral system:
 		}
 	}
 
-In this test case, the values of `0.a` for `z120` (vigesimal or base 20) and `0.i` for `z136` (sexatrigesimal or base 36) should only be tested as inputs; they should not be tested as outputs because the lowercase letters of the expected output would not match the uppercase letters of the actual output (`0.A` and `0.I` respectively). Similarly, the empty string for `z199` (Roman numerals) should only be tested as an output (given a non-integer, the Roman numeral conversion returns an empty string); it should not be tested as an input because an empty string would result in the actual output of an empty string for every other unit, which will not match any of the expected outputs.
+In this test case, the values of `0.a` for `z120` (vigesimal or base 20) and `0.i` for `z136` (hexatrigesimal or base 36) should only be tested as inputs; they should not be tested as outputs because the lowercase letters of the expected output would not match the uppercase letters of the actual output (`0.A` and `0.I` respectively). Similarly, the empty string for `z199` (Roman numerals) should only be tested as an output (given a non-integer, the Roman numeral conversion returns an empty string); it should not be tested as an input because an empty string would result in the actual output of an empty string for every other unit, which will not match any of the expected outputs.
 
 ## Unit Types
 Unit types or categories are defined in the file `unit-types.json` and are identified by a lowercase letter `t` followed by one or more digits. The following ranges are currently used:

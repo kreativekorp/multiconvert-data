@@ -1,29 +1,31 @@
 {
 	"functions": {
+		"f0": "function(a){return(a==null)?'':(''+a).replace(/^\\s+|\\s+$/g,'')}",
 		"f100": [
-			"function(a,b,ab,re){",
-			"if(a.trim)a=a.trim();if(a=='')return NaN;",
+			"function(a,b,c){if(!a)return NaN;",
 			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
-			"if(!ab){if(b>10&&b<=36&&a.toUpperCase)a=a.toUpperCase();",
-			"ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'}",
-			"var us=a.split(/[.,]/),n=1,r=0,d=0,i=0;if(!us.length)return 0;",
-			"switch(us[0][0]){case'-':n=-1;case'+':us[0]=us[0].substring(1)}",
-			"if(re)us=us.map(function(s){return s.split(re).filter(function(x){return!!x})});",
-			"while(i<us[0].length){if((a=ab.indexOf(us[0][i++]))<0)return NaN;r=r*b+a}",
-			"if(us.length==1)return n*r;i=us[1].length;",
-			"while(i>0){if((a=ab.indexOf(us[1][--i]))<0)return NaN;d=(d+a)/b}",
-			"return n*(r+d);",
-			"}"
+			"if(!c)c='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
+			"else if(c.match&&c.split&&c.match(/[\\uD800-\\uDFFF]/))c=c.split(",
+			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){return x});",
+			"var p=c.join&&new RegExp('('+c.join('|')+')'),h=c.indexOf('.')<0,i=c.indexOf(',')<0,",
+			"d=(h&&i?/[.,]/:h?'.':i?',':''),n=(a[0]=='-'&&c.indexOf('-')<0),r=0,f=0;if(n||a[0]=='+'",
+			"&&c.indexOf('+')<0)a=a.substring(1);h=d?a.split(d):[a];if(h.length>2)return NaN;",
+			"if(p)h=h.map(function(s){return s.split(p).filter(function(x){return x})});",
+			"i=0;while(i<h[0].length){a=c.indexOf(h[0][i++]);if(a<0)return NaN;r=r*b+a}if(h.length>1){",
+			"i=h[1].length;while(i>0){a=c.indexOf(h[1][--i]);if(a<0)return NaN;f=(f+a)/b}r+=f}",
+			"return n?-r:r}"
 		],
 		"f101": [
-			"function(a,b,ab){",
+			"function(a,b,c){",
 			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
-			"if(!ab)ab='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
-			"var s=a<0,i=Math.floor(a=Math.abs(a)),d=a-i,r='';",
-			"while(i>0){a=Math.floor(i/b);r=ab[Math.floor(i-b*a)]+r;i=a}if(!r)r=ab[0];",
-			"if(d>0){r+='.';i=0;while(d>0&&i++<50){r+=ab[a=Math.floor(d*=b)];d-=a}}",
-			"return(s?('-'+r):r);",
-			"}"
+			"if(!c)c='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
+			"else if(c.match&&c.split&&c.match(/[\\uD800-\\uDFFF]/))c=c.split(",
+			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){return x});",
+			"var d=c.indexOf('.')<0?'.':c.indexOf(',')<0?',':'',n=a<0,i=Math.floor(",
+			"a=Math.abs(a)),f=a-i,r='';if(n&&c.indexOf('-')>=0||f>0&&!d)return'';",
+			"while(i>0){a=Math.floor(i/b);r=c[Math.floor(i-b*a)]+r;i=a}if(!r)r=c[0];",
+			"if(f>0){r+=d;i=0;while(f>0&&i++<50){r+=c[a=Math.floor(f*=b)];f-=a}}",
+			"return n?'-'+r:r}"
 		]
 	},
 	"z102": {
@@ -32,7 +34,7 @@
 			"en": "binary"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,2)}",
+		"parser": "function(a){return f100(f0(a),2)}",
 		"formatter": "function(a){return f101(a,2)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 2,
@@ -46,7 +48,7 @@
 			"en": "ternary"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,3)}",
+		"parser": "function(a){return f100(f0(a),3)}",
 		"formatter": "function(a){return f101(a,3)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 3,
@@ -60,7 +62,7 @@
 			"en": "quaternary"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,4)}",
+		"parser": "function(a){return f100(f0(a),4)}",
 		"formatter": "function(a){return f101(a,4)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 4,
@@ -74,7 +76,7 @@
 			"en": "quinary"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,5)}",
+		"parser": "function(a){return f100(f0(a),5)}",
 		"formatter": "function(a){return f101(a,5)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 5,
@@ -88,10 +90,24 @@
 			"en": "seximal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,6)}",
+		"parser": "function(a){return f100(f0(a),6)}",
 		"formatter": "function(a){return f101(a,6)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 6,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z107": {
+		"symbol": "\u2087",
+		"name": {
+			"en": "septimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),7)}",
+		"formatter": "function(a){return f101(a,7)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 7,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -102,10 +118,24 @@
 			"en": "octal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,8)}",
+		"parser": "function(a){return f100(f0(a),8)}",
 		"formatter": "function(a){return f101(a,8)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 8,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z109": {
+		"symbol": "\u2089",
+		"name": {
+			"en": "nonal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),9)}",
+		"formatter": "function(a){return f101(a,9)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 9,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -116,10 +146,24 @@
 			"en": "decimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,10)}",
+		"parser": "function(a){return f100(f0(a),10)}",
 		"formatter": "function(a){return f101(a,10)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 10,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z111": {
+		"symbol": "\u2081\u2081",
+		"name": {
+			"en": "undecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),11)}",
+		"formatter": "function(a){return f101(a,11)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 11,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -130,10 +174,52 @@
 			"en": "duodecimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,12)}",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),12)}",
 		"formatter": "function(a){return f101(a,12)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 12,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z113": {
+		"symbol": "\u2081\u2083",
+		"name": {
+			"en": "tridecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),13)}",
+		"formatter": "function(a){return f101(a,13)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 13,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z114": {
+		"symbol": "\u2081\u2084",
+		"name": {
+			"en": "tetradecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),14)}",
+		"formatter": "function(a){return f101(a,14)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 14,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z115": {
+		"symbol": "\u2081\u2085",
+		"name": {
+			"en": "pentadecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),15)}",
+		"formatter": "function(a){return f101(a,15)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 15,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -144,10 +230,52 @@
 			"en": "hexadecimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,16)}",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),16)}",
 		"formatter": "function(a){return f101(a,16)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 16,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z117": {
+		"symbol": "\u2081\u2087",
+		"name": {
+			"en": "heptadecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),17)}",
+		"formatter": "function(a){return f101(a,17)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 17,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z118": {
+		"symbol": "\u2081\u2088",
+		"name": {
+			"en": "octodecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),18)}",
+		"formatter": "function(a){return f101(a,18)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 18,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z119": {
+		"symbol": "\u2081\u2089",
+		"name": {
+			"en": "enneadecimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),19)}",
+		"formatter": "function(a){return f101(a,19)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 19,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -158,7 +286,7 @@
 			"en": "vigesimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,20)}",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),20)}",
 		"formatter": "function(a){return f101(a,20)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 20,
@@ -166,16 +294,548 @@
 			"numeral-system": 1
 		}
 	},
+	"z121": {
+		"symbol": "\u2082\u2081",
+		"name": {
+			"en": "unvigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),21)}",
+		"formatter": "function(a){return f101(a,21)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 21,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z122": {
+		"symbol": "\u2082\u2082",
+		"name": {
+			"en": "duovigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),22)}",
+		"formatter": "function(a){return f101(a,22)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 22,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z123": {
+		"symbol": "\u2082\u2083",
+		"name": {
+			"en": "trivigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),23)}",
+		"formatter": "function(a){return f101(a,23)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 23,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z124": {
+		"symbol": "\u2082\u2084",
+		"name": {
+			"en": "tetravigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),24)}",
+		"formatter": "function(a){return f101(a,24)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 24,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z125": {
+		"symbol": "\u2082\u2085",
+		"name": {
+			"en": "pentavigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),25)}",
+		"formatter": "function(a){return f101(a,25)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 25,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z126": {
+		"symbol": "\u2082\u2086",
+		"name": {
+			"en": "hexavigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),26)}",
+		"formatter": "function(a){return f101(a,26)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 26,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z127": {
+		"symbol": "\u2082\u2087",
+		"name": {
+			"en": "heptavigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),27)}",
+		"formatter": "function(a){return f101(a,27)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 27,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z128": {
+		"symbol": "\u2082\u2088",
+		"name": {
+			"en": "octovigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),28)}",
+		"formatter": "function(a){return f101(a,28)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 28,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z129": {
+		"symbol": "\u2082\u2089",
+		"name": {
+			"en": "enneavigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),29)}",
+		"formatter": "function(a){return f101(a,29)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 29,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z130": {
+		"symbol": "\u2083\u2080",
+		"name": {
+			"en": "trigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),30)}",
+		"formatter": "function(a){return f101(a,30)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 30,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z131": {
+		"symbol": "\u2083\u2081",
+		"name": {
+			"en": "untrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),31)}",
+		"formatter": "function(a){return f101(a,31)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 31,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z132": {
+		"symbol": "\u2083\u2082",
+		"name": {
+			"en": "duotrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),32)}",
+		"formatter": "function(a){return f101(a,32)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 32,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z133": {
+		"symbol": "\u2083\u2083",
+		"name": {
+			"en": "tritrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),33)}",
+		"formatter": "function(a){return f101(a,33)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 33,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z134": {
+		"symbol": "\u2083\u2084",
+		"name": {
+			"en": "tetratrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),34)}",
+		"formatter": "function(a){return f101(a,34)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 34,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z135": {
+		"symbol": "\u2083\u2085",
+		"name": {
+			"en": "pentatrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),35)}",
+		"formatter": "function(a){return f101(a,35)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 35,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
 	"z136": {
 		"symbol": "\u2083\u2086",
 		"name": {
-			"en": "sexatrigesimal"
+			"en": "hexatrigesimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,36)}",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),36)}",
 		"formatter": "function(a){return f101(a,36)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 36,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z137": {
+		"symbol": "\u2083\u2087",
+		"name": {
+			"en": "heptatrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),37)}",
+		"formatter": "function(a){return f101(a,37)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 37,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z138": {
+		"symbol": "\u2083\u2088",
+		"name": {
+			"en": "octotrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),38)}",
+		"formatter": "function(a){return f101(a,38)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 38,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z139": {
+		"symbol": "\u2083\u2089",
+		"name": {
+			"en": "enneatrigesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),39)}",
+		"formatter": "function(a){return f101(a,39)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 39,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z140": {
+		"symbol": "\u2084\u2080",
+		"name": {
+			"en": "quadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),40)}",
+		"formatter": "function(a){return f101(a,40)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 40,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z141": {
+		"symbol": "\u2084\u2081",
+		"name": {
+			"en": "unquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),41)}",
+		"formatter": "function(a){return f101(a,41)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 41,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z142": {
+		"symbol": "\u2084\u2082",
+		"name": {
+			"en": "duoquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),42)}",
+		"formatter": "function(a){return f101(a,42)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 42,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z143": {
+		"symbol": "\u2084\u2083",
+		"name": {
+			"en": "triquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),43)}",
+		"formatter": "function(a){return f101(a,43)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 43,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z144": {
+		"symbol": "\u2084\u2084",
+		"name": {
+			"en": "tetraquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),44)}",
+		"formatter": "function(a){return f101(a,44)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 44,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z145": {
+		"symbol": "\u2084\u2085",
+		"name": {
+			"en": "pentaquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),45)}",
+		"formatter": "function(a){return f101(a,45)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 45,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z146": {
+		"symbol": "\u2084\u2086",
+		"name": {
+			"en": "hexaquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),46)}",
+		"formatter": "function(a){return f101(a,46)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 46,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z147": {
+		"symbol": "\u2084\u2087",
+		"name": {
+			"en": "heptaquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),47)}",
+		"formatter": "function(a){return f101(a,47)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 47,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z148": {
+		"symbol": "\u2084\u2088",
+		"name": {
+			"en": "octoquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),48)}",
+		"formatter": "function(a){return f101(a,48)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 48,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z149": {
+		"symbol": "\u2084\u2089",
+		"name": {
+			"en": "enneaquadragesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),49)}",
+		"formatter": "function(a){return f101(a,49)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 49,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z150": {
+		"symbol": "\u2085\u2080",
+		"name": {
+			"en": "quinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),50)}",
+		"formatter": "function(a){return f101(a,50)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 50,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z151": {
+		"symbol": "\u2085\u2081",
+		"name": {
+			"en": "unquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),51)}",
+		"formatter": "function(a){return f101(a,51)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 51,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z152": {
+		"symbol": "\u2085\u2082",
+		"name": {
+			"en": "duoquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),52)}",
+		"formatter": "function(a){return f101(a,52)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 52,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z153": {
+		"symbol": "\u2085\u2083",
+		"name": {
+			"en": "triquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),53)}",
+		"formatter": "function(a){return f101(a,53)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 53,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z154": {
+		"symbol": "\u2085\u2084",
+		"name": {
+			"en": "tetraquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),54)}",
+		"formatter": "function(a){return f101(a,54)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 54,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z155": {
+		"symbol": "\u2085\u2085",
+		"name": {
+			"en": "pentaquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),55)}",
+		"formatter": "function(a){return f101(a,55)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 55,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z156": {
+		"symbol": "\u2085\u2086",
+		"name": {
+			"en": "hexaquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),56)}",
+		"formatter": "function(a){return f101(a,56)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 56,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z157": {
+		"symbol": "\u2085\u2087",
+		"name": {
+			"en": "heptaquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),57)}",
+		"formatter": "function(a){return f101(a,57)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 57,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z158": {
+		"symbol": "\u2085\u2088",
+		"name": {
+			"en": "octoquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),58)}",
+		"formatter": "function(a){return f101(a,58)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 58,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z159": {
+		"symbol": "\u2085\u2089",
+		"name": {
+			"en": "enneaquinquagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),59)}",
+		"formatter": "function(a){return f101(a,59)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 59,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -186,10 +846,90 @@
 			"en": "sexagesimal"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(a,60)}",
+		"parser": "function(a){return f100(f0(a),60)}",
 		"formatter": "function(a){return f101(a,60)}",
 		"legacy-mc5-class": "BaseConv",
 		"legacy-mc5-variant": 60,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z161": {
+		"symbol": "\u2086\u2081",
+		"name": {
+			"en": "unsexagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),61)}",
+		"formatter": "function(a){return f101(a,61)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 61,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z162": {
+		"symbol": "\u2086\u2082",
+		"name": {
+			"en": "duosexagesimal"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),62)}",
+		"formatter": "function(a){return f101(a,62)}",
+		"legacy-mc5-class": "BaseConv",
+		"legacy-mc5-variant": 62,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z163": {
+		"name": {
+			"en": "base26"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a).toUpperCase(),26,'ABCDEFGHIJKLMNOPQRSTUVWXYZ')}",
+		"formatter": "function(a){return f101(a,26,'ABCDEFGHIJKLMNOPQRSTUVWXYZ')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 282,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z164": {
+		"name": {
+			"en": "base64"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/')}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 320,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z165": {
+		"name": {
+			"en": "base64 (RFC 3501)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,')}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 576,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z166": {
+		"name": {
+			"en": "base64url"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_')}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 832,
 		"dimension": {
 			"numeral-system": 1
 		}
@@ -199,15 +939,8 @@
 			"en": "Kaktovik numerals"
 		},
 		"datatype": "text",
-		"parser": [
-			"function(a){return f100(a,20,",
-			"['𝋀','𝋁','𝋂','𝋃','𝋄','𝋅','𝋆','𝋇','𝋈','𝋉','𝋊','𝋋','𝋌','𝋍','𝋎','𝋏','𝋐','𝋑','𝋒','𝋓'],",
-			"/(𝋀|𝋁|𝋂|𝋃|𝋄|𝋅|𝋆|𝋇|𝋈|𝋉|𝋊|𝋋|𝋌|𝋍|𝋎|𝋏|𝋐|𝋑|𝋒|𝋓)/g)}"
-		],
-		"formatter": [
-			"function(a){return f101(a,20,",
-			"['𝋀','𝋁','𝋂','𝋃','𝋄','𝋅','𝋆','𝋇','𝋈','𝋉','𝋊','𝋋','𝋌','𝋍','𝋎','𝋏','𝋐','𝋑','𝋒','𝋓'])}"
-		],
+		"parser": "function(a){return f100(f0(a),20,'𝋀𝋁𝋂𝋃𝋄𝋅𝋆𝋇𝋈𝋉𝋊𝋋𝋌𝋍𝋎𝋏𝋐𝋑𝋒𝋓')}",
+		"formatter": "function(a){return f101(a,20,'𝋀𝋁𝋂𝋃𝋄𝋅𝋆𝋇𝋈𝋉𝋊𝋋𝋌𝋍𝋎𝋏𝋐𝋑𝋒𝋓')}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 30588948,
 		"dimension": {
@@ -219,15 +952,8 @@
 			"en": "Mayan numerals"
 		},
 		"datatype": "text",
-		"parser": [
-			"function(a){return f100(a,20,",
-			"['𝋠','𝋡','𝋢','𝋣','𝋤','𝋥','𝋦','𝋧','𝋨','𝋩','𝋪','𝋫','𝋬','𝋭','𝋮','𝋯','𝋰','𝋱','𝋲','𝋳'],",
-			"/(𝋠|𝋡|𝋢|𝋣|𝋤|𝋥|𝋦|𝋧|𝋨|𝋩|𝋪|𝋫|𝋬|𝋭|𝋮|𝋯|𝋰|𝋱|𝋲|𝋳)/g)}"
-		],
-		"formatter": [
-			"function(a){return f101(a,20,",
-			"['𝋠','𝋡','𝋢','𝋣','𝋤','𝋥','𝋦','𝋧','𝋨','𝋩','𝋪','𝋫','𝋬','𝋭','𝋮','𝋯','𝋰','𝋱','𝋲','𝋳'])}"
-		],
+		"parser": "function(a){return f100(f0(a),20,'𝋠𝋡𝋢𝋣𝋤𝋥𝋦𝋧𝋨𝋩𝋪𝋫𝋬𝋭𝋮𝋯𝋰𝋱𝋲𝋳')}",
+		"formatter": "function(a){return f101(a,20,'𝋠𝋡𝋢𝋣𝋤𝋥𝋦𝋧𝋨𝋩𝋪𝋫𝋬𝋭𝋮𝋯𝋰𝋱𝋲𝋳')}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 30597140,
 		"dimension": {
@@ -240,13 +966,11 @@
 		},
 		"datatype": "text",
 		"parser": [
-			"function(a){",
-			"if(a.trim)a=a.trim();if(a.toLowerCase)a=a.toLowerCase();if(a=='')return NaN;",
+			"function(a){a=f0(a).toLowerCase();if(!a)return NaN;",
 			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
-			"var dv={i:1,v:5,x:10,l:50,c:100,d:500,m:1000},n=0,l=0,i=a.length,c;",
-			"while(i>0){if(!(c=dv[a[--i]]))return NaN;if(c<l)n-=c;else{n+=c;l=c}}",
-			"return n;",
-			"}"
+			"var i=a.length,v={i:1,v:5,x:10,l:50,c:100,d:500,m:1000},c,l=0,r=0;",
+			"while(i>0){c=v[a[--i]];if(!c)return NaN;if(c<l)r-=c;else{r+=c;l=c}}",
+			"return r}"
 		],
 		"formatter": [
 			"function(a){",
@@ -254,11 +978,920 @@
 			"a!=Math.floor(a))?'':(['','M','MM','MMM','MMMM'][Math.floor(a/1000)%10]+",
 			"['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM'][Math.floor(a/100)%10]+",
 			"['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'][Math.floor(a/10)%10]+",
-			"['','I','II','III','IV','V','VI','VII','VIII','IX'][Math.floor(a)%10]);",
-			"}"
+			"['','I','II','III','IV','V','VI','VII','VIII','IX'][Math.floor(a)%10])}"
 		],
 		"legacy-mc5-class": "RomanNumConv",
 		"legacy-mc5-variant": 0,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z800": {
+		"name": {
+			"en": "Arabic-Indic numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'٠١٢٣٤٥٦٧٨٩')}",
+		"formatter": "function(a){return f101(a,10,'٠١٢٣٤٥٦٧٨٩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 417802,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z801": {
+		"name": {
+			"en": "Eastern Arabic-Indic numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'۰۱۲۳۴۵۶۷۸۹')}",
+		"formatter": "function(a){return f101(a,10,'۰۱۲۳۴۵۶۷۸۹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 454666,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z802": {
+		"name": {
+			"en": "NKo numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'߀߁߂߃߄߅߆߇߈߉')}",
+		"formatter": "function(a){return f101(a,10,'߀߁߂߃߄߅߆߇߈߉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 507914,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z803": {
+		"name": {
+			"en": "Devanagari numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'०१२३४५६७८९')}",
+		"formatter": "function(a){return f101(a,10,'०१२३४५६७८९')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 615946,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z804": {
+		"name": {
+			"en": "Bengali numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'০১২৩৪৫৬৭৮৯')}",
+		"formatter": "function(a){return f101(a,10,'০১২৩৪৫৬৭৮৯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 648714,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z805": {
+		"name": {
+			"en": "Gurmukhi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'੦੧੨੩੪੫੬੭੮੯')}",
+		"formatter": "function(a){return f101(a,10,'੦੧੨੩੪੫੬੭੮੯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 681482,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z806": {
+		"name": {
+			"en": "Gujarati numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'૦૧૨૩૪૫૬૭૮૯')}",
+		"formatter": "function(a){return f101(a,10,'૦૧૨૩૪૫૬૭૮૯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 714250,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z807": {
+		"name": {
+			"en": "Odia numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'୦୧୨୩୪୫୬୭୮୯')}",
+		"formatter": "function(a){return f101(a,10,'୦୧୨୩୪୫୬୭୮୯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 747018,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z808": {
+		"name": {
+			"en": "Tamil numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'௦௧௨௩௪௫௬௭௮௯')}",
+		"formatter": "function(a){return f101(a,10,'௦௧௨௩௪௫௬௭௮௯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 779786,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z809": {
+		"name": {
+			"en": "Telugu numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'౦౧౨౩౪౫౬౭౮౯')}",
+		"formatter": "function(a){return f101(a,10,'౦౧౨౩౪౫౬౭౮౯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 812554,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z810": {
+		"name": {
+			"en": "Kannada numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'೦೧೨೩೪೫೬೭೮೯')}",
+		"formatter": "function(a){return f101(a,10,'೦೧೨೩೪೫೬೭೮೯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 845322,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z811": {
+		"name": {
+			"en": "Malayalam numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'൦൧൨൩൪൫൬൭൮൯')}",
+		"formatter": "function(a){return f101(a,10,'൦൧൨൩൪൫൬൭൮൯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 878090,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z812": {
+		"name": {
+			"en": "Sinhala Lith numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'෦෧෨෩෪෫෬෭෮෯')}",
+		"formatter": "function(a){return f101(a,10,'෦෧෨෩෪෫෬෭෮෯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 910858,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z813": {
+		"name": {
+			"en": "Thai numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'๐๑๒๓๔๕๖๗๘๙')}",
+		"formatter": "function(a){return f101(a,10,'๐๑๒๓๔๕๖๗๘๙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 937994,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z814": {
+		"name": {
+			"en": "Lao numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'໐໑໒໓໔໕໖໗໘໙')}",
+		"formatter": "function(a){return f101(a,10,'໐໑໒໓໔໕໖໗໘໙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 970762,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z815": {
+		"name": {
+			"en": "Tibetan numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'༠༡༢༣༤༥༦༧༨༩')}",
+		"formatter": "function(a){return f101(a,10,'༠༡༢༣༤༥༦༧༨༩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 991242,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z816": {
+		"name": {
+			"en": "Myanmar numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'၀၁၂၃၄၅၆၇၈၉')}",
+		"formatter": "function(a){return f101(a,10,'၀၁၂၃၄၅၆၇၈၉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1064970,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z817": {
+		"name": {
+			"en": "Myanmar Shan numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'႐႑႒႓႔႕႖႗႘႙')}",
+		"formatter": "function(a){return f101(a,10,'႐႑႒႓႔႕႖႗႘႙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1085450,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z818": {
+		"name": {
+			"en": "Khmer numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'០១២៣៤៥៦៧៨៩')}",
+		"formatter": "function(a){return f101(a,10,'០១២៣៤៥៦៧៨៩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1564682,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z819": {
+		"name": {
+			"en": "Mongolian numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙')}",
+		"formatter": "function(a){return f101(a,10,'᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1576970,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z820": {
+		"name": {
+			"en": "Limbu numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᥆᥇᥈᥉᥊᥋᥌᥍᥎᥏')}",
+		"formatter": "function(a){return f101(a,10,'᥆᥇᥈᥉᥊᥋᥌᥍᥎᥏')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1656330,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z821": {
+		"name": {
+			"en": "New Tai Lue numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᧐᧑᧒᧓᧔᧕᧖᧗᧘᧙')}",
+		"formatter": "function(a){return f101(a,10,'᧐᧑᧒᧓᧔᧕᧖᧗᧘᧙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1691658,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z822": {
+		"name": {
+			"en": "Tai Tham Hora numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᪀᪁᪂᪃᪄᪅᪆᪇᪈᪉')}",
+		"formatter": "function(a){return f101(a,10,'᪀᪁᪂᪃᪄᪅᪆᪇᪈᪉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1736714,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z823": {
+		"name": {
+			"en": "Tai Tham Tham numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᪐᪑᪒᪓᪔᪕᪖᪗᪘᪙')}",
+		"formatter": "function(a){return f101(a,10,'᪐᪑᪒᪓᪔᪕᪖᪗᪘᪙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1740810,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z824": {
+		"name": {
+			"en": "Balinese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᭐᭑᭒᭓᭔᭕᭖᭗᭘᭙')}",
+		"formatter": "function(a){return f101(a,10,'᭐᭑᭒᭓᭔᭕᭖᭗᭘᭙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1789962,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z825": {
+		"name": {
+			"en": "Sundanese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᮰᮱᮲᮳᮴᮵᮶᮷᮸᮹')}",
+		"formatter": "function(a){return f101(a,10,'᮰᮱᮲᮳᮴᮵᮶᮷᮸᮹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1814538,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z826": {
+		"name": {
+			"en": "Lepcha numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᱀᱁᱂᱃᱄᱅᱆᱇᱈᱉')}",
+		"formatter": "function(a){return f101(a,10,'᱀᱁᱂᱃᱄᱅᱆᱇᱈᱉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1851402,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z827": {
+		"name": {
+			"en": "Ol Chiki numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'᱐᱑᱒᱓᱔᱕᱖᱗᱘᱙')}",
+		"formatter": "function(a){return f101(a,10,'᱐᱑᱒᱓᱔᱕᱖᱗᱘᱙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 1855498,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z828": {
+		"name": {
+			"en": "Vai numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꘠꘡꘢꘣꘤꘥꘦꘧꘨꘩')}",
+		"formatter": "function(a){return f101(a,10,'꘠꘡꘢꘣꘤꘥꘦꘧꘨꘩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 10887178,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z829": {
+		"name": {
+			"en": "Saurashtra numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꣐꣑꣒꣓꣔꣕꣖꣗꣘꣙')}",
+		"formatter": "function(a){return f101(a,10,'꣐꣑꣒꣓꣔꣕꣖꣗꣘꣙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11063306,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z830": {
+		"name": {
+			"en": "Kayah Li numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꤀꤁꤂꤃꤄꤅꤆꤇꤈꤉')}",
+		"formatter": "function(a){return f101(a,10,'꤀꤁꤂꤃꤄꤅꤆꤇꤈꤉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11075594,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z831": {
+		"name": {
+			"en": "Javanese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꧐꧑꧒꧓꧔꧕꧖꧗꧘꧙')}",
+		"formatter": "function(a){return f101(a,10,'꧐꧑꧒꧓꧔꧕꧖꧗꧘꧙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11128842,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z832": {
+		"name": {
+			"en": "Myanmar Tai Laing numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꧰꧱꧲꧳꧴꧵꧶꧷꧸꧹')}",
+		"formatter": "function(a){return f101(a,10,'꧰꧱꧲꧳꧴꧵꧶꧷꧸꧹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11137034,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z833": {
+		"name": {
+			"en": "Cham numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꩐꩑꩒꩓꩔꩕꩖꩗꩘꩙')}",
+		"formatter": "function(a){return f101(a,10,'꩐꩑꩒꩓꩔꩕꩖꩗꩘꩙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11161610,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z834": {
+		"name": {
+			"en": "Meetei Mayek numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'꯰꯱꯲꯳꯴꯵꯶꯷꯸꯹')}",
+		"formatter": "function(a){return f101(a,10,'꯰꯱꯲꯳꯴꯵꯶꯷꯸꯹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 11268106,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z835": {
+		"name": {
+			"en": "Osmanya numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𐒠𐒡𐒢𐒣𐒤𐒥𐒦𐒧𐒨𐒩')}",
+		"formatter": "function(a){return f101(a,10,'𐒠𐒡𐒢𐒣𐒤𐒥𐒦𐒧𐒨𐒩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17080330,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z836": {
+		"name": {
+			"en": "Hanifi Rohingya numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𐴰𐴱𐴲𐴳𐴴𐴵𐴶𐴷𐴸𐴹')}",
+		"formatter": "function(a){return f101(a,10,'𐴰𐴱𐴲𐴳𐴴𐴵𐴶𐴷𐴸𐴹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17641482,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z837": {
+		"name": {
+			"en": "Garay numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𐵀𐵁𐵂𐵃𐵄𐵅𐵆𐵇𐵈𐵉')}",
+		"formatter": "function(a){return f101(a,10,'𐵀𐵁𐵂𐵃𐵄𐵅𐵆𐵇𐵈𐵉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17645578,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z838": {
+		"name": {
+			"en": "Brahmi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑁦𑁧𑁨𑁩𑁪𑁫𑁬𑁭𑁮𑁯')}",
+		"formatter": "function(a){return f101(a,10,'𑁦𑁧𑁨𑁩𑁪𑁫𑁬𑁭𑁮𑁯')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17851914,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z839": {
+		"name": {
+			"en": "Sora Sompeng numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑃰𑃱𑃲𑃳𑃴𑃵𑃶𑃷𑃸𑃹')}",
+		"formatter": "function(a){return f101(a,10,'𑃰𑃱𑃲𑃳𑃴𑃵𑃶𑃷𑃸𑃹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17887242,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z840": {
+		"name": {
+			"en": "Chakma numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑄶𑄷𑄸𑄹𑄺𑄻𑄼𑄽𑄾𑄿')}",
+		"formatter": "function(a){return f101(a,10,'𑄶𑄷𑄸𑄹𑄺𑄻𑄼𑄽𑄾𑄿')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17905162,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z841": {
+		"name": {
+			"en": "Sharada numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑇐𑇑𑇒𑇓𑇔𑇕𑇖𑇗𑇘𑇙')}",
+		"formatter": "function(a){return f101(a,10,'𑇐𑇑𑇒𑇓𑇔𑇕𑇖𑇗𑇘𑇙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 17944586,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z842": {
+		"name": {
+			"en": "Khudawadi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑋰𑋱𑋲𑋳𑋴𑋵𑋶𑋷𑋸𑋹')}",
+		"formatter": "function(a){return f101(a,10,'𑋰𑋱𑋲𑋳𑋴𑋵𑋶𑋷𑋸𑋹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18018314,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z843": {
+		"name": {
+			"en": "Newa numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑑐𑑑𑑒𑑓𑑔𑑕𑑖𑑗𑑘𑑙')}",
+		"formatter": "function(a){return f101(a,10,'𑑐𑑑𑑒𑑓𑑔𑑕𑑖𑑗𑑘𑑙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18108426,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z844": {
+		"name": {
+			"en": "Tirhuta numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑓐𑓑𑓒𑓓𑓔𑓕𑓖𑓗𑓘𑓙')}",
+		"formatter": "function(a){return f101(a,10,'𑓐𑓑𑓒𑓓𑓔𑓕𑓖𑓗𑓘𑓙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18141194,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z845": {
+		"name": {
+			"en": "Modi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑙐𑙑𑙒𑙓𑙔𑙕𑙖𑙗𑙘𑙙')}",
+		"formatter": "function(a){return f101(a,10,'𑙐𑙑𑙒𑙓𑙔𑙕𑙖𑙗𑙘𑙙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18239498,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z846": {
+		"name": {
+			"en": "Takri numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑛀𑛁𑛂𑛃𑛄𑛅𑛆𑛇𑛈𑛉')}",
+		"formatter": "function(a){return f101(a,10,'𑛀𑛁𑛂𑛃𑛄𑛅𑛆𑛇𑛈𑛉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18268170,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z847": {
+		"name": {
+			"en": "Myanmar Pao numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑛐𑛑𑛒𑛓𑛔𑛕𑛖𑛗𑛘𑛙')}",
+		"formatter": "function(a){return f101(a,10,'𑛐𑛑𑛒𑛓𑛔𑛕𑛖𑛗𑛘𑛙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18272266,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z848": {
+		"name": {
+			"en": "Myanmar Eastern Pwo Karen numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑛚𑛛𑛜𑛝𑛞𑛟𑛠𑛡𑛢𑛣')}",
+		"formatter": "function(a){return f101(a,10,'𑛚𑛛𑛜𑛝𑛞𑛟𑛠𑛡𑛢𑛣')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18274826,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z849": {
+		"name": {
+			"en": "Ahom numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑜰𑜱𑜲𑜳𑜴𑜵𑜶𑜷𑜸𑜹')}",
+		"formatter": "function(a){return f101(a,10,'𑜰𑜱𑜲𑜳𑜴𑜵𑜶𑜷𑜸𑜹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18296842,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z850": {
+		"name": {
+			"en": "Warang Citi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑣠𑣡𑣢𑣣𑣤𑣥𑣦𑣧𑣨𑣩')}",
+		"formatter": "function(a){return f101(a,10,'𑣠𑣡𑣢𑣣𑣤𑣥𑣦𑣧𑣨𑣩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18407434,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z851": {
+		"name": {
+			"en": "Dives Akuru numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑥐𑥑𑥒𑥓𑥔𑥕𑥖𑥗𑥘𑥙')}",
+		"formatter": "function(a){return f101(a,10,'𑥐𑥑𑥒𑥓𑥔𑥕𑥖𑥗𑥘𑥙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18436106,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z852": {
+		"name": {
+			"en": "Sunuwar numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑯰𑯱𑯲𑯳𑯴𑯵𑯶𑯷𑯸𑯹')}",
+		"formatter": "function(a){return f101(a,10,'𑯰𑯱𑯲𑯳𑯴𑯵𑯶𑯷𑯸𑯹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18608138,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z853": {
+		"name": {
+			"en": "Bhaiksuki numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑱐𑱑𑱒𑱓𑱔𑱕𑱖𑱗𑱘𑱙')}",
+		"formatter": "function(a){return f101(a,10,'𑱐𑱑𑱒𑱓𑱔𑱕𑱖𑱗𑱘𑱙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18632714,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z854": {
+		"name": {
+			"en": "Masaram Gondi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑵐𑵑𑵒𑵓𑵔𑵕𑵖𑵗𑵘𑵙')}",
+		"formatter": "function(a){return f101(a,10,'𑵐𑵑𑵒𑵓𑵔𑵕𑵖𑵗𑵘𑵙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18698250,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z855": {
+		"name": {
+			"en": "Gunjala Gondi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑶠𑶡𑶢𑶣𑶤𑶥𑶦𑶧𑶨𑶩')}",
+		"formatter": "function(a){return f101(a,10,'𑶠𑶡𑶢𑶣𑶤𑶥𑶦𑶧𑶨𑶩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18718730,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z856": {
+		"name": {
+			"en": "Tolong Siki numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑷠𑷡𑷢𑷣𑷤𑷥𑷦𑷧𑷨𑷩')}",
+		"formatter": "function(a){return f101(a,10,'𑷠𑷡𑷢𑷣𑷤𑷥𑷦𑷧𑷨𑷩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18735114,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z857": {
+		"name": {
+			"en": "Kawi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𑽐𑽑𑽒𑽓𑽔𑽕𑽖𑽗𑽘𑽙')}",
+		"formatter": "function(a){return f101(a,10,'𑽐𑽑𑽒𑽓𑽔𑽕𑽖𑽗𑽘𑽙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 18829322,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z858": {
+		"name": {
+			"en": "Gurung Khema numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖄰𖄱𖄲𖄳𖄴𖄵𖄶𖄷𖄸𖄹')}",
+		"formatter": "function(a){return f101(a,10,'𖄰𖄱𖄲𖄳𖄴𖄵𖄶𖄷𖄸𖄹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23146506,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z859": {
+		"name": {
+			"en": "Mro numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖩠𖩡𖩢𖩣𖩤𖩥𖩦𖩧𖩨𖩩')}",
+		"formatter": "function(a){return f101(a,10,'𖩠𖩡𖩢𖩣𖩤𖩥𖩦𖩧𖩨𖩩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23748618,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z860": {
+		"name": {
+			"en": "Tangsa numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖫀𖫁𖫂𖫃𖫄𖫅𖫆𖫇𖫈𖫉')}",
+		"formatter": "function(a){return f101(a,10,'𖫀𖫁𖫂𖫃𖫄𖫅𖫆𖫇𖫈𖫉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23773194,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z861": {
+		"name": {
+			"en": "Pahawh Hmong numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖭐𖭑𖭒𖭓𖭔𖭕𖭖𖭗𖭘𖭙')}",
+		"formatter": "function(a){return f101(a,10,'𖭐𖭑𖭒𖭓𖭔𖭕𖭖𖭗𖭘𖭙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23810058,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z862": {
+		"name": {
+			"en": "Kirat Rai numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖵰𖵱𖵲𖵳𖵴𖵵𖵶𖵷𖵸𖵹')}",
+		"formatter": "function(a){return f101(a,10,'𖵰𖵱𖵲𖵳𖵴𖵵𖵶𖵷𖵸𖵹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23949322,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z863": {
+		"name": {
+			"en": "Chisoi numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖶠𖶡𖶢𖶣𖶤𖶥𖶦𖶧𖶨𖶩')}",
+		"formatter": "function(a){return f101(a,10,'𖶠𖶡𖶢𖶣𖶤𖶥𖶦𖶧𖶨𖶩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 23961610,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z864": {
+		"name": {
+			"en": "Medefaidrin numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𖺀𖺁𖺂𖺃𖺄𖺅𖺆𖺇𖺈𖺉')}",
+		"formatter": "function(a){return f101(a,10,'𖺀𖺁𖺂𖺃𖺄𖺅𖺆𖺇𖺈𖺉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 24018954,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z865": {
+		"name": {
+			"en": "Nyiakeng Puachue Hmong numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𞅀𞅁𞅂𞅃𞅄𞅅𞅆𞅇𞅈𞅉')}",
+		"formatter": "function(a){return f101(a,10,'𞅀𞅁𞅂𞅃𞅄𞅅𞅆𞅇𞅈𞅉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 31539210,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z866": {
+		"name": {
+			"en": "Wancho numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𞋰𞋱𞋲𞋳𞋴𞋵𞋶𞋷𞋸𞋹')}",
+		"formatter": "function(a){return f101(a,10,'𞋰𞋱𞋲𞋳𞋴𞋵𞋶𞋷𞋸𞋹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 31649802,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z867": {
+		"name": {
+			"en": "Nag Mundari numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𞓰𞓱𞓲𞓳𞓴𞓵𞓶𞓷𞓸𞓹')}",
+		"formatter": "function(a){return f101(a,10,'𞓰𞓱𞓲𞓳𞓴𞓵𞓶𞓷𞓸𞓹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 31780874,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z868": {
+		"name": {
+			"en": "Ol Onal numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𞗱𞗲𞗳𞗴𞗵𞗶𞗷𞗸𞗹𞗺')}",
+		"formatter": "function(a){return f101(a,10,'𞗱𞗲𞗳𞗴𞗵𞗶𞗷𞗸𞗹𞗺')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 31846666,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z869": {
+		"name": {
+			"en": "Adlam numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'𞥐𞥑𞥒𞥓𞥔𞥕𞥖𞥗𞥘𞥙')}",
+		"formatter": "function(a){return f101(a,10,'𞥐𞥑𞥒𞥓𞥔𞥕𞥖𞥗𞥘𞥙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 32067594,
 		"dimension": {
 			"numeral-system": 1
 		}
