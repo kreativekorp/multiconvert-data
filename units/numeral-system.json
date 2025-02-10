@@ -2,30 +2,67 @@
 	"functions": {
 		"f0": "function(a){return(a==null)?'':(''+a).replace(/^\\s+|\\s+$/g,'')}",
 		"f100": [
-			"function(a,b,c){if(!a)return NaN;",
+			"function(a,b,c,d,s){if(!a)return NaN;",
 			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
 			"if(!c)c='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
 			"else if(c.match&&c.split&&c.match(/[\\uD800-\\uDFFF]/))c=c.split(",
-			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){return x});",
-			"var p=c.join&&new RegExp('('+c.join('|')+')'),h=c.indexOf('.')<0,i=c.indexOf(',')<0,",
-			"d=(h&&i?/[.,]/:h?'.':i?',':''),n=(a[0]=='-'&&c.indexOf('-')<0),r=0,f=0;if(n||a[0]=='+'",
-			"&&c.indexOf('+')<0)a=a.substring(1);h=d?a.split(d):[a];if(h.length>2)return NaN;",
-			"if(p)h=h.map(function(s){return s.split(p).filter(function(x){return x})});",
-			"i=0;while(i<h[0].length){a=c.indexOf(h[0][i++]);if(a<0)return NaN;r=r*b+a}if(h.length>1){",
+			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(",
+			"function(x){return x});if(d===undefined)d=/[.,]/;if(s===undefined)s='-+';",
+			"var p=c.join&&new RegExp('('+c.join('|')+')'),n=s&&a[0]==s[0],h,i=0,r=0,f=0;",
+			"if(n||s&&a[0]==s[1])a=a.substring(1);h=d?a.split(d):[a];if(h.length>2)return NaN;",
+			"if(p)h=h.map(function(t){return t.split(p).filter(function(x){return x})});",
+			"while(i<h[0].length){a=c.indexOf(h[0][i++]);if(a<0)return NaN;r=r*b+a}if(h.length>1){",
 			"i=h[1].length;while(i>0){a=c.indexOf(h[1][--i]);if(a<0)return NaN;f=(f+a)/b}r+=f}",
 			"return n?-r:r}"
 		],
 		"f101": [
-			"function(a,b,c){",
+			"function(a,b,c,d,s){",
 			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
 			"if(!c)c='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';",
 			"else if(c.match&&c.split&&c.match(/[\\uD800-\\uDFFF]/))c=c.split(",
-			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){return x});",
-			"var d=c.indexOf('.')<0?'.':c.indexOf(',')<0?',':'',n=a<0,i=Math.floor(",
-			"a=Math.abs(a)),f=a-i,r='';if(n&&c.indexOf('-')>=0||f>0&&!d)return'';",
+			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(",
+			"function(x){return x});if(d===undefined)d='.';if(s===undefined)s='-';",
+			"var n=a<0,i=Math.floor(a=Math.abs(a)),f=a-i,r='';if(n&&!s||f>0&&!d)return'';",
 			"while(i>0){a=Math.floor(i/b);r=c[Math.floor(i-b*a)]+r;i=a}if(!r)r=c[0];",
 			"if(f>0){r+=d;i=0;while(f>0&&i++<50){r+=c[a=Math.floor(f*=b)];f-=a}}",
-			"return n?'-'+r:r}"
+			"return n?s+r:r}"
+		],
+		"f102": [
+			"function(a,m){var r=0,i=a.length;while(i-->0){",
+			"if(a[i] in m)r+=m[a[i]];else return NaN}return r}"
+		],
+		"f103": [
+			"function(a,m,p,q,u){",
+			"var t=m[-1]?[m[-1]]:[],i=p.length;while(a&&i-->0){",
+			"while(a>=p[i]){t.push(m[p[i]]);a-=p[i]}}if(a)return null;",
+			"if(u){while(u)if(t.indexOf(m[--u])>=0)break;if(!u)t.push(m[0])}",
+			"t.sort(function(x,y){return q.indexOf(x)-q.indexOf(y)});",
+			"return t.join('')}"
+		],
+		"f104": [
+			"function(a,b,p,m,d,s){if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"if(d===undefined)d=/[.,]/;if(s===undefined)s='-+';",
+			"var q=[],n=s&&a[0]==s[0],h,i=0,r=0,f=0;for(h in m)q.push(h);",
+			"q=new RegExp('('+q.join('|')+')');if(n||s&&a[0]==s[1])a=a.substring(1);",
+			"h=d?a.split(d):[a];if(h.length>2)return NaN;h=h.map(function(t){",
+			"return t.split(p).filter(function(x){return x}).map(function(u){",
+			"return u.split(q).filter(function(y){return y})})});",
+			"while(i<h[0].length){a=f102(h[0][i++],m);if(a!=a)return a;r=r*b+a}if(h.length>1){",
+			"i=h[1].length;while(i>0){a=f102(h[1][--i],m);if(a!=a)return a;f=(f+a)/b}r+=f}",
+			"return n?-r:r}"
+		],
+		"f105": [
+			"function(a,b,v,d,s){",
+			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			"if(d===undefined)d='.';if(s===undefined)s='-';var m={},p=[],q=[],u=0,",
+			"n=a<0,i=Math.floor(a=Math.abs(a)),f=a-i,r='';if(n&&!s||f>0&&!d)return'';",
+			"for(a=0;a<v.length;a++){m[v[a][0]]=v[a][1];p.push(v[a][0]);q.push(v[a][1])}",
+			"p.sort(function(x,y){return x-y});if(m[0])while(m[u+1])u++;",
+			"while(i>0){a=Math.floor(i/b);v=f103(Math.floor(i-b*a),m,p,q,u);",
+			"if(v==null)return'';r=v+r;i=a}if(!r){r=f103(0,m,p,q,u);if(r==null)return''}",
+			"if(f>0){r+=d;i=0;while(f>0&&i++<50){v=f103(a=Math.floor(f*=b),m,p,q,u);",
+			"if(v==null)return'';r+=v;f-=a}}return n?s+r:r}"
 		]
 	},
 	"z102": {
@@ -900,8 +937,8 @@
 			"en": "base64"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/')}",
-		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/')}",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/','.',null)}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/','.',null)}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 320,
 		"dimension": {
@@ -913,8 +950,8 @@
 			"en": "base64 (RFC 3501)"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,')}",
-		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,')}",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,','.',null)}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+,','.',null)}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 576,
 		"dimension": {
@@ -926,8 +963,8 @@
 			"en": "base64url"
 		},
 		"datatype": "text",
-		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_')}",
-		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_')}",
+		"parser": "function(a){return f100(f0(a),64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_','.',null)}",
+		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_','.',null)}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 832,
 		"dimension": {
@@ -1892,6 +1929,670 @@
 		"formatter": "function(a){return f101(a,10,'𞥐𞥑𞥒𞥓𞥔𞥕𞥖𞥗𞥘𞥙')}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 32067594,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z900": {
+		"name": {
+			"en": "Tengwar decimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14708746,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z901": {
+		"name": {
+			"en": "Tengwar duodecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),12,'')}",
+		"formatter": "function(a){return f101(a,12,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14708748,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z902": {
+		"name": {
+			"en": "Engsvanyali numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14761994,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z903": {
+		"name": {
+			"en": "Kinya decimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14786570,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z904": {
+		"name": {
+			"en": "Kinya duodecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),12,'')}",
+		"formatter": "function(a){return f101(a,12,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14786572,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z905": {
+		"name": {
+			"en": "Syai numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14807050,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z906": {
+		"name": {
+			"en": "Verdurian numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14835722,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z907": {
+		"name": {
+			"en": "Xaini octal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),8,'')}",
+		"formatter": "function(a){return f101(a,8,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14873608,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z908": {
+		"name": {
+			"en": "Zirinka octal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),8,'')}",
+		"formatter": "function(a){return f101(a,8,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14898184,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z909": {
+		"name": {
+			"en": "Thelwik numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14916106,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z910": {
+		"name": {
+			"en": "Olaetyan numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 14936330,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z911": {
+		"name": {
+			"en": "Ferengi numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15073290,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z912": {
+		"name": {
+			"en": "Ewellic decimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15122442,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z913": {
+		"name": {
+			"en": "Ewellic hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'')}",
+		"formatter": "function(a){return f101(a,16,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15122448,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z914": {
+		"name": {
+			"en": "Aurebesh numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15257610,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z915": {
+		"name": {
+			"en": "Duodenal (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),12,'0123456789')}",
+		"formatter": "function(a){return f101(a,12,'0123456789')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z916": {
+		"name": {
+			"en": "Tonal (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'012345678')}",
+		"formatter": "function(a){return f101(a,16,'012345678')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z917": {
+		"name": {
+			"en": "Glaitha-A decimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15273994,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z918": {
+		"name": {
+			"en": "Glaitha-A hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'')}",
+		"formatter": "function(a){return f101(a,16,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15274000,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z919": {
+		"name": {
+			"en": "Glaitha-B numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){return f104(f0(a),100,/(\\uE984[\\uE985-\\uE98F]*)/,{",
+			"'\uE984':0,'\uE985':1,'\uE986':2,'\uE987':3,'\uE988':4,'\uE989':5,",
+			"'\uE98A':10,'\uE98B':15,'\uE98C':20,'\uE98D':40,'\uE98E':60,'\uE98F':80",
+			"})}"
+		],
+		"formatter": [
+			"function(a){return f105(a,100,[",
+			"[-1,'\uE984'],[1,'\uE985'],[2,'\uE986'],[3,'\uE987'],[4,'\uE988'],[5,'\uE989'],",
+			"[10,'\uE98A'],[15,'\uE98B'],[20,'\uE98C'],[40,'\uE98D'],[60,'\uE98E'],[80,'\uE98F']",
+			"])}"
+		],
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z920": {
+		"name": {
+			"en": "Orokin numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15413258,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z921": {
+		"name": {
+			"en": "Cistercian numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){return f104(f0(a),10000,",
+			"/([\\uEBA0-\\uEBA9][\\uEBB1-\\uEBB9\\uEBC1-\\uEBC9\\uEBD1-\\uEBD9]*)/,{",
+			"'\uEBA0':0,'\uEBA1':1,'\uEBA2':2,'\uEBA3':3,'\uEBA4':4,",
+			"'\uEBA5':5,'\uEBA6':6,'\uEBA7':7,'\uEBA8':8,'\uEBA9':9,",
+			"'\uEBB1':10,'\uEBB2':20,'\uEBB3':30,'\uEBB4':40,",
+			"'\uEBB5':50,'\uEBB6':60,'\uEBB7':70,'\uEBB8':80,'\uEBB9':90,",
+			"'\uEBC1':100,'\uEBC2':200,'\uEBC3':300,'\uEBC4':400,",
+			"'\uEBC5':500,'\uEBC6':600,'\uEBC7':700,'\uEBC8':800,'\uEBC9':900,",
+			"'\uEBD1':1000,'\uEBD2':2000,'\uEBD3':3000,'\uEBD4':4000,",
+			"'\uEBD5':5000,'\uEBD6':6000,'\uEBD7':7000,'\uEBD8':8000,'\uEBD9':9000",
+			"})}"
+		],
+		"formatter": [
+			"function(a){return f105(a,10000,[",
+			"[0,'\uEBA0'],[1,'\uEBA1'],[2,'\uEBA2'],[3,'\uEBA3'],[4,'\uEBA4'],",
+			"[5,'\uEBA5'],[6,'\uEBA6'],[7,'\uEBA7'],[8,'\uEBA8'],[9,'\uEBA9'],",
+			"[10,'\uEBB1'],[20,'\uEBB2'],[30,'\uEBB3'],[40,'\uEBB4'],",
+			"[50,'\uEBB5'],[60,'\uEBB6'],[70,'\uEBB7'],[80,'\uEBB8'],[90,'\uEBB9'],",
+			"[100,'\uEBC1'],[200,'\uEBC2'],[300,'\uEBC3'],[400,'\uEBC4'],",
+			"[500,'\uEBC5'],[600,'\uEBC6'],[700,'\uEBC7'],[800,'\uEBC8'],[900,'\uEBC9'],",
+			"[1000,'\uEBD1'],[2000,'\uEBD2'],[3000,'\uEBD3'],[4000,'\uEBD4'],",
+			"[5000,'\uEBD5'],[6000,'\uEBD6'],[7000,'\uEBD7'],[8000,'\uEBD8'],[9000,'\uEBD9']",
+			"])}"
+		],
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z922": {
+		"name": {
+			"en": "Lapointe hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'')}",
+		"formatter": "function(a){return f101(a,16,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15458320,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z923": {
+		"name": {
+			"en": "Martin hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'')}",
+		"formatter": "function(a){return f101(a,16,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15462416,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z924": {
+		"name": {
+			"en": "Cylenian seximal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),6,'')}",
+		"formatter": "function(a){return f101(a,6,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15476742,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z925": {
+		"name": {
+			"en": "Syrrin seximal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),6,'')}",
+		"formatter": "function(a){return f101(a,6,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15493126,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z926": {
+		"name": {
+			"en": "Graflect hexatrigesimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),36,'')}",
+		"formatter": "function(a){return f101(a,36,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15506212,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z927": {
+		"name": {
+			"en": "Whitaker hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'')}",
+		"formatter": "function(a){return f101(a,16,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15527952,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z928": {
+		"name": {
+			"en": "Deini numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15532042,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z929": {
+		"name": {
+			"en": "Klingon numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 16314378,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z930": {
+		"name": {
+			"en": "sitelen pona numerals (nasin nanpa pu) (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){a=f0(a);if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"a=a.split(/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){return x});",
+			"var i=a.length,v={'󱤂':0,'󱥳':1,'󱥮':2,'󱤭':5,'󱤼':20,'󱤄':100},c,r=0;",
+			"while(i>0){c=v[a[--i]];if(c==null)return NaN;r+=c}return r}"
+		],
+		"formatter": [
+			"function(a){",
+			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			"if(a<0||a>9999||a!=Math.floor(a))return'';var u=[",
+			"'󱥳','󱥮','󱤭','󱤼','󱤄'],v=[1,2,5,20,100],i=5,r='';",
+			"while(i-->0)while(a>=v[i]){a-=v[i];r+=u[i]}if(!r)r='󱤂';",
+			"return r}"
+		],
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z931": {
+		"name": {
+			"en": "sitelen pona numerals (nasin nanpa pona) (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){a=f0(a);if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"a=a.split('󱤂');if(a.length>2)return NaN;a=a.map(function(t){return t.split(",
+			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(function(x){",
+			"return x})});var v={'󱤂':0,'󱥳':1,'󱥮':2,'󱤭':5,'󱤼':20},i=-1,r=0,f=0;",
+			"while(++i<a[0].length){if(a[0][i]=='󱤄')r=r?r*100:100;else if(a[0][i] in v)r+=v[a[0][i]];",
+			"else return NaN}if(a.length>1){i=a[1].length;while(i-->0){if(a[1][i]=='󱤄')f=f?f/100:100;",
+			"else if(a[1][i] in v)f+=v[a[1][i]];else return NaN}r+=f/100}return r}"
+		],
+		"formatter": [
+			"function(a){",
+			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			"if(a<0)return'';var u=['󱥳','󱥮','󱤭','󱤼'],v=[1,2,5,20],",
+			"d,j,i=Math.floor(a=Math.abs(a)),f=a-i,r='',s;while(i>0){s='';",
+			"a=Math.floor(i/100);d=Math.floor(i-100*a);j=4;while(j-->0)while(",
+			"d>=v[j]){d-=v[j];s+=u[j]}i=a;if(i>0)s='󱤄'+s;r=s+r}if(!r||f>0)r+='󱤂';",
+			"if(f>0){i=0;while(f>0&&i++<50){a=d=Math.floor(f*=100);j=4;while(",
+			"j-->0)while(d>=v[j]){d-=v[j];r+=u[j]}f-=a;if(f>0)r+='󱤄'}}",
+			"return r}"
+		],
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z932": {
+		"name": {
+			"en": "Shidinn (xdi8) numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󱰠󱰡󱰢󱰣󱰤󱰥󱰦󱰧󱰨󱰩','󱰫')}",
+		"formatter": "function(a){return f101(a,10,'󱰠󱰡󱰢󱰣󱰤󱰥󱰦󱰧󱰨󱰩','󱰫')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 253501450,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z933": {
+		"name": {
+			"en": "Sadalian decimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󲙰󲙱󲙲󲙳󲙴󲙵󲙶󲙷󲙸󲙹')}",
+		"formatter": "function(a){return f101(a,10,'󲙰󲙱󲙲󲙳󲙴󲙵󲙶󲙷󲙸󲙹')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254177290,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z934": {
+		"name": {
+			"en": "Sadalian hexadecimal numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'󲙰󲙱󲙲󲙳󲙴󲙵󲙶󲙷󲙸󲙹󲙺󲙻󲙼󲙽󲙾󲙿')}",
+		"formatter": "function(a){return f101(a,16,'󲙰󲙱󲙲󲙳󲙴󲙵󲙶󲙷󲙸󲙹󲙺󲙻󲙼󲙽󲙾󲙿')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254177296,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z935": {
+		"name": {
+			"en": "Hacm numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󲜀󲜁󲜂󲜃󲜄󲜅󲜆󲜇󲜈󲜉')}",
+		"formatter": "function(a){return f101(a,10,'󲜀󲜁󲜂󲜃󲜄󲜅󲜆󲜇󲜈󲜉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254214154,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z936": {
+		"name": {
+			"en": "Liparxe numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󲠀󲠁󲠂󲠃󲠄󲠅󲠆󲠇󲠈󲠉')}",
+		"formatter": "function(a){return f101(a,10,'󲠀󲠁󲠂󲠃󲠄󲠅󲠆󲠇󲠈󲠉')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254279690,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z937": {
+		"name": {
+			"en": "Shaleian small numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󲡐󲡑󲡒󲡓󲡔󲡕󲡖󲡗󲡘󲡙')}",
+		"formatter": "function(a){return f101(a,10,'󲡐󲡑󲡒󲡓󲡔󲡕󲡖󲡗󲡘󲡙')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254300170,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z938": {
+		"name": {
+			"en": "Shaleian capital numerals (UCSUR)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󲡠󲡡󲡢󲡣󲡤󲡥󲡦󲡧󲡨󲡩')}",
+		"formatter": "function(a){return f101(a,10,'󲡠󲡡󲡢󲡣󲡤󲡥󲡦󲡧󲡨󲡩')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 254304266,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z970": {
+		"name": {
+			"en": "Kamakawi numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 15728650,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z971": {
+		"name": {
+			"en": "Ath numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'')}",
+		"formatter": "function(a){return f101(a,10,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 16039946,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z972": {
+		"name": {
+			"en": "Camp duodecimal numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),12,'')}",
+		"formatter": "function(a){return f101(a,12,'')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 16080908,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z973": {
+		"name": {
+			"en": "Jurgenschmidt numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),10,'󿙆󿙇󿙈󿙉󿙊󿙋󿙌󿙍󿙎󿙏')}",
+		"formatter": "function(a){return f101(a,10,'󿙆󿙇󿙈󿙉󿙊󿙋󿙌󿙍󿙎󿙏')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 267798026,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z974": {
+		"name": {
+			"en": "Lucilla binary numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),2,'󿠠󿠡','󿠢')}",
+		"formatter": "function(a){return f101(a,2,'󿠠󿠡','󿠢')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 267919362,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z975": {
+		"name": {
+			"en": "Lucilla quaternary numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),4,'󿠤󿠥󿠦󿠧','󿠢')}",
+		"formatter": "function(a){return f101(a,4,'󿠤󿠥󿠦󿠧','󿠢')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 267920388,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z976": {
+		"name": {
+			"en": "Lucilla octal numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),8,'󿠨󿠩󿠪󿠫󿠬󿠭󿠮󿠯','󿠢')}",
+		"formatter": "function(a){return f101(a,8,'󿠨󿠩󿠪󿠫󿠬󿠭󿠮󿠯','󿠢')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 267921416,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z977": {
+		"name": {
+			"en": "Lucilla hexadecimal numerals (PUA)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),16,'󿠰󿠱󿠲󿠳󿠴󿠵󿠶󿠷󿠸󿠹󿠺󿠻󿠼󿠽󿠾󿠿','󿠢')}",
+		"formatter": "function(a){return f101(a,16,'󿠰󿠱󿠲󿠳󿠴󿠵󿠶󿠷󿠸󿠹󿠺󿠻󿠼󿠽󿠾󿠿','󿠢')}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 267923472,
 		"dimension": {
 			"numeral-system": 1
 		}
