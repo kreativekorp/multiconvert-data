@@ -432,7 +432,7 @@ This test case states that 254000 millimeters (`u0_-3`), 25400 centimeters (`u0_
 The `epsilon` key-value pair states that the maximum allowed difference |*a* − *b*| between the actual result *a* and expected result *b* of a conversion shall be the greater of ( |*a*| + |*b*| ) · *ε* and *ε* (here *ε* = 10<sup>-12</sup>). This is often necessary because floating point has issues (if you know, you know). An epsilon of zero means *a* and *b* must be exactly equal (in the floating point sense, not the real number sense; if you know, you know); an epsilon of 1 means *a* and *b* may be anything as long as they have the same sign. Most test cases use an epsilon of 10<sup>-15</sup> or 10<sup>-12</sup>. Some unlucky test cases may have an epsilon as large as 10<sup>-3</sup>; it is not recommended to have an epsilon larger than this.
 
 ### One Half of an Input/Output
-Consider this test case for numeral system:
+Consider this (abbreviated) test case for numeral system:
 
 	{
 		"name": "one half",
@@ -456,6 +456,27 @@ Consider this test case for numeral system:
 	}
 
 In this test case, the values of `0.a` for `z120` (vigesimal or base 20) and `0.i` for `z136` (hexatrigesimal or base 36) should only be tested as inputs; they should not be tested as outputs because the lowercase letters of the expected output would not match the uppercase letters of the actual output (`0.A` and `0.I` respectively). Similarly, the empty string for `z199` (Roman numerals) should only be tested as an output (given a non-integer, the Roman numeral conversion returns an empty string); it should not be tested as an input because an empty string would result in the actual output of an empty string for every other unit, which will not match any of the expected outputs.
+
+### Accounting for Floating Point Error in Strings
+Consider this test case for balanced ternary:
+
+	{
+		"name": "balanced ternary fractional 1",
+		"z103": "-1.1",
+		"z193": "-.-",
+		"replacements": [
+			{
+				"replace": "[.][0]2{30}.*",
+				"with": ".1"
+			},
+			{
+				"replace": "[.][-]0{30}.*",
+				"with": ".-"
+			}
+		]
+	}
+
+The `replacements` field applies regular expression substitutions to the outputs of units with `"datatype": "text"`. In this case, it is used to compensate for inaccuracies introduced by floating point rounding by replacing `-1.02222222222222222222222222222222211001200121102012` with `-1.1` and `-.-0000000000000000000000000000000+--0-++0-++---+-++` with `-.-`. It is intended to be a functional equivalent of the `epsilon` field.
 
 ## Unit Types
 Unit types or categories are defined in the file `unit-types.json` and are identified by a lowercase letter `t` followed by one or more digits. The following ranges are currently used:
