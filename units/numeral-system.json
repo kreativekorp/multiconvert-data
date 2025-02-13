@@ -23,7 +23,7 @@
 			"/([\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\u0000-\\uFFFF])/).filter(",
 			"function(x){return x});if(d===undefined)d='.';if(s===undefined)s='-';",
 			"var n=a<0,i=Math.floor(a=Math.abs(a)),f=a-i,r='';if(n&&!s||f>0&&!d)return'';",
-			"while(i>0){a=Math.floor(i/b);r=c[Math.floor(i-b*a)]+r;i=a}if(!r)r=c[0];",
+			"do{a=Math.floor(i/b);r=c[Math.floor(i-b*a)]+r;i=a}while(i>0);",
 			"if(f>0){r+=d;i=0;while(f>0&&i++<50){r+=c[a=Math.floor(f*=b)];f-=a}}",
 			"return n?s+r:r}"
 		],
@@ -59,10 +59,57 @@
 			"n=a<0,i=Math.floor(a=Math.abs(a)),f=a-i,r='';if(n&&!s||f>0&&!d)return'';",
 			"for(a=0;a<v.length;a++){m[v[a][0]]=v[a][1];p.push(v[a][0]);q.push(v[a][1])}",
 			"p.sort(function(x,y){return x-y});if(m[0])while(m[u+1])u++;",
-			"while(i>0){a=Math.floor(i/b);v=f103(Math.floor(i-b*a),m,p,q,u);",
-			"if(v==null)return'';r=v+r;i=a}if(!r){r=f103(0,m,p,q,u);if(r==null)return''}",
-			"if(f>0){r+=d;i=0;while(f>0&&i++<50){v=f103(a=Math.floor(f*=b),m,p,q,u);",
-			"if(v==null)return'';r+=v;f-=a}}return n?s+r:r}"
+			"do{a=Math.floor(i/b);v=f103(Math.floor(i-b*a),m,p,q,u);if(v==null",
+			")return'';r=v+r;i=a}while(i>0);if(f>0){r+=d;i=0;while(f>0&&i++<50){",
+			"v=f103(a=Math.floor(f*=b),m,p,q,u);if(v==null)return'';r+=v;f-=a}}",
+			"return n?s+r:r}"
+		],
+		"f106": [
+			"function(a,u){var s='万亿兆京垓秭穰沟涧正载极',t='萬億兆京垓秭穰溝澗正載極',i=t.length,",
+			"n,p=+('1E'+4*i),r=0;while(i-->0){n=(a=a[0].split(new RegExp(s[i]+'|'+t[i]))).length;",
+			"if(n>1){for(i=0;i<n;i++)r=r*p+f106([a[i]],i+1<n?1:0);return r}p=+('1E'+4*i)}",
+			"n=(a=a[0].split('千')).length;if(n>1){for(i=0;i<n;i++)r=r*1E3+f106([a[i]],i+1<n?1:0);return r}",
+			"n=(a=a[0].split('百')).length;if(n>1){for(i=0;i<n;i++)r=r*1E2+f106([a[i]],i+1<n?1:0);return r}",
+			"n=(a=a[0].split('十')).length;if(n>1){for(i=0;i<n;i++)r=r*10+f106([a[i]],i+1<n?1:0);return r}",
+			"if(!a[0])return u;u='零一二三四五六七八九〇一兩';for(i=0,n=a[0].length;i<n;i++){",
+			"p=u.indexOf(a[0][i]);if(p<0)return NaN;r=r*10+p%10}return r}"
+		],
+		"f107": [
+			"function(a){if(a<10)return'零一二三四五六七八九'[a];",
+			"if(a<100)return(a<20?'':f107(Math.floor(a/10)))+'十'+(a%10?f107(a%10):'');",
+			"if(a<1E3)return(f107(Math.floor(a/1E2))+'百'+(a%1E2?(a%1E2<10?'零'+f107(a%10):f107(a%1E2)):''));",
+			"if(a<1E4)return(f107(Math.floor(a/1E3))+'千'+(a%1E3?(a%1E3<10?'零'+f107(a%10):f107(a%1E3)):''));",
+			"for(var p=1E4,q=1E8,i=0,c='万亿兆京垓秭穰沟涧正载极';a>=q&&i+1<c.length;p=q,q=+('1E'+(8+4*++i)));",
+			"q=Math.floor(a/p);p=Math.floor(a-p*q);return(f107(q)+c[i]+(p>0?(p<10?'零'+f107(p):f107(p)):''))}"
+		],
+		"f108": [
+			"function(a){if(a<10)return'零一二三四五六七八九'[a];",
+			"if(a<100)return(a<20?'':f108(Math.floor(a/10)))+'十'+(a%10?f108(a%10):'');",
+			"if(a<1E3)return(f108(Math.floor(a/1E2))+'百'+(a%1E2?(a%1E2<10?'零'+f108(a%10):f108(a%1E2)):''));",
+			"if(a<1E4)return(f108(Math.floor(a/1E3))+'千'+(a%1E3?(a%1E3<10?'零'+f108(a%10):f108(a%1E3)):''));",
+			"for(var p=1E4,q=1E8,i=0,c='萬億兆京垓秭穰溝澗正載極';a>=q&&i+1<c.length;p=q,q=+('1E'+(8+4*++i)));",
+			"q=Math.floor(a/p);p=Math.floor(a-p*q);return(f108(q)+c[i]+(p>0?(p<10?'零'+f108(p):f108(p)):''))}"
+		],
+		"f109": [
+			"function(a){if(a<10)return'零一二三四五六七八九'[a];",
+			"if(a<100)return(a<20?'':f109(Math.floor(a/10)))+'十'+(a%10?f109(a%10):'');",
+			"if(a<1E3)return(a<2E2?'':f109(Math.floor(a/1E2)))+'百'+(a%1E2?f109(a%1E2):'');",
+			"if(a<1E4)return(a<2E3?'':f109(Math.floor(a/1E3)))+'千'+(a%1E3?f109(a%1E3):'');",
+			"for(var p=1E4,q=1E8,i=0,c='万億兆京垓秭穣溝澗正載極';a>=q&&i+1<c.length;p=q,q=+('1E'+(8+4*++i)));",
+			"q=Math.floor(a/p);p=Math.floor(a-p*q);return(f109(q)+c[i]+(p>0?f109(p):''))}"
+		],
+		"f110": [
+			"function(a){if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"var n=a[0]=='负'||a[0]=='負',h=(n?a.substring(1):a).split(/[点點・]/),r,c,i,f=0;",
+			"if(h.length>2)return NaN;r=f106(h,0);if(h.length>1){c='零一二三四五六七八九〇一兩';",
+			"i=h[1].length;while(i>0){a=c.indexOf(h[1][--i]);if(a<0)return NaN;f=(f+a%10)/10}r+=f}",
+			"return n?-r:r}"
+		],
+		"f111": [
+			"function(a,g,z,d,s){if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			"var n=a<0,i=Math.floor(a=Math.abs(a)),f=a-i,r=g(i);if(f>0){z+='一二三四五六七八九';",
+			"r+=d;i=0;while(f>0&&i++<50){r+=z[a=Math.floor(f*=10)];f-=a}}return n?s+r:r}"
 		]
 	},
 	"z102": {
@@ -967,6 +1014,96 @@
 		"formatter": "function(a){return f101(a,64,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_','.',null)}",
 		"legacy-mc5-class": "BaseConv2",
 		"legacy-mc5-variant": 832,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z170": {
+		"name": {
+			"en": "Simplified Chinese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f111(a,f107,'零','点','负')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z171": {
+		"name": {
+			"en": "Traditional Chinese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f111(a,f108,'零','點','負')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z172": {
+		"name": {
+			"en": "Japanese numerals"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f111(a,f109,'〇','・','負')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z173": {
+		"name": {
+			"en": "Simplified Chinese numerals (place value system)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f101(a,10,'零一二三四五六七八九','点','负')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z174": {
+		"name": {
+			"en": "Traditional Chinese numerals (place value system)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f101(a,10,'零一二三四五六七八九','點','負')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z175": {
+		"name": {
+			"en": "Japanese numerals (place value system)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f110(f0(a))}",
+		"formatter": "function(a){return f101(a,10,'〇一二三四五六七八九','・','負')}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z176": {
+		"name": {
+			"en": "ideographic tally marks"
+		},
+		"datatype": "text",
+		"parser": [
+			"function(a){a=f0(a);if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			"a=a.split(/(𝍲|𝍳|𝍴|𝍵|𝍶)/).filter(function(x){return x});",
+			"var c='𝍲𝍳𝍴𝍵𝍶',i=a.length,d,r=0;while(i>0){",
+			"d=c.indexOf(a[--i]);if(d<0)return NaN;r+=d/2+1}",
+			"return r}"
+		],
+		"formatter": [
+			"function(a){",
+			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			"if(a<1||a>1000||a!=Math.floor(a))return'';var r='';",
+			"while(a>=5){a-=5;r+='𝍶'}r+=['','𝍲','𝍳','𝍴','𝍵'][a];",
+			"return r}"
+		],
 		"dimension": {
 			"numeral-system": 1
 		}
