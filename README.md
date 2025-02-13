@@ -524,3 +524,147 @@ Consider the definition of fracture toughness:
 	}
 
 As demonstrated in this case, dimensions can have half-integer exponents.
+
+## Other Objects
+The MultiConvert database also includes other objects with identifiers similar to those for units and unit types.
+
+| prefix  | usage                                                                                                 |
+| ------- | ----------------------------------------------------------------------------------------------------- |
+|   `a`   | *Reserved for future expansion.*                                                                      |
+|   `b`   | *Reserved for future expansion.*                                                                      |
+|   `c`   | Units of currency.                                                                                    |
+|   `d`   | Units for which conversion requires the specification of an independent variable.                     |
+| **`e`** | Definitions of chemical elements and collections of their properties.                                 |
+| **`f`** | JavaScript functions used in unit definitions.                                                        |
+|   `g`   | *Reserved for future expansion.*                                                                      |
+|   `h`   | *Reserved for future expansion.*                                                                      |
+| **`i`** | Collections of units grouped by unit type. Internally known as "includes" or "installation defaults." |
+|   `j`   | *Reserved for future expansion.*                                                                      |
+|   `k`   | Color codes and EIA codes for electronic components.                                                  |
+|   `l`   | *Reserved for future expansion.*                                                                      |
+|   `m`   | Units of concentration of various medications.                                                        |
+|   `n`   | Units for which conversion is noninvertible or inexact.                                               |
+|   `o`   | *Reserved for future expansion.*                                                                      |
+|   `p`   | Natural units such as Planck units.                                                                   |
+|   `q`   | *Reserved for future expansion.*                                                                      |
+|   `r`   | *Reserved for future expansion.*                                                                      |
+| **`s`** | Solvers and calculators: forms with named unit fields that can be completed given partial input.      |
+| **`t`** | Unit types or categories.                                                                             |
+|   `u`   | Ordinary units expressed with a single decimal number.                                                |
+|   `v`   | *Reserved for local use.*                                                                             |
+|   `w`   | *Reserved for local use.*                                                                             |
+|   `x`   | *Reserved for local use.*                                                                             |
+|   `y`   | *Reserved for local use.*                                                                             |
+|   `z`   | Units expressed with a text string or a tuple of decimal numbers.                                     |
+
+### Units of Currency
+Units of currency are identified by a lowercase letter `c` followed by one or more digits which encode an ISO 4217 alphabetic currency code. For the ISO 4217 code *abc*, the corresponding unit identifier is `c`((*a*-`A`)·676+(*b*-`A`)·26+(*c*-`A`)). For example, USD is `c`((`U`-`A`)·676+(`S`-`A`)·26+(`D`-`A`)) = `c`(20·676+18·26+3) = `c`(13520+468+3) = `c13991`.
+
+The database includes a unit useful for calculating unit identifiers for currency. In the "numeral system" category, enter "customize" mode and add the "base26" unit, or use the `mcvt.js` utility:
+
+	$ ./mcvt.js '"USD" base26 to decimal'
+	13991 decimal
+	$ ./mcvt.js '13991 decimal to base26'
+	USD base26
+	$
+
+### Chemical Element Data
+Chemical elements are identified by a lowercase letter `e` followed by their atomic number. Properties of chemical elements can be looked up in the "periodic table" category in the "extras" or "tools" mode or using the `mcvt.js` utility:
+
+	$ ./mcvt.js e2
+	
+	d    id    type       sym    name      dimension
+	-    --    -------    ---    ------    ---------
+	     e2    element    He     Helium
+	
+	$ ./mcvt.js 'e2 `boiling point`'
+	-268.93 degrees Celsius
+	$
+
+Chemical element data is stored in the file `elements.json`. For example:
+
+	"2": {
+		"symbol": "He",
+		"name": {
+			"en": "Helium"
+		},
+		"properties": {
+			"t94": {
+				"value": 4.0026022,
+				"unit": "u141"
+			},
+			"t153": {
+				"value": -273.128,
+				"unit": "u110"
+			},
+			"t154": {
+				"value": -268.93,
+				"unit": "u110"
+			}
+		}
+	}
+
+Keys in `elements.json` do not begin with the `e` prefix as it is implied.
+
+Useful identifiers for chemical element data include:
+
+| identifier | name                       |
+| ---------- | -------------------------- |
+| `t55`      | energy                     |
+| `t94`      | mass                       |
+| `t96`      | molar conductivity         |
+| `t97`      | molar energy               |
+| `t98`      | molar entropy              |
+| `t99`      | molar heat capacity        |
+| `t100`     | molar mass                 |
+| `t101`     | molar volume               |
+| `t129`     | substance                  |
+| `t153`     | melting point              |
+| `t154`     | boiling point              |
+| `t155`     | electron affinity          |
+| `t1036`    | electronegativity          |
+| `u1`       | kilograms                  |
+| `u4`       | kelvin                     |
+| `u5`       | moles                      |
+| `u12`      | joules                     |
+| `u50`      | unos (dimensionless unit)  |
+| `u108`     | grams                      |
+| `u110`     | degrees Celsius            |
+| `u140`     | electronvolts              |
+| `u141`     | atomic mass units          |
+| `u143`     | unified atomic mass units  |
+| `u144`     | daltons                    |
+| `u2000`    | units (dimensionless unit) |
+
+### JavaScript Functions
+Derived units using JavaScript functions can reference other functions defined within the same JSON file. The build script requires these functions to be identified by a lowercase letter `f` followed by one or more digits. For example, `numeral-system.json` begins with several functions referenced by multiple "numeral system" units:
+
+	"functions": {
+		"f0": "function(a){return(a==null)?'':(''+a).replace(/^\\s+|\\s+$/g,'')}",
+		"f100": [
+			"function(a,b,c,d,s){if(!a)return NaN;",
+			"if(a=='\u221E'||a=='+\u221E')return+1/0;if(a=='-\u221E')return-1/0;",
+			...
+		],
+		"f101": [
+			"function(a,b,c,d,s){",
+			"if(!isFinite(a))return(a<0)?'-\u221E':(a>0)?'\u221E':'';",
+			...
+		],
+		...
+	}
+
+### Includes & Installation Defaults
+These objects consist of a list of categories, with a list of units under each category. They can also reference another such object to include that object's categories and units. They are interchangeably called "includes" or "installation defaults." They are identified by a lowercase letter `i` followed by one or more digits. The total number of these objects is very small and there is currently no reason to define your own.
+
+| identifier | purpose                                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `i0`       | Used internally by MultiConvert 5 to refer to the user's current set of units.                                         |
+| `i1`       | The set of units loaded by default when selecting "ALL the Things!" or "I Want It All" upon first launch.              |
+| `i2`       | The set of units loaded by default when selecting "Back to Basics" or "Keep It Simple" upon first launch.              |
+| `i36`      | The "currency" category and the set of all supported currencies. Generated from third-party data and included by `i1`. |
+| `i68`      | A set of units automatically loaded and indexed so they can be listed when adding a unit in "customize" mode.          |
+| `i162`     | The "currency" category and a set of commonly-traded currencies. Generated from third-party data and included by `i2`. |
+
+### Solvers & Calculators
+A solver or calculator is a set of named unit fields for which all values can be calculated given a partial set of input values. For example, given any two of voltage, current, resistance, and power, the other two can be calculated; or given three angles or side lengths of a triangle, the other three angles or side lengths can be calculated (with some caveats). Each unit field is declared as either "independent" (its value must be given, and cannot be calculated from other values) or "dependent" (its value can be calculated from other values) and assigned a register number. Each possible set of given dependent values, identified by the corresponding register numbers, is associated with a JavaScript function which calculates the other dependent values. MultiConvert keeps track of the order in which values are entered into unit fields and uses this order to evaluate the appropriate function.
