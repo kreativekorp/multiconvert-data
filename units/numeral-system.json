@@ -1108,6 +1108,52 @@
 			"numeral-system": 1
 		}
 	},
+	"z185": {
+		"name": {
+			"en": "Ascii85"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),85,'!\"#$%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstu',null,null)}",
+		"formatter": "function(a){return f101(a,85,'!\"#$%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstu',null,null)}",
+		"legacy-mc5-class": "BaseConv2",
+		"legacy-mc5-variant": 8533,
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z186": {
+		"name": {
+			"en": "Ascii85 (RFC 1924)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),85,'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~',null,null)}",
+		"formatter": "function(a){return f101(a,85,'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~',null,null)}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z187": {
+		"name": {
+			"en": "Ascii85 (XML)"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),85,'!w#$%|v()*+,-./0123456789:;{=}?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstu',null,null)}",
+		"formatter": "function(a){return f101(a,85,'!w#$%|v()*+,-./0123456789:;{=}?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstu',null,null)}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
+	"z188": {
+		"name": {
+			"en": "Z85"
+		},
+		"datatype": "text",
+		"parser": "function(a){return f100(f0(a),85,'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#',null,null)}",
+		"formatter": "function(a){return f101(a,85,'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#',null,null)}",
+		"dimension": {
+			"numeral-system": 1
+		}
+	},
 	"z190": {
 		"name": {
 			"en": "dozenal (*#)"
