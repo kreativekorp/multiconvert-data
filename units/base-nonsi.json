@@ -28,6 +28,7 @@
 				"*": "stokes"
 			}
 		},
+		"divisor": 10000,
 		"dimension": {
 			"length": 2,
 			"time": -1
@@ -177,6 +178,33 @@
 		"dimension": {
 			"length": -2,
 			"mass": 1
+		}
+	},
+	"u65": {
+		"symbol": "D",
+		"name": {
+			"en": {
+				"1": "daraf",
+				"*": "darafs"
+			}
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -4,
+			"current": -2
+		}
+	},
+	"u66": {
+		"symbol": "cps",
+		"name": {
+			"en": {
+				"1": "cycle per second",
+				"*": "cycles per second"
+			}
+		},
+		"dimension": {
+			"time": -1
 		}
 	}
 }

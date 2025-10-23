@@ -902,5 +902,18 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u272": {
+		"symbol": "Q",
+		"name": {
+			"en": {
+				"1": "quarter-millimeter",
+				"*": "quarter-millimeters"
+			}
+		},
+		"divisor": 4000,
+		"dimension": {
+			"length": 1
+		}
 	}
 }

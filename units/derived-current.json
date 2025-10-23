@@ -154,5 +154,44 @@
 		"dimension": {
 			"current": 1
 		}
+	},
+	"u1512": {
+		"symbol": "Bi",
+		"name": {
+			"en": {
+				"1": "biot",
+				"*": "biots"
+			}
+		},
+		"multiplier": 10,
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1513": {
+		"symbol": "abA",
+		"name": {
+			"en": {
+				"1": "abampere",
+				"*": "abamperes"
+			}
+		},
+		"multiplier": 10,
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1514": {
+		"symbol": "statA",
+		"name": {
+			"en": {
+				"1": "statampere",
+				"*": "statamperes"
+			}
+		},
+		"divisor": 2997924580,
+		"dimension": {
+			"current": 1
+		}
 	}
 }

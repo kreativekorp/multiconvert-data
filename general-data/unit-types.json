@@ -1699,6 +1699,30 @@
 			"time": -9
 		}
 	},
+	"t162": {
+		"icon": "electricelastance.png",
+		"name": {
+			"en": "electric elastance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -4,
+			"current": -2
+		}
+	},
+	"t163": {
+		"icon": "elastance.png",
+		"name": {
+			"en": "elastance"
+		},
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -4,
+			"current": -2
+		}
+	},
 	"t500": {
 		"icon": "fracturetoughness.png",
 		"name": {

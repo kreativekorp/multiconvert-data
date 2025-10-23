@@ -207,5 +207,35 @@
 			"mass": 1,
 			"time": -2
 		}
+	},
+	"u1214": {
+		"symbol": "Ba",
+		"name": {
+			"en": {
+				"1": "barye",
+				"*": "baryes"
+			}
+		},
+		"divisor": 10,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1215": {
+		"symbol": "pz",
+		"name": {
+			"en": {
+				"1": "pi\u00E8ze",
+				"*": "pi\u00E8zes"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
 	}
 }

@@ -306,5 +306,50 @@
 			"mass": 1,
 			"time": -3
 		}
+	},
+	"u1121": {
+		"symbol": "abW",
+		"name": {
+			"en": {
+				"1": "abwatt",
+				"*": "abwatts"
+			}
+		},
+		"divisor": 10000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1122": {
+		"symbol": "statW",
+		"name": {
+			"en": {
+				"1": "statwatt",
+				"*": "statwatts"
+			}
+		},
+		"divisor": 10000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
+	},
+	"u1123": {
+		"symbol": "p",
+		"name": {
+			"en": {
+				"1": "poncelet",
+				"*": "poncelets"
+			}
+		},
+		"multiplier": "980.665",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3
+		}
 	}
 }

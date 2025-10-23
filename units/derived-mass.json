@@ -429,5 +429,18 @@
 		"dimension": {
 			"mass": 1
 		}
+	},
+	"u634": {
+		"symbol": "hyl",
+		"name": {
+			"en": {
+				"1": "hyl",
+				"*": "hyls"
+			}
+		},
+		"multiplier": "9.80665",
+		"dimension": {
+			"mass": 1
+		}
 	}
 }

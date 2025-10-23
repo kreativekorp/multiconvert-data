@@ -1,5 +1,6 @@
 {
 	"u1400": {
+		"symbol": "abV",
 		"name": {
 			"en": {
 				"1": "abvolt",
@@ -15,6 +16,7 @@
 		}
 	},
 	"u1401": {
+		"symbol": "statV",
 		"name": {
 			"en": {
 				"1": "statvolt",

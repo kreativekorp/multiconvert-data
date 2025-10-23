@@ -54,6 +54,7 @@
 		}
 	},
 	"u1904": {
+		"symbol": "sb",
 		"name": {
 			"en": {
 				"1": "stilb",
@@ -95,7 +96,7 @@
 		}
 	},
 	"u1907": {
-		"symbol": "phot",
+		"symbol": "ph",
 		"name": {
 			"en": {
 				"*": "phot"
@@ -231,6 +232,422 @@
 		"divisor": 1000,
 		"dimension": {
 			"beauty": 1
+		}
+	},
+	"u1917": {
+		"symbol": "K",
+		"name": {
+			"en": {
+				"1": "kayser",
+				"*": "kaysers"
+			}
+		},
+		"multiplier": 100,
+		"dimension": {
+			"length": -1
+		}
+	},
+	"u1918": {
+		"symbol": "asb",
+		"name": {
+			"en": {
+				"1": "apostilb",
+				"*": "apostilbs"
+			}
+		},
+		"instructions": "Q1",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1919": {
+		"name": {
+			"en": {
+				"1": "blondel",
+				"*": "blondels"
+			}
+		},
+		"instructions": "Q1",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1920": {
+		"symbol": "sk",
+		"name": {
+			"en": {
+				"1": "skot",
+				"*": "skots"
+			}
+		},
+		"instructions": "Q1D1000",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1921": {
+		"name": {
+			"en": {
+				"1": "bril",
+				"*": "brils"
+			}
+		},
+		"instructions": "Q1D10000000",
+		"dimension": {
+			"length": -2,
+			"intensity": 1
+		}
+	},
+	"u1922": {
+		"symbol": "Rayl",
+		"name": {
+			"en": {
+				"1": "MKS rayl",
+				"*": "MKS rayls"
+			}
+		},
+		"dimension": {
+			"length": -2,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"u1923": {
+		"symbol": "Rayl",
+		"name": {
+			"en": {
+				"1": "CGS rayl",
+				"*": "CGS rayls"
+			}
+		},
+		"multiplier": 10,
+		"dimension": {
+			"length": -2,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"u1924": {
+		"symbol": "abC",
+		"name": {
+			"en": {
+				"1": "abcoulomb",
+				"*": "abcoulombs"
+			}
+		},
+		"multiplier": 10,
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u1925": {
+		"symbol": "statC",
+		"name": {
+			"en": {
+				"1": "statcoulomb",
+				"*": "statcoulombs"
+			}
+		},
+		"divisor": 2997924580,
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u1926": {
+		"symbol": "Fr",
+		"name": {
+			"en": {
+				"1": "franklin",
+				"*": "franklins"
+			}
+		},
+		"divisor": 2997924580,
+		"dimension": {
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u1927": {
+		"symbol": "ab\u03A9",
+		"name": {
+			"en": {
+				"1": "abohm",
+				"*": "abohms"
+			}
+		},
+		"divisor": 1000000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"u1928": {
+		"symbol": "stat\u03A9",
+		"name": {
+			"en": {
+				"1": "statohm",
+				"*": "statohms"
+			}
+		},
+		"multiplier": "898755178736.81764",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -3,
+			"current": -2
+		}
+	},
+	"u1929": {
+		"symbol": "ab\u2127",
+		"name": {
+			"en": {
+				"1": "abmho",
+				"*": "abmhos"
+			}
+		},
+		"multiplier": 1000000000,
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u1930": {
+		"symbol": "stat\u2127",
+		"name": {
+			"en": {
+				"1": "statmho",
+				"*": "statmhos"
+			}
+		},
+		"divisor": "898755178736.81764",
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u1931": {
+		"symbol": "abS",
+		"name": {
+			"en": {
+				"*": "absiemens"
+			}
+		},
+		"multiplier": 1000000000,
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u1932": {
+		"symbol": "statS",
+		"name": {
+			"en": {
+				"*": "statsiemens"
+			}
+		},
+		"divisor": "898755178736.81764",
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 3,
+			"current": 2
+		}
+	},
+	"u1933": {
+		"symbol": "abH",
+		"name": {
+			"en": {
+				"1": "abhenry",
+				"*": "abhenries"
+			}
+		},
+		"divisor": 1000000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"u1934": {
+		"symbol": "statH",
+		"name": {
+			"en": {
+				"1": "stathenry",
+				"*": "stathenries"
+			}
+		},
+		"multiplier": "898755178736.81764",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -2
+		}
+	},
+	"u1935": {
+		"symbol": "abF",
+		"name": {
+			"en": {
+				"1": "abfarad",
+				"*": "abfarads"
+			}
+		},
+		"multiplier": 1000000000,
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"u1936": {
+		"symbol": "statF",
+		"name": {
+			"en": {
+				"1": "statfarad",
+				"*": "statfarads"
+			}
+		},
+		"divisor": "898755178736.81764",
+		"dimension": {
+			"length": -2,
+			"mass": -1,
+			"time": 4,
+			"current": 2
+		}
+	},
+	"u1937": {
+		"symbol": "abD",
+		"name": {
+			"en": {
+				"1": "abdaraf",
+				"*": "abdarafs"
+			}
+		},
+		"divisor": 1000000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -4,
+			"current": -2
+		}
+	},
+	"u1938": {
+		"symbol": "statD",
+		"name": {
+			"en": {
+				"1": "statdaraf",
+				"*": "statdarafs"
+			}
+		},
+		"multiplier": "898755178736.81764",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -4,
+			"current": -2
+		}
+	},
+	"u1939": {
+		"symbol": "statWb",
+		"name": {
+			"en": {
+				"1": "statweber",
+				"*": "statwebers"
+			}
+		},
+		"multiplier": "299.792458",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u1940": {
+		"symbol": "statT",
+		"name": {
+			"en": {
+				"1": "stattesla",
+				"*": "statteslas"
+			}
+		},
+		"multiplier": "2997924.58",
+		"dimension": {
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u1941": {
+		"symbol": "Gb",
+		"name": {
+			"en": {
+				"1": "gilbert",
+				"*": "gilberts"
+			}
+		},
+		"instructions": "Q2.5",
+		"dimension": {
+			"current": 1
+		}
+	},
+	"u1942": {
+		"symbol": "Oe",
+		"name": {
+			"en": {
+				"1": "oersted",
+				"*": "oersteds"
+			}
+		},
+		"instructions": "Q250",
+		"dimension": {
+			"length": -1,
+			"current": 1
+		}
+	},
+	"u1943": {
+		"symbol": "Mx",
+		"name": {
+			"en": {
+				"1": "maxwell",
+				"*": "maxwells"
+			}
+		},
+		"divisor": 100000000,
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u1944": {
+		"symbol": "G",
+		"name": {
+			"en": {
+				"*": "gauss"
+			}
+		},
+		"divisor": 10000,
+		"dimension": {
+			"mass": 1,
+			"time": -2,
+			"current": -1
 		}
 	}
 }
