@@ -52,5 +52,18 @@
 			"length": 1,
 			"time": -2
 		}
+	},
+	"u504": {
+		"name": {
+			"en": {
+				"1": "leo",
+				"*": "leos"
+			}
+		},
+		"multiplier": 10,
+		"dimension": {
+			"length": 1,
+			"time": -2
+		}
 	}
 }

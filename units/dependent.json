@@ -142,5 +142,30 @@
 		"dimension": {
 			"data": 1
 		}
+	},
+	"d6": {
+		"symbol": "E",
+		"name": {
+			"en": {
+				"1": "einstein",
+				"*": "einsteins"
+			}
+		},
+		"datatype": "dep",
+		"dep-name": {
+			"en": "frequency"
+		},
+		"dep-dimension": {
+			"time": -1
+		},
+		"parser": "function(a,b){return a*b*3.9903127128934321E-10}",
+		"formatter": "function(a,b){return a/b/3.9903127128934321E-10}",
+		"legacy-mcsm-forward": "D1 /3.9903127128934321E-10",
+		"legacy-mcsm-reverse": "M1 *3.9903127128934321E-10",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
 	}
 }

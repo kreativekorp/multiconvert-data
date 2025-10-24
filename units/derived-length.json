@@ -915,5 +915,70 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u273": {
+		"symbol": "fm",
+		"name": {
+			"en": {
+				"1": "fermi",
+				"*": "fermis"
+			}
+		},
+		"divisor": "1E15",
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u274": {
+		"symbol": "M",
+		"name": {
+			"en": {
+				"1": "basic module",
+				"*": "basic modules"
+			}
+		},
+		"divisor": 10,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u275": {
+		"symbol": "mym",
+		"name": {
+			"en": {
+				"1": "myriameter",
+				"*": "myriameters"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u276": {
+		"symbol": "Hm",
+		"name": {
+			"en": {
+				"1": "hebdometer",
+				"*": "hebdometers"
+			}
+		},
+		"multiplier": 10000000,
+		"dimension": {
+			"length": 1
+		}
+	},
+	"u277": {
+		"symbol": "S",
+		"name": {
+			"en": {
+				"1": "spat",
+				"*": "spats"
+			}
+		},
+		"multiplier": "1E12",
+		"dimension": {
+			"length": 1
+		}
 	}
 }

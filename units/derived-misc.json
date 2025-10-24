@@ -649,5 +649,199 @@
 			"time": -2,
 			"current": -1
 		}
+	},
+	"u1945": {
+		"symbol": "E",
+		"name": {
+			"en": {
+				"*": "eotvos"
+			}
+		},
+		"divisor": "1E9",
+		"dimension": {
+			"time": -2
+		}
+	},
+	"u1946": {
+		"symbol": "Sv",
+		"name": {
+			"en": {
+				"1": "sverdrup",
+				"*": "sverdrups"
+			}
+		},
+		"multiplier": 1000000,
+		"dimension": {
+			"length": 3,
+			"time": -1
+		}
+	},
+	"u1947": {
+		"symbol": "tex",
+		"name": {
+			"en": {
+				"*": "tex"
+			}
+		},
+		"divisor": 1000000,
+		"dimension": {
+			"length": -1,
+			"mass": 1
+		}
+	},
+	"u1948": {
+		"symbol": "Nm",
+		"name": {
+			"en": {
+				"*": "number metric"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"length": 1,
+			"mass": -1
+		}
+	},
+	"u1949": {
+		"symbol": "\u03B3",
+		"name": {
+			"en": {
+				"1": "gamma",
+				"*": "gammas"
+			}
+		},
+		"divisor": "1E9",
+		"dimension": {
+			"mass": 1,
+			"time": -2,
+			"current": -1
+		}
+	},
+	"u1950": {
+		"symbol": "D",
+		"name": {
+			"en": {
+				"1": "debye",
+				"*": "debyes"
+			}
+		},
+		"divisor": "2.99792458E29",
+		"dimension": {
+			"length": 1,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u1951": {
+		"symbol": "B",
+		"name": {
+			"en": {
+				"1": "buckingham",
+				"*": "buckinghams"
+			}
+		},
+		"divisor": "2.99792458E39",
+		"dimension": {
+			"length": 2,
+			"time": 1,
+			"current": 1
+		}
+	},
+	"u1952": {
+		"symbol": "Jy",
+		"name": {
+			"en": {
+				"1": "jansky",
+				"*": "janskies"
+			}
+		},
+		"divisor": "1E26",
+		"dimension": {
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1953": {
+		"symbol": "sfu",
+		"name": {
+			"en": {
+				"1": "solar flux unit",
+				"*": "solar flux units"
+			}
+		},
+		"divisor": "1E22",
+		"dimension": {
+			"mass": 1,
+			"time": -2
+		}
+	},
+	"u1954": {
+		"symbol": "nx",
+		"name": {
+			"en": {
+				"*": "nox"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"length": -2,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1955": {
+		"name": {
+			"en": {
+				"1": "lumerg",
+				"*": "lumergs"
+			}
+		},
+		"divisor": 10000000,
+		"dimension": {
+			"time": 1,
+			"intensity": 1,
+			"angle": 2
+		}
+	},
+	"u1956": {
+		"symbol": "R",
+		"name": {
+			"en": {
+				"1": "rayleigh",
+				"*": "rayleighs"
+			}
+		},
+		"multiplier": "1E10",
+		"dimension": {
+			"length": -2,
+			"time": -1
+		}
+	},
+	"u1957": {
+		"symbol": "Rd",
+		"name": {
+			"en": {
+				"1": "rutherford",
+				"*": "rutherfords"
+			}
+		},
+		"multiplier": 1000000,
+		"dimension": {
+			"time": -1
+		}
+	},
+	"u1958": {
+		"symbol": "M",
+		"name": {
+			"en": {
+				"1": "molar",
+				"*": "molars"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"length": -3,
+			"substance": 1
+		}
 	}
 }

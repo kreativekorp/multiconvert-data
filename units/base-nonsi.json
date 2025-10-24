@@ -35,7 +35,7 @@
 		}
 	},
 	"u53": {
-		"symbol": "nit",
+		"symbol": "nt",
 		"name": {
 			"en": {
 				"1": "nit",
@@ -204,6 +204,67 @@
 			}
 		},
 		"dimension": {
+			"time": -1
+		}
+	},
+	"u67": {
+		"symbol": "st",
+		"name": {
+			"en": {
+				"1": "stere",
+				"*": "steres"
+			}
+		},
+		"dimension": {
+			"length": 3
+		}
+	},
+	"u68": {
+		"symbol": "dpt",
+		"name": {
+			"en": {
+				"1": "diopter",
+				"*": "diopters"
+			}
+		},
+		"dimension": {
+			"length": -1
+		}
+	},
+	"u69": {
+		"name": {
+			"en": {
+				"*": "benz"
+			}
+		},
+		"dimension": {
+			"length": 1,
+			"time": -1
+		}
+	},
+	"u70": {
+		"name": {
+			"en": {
+				"1": "poiseuille",
+				"*": "poiseuilles"
+			}
+		},
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -1
+		}
+	},
+	"u71": {
+		"name": {
+			"en": {
+				"1": "acoustic ohm",
+				"*": "acoustic ohms"
+			}
+		},
+		"dimension": {
+			"length": -4,
+			"mass": 1,
 			"time": -1
 		}
 	}

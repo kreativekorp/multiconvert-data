@@ -71,5 +71,17 @@
 		"dimension": {
 			"time": -1
 		}
+	},
+	"u1306": {
+		"name": {
+			"en": {
+				"1": "fresnel",
+				"*": "fresnels"
+			}
+		},
+		"multiplier": "1E12",
+		"dimension": {
+			"time": -1
+		}
 	}
 }

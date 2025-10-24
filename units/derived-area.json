@@ -208,5 +208,42 @@
 		"dimension": {
 			"length": 2
 		}
+	},
+	"u317": {
+		"name": {
+			"en": {
+				"1": "shed",
+				"*": "sheds"
+			}
+		},
+		"divisor": "1E52",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u318": {
+		"name": {
+			"en": {
+				"1": "outhouse",
+				"*": "outhouses"
+			}
+		},
+		"divisor": "1E34",
+		"dimension": {
+			"length": 2
+		}
+	},
+	"u319": {
+		"symbol": "daa",
+		"name": {
+			"en": {
+				"1": "decare",
+				"*": "decares"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"length": 2
+		}
 	}
 }

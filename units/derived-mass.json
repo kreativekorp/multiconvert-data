@@ -442,5 +442,65 @@
 		"dimension": {
 			"mass": 1
 		}
+	},
+	"u635": {
+		"name": {
+			"en": {
+				"1": "undecimogram",
+				"*": "undecimograms"
+			}
+		},
+		"divisor": "1E14",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u636": {
+		"symbol": "\u03B3",
+		"name": {
+			"en": {
+				"1": "gamma",
+				"*": "gammas"
+			}
+		},
+		"divisor": "1E9",
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u637": {
+		"name": {
+			"en": {
+				"1": "gravet",
+				"*": "gravets"
+			}
+		},
+		"divisor": 1000,
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u638": {
+		"name": {
+			"en": {
+				"1": "grave",
+				"*": "graves"
+			}
+		},
+		"dimension": {
+			"mass": 1
+		}
+	},
+	"u639": {
+		"name": {
+			"en": {
+				"1": "bar",
+				"*": "bars"
+			}
+		},
+		"multiplier": 1000,
+		"dimension": {
+			"mass": 1
+		}
 	}
 }

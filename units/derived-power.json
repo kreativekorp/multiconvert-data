@@ -351,5 +351,19 @@
 			"mass": 1,
 			"time": -3
 		}
+	},
+	"u1124": {
+		"symbol": "foe",
+		"name": {
+			"en": {
+				"*": "foe"
+			}
+		},
+		"multiplier": "1E44",
+		"dimension": {
+			"length": 2,
+			"mass": 1,
+			"time": -2
+		}
 	}
 }

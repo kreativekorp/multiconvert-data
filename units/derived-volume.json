@@ -1116,5 +1116,18 @@
 		"dimension": {
 			"length": 3
 		}
+	},
+	"u489": {
+		"symbol": "\u03BB",
+		"name": {
+			"en": {
+				"1": "lambda",
+				"*": "lambdas"
+			}
+		},
+		"divisor": 1000000000,
+		"dimension": {
+			"length": 3
+		}
 	}
 }

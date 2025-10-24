@@ -480,6 +480,32 @@
 			"time": 1
 		}
 	},
+	"u839": {
+		"symbol": "Sv",
+		"name": {
+			"en": {
+				"1": "svedberg",
+				"*": "svedbergs"
+			}
+		},
+		"divisor": "1E13",
+		"dimension": {
+			"time": 1
+		}
+	},
+	"u840": {
+		"symbol": "\u03C3",
+		"name": {
+			"en": {
+				"1": "sigma",
+				"*": "sigmas"
+			}
+		},
+		"divisor": 1000000,
+		"dimension": {
+			"time": 1
+		}
+	},
 	"u860": {
 		"name": {
 			"en": {

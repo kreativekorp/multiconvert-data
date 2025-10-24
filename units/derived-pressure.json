@@ -237,5 +237,20 @@
 			"mass": 1,
 			"time": -2
 		}
+	},
+	"u1216": {
+		"symbol": "msw",
+		"name": {
+			"en": {
+				"1": "meter sea water",
+				"*": "meters sea water"
+			}
+		},
+		"multiplier": 10000,
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -2
+		}
 	}
 }
