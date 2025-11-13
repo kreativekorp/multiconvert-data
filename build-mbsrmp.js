@@ -269,9 +269,17 @@ buildInclude('i1', path.join('os', 'measures'), {
 	'makeIncludeS00': true
 });
 
+function prodosName(name) {
+	name = shorten(name);
+	name = name.replaceAll(/[^0-9A-Za-z]+/g, '.');
+	name = name.replaceAll(/^[.]+|[.]+$/g, '');
+	name = name.replaceAll(/^([0-9])/g, 'z$1');
+	return name;
+}
+
 buildInclude('i1', path.join('prodos', 'measures'), {
 	'toTargetString': c64file.asciify,
-	'toTargetFilename': name => shorten(name).replaceAll(/[^0-9A-Za-z]+/g, '.'),
+	'toTargetFilename': prodosName,
 	'toHostFilename': saneName,
 	'makeUnitBin': true,
 	'sortUnits': true,

@@ -4,37 +4,64 @@
 		"replacement": "(SPL)"
 	},
 	{
+		"pattern": "astronomical units",
+		"replacement": "astronomical u"
+	},
+	{
 		"pattern": "British thermal unit",
 		"replacement": "BTU"
 	},
 	{
-		"regexp": true,
-		"pattern": "^quarters of a",
-		"replacement": "4ths of a"
+		"pattern": "LEGO(R)",
+		"replacement": "LEGO"
 	},
 	{
 		"regexp": true,
-		"pattern": "^eighths of a",
-		"replacement": "8ths of a"
+		"pattern": "light (.+)seconds",
+		"replacement": "light $1sec"
 	},
 	{
-		"regexp": true,
-		"pattern": "^sixteenths of a",
-		"replacement": "16ths of a"
+		"pattern": "U.S.",
+		"replacement": "US"
 	},
 	{
-		"regexp": true,
-		"pattern": "^twentieths of a",
-		"replacement": "20ths of a"
+		"pattern": "halves of an inch",
+		"replacement": "half-inches"
 	},
 	{
-		"regexp": true,
-		"pattern": "^thirty-secondths of a",
-		"replacement": "32ths of a"
+		"pattern": "quarters of an inch",
+		"replacement": "quarter-inches"
 	},
 	{
-		"regexp": true,
-		"pattern": "^sixty-fourths of a",
-		"replacement": "64ths of a"
+		"pattern": "eighths of an inch",
+		"replacement": "eighth-inches"
+	},
+	{
+		"pattern": "tenths of an inch",
+		"replacement": "tenth-inches"
+	},
+	{
+		"pattern": "sixteenths of an inch",
+		"replacement": "16th-inches"
+	},
+	{
+		"pattern": "thirty-secondths of an inch",
+		"replacement": "32th-inches"
+	},
+	{
+		"pattern": "sixty-fourths of an inch",
+		"replacement": "64th-inches"
+	},
+	{
+		"pattern": "quarters of a keyboard unit",
+		"replacement": "qtr-kbd units"
+	},
+	{
+		"pattern": "twentieths of a keyboard unit",
+		"replacement": "20th-kbd units"
+	},
+	{
+		"pattern": "quarter-millimeters",
+		"replacement": "quarter-mm"
 	}
 ]
