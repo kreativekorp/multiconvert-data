@@ -1,0 +1,40 @@
+[
+	{
+		"pattern": "(sound pressure level)",
+		"replacement": "(SPL)"
+	},
+	{
+		"pattern": "British thermal unit",
+		"replacement": "BTU"
+	},
+	{
+		"regexp": true,
+		"pattern": "^quarters of a",
+		"replacement": "4ths of a"
+	},
+	{
+		"regexp": true,
+		"pattern": "^eighths of a",
+		"replacement": "8ths of a"
+	},
+	{
+		"regexp": true,
+		"pattern": "^sixteenths of a",
+		"replacement": "16ths of a"
+	},
+	{
+		"regexp": true,
+		"pattern": "^twentieths of a",
+		"replacement": "20ths of a"
+	},
+	{
+		"regexp": true,
+		"pattern": "^thirty-secondths of a",
+		"replacement": "32ths of a"
+	},
+	{
+		"regexp": true,
+		"pattern": "^sixty-fourths of a",
+		"replacement": "64ths of a"
+	}
+]
