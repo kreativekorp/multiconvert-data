@@ -101,7 +101,9 @@ function buildUnit(id, dim, destPath, options) {
 		const hfname = options['toHostFilename'] ? options['toHostFilename'](tfname, tname, name) : saneName(tfname);
 		try {
 			const data = buildUnitData(item, comp);
-			if (data) {
+			if (data && data.byteLength > 255) {
+				console.warn('Cannot port ' + id + ' (' + name + '): The compiled object exceeds 255 bytes.');
+			} else if (data && data.byteLength > 0) {
 				if (options['makeUnitBin']) {
 					if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
 					const binfile = path.join(destPath, hfname + '.bin');
@@ -158,7 +160,9 @@ function buildCategory(cat, destPath, options) {
 			const u = buildUnit(uid, dim, unitDestPath, options);
 			if (u) units.push(u);
 		}
-		if (units.length) {
+		if (units.length > 255) {
+			console.warn('Cannot port ' + id + ' (' + name + '): The category contains more than 255 units.');
+		} else if (units.length > 0) {
 			if (options['sortUnits']) {
 				const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 				units.sort((a,b) => collator.compare(a['tname'], b['tname']));
@@ -212,7 +216,9 @@ function buildInclude(id, destPath, options) {
 			const c = buildCategory(cat, destPath, options);
 			if (c) categories.push(c);
 		}
-		if (categories.length) {
+		if (categories.length > 255) {
+			console.warn('Cannot port ' + id + ' (' + name + '): The include contains more than 255 categories.');
+		} else if (categories.length > 0) {
 			if (options['sortCategories']) {
 				const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 				categories.sort((a,b) => collator.compare(a['tname'], b['tname']));
