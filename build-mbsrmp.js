@@ -71,6 +71,13 @@ function saneName(name) {
 	return name.replaceAll(/[<>:"/\\|?*-]+/g, '-');
 }
 
+function loadAddress(addr) {
+	const buffer = new ArrayBuffer(2);
+	const view = new DataView(buffer);
+	view.setUint16(0, addr, true);
+	return view;
+}
+
 function buildUnitData(item, complement=false) {
 	if ((item['datatype'] || 'num') === 'num') {
 		if (item['parser'] !== undefined || item['formatter'] !== undefined) {
@@ -85,6 +92,14 @@ function buildUnitData(item, complement=false) {
 			return mbsrmp.compileBase(complement);
 		}
 	}
+}
+
+function writeFile(destPath, hfname, ext, ...blocks) {
+	if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
+	const filePath = path.join(destPath, hfname + ext);
+	const fd = fs.openSync(filePath, 'w');
+	for (const block of blocks) fs.writeSync(fd, block);
+	fs.closeSync(fd);
 }
 
 function buildUnit(id, dim, destPath, options) {
@@ -105,23 +120,21 @@ function buildUnit(id, dim, destPath, options) {
 				console.warn('Cannot port ' + id + ' (' + name + '): The compiled object exceeds 255 bytes.');
 			} else if (data && data.byteLength > 0) {
 				if (options['makeUnitBin']) {
-					if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-					const binfile = path.join(destPath, hfname + '.bin');
-					fs.writeFileSync(binfile, data);
+					writeFile(destPath, hfname, '.bin', data);
 				}
 				if (options['makeUnitSeq']) {
-					if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-					const seqfile = path.join(destPath, hfname + '.seq');
-					fs.writeFileSync(seqfile, data);
+					writeFile(destPath, hfname, '.seq', data);
+				}
+				if (options['makeUnitPrg']) {
+					writeFile(destPath, hfname, '.prg', loadAddress(0xC000), data);
 				}
 				if (options['makeUnitS00']) {
 					if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
-					if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-					const s00file = path.join(destPath, hfname + '.S00');
-					const fd = fs.openSync(s00file, 'w');
-					fs.writeSync(fd, c64file.header(tfname));
-					fs.writeSync(fd, data);
-					fs.closeSync(fd);
+					writeFile(destPath, hfname, '.S00', c64file.header(tfname), data);
+				}
+				if (options['makeUnitP00']) {
+					if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+					writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), data);
 				}
 				return {
 					'id': id,
@@ -171,23 +184,21 @@ function buildCategory(cat, destPath, options) {
 			const asciiData = mbsrmp.compileCategory(units, u => mbsrmp.cwrap(asciiEncoder.encode(u['tname'])));
 			const c64data = mbsrmp.compileCategory(units, u => mbsrmp.cwrap(c64file.encode(u['tname'])));
 			if (options['makeCategoryBin']) {
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const binfile = path.join(destPath, hfname + '.bin');
-				fs.writeFileSync(binfile, asciiData);
+				writeFile(destPath, hfname, '.bin', asciiData);
 			}
 			if (options['makeCategorySeq']) {
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const seqfile = path.join(destPath, hfname + '.seq');
-				fs.writeFileSync(seqfile, c64data);
+				writeFile(destPath, hfname, '.seq', c64data);
+			}
+			if (options['makeCategoryPrg']) {
+				writeFile(destPath, hfname, '.prg', loadAddress(0xC000), c64data);
 			}
 			if (options['makeCategoryS00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const s00file = path.join(destPath, hfname + '.S00');
-				const fd = fs.openSync(s00file, 'w');
-				fs.writeSync(fd, c64file.header(tfname));
-				fs.writeSync(fd, c64data);
-				fs.closeSync(fd);
+				writeFile(destPath, hfname, '.S00', c64file.header(tfname), c64data);
+			}
+			if (options['makeCategoryP00']) {
+				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+				writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), c64data);
 			}
 			return {
 				'id': id,
@@ -227,23 +238,21 @@ function buildInclude(id, destPath, options) {
 			const asciiData = mbsrmp.compileInclude(categories, c => mbsrmp.cwrap(asciiEncoder.encode(c['tname'])));
 			const c64data = mbsrmp.compileInclude(categories, c => mbsrmp.cwrap(c64file.encode(c['tname'])), c => c['c64data']);
 			if (options['makeIncludeBin']) {
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const binfile = path.join(destPath, hfname + '.bin');
-				fs.writeFileSync(binfile, asciiData);
+				writeFile(destPath, hfname, '.bin', asciiData);
 			}
 			if (options['makeIncludeSeq']) {
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const seqfile = path.join(destPath, hfname + '.seq');
-				fs.writeFileSync(seqfile, c64data);
+				writeFile(destPath, hfname, '.seq', c64data);
+			}
+			if (options['makeIncludePrg']) {
+				writeFile(destPath, hfname, '.prg', loadAddress(0xC000), c64data);
 			}
 			if (options['makeIncludeS00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
-				if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, {'recursive': true});
-				const s00file = path.join(destPath, hfname + '.S00');
-				const fd = fs.openSync(s00file, 'w');
-				fs.writeSync(fd, c64file.header(tfname));
-				fs.writeSync(fd, c64data);
-				fs.closeSync(fd);
+				writeFile(destPath, hfname, '.S00', c64file.header(tfname), c64data);
+			}
+			if (options['makeIncludeP00']) {
+				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+				writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), c64data);
 			}
 			return {
 				'id': id,
@@ -266,13 +275,19 @@ buildInclude('i1', path.join('os', 'measures'), {
 	'toTargetFilename': shorten,
 	'toHostFilename': saneName,
 	'makeUnitSeq': true,
+	'makeUnitPrg': true,
 	'makeUnitS00': true,
+	'makeUnitP00': true,
 	'sortUnits': true,
 	'makeCategorySeq': true,
+	'makeCategoryPrg': true,
 	'makeCategoryS00': true,
+	'makeCategoryP00': true,
 	'sortCategories': true,
 	'makeIncludeSeq': true,
-	'makeIncludeS00': true
+	'makeIncludePrg': true,
+	'makeIncludeS00': true,
+	'makeIncludeP00': true
 });
 
 function prodosName(name) {
