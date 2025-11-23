@@ -78,6 +78,57 @@ function loadAddress(addr) {
 	return view;
 }
 
+function relocHeader(page) {
+	return new Uint8Array([
+		0x4C, 0x03, page, // $pg00 jmp $pg03
+		0xA2, 0x0C,       // $pg03 ldx #$0C
+		0xA0, page,       // $pg05 ldy #$pg
+		0x86, 0xFB,       // $pg07 stx $FB
+		0x84, 0xFC,       // $pg09 sty $FC
+		0x60              // $pg0B rts
+	]);
+}
+
+function unusedByte(pageCount, preferred, ...blocks) {
+	if (pageCount <= 0) {
+		pageCount = 255;
+		for (const block of blocks) pageCount += block.byteLength;
+		pageCount >>= 8;
+	}
+	const histogram = new Array(256).fill(0);
+	for (const block of blocks) {
+		const bs = new Uint8Array(block.buffer, block.byteOffset, block.byteLength);
+		for (const b of bs) histogram[b]++;
+	}
+	for (const b of preferred) {
+		let ok = (b + pageCount <= 256);
+		for (let p = 0; p < pageCount; p++) {
+			if (histogram[b + p]) ok = false;
+		}
+		if (ok) return b;
+	}
+	for (let b = 255; b >= 0; b--) {
+		let ok = (b + pageCount <= 256);
+		for (let p = 0; p < pageCount; p++) {
+			if (histogram[b + p]) ok = false;
+		}
+		if (ok) return b;
+	}
+	return null;
+}
+
+const preferredRelocPages = [
+	0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD,
+	0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9E, 0x9F,
+	0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F,
+	0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x7B, 0x7C, 0x7D, 0x7E, 0x7F,
+	0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F,
+	0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F,
+	0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F,
+	0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F,
+	0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F
+];
+
 function buildUnitData(item, complement=false) {
 	if ((item['datatype'] || 'num') === 'num') {
 		if (item['parser'] !== undefined || item['formatter'] !== undefined) {
@@ -128,6 +179,11 @@ function buildUnit(id, dim, destPath, options) {
 				if (options['makeUnitPrg']) {
 					writeFile(destPath, hfname, '.prg', loadAddress(0xC000), data);
 				}
+				if (options['makeUnitRelocPrg']) {
+					const b = unusedByte(0, preferredRelocPages, relocHeader(0), data);
+					if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+					else writeFile(destPath, hfname, '.r.prg', loadAddress(b << 8), relocHeader(b), data);
+				}
 				if (options['makeUnitS00']) {
 					if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 					writeFile(destPath, hfname, '.S00', c64file.header(tfname), data);
@@ -135,6 +191,12 @@ function buildUnit(id, dim, destPath, options) {
 				if (options['makeUnitP00']) {
 					if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 					writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), data);
+				}
+				if (options['makeUnitRelocP00']) {
+					if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+					const b = unusedByte(0, preferredRelocPages, relocHeader(0), data);
+					if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+					else writeFile(destPath, hfname, '.r.P00', c64file.header(tfname), loadAddress(b << 8), relocHeader(b), data);
 				}
 				return {
 					'id': id,
@@ -192,6 +254,11 @@ function buildCategory(cat, destPath, options) {
 			if (options['makeCategoryPrg']) {
 				writeFile(destPath, hfname, '.prg', loadAddress(0xC000), c64data);
 			}
+			if (options['makeCategoryRelocPrg']) {
+				const b = unusedByte(0, preferredRelocPages, relocHeader(0), c64data);
+				if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+				else writeFile(destPath, hfname, '.r.prg', loadAddress(b << 8), relocHeader(b), c64data);
+			}
 			if (options['makeCategoryS00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 				writeFile(destPath, hfname, '.S00', c64file.header(tfname), c64data);
@@ -199,6 +266,12 @@ function buildCategory(cat, destPath, options) {
 			if (options['makeCategoryP00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 				writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), c64data);
+			}
+			if (options['makeCategoryRelocP00']) {
+				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+				const b = unusedByte(0, preferredRelocPages, relocHeader(0), c64data);
+				if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+				else writeFile(destPath, hfname, '.r.P00', c64file.header(tfname), loadAddress(b << 8), relocHeader(b), c64data);
 			}
 			return {
 				'id': id,
@@ -246,6 +319,11 @@ function buildInclude(id, destPath, options) {
 			if (options['makeIncludePrg']) {
 				writeFile(destPath, hfname, '.prg', loadAddress(0xC000), c64data);
 			}
+			if (options['makeIncludeRelocPrg']) {
+				const b = unusedByte(0, preferredRelocPages, relocHeader(0), c64data);
+				if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+				else writeFile(destPath, hfname, '.r.prg', loadAddress(b << 8), relocHeader(b), c64data);
+			}
 			if (options['makeIncludeS00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 				writeFile(destPath, hfname, '.S00', c64file.header(tfname), c64data);
@@ -253,6 +331,12 @@ function buildInclude(id, destPath, options) {
 			if (options['makeIncludeP00']) {
 				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
 				writeFile(destPath, hfname, '.P00', c64file.header(tfname), loadAddress(0xC000), c64data);
+			}
+			if (options['makeIncludeRelocP00']) {
+				if (tfname.length > 16) console.log('Long file name will be truncated: ' + tfname);
+				const b = unusedByte(0, preferredRelocPages, relocHeader(0), c64data);
+				if (b === null) console.warn('Cannot port ' + id + ' (' + name + '): Could not find a free byte value.');
+				else writeFile(destPath, hfname, '.r.P00', c64file.header(tfname), loadAddress(b << 8), relocHeader(b), c64data);
 			}
 			return {
 				'id': id,
@@ -276,18 +360,24 @@ buildInclude('i1', path.join('os', 'measures'), {
 	'toHostFilename': saneName,
 	'makeUnitSeq': true,
 	'makeUnitPrg': true,
+	'makeUnitRelocPrg': true,
 	'makeUnitS00': true,
 	'makeUnitP00': true,
+	'makeUnitRelocP00': true,
 	'sortUnits': true,
 	'makeCategorySeq': true,
 	'makeCategoryPrg': true,
+	'makeCategoryRelocPrg': false,
 	'makeCategoryS00': true,
 	'makeCategoryP00': true,
+	'makeCategoryRelocP00': false,
 	'sortCategories': true,
 	'makeIncludeSeq': true,
 	'makeIncludePrg': true,
+	'makeIncludeRelocPrg': false,
 	'makeIncludeS00': true,
-	'makeIncludeP00': true
+	'makeIncludeP00': true,
+	'makeIncludeRelocP00': false
 });
 
 function prodosName(name) {
