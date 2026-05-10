@@ -1612,6 +1612,7 @@
 					"u256 # thirty-secondths of an inch",
 					"u257 # sixty-fourths of an inch",
 					"-",
+					"u278 # GEOS dots",
 					"u206 # barleycorns",
 					"u208 # rack units",
 					"u209 # hands",

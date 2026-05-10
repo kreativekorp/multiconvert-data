@@ -980,5 +980,18 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u278": {
+		"name": {
+			"en": {
+				"1": "GEOS dot",
+				"*": "GEOS dots"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 80,
+		"dimension": {
+			"length": 1
+		}
 	}
 }
