@@ -2,6 +2,7 @@
 
 const readline = require('node:readline');
 const da = require('./lib/dimension.js');
+const grapher = require('./lib/grapher.js');
 const index = require('./lib/index.js');
 const ls = require('./lib/languagestring.js');
 const loader = require('./lib/loader.js');
@@ -160,6 +161,27 @@ function evaluate(tokens, context, trace) {
 	}
 }
 
+function graph(tokens, context, trace) {
+	try {
+		const expr = interp.parse(tokens);
+		console.log(grapher.graph(
+			x => {
+				context['x'] = x;
+				return interp.evaluate(expr, context);
+			},
+			(context['cols'] > 0) ? Math.ceil(context['cols']) : 80,
+			(context['rows'] > 0) ? Math.ceil(context['rows']) : 20,
+			isFinite(context['l']) ? context['l'] : -10,
+			isFinite(context['r']) ? context['r'] : +10,
+			isFinite(context['t']) ? context['t'] : +5,
+			isFinite(context['b']) ? context['b'] : -5,
+			(context['res'] > 1) ? Math.ceil(context['res']) : 8
+		));
+	} catch (e) {
+		console.log(trace ? e : e.message);
+	}
+}
+
 // COMMAND LINE INTERPRETER
 
 function execute(command, context) {
@@ -195,6 +217,12 @@ function execute(command, context) {
 		const tokens = interp.lex(command.substring(4).trim());
 		if (!tokens.length) printContext(context);
 		else evaluateArray(tokens, context, ops.bool(context['trace']));
+		return;
+	}
+	if (command === 'graph' || command.startsWith('graph ')) {
+		const tokens = interp.lex(command.substring(6).trim());
+		if (!tokens.length) console.log();
+		else graph(tokens, context, ops.bool(context['trace']));
 		return;
 	}
 	if (command === 'print' || command.startsWith('print ')) {
