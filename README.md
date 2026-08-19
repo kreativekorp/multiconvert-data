@@ -668,3 +668,17 @@ These objects consist of a list of categories, with a list of units under each c
 
 ### Solvers & Calculators
 A solver or calculator is a set of named unit fields for which all values can be calculated given a partial set of input values. For example, given any two of voltage, current, resistance, and power, the other two can be calculated; or given three angles or side lengths of a triangle, the other three angles or side lengths can be calculated (with some caveats). Each unit field is declared as either "independent" (its value must be given, and cannot be calculated from other values) or "dependent" (its value can be calculated from other values) and assigned a register number. Each possible set of given dependent values, identified by the corresponding register numbers, is associated with a JavaScript function which calculates the other dependent values. MultiConvert keeps track of the order in which values are entered into unit fields and uses this order to evaluate the appropriate function.
+
+| identifier | file                        | name                            |
+| ---------- | --------------------------- | ------------------------------- |
+| `s100`     | `body-mass-index.json`      | body mass index calculator      |
+| `s101`     | `circle.json`               | circle solver                   |
+| `s102`     | `fuel-efficiency.json`      | fuel efficiency calculator      |
+| `s103`     | `interest.json`             | interest calculator             |
+| `s104`     | `ohms-law-power-law.json`   | Ohm's Law/Power Law calculator  |
+| `s105`     | `quadratic-equation.json`   | quadratic equation solver       |
+| `s106`     | `running-pace.json`         | running pace calculator         |
+| `s107`     | `tip.json`                  | tip calculator                  |
+| `s108`     | `triangle.json`             | triangle solver                 |
+| `s109`     | `volume-area-coverage.json` | volume area coverage calculator |
+| `s110`     | `square.json`               | square solver                   |
