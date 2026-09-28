@@ -38,9 +38,18 @@
 		"Sv": {"key": "u26"},
 		"b": {"key": "u51"},
 		"nt": {"key": "u53"},
-		"px": {"key": "u55"},
-		"pixel": {"key": "u55"},
-		"pixels": {"key": "u55"},
+		"px": {
+			"key": "u280",
+			"message": "CSS pixels are fixed at 96 DPI. For arbitrary DPI, use `pixels`."
+		},
+		"pixel": {
+			"key": "u55",
+			"message": "For the unit of length used in Cascading Style Sheets, use `px`."
+		},
+		"pixels": {
+			"key": "u55",
+			"message": "For the unit of length used in Cascading Style Sheets, use `px`."
+		},
 		"kpx": {"key": "u55_3"},
 		"kilopixel": {"key": "u55_3"},
 		"kilopixels": {"key": "u55_3"},
@@ -195,7 +204,7 @@
 		"ft/gal": {"key": "u210/u405"},
 		"yd/gal": {"key": "u211/u405"},
 		"mi/gal": {"key": "u217/u405"},
-		"pc": {"key": "u239"},
+		"pc": {"key": "u205"},
 		"u": {
 			"key": "u262",
 			"message": "For the unit of mass, use `Da` (daltons)."

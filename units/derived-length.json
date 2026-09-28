@@ -1006,5 +1006,19 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u280": {
+		"symbol": "px",
+		"name": {
+			"en": {
+				"1": "CSS pixel",
+				"*": "CSS pixels"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 96,
+		"dimension": {
+			"length": 1
+		}
 	}
 }

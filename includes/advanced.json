@@ -1612,6 +1612,7 @@
 					"u256 # thirty-secondths of an inch",
 					"u257 # sixty-fourths of an inch",
 					"-",
+					"u280 # CSS pixels",
 					"u279 # Fritzing units",
 					"u278 # GEOS dots",
 					"u206 # barleycorns",
