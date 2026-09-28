@@ -993,5 +993,18 @@
 		"dimension": {
 			"length": 1
 		}
+	},
+	"u279": {
+		"name": {
+			"en": {
+				"1": "Fritzing unit",
+				"*": "Fritzing units"
+			}
+		},
+		"multiplier": "0.0254",
+		"divisor": 90,
+		"dimension": {
+			"length": 1
+		}
 	}
 }
