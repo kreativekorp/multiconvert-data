@@ -843,5 +843,20 @@
 			"length": -3,
 			"substance": 1
 		}
+	},
+	"u1959": {
+		"symbol": "reyn",
+		"name": {
+			"en": {
+				"*": "reyn"
+			}
+		},
+		"multiplier": "4.4482216152605",
+		"divisor": "0.00064516",
+		"dimension": {
+			"length": -1,
+			"mass": 1,
+			"time": -1
+		}
 	}
 }
