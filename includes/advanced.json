@@ -2225,11 +2225,25 @@
 			{
 				"type": "t135 # thermal diffusivity",
 				"units": [
-					"u52_-2 # centistokes",
-					"u52 # stokes",
-					"-",
+					"u0^2/u101 # square meters per hour",
+					"u0^2/u100 # square meters per minute",
 					"u0^2/u2 # square meters per second",
-					"u210^2/u101 # square feet per hour"
+					"-",
+					"u0_-2^2/u101 # square centimeters per hour",
+					"u0_-2^2/u100 # square centimeters per minute",
+					"u0_-2^2/u2 # square centimeters per second",
+					"-",
+					"u0_-3^2/u101 # square millimeters per hour",
+					"u0_-3^2/u100 # square millimeters per minute",
+					"u0_-3^2/u2 # square millimeters per second",
+					"-",
+					"u210^2/u101 # square feet per hour",
+					"u210^2/u100 # square feet per minute",
+					"u210^2/u2 # square feet per second",
+					"-",
+					"u207^2/u101 # square inches per hour",
+					"u207^2/u100 # square inches per minute",
+					"u207^2/u2 # square inches per second"
 				]
 			},
 			{
